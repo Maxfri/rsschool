@@ -737,13 +737,11 @@ body {
   font-weight: normal;
   font-size: 23px;
   line-height: 27px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   color: #666666;
   background: none;
   height: 60px;
   width: 540px;
+  padding: 15px;
 }
 .notify__email-button {
   font-family: Roboto;
