@@ -568,9 +568,11 @@ body {
 }
 .header__signin:hover {
   background: #cd6326;
+  border: 2px solid #cd6326;
 }
 .header__signin:active {
   background: #8f5613;
+  border: 2px solid #8f5613;
 }
 .header__link:hover,
 .header__link:focus,
@@ -618,9 +620,11 @@ body {
 }
 .donate-form__submit:hover {
   background: #e39128;
+  border: #e39128;
 }
 .donate-form__submit:active {
   background: #8f5613;
+  border: #8f5613;
 }
 /* Intro styles end */
 
