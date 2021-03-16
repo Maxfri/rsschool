@@ -566,6 +566,12 @@ body {
   background: none;
   color: #f7f7f7;
 }
+.header__signin:hover {
+  background: #cd6326;
+}
+.header__signin:active {
+  background: #8f5613;
+}
 .header__link:hover,
 .header__link:focus,
 .header__link:active {
@@ -610,12 +616,12 @@ body {
   background: #cd6326;
   border-radius: 5px;
 }
-.donate-form__submit:hover,
-.donate-form__submit:focus,
-.donate-form__submit:active {
-  background: #db6119;
+.donate-form__submit:hover {
+  background: #e39128;
 }
-
+.donate-form__submit:active {
+  background: #8f5613;
+}
 /* Intro styles end */
 
 /* Articles styles start */
@@ -652,24 +658,20 @@ body {
   border: none;
 }
 .articles__arrow:first-child {
-  position: relative;
-  right: 6px;
+  right: 0;
 }
 .articles__arrow:last-child {
   position: relative;
-  left: 8px;
+  left: 0;
+}
+
+.article__card:nth-child(3) {
+  position: relative;
+  left: 0;
 }
 .article__card {
   position: relative;
   overflow: hidden;
-}
-.article__card:nth-child(1) {
-  position: relative;
-  right: 5px;
-}
-.article__card:nth-child(3) {
-  position: relative;
-  left: 5px;
 }
 .article__card:hover,
 .article__card:focus,
@@ -682,8 +684,8 @@ body {
   height: 360px;
   object-fit: cover;
   transition: 0.15s;
-  position	: relative;
-	width		: 100%;
+  position: relative;
+  width: 100%;
 }
 .article__card-title {
   position: absolute;
@@ -693,9 +695,9 @@ body {
   color: #f7f7f7;
   margin-bottom: 10px;
   z-index: 3;
-	top		: 247px;
-	left		: 0;
-	width		: 100%;
+  top: 247px;
+  left: 0;
+  width: 100%;
 }
 .article__card-subtitle {
   position: absolute;
@@ -704,9 +706,9 @@ body {
   text-align: center;
   color: #f7f7f7;
   z-index: 3;
-  top		: 293px;
-	left		: 0;
-	width		: 100%;
+  top: 293px;
+  left: 0;
+  width: 100%;
 }
 .article__card-link {
   position: absolute;
@@ -799,7 +801,7 @@ body {
 .footer__link {
   font-size: 23px;
   line-height: 60px;
-  color: #F7F7F7;
+  color: #f7f7f7;
   text-decoration: none;
 }
 .footer__link:hover,
