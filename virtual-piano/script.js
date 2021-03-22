@@ -68,7 +68,6 @@ function pressKey(event) {
 // }
 
 pianoКeys.forEach((key, iKey) => {
-
   key.addEventListener("mousedown", (event) => {
     pressKey(event);
     activeNote = iKey;
@@ -80,25 +79,29 @@ pianoКeys.forEach((key, iKey) => {
     pianoКeys.forEach((key) => {
       mouseOver(key);
     });
-
   });
-  window.addEventListener("keydown", (event) => {
-    let keyCode;
-    if (event) {
-      keyCode = event.keyCode;
-      audio.forEach((element) => {
-        if (keyCode == element.dataset.keycode) {
-          let keyNote = document
-            .querySelector(`piano-key[data-keycode="${element.dataset.keycode}"]`);
-          //keyNote.classList.add("piano-key-active");
-          element.currentTime = 0;
-          element.play();
-        }
-      });
-    } else if (event) {
-      key = event.which;
+});
+
+window.addEventListener("keydown", (event) => {
+  pianoКeys.forEach((key) => {
+    if (event.keyCode == key.dataset.keycode) {
+      key.classList.add("piano-key-active");
+      let note = document.querySelector(
+        `audio[data-letter="${key.getAttribute("data-letter")}"`
+      );
+      note.currentTime = 0;
+      note.play();
+      setTimeout(outpressKey, 300, key);
     }
   });
+
+  //   if (event) {
+  //     if (event.keyCode == key.dataset.keycode) {
+  //       //keyNote.classList.add("piano-key-active");
+  //       element.currentTime = 0;
+  //       element.play();
+  //     }
+  //   }
 });
 
 function mouseOver(key) {
