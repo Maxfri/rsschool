@@ -41,43 +41,39 @@ function closeFullscreen() {
   }
 }
 
-function outpressKey(key) {
-  key.classList.remove("piano-key-active");
+function outpressKey() {
+  setTimeout(() => {
+    pianoКeys.forEach((element) => {
+        element.classList.remove("piano-key-active");
+    })
+  }, 300);
 }
 
 function pressKey(event) {
-  event.currentTarget.classList.add("piano-key-active");
+  activeNote = event.currentTarget;
+  activeNote.classList.add("piano-key-active");
   let note = document.querySelector(
-    `audio[data-letter="${event.currentTarget.getAttribute("data-letter")}"`
+    `audio[data-letter="${activeNote.getAttribute("data-letter")}"`
   );
   note.currentTime = 0;
   note.play();
 }
 
-// function playAudio() {
-//   audio.forEach((element) => {
-//     document.addEventListener("click", function (event) {
-//       if (event.target.dataset.note == element.dataset.note) {
-//         event.target.classList.add("piano-key-active");
-//         console.log(element);
-//         element.currentTime = 0;
-//         element.play();
-//       }
-//     });
-//   });
-// }
-
 pianoКeys.forEach((key, iKey) => {
   key.addEventListener("mousedown", (event) => {
-    pressKey(event);
-    activeNote = iKey;
 
+    pressKey(event);
     document.addEventListener("mouseup", (event) => {
-      setTimeout(outpressKey, 300, key);
+      pianoКeys.forEach((key) => {
+        key.removeEventListener("mouseover", pressKey);
+        key.removeEventListener("mouseout", outpressKey);
+      });
+      outpressKey();
     });
 
     pianoКeys.forEach((key) => {
-      mouseOver(key);
+      key.addEventListener("mouseover", pressKey);
+      key.addEventListener("mouseout", outpressKey);
     });
   });
 });
@@ -94,18 +90,4 @@ window.addEventListener("keydown", (event) => {
       setTimeout(outpressKey, 300, key);
     }
   });
-
-  //   if (event) {
-  //     if (event.keyCode == key.dataset.keycode) {
-  //       //keyNote.classList.add("piano-key-active");
-  //       element.currentTime = 0;
-  //       element.play();
-  //     }
-  //   }
 });
-
-function mouseOver(key) {
-  key.addEventListener("mouseover", (event) => {
-    pressKey(event);
-  });
-}
