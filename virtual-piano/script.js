@@ -4,6 +4,7 @@ const audio = document.querySelectorAll("audio");
 const fullscreen = document.querySelector(".fullscreen");
 const notes = document.querySelector(".btn-notes");
 const letters = document.querySelector(".btn-letters");
+let activeNote;
 let flag = false;
 
 fullscreen.addEventListener("click", getFullscreen);
@@ -41,7 +42,6 @@ function closeFullscreen() {
 }
 
 function outpressKey(key) {
-  console.log(key);
   key.classList.remove("piano-key-active");
 }
 
@@ -50,7 +50,6 @@ function pressKey(event) {
   let note = document.querySelector(
     `audio[data-letter="${event.currentTarget.getAttribute("data-letter")}"`
   );
-  console.log(note);
   note.currentTime = 0;
   note.play();
 }
@@ -68,34 +67,42 @@ function pressKey(event) {
 //   });
 // }
 
-// function keyPress(event) {
-//   let key;
-//   if (event) {
-//     key = event.key.toUpperCase();
-//     audio.forEach((element) => {
-//       if (key == element.dataset.letter) {
-//         console.log(element);
-//         event.target.classList.add("piano-key-active");
-//         element.currentTime = 0;
-//         element.play();
-//       }
-//     });
-//   } else if (event) {
-//     key = event.which;
-//   }
-// }
+pianoКeys.forEach((key, iKey) => {
 
-// window.addEventListener("keydown", keyPress);
-pianoКeys.forEach((key) => {
-//   key.addEventListener("click", (event) => {
-//     pressKey(event);
-//     setTimeout(outpressKey, 300, key);
-//   });
-  key.addEventListener("mousedown", event => {
+  key.addEventListener("mousedown", (event) => {
     pressKey(event);
-    
-  })
-  key.addEventListener('mouseup', event => {
-    setTimeout(outpressKey, 300, key);
-  })
+    activeNote = iKey;
+
+    document.addEventListener("mouseup", (event) => {
+      setTimeout(outpressKey, 300, key);
+    });
+
+    pianoКeys.forEach((key) => {
+      mouseOver(key);
+    });
+
+  });
+  window.addEventListener("keydown", (event) => {
+    let keyCode;
+    if (event) {
+      keyCode = event.keyCode;
+      audio.forEach((element) => {
+        if (keyCode == element.dataset.keycode) {
+          let keyNote = document
+            .querySelector(`piano-key[data-keycode="${element.dataset.keycode}"]`);
+          //keyNote.classList.add("piano-key-active");
+          element.currentTime = 0;
+          element.play();
+        }
+      });
+    } else if (event) {
+      key = event.which;
+    }
+  });
 });
+
+function mouseOver(key) {
+  key.addEventListener("mouseover", (event) => {
+    pressKey(event);
+  });
+}
