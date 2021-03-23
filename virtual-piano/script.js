@@ -44,8 +44,8 @@ function closeFullscreen() {
 function outpressKey() {
   setTimeout(() => {
     pianoКeys.forEach((element) => {
-        element.classList.remove("piano-key-active");
-    })
+      element.classList.remove("piano-key-active");
+    });
   }, 300);
 }
 
@@ -61,7 +61,6 @@ function pressKey(event) {
 
 pianoКeys.forEach((key, iKey) => {
   key.addEventListener("mousedown", (event) => {
-
     pressKey(event);
     document.addEventListener("mouseup", (event) => {
       pianoКeys.forEach((key) => {
@@ -79,6 +78,9 @@ pianoКeys.forEach((key, iKey) => {
 });
 
 window.addEventListener("keydown", (event) => {
+  if (event.repeat) {
+    return;
+  }
   pianoКeys.forEach((key) => {
     if (event.keyCode == key.dataset.keycode) {
       key.classList.add("piano-key-active");
