@@ -5,7 +5,6 @@ const fullscreen = document.querySelector(".fullscreen");
 const notes = document.querySelector(".btn-notes");
 const letters = document.querySelector(".btn-letters");
 let activeNote;
-let flag = false;
 
 fullscreen.addEventListener("click", getFullscreen);
 
@@ -23,21 +22,12 @@ function switchNotes(event) {
 }
 
 function getFullscreen() {
-  return flag ? closeFullscreen() : openFullscreen();
-}
-
-function openFullscreen() {
-  const elem = document.documentElement;
-  if (elem.requestFullscreen) {
-    elem.requestFullscreen();
-    flag = true;
+  if (document.documentElement.requestFullscreen) {
+    document.documentElement.requestFullscreen();
   }
-}
 
-function closeFullscreen() {
-  if (document.exitFullscreen) {
+  if (document.fullscreenElement) {
     document.exitFullscreen();
-    flag = false;
   }
 }
 
