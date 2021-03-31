@@ -291,6 +291,20 @@ input:checked + .header__slider:before {
   text-align: center;
   color: #333333;
 }
+.testimonials__cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.testimonials__card {
+  width: 585px;
+  height: 310px;
+
+  background: #fefefe;
+  box-shadow: 2px 4px 15px rgba(6, 12, 70, 0.1);
+  border-radius: 5px;
+}
 /* Testimonials  end*/
 
 /* Map  start*/
@@ -310,6 +324,17 @@ input:checked + .header__slider:before {
 
 /* Footer  start*/
 .footer {
-  background: #333333;
+  height: 751px;
+
+  /* background: #333333; */
+}
+
+.footer__form-title {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 23px;
+  color: #fefefe;
 }
 /* Footer  end*/
