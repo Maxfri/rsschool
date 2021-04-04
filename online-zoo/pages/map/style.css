@@ -1,0 +1,75 @@
+/* roboto-regular - latin */
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  src: local(""),
+    url("../../assets/fonts/roboto-v20-latin-regular.woff2") format("woff2"),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url("../../assets/fonts/roboto-v20-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* roboto-900 - latin */
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 900;
+  src: local(""),
+    url("../../assets/fonts/roboto-v20-latin-900.woff2") format("woff2"),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url("../../assets/fonts/roboto-v20-latin-900.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+.map {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #FBFBFB;
+}
+.choose-your-favorite__title {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 56px;
+  text-align: center;
+  color: #333333;
+  padding-top: 60px;
+  padding-bottom: 20px;
+}
+.choose-your-favorite__subtitle {
+  width: 790px;
+  height: 80px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  color: #4f4f4f;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+  padding-bottom: 54px;
+}
+.gallery {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    padding-bottom: 80px;
+}
+.gallery__cards {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.gallery__card {
+    margin-right: 30px;
+}
+.watch-online-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
