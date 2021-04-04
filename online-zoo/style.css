@@ -19,8 +19,8 @@
       url("../assets/fonts/roboto-v20-latin-900.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 .body * {
-  max-width: 1920px;
   margin: 0;
+  padding: 0;
 }
 .wrapper {
   max-width: 1920px;
@@ -67,61 +67,62 @@
   color: #333333;
   text-decoration: none;
 }
-/* Rounded sliders */
-.header__switch {
+.switch {
   position: relative;
   display: inline-block;
   width: 60px;
   height: 34px;
+  margin: 32px 0px;
 }
 
-.header__switch input {
+.switch input {
   display: none;
 }
 
-.header__slider {
+.slider {
   position: absolute;
   cursor: pointer;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgb(180, 46, 46);
+  background-color: #ccc;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
 
-.header__slider:before {
+.slider:before {
   position: absolute;
   content: "";
   height: 26px;
   width: 26px;
   left: 4px;
   bottom: 4px;
-  background-color: rgb(149, 58, 58);
+  background-color: white;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
 
-input:checked + .header__slider {
+input:checked + .slider {
   background-color: #2196f3;
 }
 
-input:focus + .header__slider {
+input:focus + .slider {
   box-shadow: 0 0 1px #2196f3;
 }
 
-input:checked + .header__slider:before {
+input:checked + .slider:before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
 }
 
-.header__slider-round {
+/* Rounded sliders */
+.slider.round {
   border-radius: 34px;
 }
 
-.header__slider-round:before {
+.slider.round:before {
   border-radius: 50%;
 }
 /* Header styles end */
@@ -168,12 +169,16 @@ input:checked + .header__slider:before {
   margin-left: 360px;
 }
 .gallery {
+  display: flex;
 }
 .gallery__items {
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
+}
+.gallery__item {
+  margin-right: 45px;
 }
 .gallery__img {
   width: 140px;
@@ -275,7 +280,20 @@ input:checked + .header__slider:before {
 }
 /* How it work styles end */
 
-/*   start*/
+/* Pets in zoo  start*/
+.pets-in-zoo__title {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 56px;
+  text-align: center;
+  color: #333333;
+
+  padding-top: 100px;
+  padding-bottom: 35px;
+  margin: 0;
+}
 .articles__cards {
   display: flex;
   flex-wrap: wrap;
@@ -316,6 +334,7 @@ input:checked + .header__slider:before {
   line-height: 56px;
   text-align: center;
   color: #333333;
+  padding-top: 100px;
 }
 .pay-and-feed__subtitle {
   font-family: Roboto;
@@ -329,8 +348,29 @@ input:checked + .header__slider:before {
 .pay-and-feed__cards {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
   align-items: center;
+  justify-content: center;
+  padding-top: 92px;
+  padding-bottom: 60px;
+}
+.pay-and-feed__card {
+  margin-right: 63px;
+}
+.pay-and-feed__button {
+  width: 245px;
+  height: 55px;
+  background: linear-gradient(106.89deg, #4bd8b5 -14.32%, #49d6df 100.68%);
+  border-radius: 3px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 100px;
 }
 /*   end*/
 
@@ -375,6 +415,17 @@ input:checked + .header__slider:before {
   line-height: 56px;
   text-align: center;
   color: #333333;
+
+  margin: 0;
+  padding-top: 100px;
+  padding-bottom: 60px;
+}
+.map__world {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 35px;
 }
 /* Map  end*/
 

@@ -32,7 +32,7 @@
                 <a href="#!" class="header__link">Zoos</a>
               </li>
               <li class="header__item">
-                <a href="#!" class="header__link">Map</a>
+                <a href="./pages/map/index.html" class="header__link">Map</a>
               </li>
               <li class="header__item">
                 <a href="#!" class="header__link">Contact Us</a>
@@ -43,9 +43,9 @@
             </ul>
           </nav>
 
-          <label class="header__switch">
-            <input type="header__checkbox" />
-            <span class="header__slider-round"></span>
+          <label class="switch">
+            <input type="checkbox" />
+            <span class="slider round"></span>
           </label>
         </div>
       </div>
@@ -57,6 +57,7 @@
       <section class="intro">
         <div class="wrapper">
           <h2 class="intro__title">Watch your favorite animal online</h2>
+          
           <form class="watch-online-form">
             <button class="watch-online-form__submit">
               <img
@@ -71,19 +72,39 @@
           <div class="gallery">
             <div class="gallery__items">
               <div class="gallery__item">
-                <img src="./assets/images/eagle.png" alt="" class="gallery__img">
+                <img
+                  src="./assets/images/eagle.png"
+                  alt=""
+                  class="gallery__img"
+                />
               </div>
               <div class="gallery__item">
-                <img src="./assets/images/panda.png" alt="" class="gallery__img">
+                <img
+                  src="./assets/images/panda.png"
+                  alt=""
+                  class="gallery__img"
+                />
               </div>
               <div class="gallery__item">
-                <img src="./assets/images/monke.png" alt="" class="gallery__img">
+                <img
+                  src="./assets/images/monke.png"
+                  alt=""
+                  class="gallery__img"
+                />
               </div>
               <div class="gallery__item">
-                <img src="./assets/images/croko.png" alt="" class="gallery__img">
+                <img
+                  src="./assets/images/croko.png"
+                  alt=""
+                  class="gallery__img"
+                />
               </div>
               <div class="gallery__item">
-                <img src="./assets/images/fox.png" alt="" class="gallery__img">
+                <img
+                  src="./assets/images/fox.png"
+                  alt=""
+                  class="gallery__img"
+                />
               </div>
             </div>
           </div>
@@ -192,20 +213,26 @@
       <!-- Pets in zoo  start -->
       <section class="pets-in-zoo">
         <div class="wrapper">
+          <h2 class="pets-in-zoo__title">Pets in Zoo</h2>
+
           <div class="articles__cards">
             <div class="articles__arrow">
               <img src="./assets/images/left-arrow.svg" alt="left arrow" />
             </div>
 
             <article class="article__card">
-              <figure class="article__card-pic">
-                <img
-                  src="./assets/images/panda.png"
-                  alt="Panda"
-                  class="articles__card-img"
-                />
-              </figure>
-              <a href="#!" class="article__card-link"></a>
+              <a
+                href="./pages/zoos/panda/index.html"
+                class="article__card-link"
+              >
+                <figure class="article__card-pic">
+                  <img
+                    src="./assets/images/panda.png"
+                    alt="Panda"
+                    class="articles__card-img"
+                  />
+                </figure>
+              </a>
             </article>
 
             <article class="article__card">
@@ -269,6 +296,15 @@
                 class="pay-and-feed__img"
               />
             </div>
+
+            <div class="pay-and-feed__card">
+              <img
+                src="./assets/images/Arrow.svg"
+                alt=""
+                class="pay-and-feed__img"
+              />
+            </div>
+
             <div class="pay-and-feed__card">
               <img
                 src="./assets/images/payment.svg"
@@ -276,6 +312,15 @@
                 class="pay-and-feed__img"
               />
             </div>
+
+            <div class="pay-and-feed__card">
+              <img
+                src="./assets/images/Arrow.svg"
+                alt=""
+                class="pay-and-feed__img"
+              />
+            </div>
+
             <div class="pay-and-feed__card">
               <img
                 src="./assets/images/panda_feed.svg"
@@ -327,6 +372,22 @@
       <section class="map">
         <div class="wrapper">
           <h2 class="map__title">Map</h2>
+
+          <div class="map__world">
+            <img src="./assets/images/map.png" alt="Map" class="map__image">
+          </div>
+
+          <form class="watch-online-form">
+            <button class="watch-online-form__submit">
+              <img
+                src="./assets/images/play.svg"
+                alt=""
+                class="watch-online-form__play"
+              />
+              watch online
+            </button>
+          </form>
+
         </div>
       </section>
       <!-- Map end -->

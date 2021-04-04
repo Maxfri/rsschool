@@ -1,0 +1,48 @@
+.main {
+  display: flex;
+}
+
+.zoo__title {
+  width: 346px;
+  height: 56px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 56px;
+
+  color: #333333;
+}
+.zoo__discription {
+}
+.population__title,
+.habitat__title,
+.diet__title {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 23px;
+
+  /* Gray 1 */
+
+  color: #333333;
+}
+.population__subtitle,
+.habitat__subtitle,
+.diet__subtitle {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+
+  /* Gray 2 */
+
+  color: #4f4f4f;
+}
+.diet__subtitle {
+  width: 380px;
+  height: 64px;
+}
