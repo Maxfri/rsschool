@@ -25,7 +25,7 @@
 
           <nav class="header__nav">
             <ul class="header__list">
-              <li class="header__item">
+              <li class="header__item" active>
                 <a href="#!" class="header__link">About</a>
               </li>
               <li class="header__item">
@@ -378,52 +378,60 @@
         <div class="wrapper">
           <h2 class="testimonials__title">Testimonials</h2>
 
-          <div class="testimonials__cards">
-            <div class="testimonials__arrow">
-              <img src="./assets/images/left-arrow.svg" alt="left arrow" />
+          <div class="testimonials__slider">
+            <div class="testimonials__cards">
+              <div class="testimonials__arrow">
+                <img src="./assets/images/left-arrow.svg" alt="left arrow" />
+              </div>
+
+              <div class="testimonials__card">
+                <div class="testimonials__card-item">
+                  <img
+                    src="./assets/images/user 1.png"
+                    alt=""
+                    class="testimonials__card-img"
+                  />
+                  <h3 class="testimonials__card-name">Nastya Sidorova</h3>
+                  <p class="testimonials__card-description">
+                    As a voice for wildlife, we are devastated by the impact of
+                    the 2020 Australian bushfires on precious species and their
+                    habitat.
+                  </p>
+                </div>
+              </div>
+
+              <div class="testimonials__card">
+                <div class="testimonials__card-item">
+                  <img
+                    src="./assets/images/user 1.png"
+                    alt=""
+                    class="testimonials__card-img"
+                  />
+                  <h3 class="testimonials__card-name">Nastya Sidorova</h3>
+                  <p class="testimonials__card-description">
+                    As a voice for wildlife, we are devastated by the impact of
+                    the 2020 Australian bushfires on precious species and their
+                    habitat.
+                  </p>
+                </div>
+              </div>
+
+              <div class="testimonials__arrow">
+                <img src="./assets/images/right-arrow.svg" alt="right arrow" />
+              </div>
             </div>
 
-            <div class="testimonials__card">
-              <img
-                src="./assets/images/user 1.png"
-                alt=""
-                class="testimonials__card-img"
-              />
-              <h3 class="testimonials__card-name">Nastya Sidorova</h3>
-              <p class="testimonials__card-description">
-                As a voice for wildlife, we are devastated by the impact of the
-                2020 Australian bushfires on precious species and their habitat.
-              </p>
-            </div>
-
-            <div class="testimonials__card">
-              <img
-                src="./assets/images/user 1.png"
-                alt=""
-                class="testimonials__card-img"
-              />
-              <h3 class="testimonials__card-name">Nastya Sidorova</h3>
-              <p class="testimonials__card-description">
-                As a voice for wildlife, we are devastated by the impact of the
-                2020 Australian bushfires on precious species and their habitat.
-              </p>
-            </div>
-
-            <div class="testimonials__arrow">
-              <img src="./assets/images/right-arrow.svg" alt="right arrow" />
-            </div>
-          </div>
-
-          <div class="paginator">
-            <div class="paginator__title">
-              <p class="paginator__count-dark">02/08</p>
-            </div>
-            <div class="paginator__line-dark">
-              <img
-                src="./assets/images/paginator_dark.svg"
-                alt=""
-                class="paginator__light"
-              />
+            <div class="paginator">
+              <div class="paginator__title">
+                <p class="paginator__count-dark">02/08</p>
+              </div>
+              <div class="paginator__line-dark">
+                <img
+                  src="./assets/images/paginator_big_dark.svg"
+                  alt=""
+                  class="paginator__light"
+                />
+              </div>
             </div>
           </div>
 
@@ -459,8 +467,8 @@
     </main>
     <!-- Footer start -->
     <footer class="footer">
-      <div class="wrapper">
-        <div class="footer__first-row">
+      <div class="footer__wrapper">
+        <div class="footer__navbar">
           <div class="footer__logo">
             <a href="/" class="footer__logo-link">
               <img
@@ -516,7 +524,7 @@
           </form>
 
           <div class="footer__contacts-info">
-            <p class="footer__online-centre">ZOO Online Centre</p>
+            <h3 class="footer__online-centre">ZOO Online Centre</h3>
             <a href="!#" class="footer__address">
               132, Address District, Street<br />
               Open Daily 10:00 am - 5:00 pm
