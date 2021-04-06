@@ -53,6 +53,7 @@
     <!-- Header end -->
 
     <main class="main">
+      <h1 class="main__title">Online Zoo</h1>
       <!-- Intro start -->
       <section class="intro">
         <div class="wrapper">
@@ -99,67 +100,74 @@
           </div>
 
           <div class="main-gallery">
-            <div class="main-gallery__items">
-              <div class="main-gallery__item">
-                <a
-                  href="./pages/zoos/eagle/index.html"
-                  class="main-gallery__link"
-                >
-                  <img
-                    src="./assets/images/eagle.png"
-                    alt=""
-                    class="main-gallery__img"
-                  />
-                </a>
+            <div class="main-gallery__wrapper">
+              <div class="main-gallery__slider">
+                <ul class="main-gallery__list">
+                  <li class="main-gallery__item">
+                    <a
+                      href="./pages/zoos/eagle/index.html"
+                      class="main-gallery__link"
+                    >
+                      <img
+                        src="./assets/images/eagle.png"
+                        alt=""
+                        class="main-gallery__img"
+                      />
+                    </a>
+                  </li>
+                  <li class="main-gallery__item main-gallery__active-item">
+                    <a
+                      href="./pages/zoos/panda/index.html"
+                      class="main-gallery__link"
+                    >
+                      <img
+                        src="./assets/images/panda.png"
+                        alt=""
+                        class="main-gallery__img"
+                      />
+                    </a>
+                  </li>
+                  <li class="main-gallery__item">
+                    <a
+                      href="./pages/zoos/gorilla/index.html"
+                      class="main-gallery__link"
+                    >
+                      <img
+                        src="./assets/images/monke.png"
+                        alt=""
+                        class="main-gallery__img"
+                      />
+                    </a>
+                  </li>
+                  <li class="main-gallery__item">
+                    <a
+                      href="./pages/zoos/alligator/index.html"
+                      class="main-gallery__link"
+                    >
+                      <img
+                        src="./assets/images/croko.png"
+                        alt=""
+                        class="main-gallery__img"
+                      />
+                    </a>
+                  </li>
+                  <li class="main-gallery__item">
+                    <img
+                      src="./assets/images/fox_min.png"
+                      alt=""
+                      class="main-gallery__img"
+                    />
+                  </li>
+                </ul>
               </div>
-              <div class="main-gallery__item">
-                <a
-                  href="./pages/zoos/panda/index.html"
-                  class="main-gallery__link"
-                >
-                  <img
-                    src="./assets/images/panda.png"
-                    alt=""
-                    class="main-gallery__img"
-                  />
-                </a>
-              </div>
-              <div class="main-gallery__item">
-                <a
-                  href="./pages/zoos/gorilla/index.html"
-                  class="main-gallery__link"
-                >
-                  <img
-                    src="./assets/images/monke.png"
-                    alt=""
-                    class="main-gallery__img"
-                  />
-                </a>
-              </div>
-              <div class="main-gallery__item">
-                <a
-                  href="./pages/zoos/alligator/index.html"
-                  class="main-gallery__link"
-                >
-                  <img
-                    src="./assets/images/croko.png"
-                    alt=""
-                    class="main-gallery__img"
-                  />
-                </a>
-              </div>
-              <!-- <div class="main-gallery__item">
-                <img
-                  src="./assets/images/fox.png"
-                  alt=""
-                  class="main-gallery__img"
-                />
-              </div> -->
             </div>
 
             <div class="paginator">
               <div class="paginator__title">
-                <p class="paginator__count-light">01/04</p>
+                <p class="paginator__count-light">
+                  <span class="paginator__number">02/</span
+                  ><span class="paginator__total-number">08</span>
+                </p>
               </div>
               <div class="paginator__line-light">
                 <img
@@ -201,7 +209,10 @@
 
               <div class="paginator">
                 <div class="paginator__title">
-                  <p class="paginator__count-dark">01/04</p>
+                  <p class="paginator__count-dark"></p>
+                  <span class="paginator__number">01/</span
+                  ><span class="paginator__total-number">04</span>
+                  </p>
                 </div>
                 <div class="paginator__line-dark">
                   <img
@@ -358,7 +369,10 @@
 
             <div class="paginator">
               <div class="paginator__title">
-                <p class="paginator__count-dark">01/08</p>
+                <p class="paginator__count-dark">
+                  <span class="paginator__number">01/</span
+                  ><span class="paginator__total-number">08</span>
+                </p>
               </div>
               <div class="paginator__line-dark">
                 <img
@@ -489,7 +503,8 @@
 
             <div class="paginator">
               <div class="paginator__title">
-                <p class="paginator__count-dark">02/08</p>
+                <p class="paginator__count-dark"><span class="paginator__number">02/</span
+                  ><span class="paginator__total-number">08</span></p>
               </div>
               <div class="paginator__line-dark">
                 <img
@@ -510,36 +525,36 @@
 
       <!-- Map start -->
       <section class="map">
-        <div class="wrapper">
+        <div class="map__wrapper">
           <h2 class="map__title">Map</h2>
 
           <div class="map__world">
             <img src="./assets/images/map.png" alt="Map" class="map__image" />
-            <a href="./pages/zoos/eagle/index.html">  
+            <a href="./pages/zoos/eagle/index.html">
               <div class="map__eagle-icon">
                 <div class="map__eagle-picture">
-                  <img src="./assets/images/eagle_icon.png" alt="">
+                  <img src="./assets/images/eagle_icon.png" alt="" />
                 </div>
               </div>
             </a>
-            <a href="./pages/zoos/alligator/index.html">  
+            <a href="./pages/zoos/alligator/index.html">
               <div class="map__alligator-icon">
                 <div class="map__alligator-picture">
-                  <img src="./assets/images/alligator_icon.png" alt="">
+                  <img src="./assets/images/alligator_icon.png" alt="" />
                 </div>
               </div>
             </a>
-            <a href="./pages/zoos/gorilla/index.html">  
+            <a href="./pages/zoos/gorilla/index.html">
               <div class="map__gorilla-icon">
                 <div class="map__gorilla-picture">
-                  <img src="./assets/images/gorilla_icon.png" alt="">
+                  <img src="./assets/images/gorilla_icon.png" alt="" />
                 </div>
               </div>
             </a>
-            <a href="./pages/zoos/panda/index.html">  
+            <a href="./pages/zoos/panda/index.html">
               <div class="map__panda-icon">
                 <div class="map__panda-picture">
-                  <img src="./assets/images/panda_icon.png" alt="">
+                  <img src="./assets/images/panda_icon.png" alt="" />
                 </div>
               </div>
             </a>

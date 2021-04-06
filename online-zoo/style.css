@@ -18,9 +18,20 @@
     /* Chrome 26+, Opera 23+, Firefox 39+ */
       url("./assets/fonts/roboto-v20-latin-900.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
-.body * {
+.body {
   margin: 0;
-  padding: 0;
+  font-family: "Roboto", "Arial", sans-serif;
+  font-size: 14px;
+  line-height: 16px;
+  color: #4f4f4f;
+  background-color: #ffffff;
+}
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
 }
 .wrapper {
   max-width: 1920px;
@@ -125,6 +136,10 @@ input:checked + .slider:before {
 /* Header styles end */
 
 /* Intro styles start */
+.main__title {
+  position: absolute;
+  z-index: -10;
+}
 .intro {
   min-height: 100vh;
   height: 940px;
@@ -169,29 +184,52 @@ input:checked + .slider:before {
   align-items: center;
 }
 .main-gallery {
-  transform: translate(21.8%, -100%);
-  display: flex;
-  align-items: center;
-  flex-flow: column;
+  position: absolute;
+  top: 473px;
+  right: 0;
+  width: 1080px;
 }
-.main-gallery__items {
-  background: url(./assets/images/line.svg);
+.main-gallery__wrapper {
+  overflow: hidden;
+  margin-bottom: 20px;
+  background-image: url(./assets/images/line.svg);
   background-repeat: no-repeat;
+  background-position-y: 57%;
+}
+.main-gallery__slider {
+  height: 380px;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
   align-items: center;
 }
+.main-gallery__list {
+  display: flex;
+  align-items: center;
+  list-style: none;
 
+  position: relative;
+  right: -135px;
+  top: 15px;
+  margin: 0;
+  padding: 0;
+}
 .main-gallery__item {
+  width: 140px;
   margin-right: 45px;
+  position: relative;
+}
+.main-gallery__item:last-child {
+  margin-right: 0;
+}
+.main-gallery__active-item {
+  width: 245px;
+  height: 352px;
 }
 .main-gallery__img {
-  width: 140px;
-  height: 203px;
-
-  filter: drop-shadow(5px 4px 50px rgba(152, 157, 198, 0.25));
+  display: block;
   border-radius: 5px;
+  max-width: 100%;
+  height: auto;
+  filter: drop-shadow(5px 4px 50px rgba(152, 157, 198, 0.25));
 }
 .paginator__count-light {
   width: 53px;
@@ -199,11 +237,16 @@ input:checked + .slider:before {
 
   font-family: Roboto;
   font-style: normal;
+  color: #fefefe;
+}
+.paginator__number {
   font-weight: 900;
   font-size: 24px;
   line-height: 28px;
-
-  color: #fefefe;
+}
+.paginator__total-number {
+  color: #828282;
+  font-weight: 900;
 }
 .social-net {
   display: flex;
@@ -271,19 +314,14 @@ input:checked + .slider:before {
   justify-content: center;
   align-items: center;
   flex-flow: column wrap;
-  padding-top: 30px;
 }
 .paginator__count-dark {
   width: 53px;
   height: 28px;
-  margin: 0;
   font-family: Roboto;
   font-style: normal;
-  font-weight: 900;
-  font-size: 24px;
-  line-height: 28px;
-
   color: #333333;
+  margin: 0;
 }
 .how-it-works__form {
   display: flex;
@@ -359,6 +397,7 @@ input:checked + .slider:before {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 30px;
 }
 .pets__card {
   position: relative;
@@ -484,7 +523,6 @@ input:checked + .slider:before {
 /* Testimonials  start*/
 .testimonials {
   background: #fff;
-
 }
 .testimonials__wrapper {
   max-width: 1920px;
@@ -510,7 +548,7 @@ input:checked + .slider:before {
 .testimonials__cards {
   display: flex;
   align-items: center;
-  margin-bottom: 30px;
+  margin-bottom: 60px;
 }
 .testimonials__card {
   width: 585px;
@@ -595,7 +633,9 @@ input:checked + .slider:before {
 /* Testimonials  end*/
 
 /* Map  start*/
-.map {
+.map__wrapper {
+  width: 1920px;
+  height: 904px;
   background: #f2f2f2;
 }
 .map__title {
@@ -614,9 +654,8 @@ input:checked + .slider:before {
 .map__world {
   padding-bottom: 35px;
   width: 1200px;
+  height: 497px;
   margin: 0 auto;
-}
-.map__image {
 }
 .map__form {
   display: flex;
@@ -627,11 +666,12 @@ input:checked + .slider:before {
 .map__eagle-icon,
 .map__alligator-icon,
 .map__gorilla-icon,
-.map__panda-picture {
+.map__panda-icon {
   width: 70px;
   height: 100px;
   filter: drop-shadow(5px 5px 7px rgba(0, 0, 0, 0.5));
   cursor: pointer;
+  margin: 0;
 }
 .map__eagle-icon {
   transform: translate(105px, -438px);
