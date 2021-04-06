@@ -169,10 +169,14 @@ input:checked + .slider:before {
   align-items: center;
 }
 .main-gallery {
-  background: url(./assets/images/line.svg);
-  background-repeat: no-repeat;
+  transform: translate(21.8%, -100%);
+  display: flex;
+  align-items: center;
+  flex-flow: column;
 }
 .main-gallery__items {
+  background: url(./assets/images/line.svg);
+  background-repeat: no-repeat;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
@@ -188,7 +192,19 @@ input:checked + .slider:before {
 
   filter: drop-shadow(5px 4px 50px rgba(152, 157, 198, 0.25));
   border-radius: 5px;
-} 
+}
+.paginator__count-light {
+  width: 53px;
+  height: 28px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 28px;
+
+  color: #fefefe;
+}
 .social-net {
   display: flex;
   margin-top: 216px;
@@ -345,6 +361,8 @@ input:checked + .slider:before {
   align-items: center;
 }
 .pets__card {
+  position: relative;
+  cursor: pointer;
   width: 278px;
   height: 399px;
 }
@@ -353,6 +371,27 @@ input:checked + .slider:before {
 }
 .pets__card-img {
   border-radius: 5px;
+}
+.pets__info {
+  position: absolute;
+  width: 197px;
+  bottom: 42px;
+  left: 23px;
+}
+.pets__description {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+
+  color: #ffffff;
+}
+.pets__buttons {
+  display: flex;
+}
+.pets__buttons-watch {
+  margin-right: 10px;
 }
 .pets-favorite__form {
   display: flex;
