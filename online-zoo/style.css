@@ -25,14 +25,15 @@
 .wrapper {
   max-width: 1920px;
   margin: 0 auto;
+  background: #ffffff;
+  box-shadow: 0px 4px 8px rgba(44, 101, 77, 0.08);
 }
 
 /* Header styles start */
 .header__wrapper {
   max-width: 1620px;
   height: 94px;
-  background: #ffffff;
-  box-shadow: 0px 4px 8px rgba(44, 101, 77, 0.08);
+
   display: flex;
   justify-content: space-between;
   align-items: center;
