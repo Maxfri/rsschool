@@ -484,6 +484,13 @@ input:checked + .slider:before {
 /* Testimonials  start*/
 .testimonials {
   background: #fff;
+
+}
+.testimonials__wrapper {
+  max-width: 1920px;
+  margin: 0 auto;
+  height: 810px;
+  box-shadow: 0px 4px 8px rgba(44, 101, 77, 0.08);
 }
 .testimonials__title {
   font-family: Roboto;
