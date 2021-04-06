@@ -168,25 +168,27 @@ input:checked + .slider:before {
   justify-content: space-evenly;
   align-items: center;
 }
-.gallery {
-  display: flex;
+.main-gallery {
+  background: url(./assets/images/line.svg);
+  background-repeat: no-repeat;
 }
-.gallery__items {
+.main-gallery__items {
   display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: flex-end;
   align-items: center;
 }
-.gallery__item {
+
+.main-gallery__item {
   margin-right: 45px;
 }
-.gallery__img {
+.main-gallery__img {
   width: 140px;
   height: 203px;
 
   filter: drop-shadow(5px 4px 50px rgba(152, 157, 198, 0.25));
   border-radius: 5px;
-}
+} 
 .social-net {
   display: flex;
   margin-top: 216px;
