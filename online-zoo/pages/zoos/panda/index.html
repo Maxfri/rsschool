@@ -5,8 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Panda</title>
+    <link rel="stylesheet" href="../../../normalize.css" />
+    <link rel="stylesheet" href="../../../style.css" />
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="../../../../style.css" />
   </head>
   <body>
     <!-- Header start -->
@@ -16,7 +17,7 @@
           <div class="header__logo">
             <a href="/" class="header__logo-link">
               <img
-                src="../../../../assets/images/logo.svg"
+                src="../../../assets/images/logo.svg"
                 alt="Online zoo"
                 class="header__logo-pic"
               />
@@ -25,14 +26,14 @@
 
           <nav class="header__nav">
             <ul class="header__list">
-              <li class="header__item">
+              <li class="header__item" active>
                 <a href="#!" class="header__link">About</a>
               </li>
               <li class="header__item">
                 <a href="#!" class="header__link">Zoos</a>
               </li>
               <li class="header__item">
-                <a href="#!" class="header__link">Map</a>
+                <a href="./pages/map/index.html" class="header__link">Map</a>
               </li>
               <li class="header__item">
                 <a href="#!" class="header__link">Contact Us</a>
@@ -54,111 +55,129 @@
 
     <main class="main">
       <aside class="sidebar">
-        <div class="gallery">
-          <div class="gallery__arrow">
-            <img
-              src="../../../../assets/images/left-arrow.svg"
-              alt="left arrow"
-            />
+        <div class="zoo-gallery">
+          <div class="zoo-gallery__arrow">
+            <img src="../../../assets/images/arrow-up.svg" alt="left arrow" />
           </div>
 
-          <div class="gallery__cards">
-            <div class="gallery__card">
+          <div class="zoo-gallery__cards">
+            <div class="zoo-gallery__card">
               <img
                 src="../../../assets/images/Ellipse_monke.png"
                 alt=""
-                class="gallery__image"
+                class="zoo-gallery__image"
               />
             </div>
-            <div class="gallery__card">
+            <div class="zoo-gallery__card">
               <img
                 src="../../../assets/images/Ellipse_panda.png"
                 alt=""
-                class="gallery__image"
+                class="zoo-gallery__image"
               />
             </div>
-            <div class="gallery__card">
+            <div class="zoo-gallery__card">
               <img
                 src="../../../assets/images/Ellipse_crok.png"
                 alt=""
-                class="gallery__image"
+                class="zoo-gallery__image"
               />
             </div>
-            <div class="gallery__card">
+            <div class="zoo-gallery__card">
               <img
                 src="../../../assets/images/Ellipse_eagle.png"
                 alt=""
-                class="gallery__image"
-              />
-            </div>
-            <div class="gallery__card">
-              <img
-                src="../../../assets/images/Ellipse_tiger.png"
-                alt=""
-                class="gallery__image"
-              />
-            </div>
-            <div class="gallery__card">
-              <img
-                src="../../../assets/images/Ellipse_elephant.png"
-                alt=""
-                class="gallery__image"
-              />
-            </div>
-            <div class="gallery__card">
-              <img
-                src="../../../assets/images/Ellipse_lion.png"
-                alt=""
-                class="gallery__image"
-              />
-            </div>
-            <div class="gallery__card">
-              <img
-                src="../../../assets/images/Ellipse_zebra.png"
-                alt=""
-                class="gallery__image"
+                class="zoo-gallery__image"
               />
             </div>
           </div>
 
-          <div class="gallery__arrow">
+          <div class="zoo-gallery__arrow">
             <img
-              src="../../../assets/images/right-arrow.svg"
+              src="../../../assets/images/arrow-down.svg"
               alt="right arrow"
             />
           </div>
         </div>
       </aside>
 
-      <h2 class="zoo__title">The Beijing Zoo</h2>
-      <div class="zoo__discription">
-        <h3 class="population__title">Population:</h3>
-        <p class="population__subtitle">About 1,590 individuals</p>
+      <section class="the-zoo">
+        <h2 class="the-zoo__title">The Beijing Zoo</h2>
+        <div class="the-zoo__video">
+          <div class="the-zoo__video-translation">
+            <iframe
+              width="790"
+              height="442"
+              src="https://www.youtube.com/embed/OObOQ2GElhA"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              class="the-zoo__video-stream"
+            ></iframe>
 
-        <h3 class="habitat__title">Habitat:</h3>
-        <p class="habitat__subtitle">
-          Temperate forests high in the mountains of southwest China
-        </p>
+            <div class="the-zoo__slider">
+              <div class="the-zoo__slider-item">
+                <img
+                  src="../../../assets/images/video_panda.png"
+                  alt=""
+                  class="the-zoo__slider-img"
+                />
+              </div>
+              <div class="the-zoo__slider-item">
+                <img
+                  src="../../../assets/images/video_panda.png"
+                  alt=""
+                  class="the-zoo__slider-img"
+                />
+              </div>
+              <div class="the-zoo__slider-item">
+                <img
+                  src="../../../assets/images/video_panda.png"
+                  alt=""
+                  class="the-zoo__slider-img"
+                />
+              </div>
 
-        <h3 class="diet__title">Diet:</h3>
-        <p class="diet__subtitle">
-          A panda's daily diet consists almost entirely of the leaves, stems and
-          shoots of various bamboo species. Bamboo contains very little
-          nutritional value so pandas must eat 12-38kg every day to meet their
-          energy needs.
-        </p>
-        
-      </div>
+              
+            </div>
+            <div class="slider__pagination">
+              <img src="../../../assets/images/slider_pagination.svg" alt="" class="slider__pagination-img">
+            </div>
+          </div>
+
+          <div class="the-zoo__discription">
+            <h3 class="population__title">Population:</h3>
+            <p class="population__subtitle">About 1,590 individuals</p>
+
+            <h3 class="habitat__title">Habitat:</h3>
+            <p class="habitat__subtitle">
+              Temperate forests high in the mountains of southwest China
+            </p>
+
+            <h3 class="diet__title">Diet:</h3>
+            <p class="diet__subtitle">
+              A panda's daily diet consists almost entirely of the leaves, stems
+              and shoots of various bamboo species. Bamboo contains very little
+              nutritional value so pandas must eat 12-38kg every day to meet
+              their energy needs.
+            </p>
+
+            <form action="!#" class="feed__form">
+              <button class="feed__button">fEEd</button>
+            </form>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- Footer start -->
     <footer class="footer">
-      <div class="wrapper">
-        <div class="footer__first-row">
+      <div class="footer__wrapper">
+        <div class="footer__navbar">
           <div class="footer__logo">
             <a href="/" class="footer__logo-link">
               <img
-                src="../../../../assets/images/logo-light.svg"
+                src="../../../assets/images/logo-light.svg"
                 alt="Online zoo"
                 class="footer__logo-pic"
               />
@@ -210,7 +229,7 @@
           </form>
 
           <div class="footer__contacts-info">
-            <p class="footer__online-centre">ZOO Online Centre</p>
+            <h3 class="footer__online-centre">ZOO Online Centre</h3>
             <a href="!#" class="footer__address">
               132, Address District, Street<br />
               Open Daily 10:00 am - 5:00 pm
