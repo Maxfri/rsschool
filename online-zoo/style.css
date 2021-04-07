@@ -745,7 +745,26 @@ input:checked + .slider:before {
   filter: drop-shadow(5px 5px 7px rgba(0, 0, 0, 0.5));
   cursor: pointer;
   margin: 0;
+  background: url(./assets/images/map_pin.svg);
+  background-repeat: no-repeat;
 }
+.map__eagle-icon:hover,
+.map__alligator-icon:hover,
+.map__gorilla-icon:hover,
+.map__panda-icon:hover {
+  background: url(./assets/images/map_red-pin.svg);
+  background-repeat: no-repeat;
+}
+.map__eagle-img,
+.map__alligator-img,
+.map__gorilla-img,
+.map__panda-img {
+  position: relative;
+  top: 10px;
+  left: 12px;
+  z-index: 1;
+}
+
 .map__eagle-icon {
   transform: translate(105px, -438px);
 }
