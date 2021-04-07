@@ -24,6 +24,9 @@
     align-items: center;
     background: #FBFBFB;
 }
+.map__wrapper {
+  height: 100%;
+}
 .choose-your-favorite__title {
   font-family: Roboto;
   font-style: normal;
@@ -48,7 +51,7 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-
+  margin: 0 auto;
   padding-bottom: 54px;
 }
 .gallery {
@@ -72,4 +75,5 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 30px;
 }
