@@ -243,6 +243,10 @@ input:checked + .slider:before {
   position: relative;
   left: -97px;
 }
+.paginator__line-light,
+.paginator__line-dark {
+  cursor: pointer;
+}
 .paginator__count-light {
   width: 53px;
   height: 28px;
@@ -685,6 +689,9 @@ input:checked + .slider:before {
   align-items: center;
   padding-bottom: 100px;
 }
+.map__tooltip {
+  display: none;
+}
 .map__eagle-icon,
 .map__alligator-icon,
 .map__gorilla-icon,
@@ -864,6 +871,7 @@ input:checked + .slider:before {
   border: none;
   margin-left: 256px;
   display: flex;
+  align-items: center;
   cursor: pointer;
 }
 .footer__form-button-span {
