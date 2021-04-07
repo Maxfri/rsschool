@@ -14,7 +14,7 @@
       <div class="wrapper">
         <div class="header__wrapper">
           <div class="header__logo">
-            <a href="/" class="header__logo-link">
+            <a href="./" class="header__logo-link">
               <img
                 src="./assets/images/logo.svg"
                 alt="Online zoo"
@@ -26,19 +26,19 @@
           <nav class="header__nav">
             <ul class="header__list">
               <li class="header__item" active>
-                <a href="#!" class="header__link">About</a>
+                <a href="./" class="header__link header__link-active">About</a>
               </li>
               <li class="header__item">
-                <a href="#!" class="header__link">Zoos</a>
+                <a href="./pages/zoos/panda/index.html" class="header__link">Zoos</a>
               </li>
               <li class="header__item">
                 <a href="./pages/map/index.html" class="header__link">Map</a>
               </li>
               <li class="header__item">
-                <a href="#!" class="header__link">Contact Us</a>
+                <a href="#footer__form" class="header__link">Contact Us</a>
               </li>
               <li class="header__item">
-                <a href="#!" class="header__link">Design</a>
+                <a href="https://www.figma.com/file/HKt5Nlx0jghQtJp6jW9q8F/zooApp" class="header__link">Design</a>
               </li>
             </ul>
           </nav>
@@ -49,18 +49,18 @@
           </label>
         </div>
       </div>
+      <h1 class="main__title">Online Zoo</h1>
     </header>
     <!-- Header end -->
 
     <main class="main">
-      <h1 class="main__title">Online Zoo</h1>
       <!-- Intro start -->
       <section class="intro">
         <div class="wrapper">
           <h2 class="intro__title">Watch your favorite animal online</h2>
 
           <form class="intro__watch-online-form">
-            <button class="watch-online-form__submit">
+            <button class="watch-online-form__submit btn">
               <img
                 src="./assets/images/play.svg"
                 alt=""
@@ -73,7 +73,7 @@
           <div class="social-net">
             <ul class="social-net__list">
               <li class="social-net__item">
-                <a href="#!" class="social-net__link">
+                <a href="https://www.instagram.com/?hl=ru" class="social-net__link">
                   <img
                     src="./assets/images/instagram_icon.svg"
                     alt=""
@@ -82,17 +82,17 @@
                 </a>
               </li>
               <li class="social-net__item">
-                <a href="#!" class="social-net__link">
+                <a href="https://twitter.com/?lang=ru" class="social-net__link">
                   <img src="./assets/images/twitter_icon.svg" alt="" class="" />
                 </a>
               </li>
               <li class="social-net__item">
-                <a href="#!" class="social-net__link">
+                <a href="https://www.youtube.com/" class="social-net__link">
                   <img src="./assets/images/youtube_icon.svg" alt="" class="" />
                 </a>
               </li>
               <li class="social-net__item">
-                <a href="#!" class="social-net__link">
+                <a href="https://vk.com/" class="social-net__link">
                   <img src="./assets/images/vk_icon.svg" alt="" class="" />
                 </a>
               </li>
@@ -125,6 +125,31 @@
                         alt=""
                         class="main-gallery__img"
                       />
+                      <div class="pets__info">
+                        <p class="pets__description">
+                          Panda’s name is Bei Bei. He is 2 years old. Bei Bei is from
+                          China. He loves bamboos.
+                        </p>
+                        <div class="pets__buttons">
+                          <div class="pets__buttons-watch">
+                            <a
+                              href="./pages/zoos/panda/index.html"
+                              class="pets__card-link"
+                            >
+                              <img
+                                src="./assets/images/watch_online.svg"
+                                alt=""
+                                class="watch-online-form__play"
+                              />
+                            </a>
+                          </div>
+                          <div class="pets__buttons-donate">
+                            <a href="#" class="pets__card-link">
+                              <img src="./assets/images/donate.svg" alt="" />
+                            </a>
+                          </div>
+                        </div>
+                      </div>
                     </a>
                   </li>
                   <li class="main-gallery__item">
@@ -162,7 +187,7 @@
               </div>
             </div>
 
-            <div class="paginator">
+            <div class="paginator main__paginator">
               <div class="paginator__title">
                 <p class="paginator__count-light">
                   <span class="paginator__number">02/</span
@@ -225,7 +250,7 @@
             </div>
 
             <form class="how-it-works__form">
-              <button class="watch-online-form__submit">
+              <button class="watch-online-form__submit btn">
                 <img
                   src="./assets/images/play.svg"
                   alt=""
@@ -289,9 +314,9 @@
 
           <div class="pets__slider">
             <div class="pets__cards">
-              <div class="pets__arrow">
+              <button class="pets__arrow">
                 <img src="./assets/images/left-arrow.svg" alt="left arrow" />
-              </div>
+              </button>
 
               <article class="pets__card">
                 <img
@@ -362,9 +387,9 @@
                 </a>
               </article>
 
-              <div class="pets__arrow">
+              <button class="pets__arrow">
                 <img src="./assets/images/right-arrow.svg" alt="right arrow" />
-              </div>
+              </button>
             </div>
 
             <div class="paginator">
@@ -384,8 +409,8 @@
             </div>
           </div>
 
-          <form action="!#" class="pets-favorite__form">
-            <button class="pets-favorite__button">Choose your favorite</button>
+          <form action="./pages/map/index.html" class="pets-favorite__form">
+            <button class="pets-favorite__button btn">Choose your favorite</button>
           </form>
         </div>
       </section>
@@ -442,8 +467,8 @@
             </div>
           </div>
 
-          <form action="!#" class="pay-and-feed__form">
-            <button class="pay-and-feed__button">donate</button>
+          <form class="pay-and-feed__form">
+            <button class="pay-and-feed__button btn">donate</button>
           </form>
         </div>
       </section>
@@ -456,9 +481,9 @@
 
           <div class="testimonials__slider">
             <div class="testimonials__cards">
-              <div class="testimonials__arrow">
+              <button class="testimonials__arrow">
                 <img src="./assets/images/left-arrow.svg" alt="left arrow" />
-              </div>
+              </button>
 
               <div class="testimonials__card">
                 <div class="testimonials__card-item">
@@ -496,9 +521,9 @@
                 </div>
               </div>
 
-              <div class="testimonials__arrow">
+              <button class="testimonials__arrow">
                 <img src="./assets/images/right-arrow.svg" alt="right arrow" />
-              </div>
+              </button>
             </div>
 
             <div class="paginator">
@@ -516,8 +541,8 @@
             </div>
           </div>
 
-          <form action="!#" class="testimonials__form">
-            <button class="testimonials__button">Leave feedback</button>
+          <form class="testimonials__form">
+            <button class="testimonials__button btn">Leave feedback</button>
           </form>
         </div>
       </section>
@@ -561,7 +586,7 @@
           </div>
 
           <form class="map__form">
-            <button class="watch-online-form__submit">
+            <button class="watch-online-form__submit btn">
               <img
                 src="./assets/images/play.svg"
                 alt=""
@@ -579,7 +604,7 @@
       <div class="footer__wrapper">
         <div class="footer__navbar">
           <div class="footer__logo">
-            <a href="/" class="footer__logo-link">
+            <a href="./" class="footer__logo-link">
               <img
                 src="./assets/images/logo-light.svg"
                 alt="Online zoo"
@@ -591,36 +616,38 @@
           <nav class="footer__nav">
             <ul class="footer__list">
               <li class="footer__item">
-                <a href="#!" class="footer__link">About</a>
+                <a href="./" class="footer__link">About</a>
               </li>
               <li class="footer__item">
-                <a href="#!" class="footer__link">Zoos</a>
+                <a href="./pages/zoos/panda/index.html" class="footer__link">Zoos</a>
               </li>
               <li class="footer__item">
-                <a href="#!" class="footer__link">Map</a>
+                <a href="./pages/map/index.html" class="footer__link">Map</a>
               </li>
               <li class="footer__item">
-                <a href="#!" class="footer__link">Design</a>
+                <a href="https://www.figma.com/file/HKt5Nlx0jghQtJp6jW9q8F/zooApp" class="footer__link">Design</a>
               </li>
             </ul>
           </nav>
 
-          <button class="footer__button">donate for volunteers</button>
+          <button class="footer__button btn">donate for volunteers</button>
         </div>
 
         <div class="footer__contacts">
-          <form action="!#" class="footer__form">
+          <form action="#" class="footer__form">
             <h3 class="footer__form-title">Contact us</h3>
-            <input type="text" class="footer__form-name" placeholder="Name" />
+            <input type="text" class="footer__form-name" placeholder="Name" required/>
             <input
               type="email"
               class="footer__form-email"
               placeholder="Email"
+              required
             />
-            <input
+            <label class="footer__form-message-placeholder">Please enter your message</label>
+           <input
               type="textarea"
               class="footer__form-message"
-              placeholder="Please enter your message"
+              required
             />
             <input
               type="checkbox"
@@ -628,22 +655,58 @@
               name="agree"
               id="agree"
               title="I agree to the processing of Personal Data"
+              required
             />
-            <input type="button" class="footer__form-button" value="send" />
+            <button class="footer__form-button" type="submit">
+              <span class="footer__form-button-span">
+                send
+              </span>
+              <img src="./assets/images/btn_arrow.svg" alt="" class="footer__form-button-img">
+            </button>
           </form>
 
           <div class="footer__contacts-info">
             <h3 class="footer__online-centre">ZOO Online Centre</h3>
-            <a href="!#" class="footer__address">
-              132, Address District, Street<br />
-              Open Daily 10:00 am - 5:00 pm
-            </a>
-            <br />
-            <a href="!#" class="footer__info">
-              T(702) 163-3433<br />
-              zoo.online@gmail.com
-            </a>
-            <a href="!#" class="footer__social-net"> </a>
+            <p>
+              <address class="footer__address">132, Address District, Street</address>  
+            </p>
+            <p class="footer__open">Open Daily 10:00 am - 5:00 pm</p>
+
+            <p class="footer__tel">
+              T <a href="tel:7021633433" class="footer__tel-link">(702) 163-3433</a>
+            </p>  
+              <p class="footer__email">
+                <a href="mailto:zoo.online@gmail.com" class="footer_email-link">zoo.online@gmail.com</a>
+              </p>
+
+            <div class="footer__social-net">
+            <ul class="footer__social-net-list">
+              <li class="footer__social-net-item">
+                <a href="https://www.instagram.com/?hl=ru" class="footer__social-net-link">
+                  <img
+                    src="./assets/images/instagram_icon.svg"
+                    alt=""
+                    class=""
+                  />
+                </a>
+              </li>
+              <li class="footer__social-net-item">
+                <a href="https://twitter.com/?lang=ru" class="footer__social-net-link">
+                  <img src="./assets/images/twitter_icon.svg" alt="" class="" />
+                </a>
+              </li>
+              <li class="footer__social-net-item">
+                <a href="https://www.youtube.com/" class="footer__social-net-link">
+                  <img src="./assets/images/youtube_icon.svg" alt="" class="" />
+                </a>
+              </li>
+              <li class="footer__social-net-item">
+                <a href="https://vk.com/" class="footer__social-net-link">
+                  <img src="./assets/images/vk_icon.svg" alt="" class="" />
+                </a>
+              </li>
+            </ul>
+          </div>
           </div>
         </div>
 
