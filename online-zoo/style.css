@@ -80,6 +80,7 @@ p {
 }
 .header__link-active {
   border-bottom: 1px solid #333333;
+  cursor: context-menu;
 }
 .switch {
   position: relative;
@@ -657,6 +658,7 @@ input:checked + .slider:before {
   width: 1920px;
   height: 904px;
   background: #f2f2f2;
+  margin: 0 auto;
 }
 .map__title {
   font-family: Roboto;
