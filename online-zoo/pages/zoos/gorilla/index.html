@@ -15,9 +15,9 @@
       <div class="wrapper">
         <div class="header__wrapper">
           <div class="header__logo">
-            <a href="/" class="header__logo-link">
+            <a href="./" class="header__logo-link">
               <img
-                src="../../../assets/images/logo.svg"
+              src="../../../assets/images/logo.svg"
                 alt="Online zoo"
                 class="header__logo-pic"
               />
@@ -27,19 +27,19 @@
           <nav class="header__nav">
             <ul class="header__list">
               <li class="header__item" active>
-                <a href="#!" class="header__link">About</a>
+                <a href="./" class="header__link header__link-active">About</a>
               </li>
               <li class="header__item">
-                <a href="#!" class="header__link">Zoos</a>
+                <a href="./pages/zoos/panda/index.html" class="header__link">Zoos</a>
               </li>
               <li class="header__item">
                 <a href="./pages/map/index.html" class="header__link">Map</a>
               </li>
               <li class="header__item">
-                <a href="#!" class="header__link">Contact Us</a>
+                <a href="#footer__form" class="header__link">Contact Us</a>
               </li>
               <li class="header__item">
-                <a href="#!" class="header__link">Design</a>
+                <a href="https://www.figma.com/file/HKt5Nlx0jghQtJp6jW9q8F/zooApp" class="header__link">Design</a>
               </li>
             </ul>
           </nav>
@@ -50,6 +50,7 @@
           </label>
         </div>
       </div>
+      <h1 class="main__title">Online Zoo</h1>
     </header>
     <!-- Header end -->
 
@@ -181,7 +182,7 @@
       <div class="footer__wrapper">
         <div class="footer__navbar">
           <div class="footer__logo">
-            <a href="/" class="footer__logo-link">
+            <a href="./" class="footer__logo-link">
               <img
                 src="../../../assets/images/logo-light.svg"
                 alt="Online zoo"
@@ -193,36 +194,38 @@
           <nav class="footer__nav">
             <ul class="footer__list">
               <li class="footer__item">
-                <a href="#!" class="footer__link">About</a>
+                <a href="./" class="footer__link">About</a>
               </li>
               <li class="footer__item">
-                <a href="#!" class="footer__link">Zoos</a>
+                <a href="./pages/zoos/panda/index.html" class="footer__link">Zoos</a>
               </li>
               <li class="footer__item">
-                <a href="#!" class="footer__link">Map</a>
+                <a href="./pages/map/index.html" class="footer__link">Map</a>
               </li>
               <li class="footer__item">
-                <a href="#!" class="footer__link">Design</a>
+                <a href="https://www.figma.com/file/HKt5Nlx0jghQtJp6jW9q8F/zooApp" class="footer__link">Design</a>
               </li>
             </ul>
           </nav>
 
-          <button class="footer__button">donate for volunteers</button>
+          <button class="footer__button btn">donate for volunteers</button>
         </div>
 
         <div class="footer__contacts">
-          <form action="!#" class="footer__form">
+          <form action="#" class="footer__form">
             <h3 class="footer__form-title">Contact us</h3>
-            <input type="text" class="footer__form-name" placeholder="Name" />
+            <input type="text" class="footer__form-name" placeholder="Name" required/>
             <input
               type="email"
               class="footer__form-email"
               placeholder="Email"
+              required
             />
-            <input
+            <label class="footer__form-message-placeholder">Please enter your message</label>
+           <input
               type="textarea"
               class="footer__form-message"
-              placeholder="Please enter your message"
+              required
             />
             <input
               type="checkbox"
@@ -230,22 +233,58 @@
               name="agree"
               id="agree"
               title="I agree to the processing of Personal Data"
+              required
             />
-            <input type="button" class="footer__form-button" value="send" />
+            <button class="footer__form-button" type="submit">
+              <span class="footer__form-button-span">
+                send
+              </span>
+              <img src="./assets/images/btn_arrow.svg" alt="" class="footer__form-button-img">
+            </button>
           </form>
 
           <div class="footer__contacts-info">
             <h3 class="footer__online-centre">ZOO Online Centre</h3>
-            <a href="!#" class="footer__address">
-              132, Address District, Street<br />
-              Open Daily 10:00 am - 5:00 pm
-            </a>
-            <br />
-            <a href="!#" class="footer__info">
-              T(702) 163-3433<br />
-              zoo.online@gmail.com
-            </a>
-            <a href="!#" class="footer__social-net"> </a>
+            <p>
+              <address class="footer__address">132, Address District, Street</address>  
+            </p>
+            <p class="footer__open">Open Daily 10:00 am - 5:00 pm</p>
+
+            <p class="footer__tel">
+              T <a href="tel:7021633433" class="footer__tel-link">(702) 163-3433</a>
+            </p>  
+              <p class="footer__email">
+                <a href="mailto:zoo.online@gmail.com" class="footer_email-link">zoo.online@gmail.com</a>
+              </p>
+
+            <div class="footer__social-net">
+            <ul class="footer__social-net-list">
+              <li class="footer__social-net-item">
+                <a href="https://www.instagram.com/?hl=ru" class="footer__social-net-link">
+                  <img
+                    src="./assets/images/instagram_icon.svg"
+                    alt=""
+                    class=""
+                  />
+                </a>
+              </li>
+              <li class="footer__social-net-item">
+                <a href="https://twitter.com/?lang=ru" class="footer__social-net-link">
+                  <img src="./assets/images/twitter_icon.svg" alt="" class="" />
+                </a>
+              </li>
+              <li class="footer__social-net-item">
+                <a href="https://www.youtube.com/" class="footer__social-net-link">
+                  <img src="./assets/images/youtube_icon.svg" alt="" class="" />
+                </a>
+              </li>
+              <li class="footer__social-net-item">
+                <a href="https://vk.com/" class="footer__social-net-link">
+                  <img src="./assets/images/vk_icon.svg" alt="" class="" />
+                </a>
+              </li>
+            </ul>
+          </div>
           </div>
         </div>
 

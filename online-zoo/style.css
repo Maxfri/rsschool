@@ -33,6 +33,9 @@ h4,
 p {
   margin: 0;
 }
+.btn {
+  cursor: pointer;
+}
 .wrapper {
   max-width: 1920px;
   margin: 0 auto;
@@ -74,6 +77,9 @@ p {
   line-height: 19px;
   color: #333333;
   text-decoration: none;
+}
+.header__link-active {
+  border-bottom: 1px solid #333333;
 }
 .switch {
   position: relative;
@@ -138,6 +144,7 @@ input:checked + .slider:before {
 /* Intro styles start */
 .main__title {
   position: absolute;
+  top: -10000px;
   z-index: -10;
 }
 .intro {
@@ -230,6 +237,10 @@ input:checked + .slider:before {
   max-width: 100%;
   height: auto;
   filter: drop-shadow(5px 4px 50px rgba(152, 157, 198, 0.25));
+}
+.main__paginator {
+  position: relative;
+  left: -97px;
 }
 .paginator__count-light {
   width: 53px;
@@ -398,6 +409,15 @@ input:checked + .slider:before {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
+}
+.pets__arrow,
+.testimonials__arrow {
+  display: flex;
+  padding: 0;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  outline: 0;
 }
 .pets__card {
   position: relative;
@@ -778,7 +798,7 @@ input:checked + .slider:before {
   outline: none;
   width: 383px;
   height: 26px;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 .footer__form-email::placeholder {
   font-family: Roboto;
@@ -797,13 +817,16 @@ input:checked + .slider:before {
   background: none;
   margin-bottom: 25px;
 }
-.footer__form-message::placeholder {
+.footer__form-message-placeholder {
+  background: #333333;
+  left: 7px;
+  bottom: 107px;
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
-  font-size: 12px;
-  line-height: 14px;
-  color: #bdbdbd;
+  font-size: 14px;
+  line-height: 16px;
+  color: #e0e0e0;
 }
 .footer__form-checkbox {
   width: 13px;
@@ -837,7 +860,12 @@ input:checked + .slider:before {
   color: #fefefe;
   background: none;
   border: none;
-  margin-left: 240px;
+  margin-left: 256px;
+  display: flex;
+  cursor: pointer;
+}
+.footer__form-button-span {
+  margin-right: 24px;
 }
 .footer__form-title {
   font-family: Roboto;
@@ -877,10 +905,44 @@ input:checked + .slider:before {
   margin: 0;
   margin-bottom: 35px;
 }
-.footer__address {
+.footer__address,
+.footer__open,
+.footer__tel,
+.footer__email {
+  text-decoration: none;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  color: #fefefe;
+  margin-bottom: 5px;
+}
+.footer__tel-link,
+.footer_email-link {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  color: #fefefe;
+}
+.footer__open {
   margin-bottom: 20px;
 }
+.footer__social-net-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+}
+.footer__social-net-item {
+  margin-right: 15px;
 
+}
+.footer__social-net-item:last-child {
+  margin: 0;
+}
 .footer__line {
   margin-top: 60px;
   margin-bottom: 28px;
