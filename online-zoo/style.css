@@ -880,14 +880,23 @@ input:checked + .slider:before {
   line-height: 16px;
   color: #e0e0e0;
 }
-.footer__form-message {
-  width: 383px;
+.footer__form-message-fieldset {
+width: 383px;
   height: 115px;
   border: 1px solid #bdbdbd;
   box-sizing: border-box;
   border-radius: 3px;
   background: none;
   margin-bottom: 25px;
+}
+.footer__form-message {
+  border: transparent;
+  background: none;
+  overflow: auto;
+  resize: none;
+}
+.footer__form-message:focus {
+  outline: none;
 }
 .footer__form-message-placeholder {
   background: #333333;
@@ -903,7 +912,7 @@ input:checked + .slider:before {
 .footer__form-checkbox {
   width: 13px;
   height: 13px;
-  background: none;
+  background: transparent;
   border: 1px solid #bdbdbd;
   box-sizing: border-box;
   border-radius: 1px;
@@ -1031,3 +1040,6 @@ input:checked + .slider:before {
   color: #bdbdbd;
 }
 /* Footer  end*/
+.zoo-gallery__cards {
+  cursor: pointer;
+}

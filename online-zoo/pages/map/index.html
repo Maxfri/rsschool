@@ -75,71 +75,89 @@
         </div>
 
         <div class="gallery">
-          <div class="gallery__arrow">
-            <img src="../../assets/images/left-arrow.svg" alt="left arrow" />
+          <div class="map__gallery">
+            <div class="gallery__arrow">
+              <img src="../../assets/images/left-arrow.svg" alt="left arrow" />
+            </div>
+  
+            <div class="gallery__cards">
+              <div class="gallery__card">
+                <img
+                  src="../../assets/images/Ellipse_monke.png"
+                  alt=""
+                  class="gallery__image"
+                />
+              </div>
+              <div class="gallery__card">
+                <img
+                  src="../../assets/images/panda_active.png"
+                  alt=""
+                  class="gallery__image"
+                />
+              </div>
+              <div class="gallery__card">
+                <img
+                  src="../../assets/images/Ellipse_crok.png"
+                  alt=""
+                  class="gallery__image"
+                />
+              </div>
+              <div class="gallery__card">
+                <img
+                  src="../../assets/images/Ellipse_eagle.png"
+                  alt=""
+                  class="gallery__image"
+                />
+              </div>
+              <div class="gallery__card">
+                <img
+                  src="../../assets/images/Ellipse_tiger.png"
+                  alt=""
+                  class="gallery__image"
+                />
+              </div>
+              <div class="gallery__card">
+                <img
+                  src="../../assets/images/Ellipse_elephant.png"
+                  alt=""
+                  class="gallery__image"
+                />
+              </div>
+              <div class="gallery__card">
+                <img
+                  src="../../assets/images/Ellipse_lion.png"
+                  alt=""
+                  class="gallery__image"
+                />
+              </div>
+              <div class="gallery__card">
+                <img
+                  src="../../assets/images/Ellipse_zebra.png"
+                  alt=""
+                  class="gallery__image"
+                />
+              </div>
+            </div>
+  
+            <div class="gallery__arrow">
+              <img src="../../assets/images/right-arrow.svg" alt="right arrow" />
+            </div>
           </div>
 
-          <div class="gallery__cards">
-            <div class="gallery__card">
+          <div class="paginator">
+            <div class="paginator__title">
+              <p class="paginator__count-dark">
+                <span class="paginator__number">01/</span
+                ><span class="paginator__total-number">08</span>
+              </p>
+            </div>
+            <div class="paginator__line-dark">
               <img
-                src="../../assets/images/Ellipse_monke.png"
+                src="../../assets/images/paginator_big_dark.svg"
                 alt=""
-                class="gallery__image"
+                class="paginator__light"
               />
             </div>
-            <div class="gallery__card">
-              <img
-                src="../../assets/images/Ellipse_panda.png"
-                alt=""
-                class="gallery__image"
-              />
-            </div>
-            <div class="gallery__card">
-              <img
-                src="../../assets/images/Ellipse_crok.png"
-                alt=""
-                class="gallery__image"
-              />
-            </div>
-            <div class="gallery__card">
-              <img
-                src="../../assets/images/Ellipse_eagle.png"
-                alt=""
-                class="gallery__image"
-              />
-            </div>
-            <div class="gallery__card">
-              <img
-                src="../../assets/images/Ellipse_tiger.png"
-                alt=""
-                class="gallery__image"
-              />
-            </div>
-            <div class="gallery__card">
-              <img
-                src="../../assets/images/Ellipse_elephant.png"
-                alt=""
-                class="gallery__image"
-              />
-            </div>
-            <div class="gallery__card">
-              <img
-                src="../../assets/images/Ellipse_lion.png"
-                alt=""
-                class="gallery__image"
-              />
-            </div>
-            <div class="gallery__card">
-              <img
-                src="../../assets/images/Ellipse_zebra.png"
-                alt=""
-                class="gallery__image"
-              />
-            </div>
-          </div>
-
-          <div class="gallery__arrow">
-            <img src="../../assets/images/right-arrow.svg" alt="right arrow" />
           </div>
         </div>
 
@@ -273,12 +291,10 @@
               placeholder="Email"
               required
             />
-            <label class="footer__form-message-placeholder">Please enter your message</label>
-           <input
-              type="textarea"
-              class="footer__form-message"
-              required
-            />
+            <fieldset class="footer__form-message-fieldset">
+              <legend class="footer__form-message-placeholder">Please enter your message</legend>
+              <textarea class="footer__form-message" name="footer-textarea" cols="46" rows="5" maxlength="280" required></textarea>
+            </fieldset>
             <input
               type="checkbox"
               class="footer__form-checkbox"
@@ -291,7 +307,7 @@
               <span class="footer__form-button-span">
                 send
               </span>
-              <img src="./assets/images/btn_arrow.svg" alt="" class="footer__form-button-img">
+              <img src="../../assets/images/btn_arrow.svg" alt="" class="footer__form-button-img">
             </button>
           </form>
 

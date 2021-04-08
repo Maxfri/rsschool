@@ -64,7 +64,7 @@
           <div class="zoo-gallery__cards">
             <div class="zoo-gallery__card">
               <img
-                src="../../../assets/images/Ellipse_monke.png"
+                src="../../../assets/images/gorilla_active.png"
                 alt=""
                 class="zoo-gallery__image"
               />
@@ -224,12 +224,10 @@
               placeholder="Email"
               required
             />
-            <label class="footer__form-message-placeholder">Please enter your message</label>
-           <input
-              type="textarea"
-              class="footer__form-message"
-              required
-            />
+            <fieldset class="footer__form-message-fieldset">
+              <legend class="footer__form-message-placeholder">Please enter your message</legend>
+              <textarea class="footer__form-message" name="footer-textarea" cols="46" rows="5" maxlength="280" required></textarea>
+            </fieldset>
             <input
               type="checkbox"
               class="footer__form-checkbox"
@@ -242,7 +240,7 @@
               <span class="footer__form-button-span">
                 send
               </span>
-              <img src="./assets/images/btn_arrow.svg" alt="" class="footer__form-button-img">
+              <img src="../../../assets/images/btn_arrow.svg" alt="" class="footer__form-button-img">
             </button>
           </form>
 
