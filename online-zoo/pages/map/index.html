@@ -17,7 +17,7 @@
           <div class="header__logo">
             <a href="./" class="header__logo-link">
               <img
-                src="../../../assets/images/logo.svg"
+                src="../../assets/images/logo.svg"
                 alt="Online zoo"
                 class="header__logo-pic"
               />
@@ -144,20 +144,12 @@
             </div>
           </div>
 
-          <div class="paginator">
-            <div class="paginator__title">
+          <div class="paginator">  
+            <label for="paginator-line">
               <p class="paginator__count-dark">
-                <span class="paginator__number">01/</span
-                ><span class="paginator__total-number">08</span>
-              </p>
-            </div>
-            <div class="paginator__line-dark">
-              <img
-                src="../../assets/images/paginator_big_dark.svg"
-                alt=""
-                class="paginator__light"
-              />
-            </div>
+                <span class="paginator__number-dark">02/</span><span class="paginator__total-number">08</span></p>
+              </label>
+              <input type="range" id="paginator-line" class="paginator__line paginator__line-dark" min="1" max="8" value="2">
           </div>
         </div>
 
