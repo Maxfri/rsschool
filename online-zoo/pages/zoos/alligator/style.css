@@ -42,6 +42,12 @@ p {
 .zoo-gallery__arrow:last-child {
   margin: 0;
 }
+.zoo-gallery__cards {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
 .zoo-gallery__card {
   margin-bottom: 10px;
 }

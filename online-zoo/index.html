@@ -690,12 +690,10 @@
               placeholder="Email"
               required
             />
-            <label class="footer__form-message-placeholder">Please enter your message</label>
-           <input
-              type="textarea"
-              class="footer__form-message"
-              required
-            />
+            <fieldset class="footer__form-message-fieldset">
+              <legend class="footer__form-message-placeholder">Please enter your message</legend>
+              <textarea class="footer__form-message" name="footer-textarea" cols="46" rows="5" maxlength="280" required></textarea>
+            </fieldset>
             <input
               type="checkbox"
               class="footer__form-checkbox"
