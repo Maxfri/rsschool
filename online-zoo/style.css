@@ -35,6 +35,7 @@ p {
 }
 .btn {
   cursor: pointer;
+  border: none;
 }
 .wrapper {
   max-width: 1920px;
@@ -198,11 +199,7 @@ input:checked + .slider:before {
   width: 1080px;
 }
 .main-gallery__wrapper {
-  overflow: hidden;
-  margin-bottom: 20px;
-  background-image: url(./assets/images/line.svg);
-  background-repeat: no-repeat;
-  background-position-y: 57%;
+  margin-bottom: 15px;
 }
 .main-gallery__slider {
   height: 380px;
@@ -250,6 +247,7 @@ input:checked + .slider:before {
   font-family: Roboto;
   font-style: normal;
   color: #fefefe;
+  margin-bottom: 15px;
 }
 .paginator__number {
   font-weight: 900;
@@ -340,7 +338,7 @@ input:checked + .slider:before {
   font-family: Roboto;
   font-style: normal;
   color: #333333;
-  margin: 0;
+  margin-bottom: 15px;
 }
 .how-it-works__form {
   display: flex;
@@ -451,8 +449,10 @@ input:checked + .slider:before {
   top: 0;
   left: 0;
   background-image: linear-gradient(
-352.9deg
-, rgba(0, 0, 0, 0.5) 35%, rgba(28, 163, 50, 0.5));
+    352.9deg,
+    rgba(0, 0, 0, 0.5) 35%,
+    rgba(28, 163, 50, 0.5)
+  );
   transition: opacity 0.5s ease-in-out;
 }
 .pets__card:last-child {
@@ -725,6 +725,9 @@ input:checked + .slider:before {
   text-decoration: none;
 }
 .map__tooltip-card {
+  position: relative;
+  bottom: -50px;
+  left: -375px;
   visibility: hidden;
   width: 436px;
   height: 149px;
@@ -738,6 +741,7 @@ input:checked + .slider:before {
 }
 .map__tooltip:hover .map__tooltip-card {
   visibility: visible;
+  z-index: 1;
 }
 .map__tooltip-text {
   display: flex;
@@ -779,6 +783,7 @@ input:checked + .slider:before {
   margin: 0;
   background: url(./assets/images/map_pin.svg);
   background-repeat: no-repeat;
+  z-index: 1;
 }
 .map__eagle-icon:hover,
 .map__alligator-icon:hover,
@@ -855,6 +860,7 @@ input:checked + .slider:before {
   font-size: 16px;
   line-height: 19px;
   color: #fefefe;
+  text-decoration: none;
 }
 .footer__button {
   width: 275px;
@@ -995,7 +1001,7 @@ input:checked + .slider:before {
   display: flex;
 }
 .footer__contacts-info {
-  margin-left: 441px;
+  margin-left: 415px;
   display: flex;
   flex-flow: column wrap;
 }
@@ -1071,6 +1077,9 @@ input:checked + .slider:before {
   line-height: 14px;
   color: #bdbdbd;
 }
+.footer__copyright {
+  margin-bottom: 5px;
+}
 /* Footer  end*/
 .zoo-gallery__cards {
   cursor: pointer;
@@ -1098,7 +1107,6 @@ input:checked + .slider:before {
   -webkit-appearance: none;
   background: transparent;
   width: 245px;
-  margin-top: 15px;
 }
 
 .paginator__line::-webkit-slider-thumb {

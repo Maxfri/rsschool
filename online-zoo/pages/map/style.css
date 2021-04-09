@@ -70,6 +70,7 @@
 }
 .gallery__arrow {
   cursor: pointer;
+  margin-right: 20px;
 }
 .gallery__cards {
   display: flex;
