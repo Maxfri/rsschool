@@ -1001,7 +1001,7 @@ input:checked + .slider:before {
   display: flex;
 }
 .footer__contacts-info {
-  margin-left: 415px;
+  margin-left: 413px;
   display: flex;
   flex-flow: column wrap;
 }
