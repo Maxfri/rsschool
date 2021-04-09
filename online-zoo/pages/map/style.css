@@ -81,7 +81,14 @@
   margin-right: 30px;
   cursor: pointer;
 }
-
+.gallery__card:hover {
+  transform: scale(1.2);
+  transition: all 0.5s;
+}
+.gallery__card-active {
+  margin-right: 30px;
+  cursor: pointer;
+}
 .watch-online-form {
   display: flex;
   justify-content: center;

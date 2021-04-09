@@ -433,6 +433,9 @@ input:checked + .slider:before {
   width: 278px;
   height: 399px;
 }
+.pets__card:hover {
+  
+}
 .pets__card:last-child {
   margin-right: 0;
 }
@@ -444,6 +447,13 @@ input:checked + .slider:before {
   width: 197px;
   bottom: 42px;
   left: 23px;
+  opacity: 0;
+  transition: 0.5s;
+}
+.pets__info:hover {
+  opacity: 1;
+  transition: 0.5s;
+  background: rgba(0, 0, 0, 0.5);
 }
 .pets__description {
   font-family: Roboto;
