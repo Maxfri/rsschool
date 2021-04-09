@@ -324,7 +324,7 @@ input:checked + .slider:before {
   width: 790px;
   height: 323px;
   border-radius: 5px;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
 .paginator {
   display: flex;
