@@ -433,8 +433,9 @@ input:checked + .slider:before {
   width: 278px;
   height: 399px;
 }
-.pets__card:hover {
-  
+.pets__card:hover .pets__info {
+  transform: translateY(calc(-20px));
+  transition: 1s;
 }
 .pets__card:last-child {
   margin-right: 0;
@@ -450,7 +451,8 @@ input:checked + .slider:before {
   opacity: 0;
   transition: 0.5s;
 }
-.pets__info:hover {
+.pets__info:hover,
+.pets__info-hover {
   opacity: 1;
   transition: 0.5s;
   background: rgba(0, 0, 0, 0.5);
