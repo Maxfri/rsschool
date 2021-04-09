@@ -26,7 +26,7 @@ p {
   margin: 60px 200px 10px 50px;
   position: sticky;
   top: 30px;
-  height: 100vh;
+  height: 600px;
 }
 .zoo-gallery {
   display: flex;
@@ -47,6 +47,9 @@ p {
   flex-flow: column;
   align-items: center;
   justify-content: center;
+}
+.zoo-gallery__card-active {
+  cursor: auto;
 }
 .zoo-gallery__card {
   margin-bottom: 10px;
