@@ -1,0 +1,504 @@
+/* Media start */
+@media screen and (max-width: 1200px) {
+  .wrapper {
+    max-width: 1200px;
+  }
+
+  /* Header styles start */
+  .header__wrapper {
+    max-width: 900px;
+  }
+  /* Header styles end */
+
+  /* Intro styles start */
+  .intro {
+    min-height: 100vh;
+    max-height: 926px;
+    background: url(./assets/images/main-background.png) no-repeat center;
+    background-size: cover;
+  }
+  .intro__title {
+    padding-top: 128px;
+    padding-left: 150px;
+    padding-bottom: 37px;
+  }
+  .intro__watch-online-form {
+    margin-left: 150px;
+  }
+  .main-gallery {
+    top: 498px;
+    right: 0px;
+    width: 720px;
+  }
+  .main__paginator {
+    left: 350px;
+    width: 245px;
+    height: 49px;
+  }
+  .social-net {
+    display: flex;
+    margin-top: 320px;
+    margin-left: 150px;
+  }
+  .social-net__item {
+    margin-bottom: 9px;
+  }
+  /* Intro styles end */
+
+  /* How it work styles start */
+  .how-it-works__intro {
+    max-width: 900px;
+    margin: 0 227px;
+    display: block;
+  }
+  .how-it-works__subtitle {
+    width: 746px;
+    height: 96px;
+    padding-bottom: 14px;
+  }
+  .how-it-works__slider-img {
+    width: 746px;
+    height: 323px;
+    border-radius: 5px;
+    margin-bottom: 25px;
+  }
+  .card__item {
+    width: 287px;
+    height: 197px;
+    margin-right: 20px;
+  }
+  .card__subtitle {
+    width: 287px;
+  }
+  /* How it work styles end */
+  /* Pets in zoo  start*/
+  .pets__slider {
+    margin: 0 100px;
+  }
+  .pets__card {
+    width: 210px;
+    height: 301px;
+  }
+  .pets__card-img {
+    width: 100%;
+    height: auto;
+  }
+  /* Pets in zoo end*/
+  /* Pay and feed start*/
+  .pay-and-feed__cards {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .pay-and-feed__card {
+    margin-right: 17px;
+  }
+  .pay-and-feed__img {
+  }
+  /* Pay and feed end*/
+
+  /* Testimonials  start*/
+  .testimonials__wrapper {
+    max-width: 1200px;
+  }
+  .testimonials__title {
+    padding: 94px 0 50px 0;
+  }
+  .testimonials__slider {
+    max-width: 1000px;
+    margin-top: 13px;
+  }
+  .testimonials__cards {
+    margin-bottom: 48px;
+    flex-direction: column;
+  }
+  /* Testimonials  end*/
+
+  /* Map  start*/
+  .map__wrapper {
+    max-width: 1200px;
+    height: 837px;
+  }
+  .map__title {
+    padding-top: 95px;
+  }
+  .map__world {
+    padding-bottom: 35px;
+    width: 900px;
+    height: 436px;
+    margin: 0 auto;
+  }
+  .map__image {
+    width: 100%;
+    height: 436px;
+  }
+  .map__eagle-icon,
+  .map__alligator-icon,
+  .map__gorilla-icon,
+  .map__panda-icon {
+    transform: translate(0px, 0px);
+  }
+  /* Map  end*/
+
+  /* Footer  start*/
+
+  .footer__wrapper {
+    max-width: 900px;
+    height: 737px;
+  }
+
+  .footer__line {
+    width: 900px;
+  }
+  .footer__nav {
+    margin-left: 400px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .wrapper {
+    max-width: 640px;
+  }
+
+  /* Header styles start */
+  .header__wrapper {
+    max-width: 600px;
+  }
+  /* Header styles end */
+
+  /* Intro styles start */
+  .intro {
+    min-height: 100vh;
+    max-height: 926px;
+    background: url(./assets/images/main-background.png) no-repeat center;
+    background-size: cover;
+  }
+  .intro__title {
+    padding-top: 122px;
+    padding-left: 21px;
+    padding-bottom: 30px;
+    width: 599px;
+    height: 150px;
+  }
+  .intro__watch-online-form {
+    margin-left: 150px;
+  }
+  .main-gallery {
+    top: 498px;
+    right: 0px;
+    width: 640px;
+  }
+  .main-gallery__slider {
+    width: 640px;
+  }
+  .main__paginator {
+    left: 350px;
+    width: 245px;
+    height: 49px;
+  }
+  .social-net {
+    display: flex;
+    margin-top: 320px;
+    margin-left: 150px;
+  }
+  .social-net__item {
+    margin-bottom: 9px;
+  }
+  /* Intro styles end */
+
+  /* How it work styles start */
+  .how-it-works__intro {
+    max-width: 640px;
+    margin: 0 20px;
+    display: block;
+  }
+  .how-it-works__title {
+    width: 600px;
+    height: 56px;
+  }
+  .how-it-works__subtitle {
+    width: 600px;
+    height: 112px;
+    padding-bottom: 14px;
+  }
+  .how-it-works__slider-img {
+    width: 600px;
+    height: 323px;
+    border-radius: 5px;
+    margin-bottom: 25px;
+  }
+  .card__items {
+    display: flex;
+    flex-direction: column;
+  }
+  .card__item {
+    width: 287px;
+    height: 197px;
+    margin-right: 20px;
+  }
+  .card__subtitle {
+    width: 287px;
+  }
+  /* How it work styles end */
+  /* Pets in zoo  start*/
+  .pets__slider {
+    margin: 0 100px;
+  }
+  .pets__card {
+    width: 210px;
+    height: 301px;
+  }
+  .pets__card-img {
+    width: 100%;
+    height: auto;
+  }
+  /* Pets in zoo end*/
+  /* Pay and feed start*/
+  .pay-and-feed__cards {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    max-width: 600px;
+    margin: 0 auto;
+    flex-direction: column;
+  }
+  .pay-and-feed__card {
+    margin-right: 17px;
+  }
+  .pay-and-feed__img {
+  }
+  /* Pay and feed end*/
+
+  /* Testimonials  start*/
+  .testimonials__wrapper {
+    max-width: 640px;
+  }
+  .testimonials__title {
+    padding: 94px 0 50px 0;
+  }
+  .testimonials__slider {
+    max-width: 600px;
+    margin-top: 13px;
+  }
+  .testimonials__cards {
+    margin-bottom: 48px;
+  }
+  /* Testimonials  end*/
+
+  /* Map  start*/
+  .map__wrapper {
+    max-width: 640px;
+    height: 837px;
+  }
+  .map__title {
+    padding-top: 95px;
+  }
+  .map__world {
+    padding-bottom: 35px;
+    width: 600px;
+    height: 290px;
+    margin: 0 auto;
+  }
+  .map__image {
+    width: 100%;
+    height: 436px;
+  }
+  /* Map  end*/
+
+  /* Footer  start*/
+
+  .footer__wrapper {
+    max-width: 600px;
+    height: 737px;
+  }
+
+  .footer__line {
+    width: 600px;
+  }
+  .footer__nav {
+    margin-left: 400px;
+  }
+  .footer__contacts-info {
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .wrapper {
+    max-width: 320px;
+  }
+
+  /* Header styles start */
+  .header__wrapper {
+    max-width: 300px;
+  }
+  /* Header styles end */
+
+  /* Intro styles start */
+  .intro {
+    min-height: 100vh;
+    height: 669px;
+    background: url(./assets/images/main-background.png) no-repeat center;
+    background-size: cover;
+  }
+  .intro__title {
+    padding-top: 122px;
+    padding-left: 21px;
+    padding-bottom: 30px;
+    width: 300px;
+    height: 150px;
+  }
+  .intro__watch-online-form {
+    margin-left: 10px;
+  }
+  .main-gallery {
+    top: 498px;
+    right: 0px;
+    width: 320px;
+  }
+  .main-gallery__slider {
+    width: 320px;
+  }
+  .main-gallery__list {
+    right: 0px;
+    top: 15px;
+    margin: 0;
+    padding: 0;
+    display: none;
+  }
+  .main-gallery__img {
+    width: 140px;
+    height: 202px;
+  }
+  .pets__card-link {
+  }
+  .main__paginator {
+    left: 0px;
+    width: 245px;
+    height: 49px;
+  }
+  .social-net {
+    display: none;
+  }
+  .social-net__item {
+    margin-bottom: 9px;
+  }
+  /* Intro styles end */
+
+  /* How it work styles start */
+  .how-it-works__intro {
+    max-width: 320px;
+    margin: 0 20px;
+    display: block;
+  }
+  .how-it-works__title {
+    width: 300px;
+    height: 56px;
+  }
+  .how-it-works__subtitle {
+    width: 300px;
+    height: 112px;
+    padding-bottom: 14px;
+  }
+  .how-it-works__slider-img {
+    width: 300px;
+    height: 323px;
+    border-radius: 5px;
+    margin-bottom: 25px;
+  }
+  .card__items {
+    display: flex;
+    flex-direction: column;
+  }
+  .card__item {
+    width: 287px;
+    height: 197px;
+    margin-right: 20px;
+  }
+  .card__subtitle {
+    width: 287px;
+  }
+  /* How it work styles end */
+  /* Pets in zoo  start*/
+  .pets__slider {
+    margin: 0 100px;
+  }
+  .pets__card {
+    width: 210px;
+    height: 301px;
+  }
+  .pets__card-img {
+    width: 100%;
+    height: auto;
+  }
+  /* Pets in zoo end*/
+  /* Pay and feed start*/
+  .pay-and-feed__cards {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    max-width: 600px;
+    margin: 0 auto;
+    flex-direction: column;
+  }
+  .pay-and-feed__card {
+    margin-right: 17px;
+  }
+  .pay-and-feed__img {
+  }
+  /* Pay and feed end*/
+
+  /* Testimonials  start*/
+  .testimonials__wrapper {
+    max-width: 320px;
+  }
+  .testimonials__title {
+    padding: 94px 0 50px 0;
+  }
+  .testimonials__slider {
+    max-width: 300px;
+    margin-top: 13px;
+  }
+  .testimonials__cards {
+    margin-bottom: 48px;
+  }
+  /* Testimonials  end*/
+
+  /* Map  start*/
+  .map__wrapper {
+    max-width: 320px;
+    height: 837px;
+  }
+  .map__title {
+    padding-top: 95px;
+  }
+  .map__world {
+    padding-bottom: 35px;
+    width: 300px;
+    height: 290px;
+    margin: 0 auto;
+  }
+  .map__image {
+    width: 100%;
+    height: 436px;
+  }
+  /* Map  end*/
+
+  /* Footer  start*/
+
+  .footer__wrapper {
+    max-width: 300px;
+    height: 737px;
+  }
+
+  .footer__line {
+    width: 300px;
+  }
+  .footer__nav {
+    margin-left: 0;
+  }
+  .footer__contacts-info {
+    margin-left: 0;
+  }
+}
+
+/* Media end */

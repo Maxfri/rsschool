@@ -694,10 +694,12 @@ input:checked + .slider:before {
 /* Testimonials  end*/
 
 /* Map  start*/
-.map__wrapper {
-  width: 1920px;
-  height: 904px;
+.map {
   background: #f2f2f2;
+}
+.map__wrapper {
+  max-width: 1920px;
+  height: 904px;
   margin: 0 auto;
 }
 .map__title {
