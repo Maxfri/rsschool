@@ -332,6 +332,16 @@
   .header__wrapper {
     max-width: 300px;
   }
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 54px;
+    height: 30px;
+    margin: 0;
+  }
+  .header__list {
+    display: none;
+  }
   /* Header styles end */
 
   /* Intro styles start */
@@ -579,19 +589,80 @@
   /* Footer  start*/
 
   .footer__wrapper {
-    width: 320px;
+    width: 300px;
     height: 1100px;
-    margin: 0 10px;
+    padding: 0 10px;
+  }
+  .footer__logo {
+    padding-bottom: 30px;
+  }
+  .footer__navbar {
+    padding-top: 50px;
+    padding-bottom: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
   }
 
-  .footer__line {
-    width: 300px;
-  }
   .footer__nav {
     margin-left: 0;
   }
+  .footer__list {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+  }
+  .footer__item {
+    margin-right: 0;
+    margin-bottom: 5px;
+  }
+  .footer__button {
+  }
+  .footer__contacts {
+    padding-top: 18px;
+    width: 300px;
+    flex-direction: column;
+    overflow: hidden;
+    padding-bottom: 25px;
+  }
+  .footer__form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    padding-bottom: 54px;
+  }
+  .footer__form-title {
+    margin-bottom: 30px;
+  }
+  .footer__form-name {
+    margin-bottom: 15px;
+  }
+  .footer__form-email {
+    margin-bottom: 25px;
+  }
+  .footer__form-message-fieldset {
+    width: 300px;
+    height: 124px;
+    margin-bottom: 16px;
+  }
+  .footer__form-checkbox {
+    margin-bottom: 23px;
+  }
+  .footer__form-button {
+    margin-left: 185px;
+  }
   .footer__contacts-info {
     margin-left: 0;
+  }
+  .footer__button {
+    position: relative;
+    right: -13px;
+  }
+  .footer__line {
+    width: 300px;
+    margin: 80px 0px 28px 0px;
   }
 }
 
