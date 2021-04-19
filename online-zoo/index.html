@@ -7,7 +7,7 @@
     <title>Online zoo</title>
     <link rel="stylesheet" href="normalize.css" />
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="media-style.css">
+    <link rel="stylesheet" href="media-style.css" />
   </head>
   <body>
     <!-- Header start -->
@@ -30,7 +30,9 @@
                 <a href="./" class="header__link header__link-active">About</a>
               </li>
               <li class="header__item">
-                <a href="./pages/zoos/panda/index.html" class="header__link">Zoos</a>
+                <a href="./pages/zoos/panda/index.html" class="header__link"
+                  >Zoos</a
+                >
               </li>
               <li class="header__item">
                 <a href="./pages/map/index.html" class="header__link">Map</a>
@@ -39,7 +41,11 @@
                 <a href="#footer__form" class="header__link">Contact Us</a>
               </li>
               <li class="header__item">
-                <a href="https://www.figma.com/file/HKt5Nlx0jghQtJp6jW9q8F/zooApp" class="header__link">Design</a>
+                <a
+                  href="https://www.figma.com/file/HKt5Nlx0jghQtJp6jW9q8F/zooApp"
+                  class="header__link"
+                  >Design</a
+                >
               </li>
             </ul>
           </nav>
@@ -56,11 +62,14 @@
 
     <main class="main">
       <!-- Intro start -->
-      <!-- <section class="intro">
+      <section class="intro">
         <div class="wrapper">
           <h2 class="intro__title">Watch your favorite animal online</h2>
 
-          <form class="intro__watch-online-form" action="./pages/zoos/panda/index.html">
+          <form
+            class="intro__watch-online-form"
+            action="./pages/zoos/panda/index.html"
+          >
             <button class="watch-online-form__submit btn">
               <img
                 src="./assets/images/play.svg"
@@ -74,7 +83,10 @@
           <div class="social-net">
             <ul class="social-net__list">
               <li class="social-net__item">
-                <a href="https://www.instagram.com/?hl=ru" class="social-net__link">
+                <a
+                  href="https://www.instagram.com/?hl=ru"
+                  class="social-net__link"
+                >
                   <img
                     src="./assets/images/instagram_icon.svg"
                     alt=""
@@ -99,7 +111,6 @@
               </li>
             </ul>
           </div>
-
 
           <div class="main-gallery">
             <div class="main-gallery__wrapper">
@@ -129,8 +140,8 @@
                       />
                       <div class="pets__info pets__info-hover">
                         <p class="pets__description">
-                          Panda’s name is Bei Bei. He is 2 years old. Bei Bei is from
-                          China. He loves bamboos.
+                          Panda’s name is Bei Bei. He is 2 years old. Bei Bei is
+                          from China. He loves bamboos.
                         </p>
                         <div class="pets__buttons">
                           <div class="pets__buttons-watch">
@@ -188,18 +199,26 @@
                 </ul>
               </div>
             </div>
-            
-            <div class="paginator main__paginator">  
+
+            <div class="paginator main__paginator">
               <label for="paginator-line">
                 <p class="paginator__count-light">
-                  <span class="paginator__number">02/</span><span class="paginator__total-number">08</span></p>
-                </label>
-                <input type="range" id="paginator-line" class="paginator__line paginator__line-light" min="1" max="8" value="2">
+                  <span class="paginator__number">02/</span
+                  ><span class="paginator__total-number">08</span>
+                </p>
+              </label>
+              <input
+                type="range"
+                id="paginator-line"
+                class="paginator__line paginator__line-light"
+                min="1"
+                max="8"
+                value="2"
+              />
             </div>
-
           </div>
         </div>
-      </section> -->
+      </section>
       <!-- Intro end -->
 
       <!-- How it work start -->
@@ -227,17 +246,28 @@
                 alt="Deers"
               />
 
-              <div class="paginator">  
+              <div class="paginator">
                 <label for="paginator-line">
                   <p class="paginator__count-dark">
-                    <span class="paginator__number-dark">01/</span><span class="paginator__total-number">04</span></p>
-                  </label>
-                  <input type="range" id="paginator-line" class="paginator__line paginator__line-dark" min="1" max="4" value="1">
+                    <span class="paginator__number-dark">01/</span
+                    ><span class="paginator__total-number">04</span>
+                  </p>
+                </label>
+                <input
+                  type="range"
+                  id="paginator-line"
+                  class="paginator__line paginator__line-dark"
+                  min="1"
+                  max="4"
+                  value="1"
+                />
               </div>
-  
             </div>
 
-            <form class="how-it-works__form" action="./pages/zoos/panda/index.html">
+            <form
+              class="how-it-works__form"
+              action="./pages/zoos/panda/index.html"
+            >
               <button class="watch-online-form__submit btn">
                 <img
                   src="./assets/images/play.svg"
@@ -340,104 +370,102 @@
               </article>
 
               <article class="pets__card">
-                  <img
-                    src="./assets/images/eagle.png"
-                    alt="Eagle"
-                    class="pets__card-img"
-                  />
-                  <div class="pets__info">
-                    <p class="pets__description">
-                      Eagle name is Bei Bei. He is 2 years old. Bei Bei is from
-                      China. He loves bamboos.
-                    </p>
-                    <div class="pets__buttons">
-                      <div class="pets__buttons-watch">
-                        <a
-                          href="./pages/zoos/eagle/index.html"
-                          class="pets__card-link"
-                        >
-                          <img
-                            src="./assets/images/watch_online.svg"
-                            alt=""
-                            class="watch-online-form__play"
-                          />
-                        </a>
-                      </div>
-                      <div class="pets__buttons-donate">
-                        <a href="#" class="pets__card-link">
-                          <img src="./assets/images/donate.svg" alt="" />
-                        </a>
-                      </div>
+                <img
+                  src="./assets/images/eagle.png"
+                  alt="Eagle"
+                  class="pets__card-img"
+                />
+                <div class="pets__info">
+                  <p class="pets__description">
+                    Eagle name is Bei Bei. He is 2 years old. Bei Bei is from
+                    China. He loves bamboos.
+                  </p>
+                  <div class="pets__buttons">
+                    <div class="pets__buttons-watch">
+                      <a
+                        href="./pages/zoos/eagle/index.html"
+                        class="pets__card-link"
+                      >
+                        <img
+                          src="./assets/images/watch_online.svg"
+                          alt=""
+                          class="watch-online-form__play"
+                        />
+                      </a>
+                    </div>
+                    <div class="pets__buttons-donate">
+                      <a href="#" class="pets__card-link">
+                        <img src="./assets/images/donate.svg" alt="" />
+                      </a>
                     </div>
                   </div>
+                </div>
               </article>
 
               <article class="pets__card">
-
-                  <img
-                    src="./assets/images/monke.png"
-                    alt="Gorilla"
-                    class="pets__card-img"
-                  />
-                  <div class="pets__info">
-                    <p class="pets__description">
-                      Gorilla's name is Bei Bei. He is 2 years old. Bei Bei is from
-                      China. He loves bamboos.
-                    </p>
-                    <div class="pets__buttons">
-                      <div class="pets__buttons-watch">
-                        <a
-                          href="./pages/zoos/gorilla/index.html"
-                          class="pets__card-link"
-                        >
-                          <img
-                            src="./assets/images/watch_online.svg"
-                            alt=""
-                            class="watch-online-form__play"
-                          />
-                        </a>
-                      </div>
-                      <div class="pets__buttons-donate">
-                        <a href="#" class="pets__card-link">
-                          <img src="./assets/images/donate.svg" alt="" />
-                        </a>
-                      </div>
+                <img
+                  src="./assets/images/monke.png"
+                  alt="Gorilla"
+                  class="pets__card-img"
+                />
+                <div class="pets__info">
+                  <p class="pets__description">
+                    Gorilla's name is Bei Bei. He is 2 years old. Bei Bei is
+                    from China. He loves bamboos.
+                  </p>
+                  <div class="pets__buttons">
+                    <div class="pets__buttons-watch">
+                      <a
+                        href="./pages/zoos/gorilla/index.html"
+                        class="pets__card-link"
+                      >
+                        <img
+                          src="./assets/images/watch_online.svg"
+                          alt=""
+                          class="watch-online-form__play"
+                        />
+                      </a>
+                    </div>
+                    <div class="pets__buttons-donate">
+                      <a href="#" class="pets__card-link">
+                        <img src="./assets/images/donate.svg" alt="" />
+                      </a>
                     </div>
                   </div>
+                </div>
               </article>
 
               <article class="pets__card">
-
-                  <img
-                    src="./assets/images/croko.png"
-                    alt="Alligator"
-                    class="pets__card-img"
-                  />
-                  <div class="pets__info">
-                    <p class="pets__description">
-                      Alligator name is Bei Bei. He is 2 years old. Bei Bei is from
-                      China. He loves bamboos.
-                    </p>
-                    <div class="pets__buttons">
-                      <div class="pets__buttons-watch">
-                        <a
-                          href="./pages/zoos/alligator/index.html"
-                          class="pets__card-link"
-                        >
-                          <img
-                            src="./assets/images/watch_online.svg"
-                            alt=""
-                            class="watch-online-form__play"
-                          />
-                        </a>
-                      </div>
-                      <div class="pets__buttons-donate">
-                        <a href="#" class="pets__card-link">
-                          <img src="./assets/images/donate.svg" alt="" />
-                        </a>
-                      </div>
+                <img
+                  src="./assets/images/croko.png"
+                  alt="Alligator"
+                  class="pets__card-img"
+                />
+                <div class="pets__info">
+                  <p class="pets__description">
+                    Alligator name is Bei Bei. He is 2 years old. Bei Bei is
+                    from China. He loves bamboos.
+                  </p>
+                  <div class="pets__buttons">
+                    <div class="pets__buttons-watch">
+                      <a
+                        href="./pages/zoos/alligator/index.html"
+                        class="pets__card-link"
+                      >
+                        <img
+                          src="./assets/images/watch_online.svg"
+                          alt=""
+                          class="watch-online-form__play"
+                        />
+                      </a>
+                    </div>
+                    <div class="pets__buttons-donate">
+                      <a href="#" class="pets__card-link">
+                        <img src="./assets/images/donate.svg" alt="" />
+                      </a>
                     </div>
                   </div>
+                </div>
               </article>
 
               <button class="pets__arrow">
@@ -445,25 +473,35 @@
               </button>
             </div>
 
-            <div class="paginator">  
+            <div class="paginator">
               <label for="paginator-line">
                 <p class="paginator__count-dark">
-                  <span class="paginator__number-dark">01/</span><span class="paginator__total-number">08</span></p>
-                </label>
-                <input type="range" id="paginator-line" class="paginator__line paginator__line-dark" min="1" max="8" value="1">
+                  <span class="paginator__number-dark">01/</span
+                  ><span class="paginator__total-number">08</span>
+                </p>
+              </label>
+              <input
+                type="range"
+                id="paginator-line"
+                class="paginator__line paginator__line-dark"
+                min="1"
+                max="8"
+                value="1"
+              />
             </div>
-
           </div>
 
           <form action="./pages/map/index.html" class="pets-favorite__form">
-            <button class="pets-favorite__button btn">Choose your favorite</button>
+            <button class="pets-favorite__button btn">
+              Choose your favorite
+            </button>
           </form>
         </div>
       </section>
       <!-- Pets in zoo  end -->
 
       <!-- Pay and feed start -->
-      <!-- <section class="pay-and-feed">
+      <section class="pay-and-feed">
         <div class="wrapper">
           <h2 class="pay-and-feed__title">Pay and feed</h2>
           <p class="pay-and-feed__subtitle">
@@ -517,11 +555,11 @@
             <button class="pay-and-feed__button btn">donate</button>
           </form>
         </div>
-      </section> -->
+      </section>
       <!-- Pay and feed end -->
 
       <!-- Testimonials start -->
-      <!-- <section class="testimonials">
+      <section class="testimonials">
         <div class="testimonials__wrapper">
           <h2 class="testimonials__title">Testimonials</h2>
 
@@ -572,12 +610,21 @@
               </button>
             </div>
 
-            <div class="paginator">  
+            <div class="paginator">
               <label for="paginator-line">
                 <p class="paginator__count-dark">
-                  <span class="paginator__number-dark">02/</span><span class="paginator__total-number">08</span></p>
-                </label>
-                <input type="range" id="paginator-line" class="paginator__line paginator__line-dark" min="1" max="8" value="2">
+                  <span class="paginator__number-dark">02/</span
+                  ><span class="paginator__total-number">08</span>
+                </p>
+              </label>
+              <input
+                type="range"
+                id="paginator-line"
+                class="paginator__line paginator__line-dark"
+                min="1"
+                max="8"
+                value="2"
+              />
             </div>
           </div>
 
@@ -585,11 +632,11 @@
             <button class="testimonials__button btn">Leave feedback</button>
           </form>
         </div>
-      </section> -->
+      </section>
       <!-- Testimonials end -->
 
       <!-- Map start -->
-      <!-- <section class="map">
+      <section class="map">
         <div class="map__wrapper">
           <h2 class="map__title">Map</h2>
 
@@ -682,11 +729,11 @@
             </button>
           </form>
         </div>
-      </section> -->
+      </section>
       <!-- Map end -->
     </main>
     <!-- Footer start -->
-    <!-- <footer class="footer">
+    <footer class="footer">
       <div class="footer__wrapper">
         <div class="footer__navbar">
           <div class="footer__logo">
@@ -803,7 +850,7 @@
           ©RSSchool and ©Yem Digital - 2021
         </a>
       </div>
-    </footer> -->
+    </footer>
     <!-- Footer end -->
   </body>
 </html>

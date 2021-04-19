@@ -342,11 +342,14 @@
     background-size: cover;
   }
   .intro__title {
-    padding-top: 122px;
-    padding-left: 21px;
-    padding-bottom: 30px;
+    padding-top: 92px;
+    padding-left: 10px;
+    padding-bottom: 15px;
     width: 300px;
-    height: 150px;
+    height: 168px;
+    font-weight: 900;
+    font-size: 48px;
+    line-height: 56px;
   }
   .intro__watch-online-form {
     margin-left: 10px;
@@ -388,106 +391,197 @@
   /* How it work styles start */
   .how-it-works__intro {
     max-width: 320px;
-    margin: 0 20px;
+    margin: 0 10px;
     display: block;
   }
   .how-it-works__title {
     width: 300px;
-    height: 56px;
+    height: 42px;
+    font-size: 36px;
+    line-height: 42px;
+    padding-top: 50px;
+    padding-bottom: 20px;
   }
   .how-it-works__subtitle {
     width: 300px;
-    height: 112px;
-    padding-bottom: 14px;
+    height: 224px;
+    padding-bottom: 30px;
+  }
+  .how-it-works__slider {
+    padding-bottom: 20px;
   }
   .how-it-works__slider-img {
     width: 300px;
     height: 323px;
     border-radius: 5px;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
+  }
+  .how-it-works__form {
+    padding-bottom: 50px;
+  }
+  .card__wrapper {
+    width: 320px;
+    height: 719px;
   }
   .card__items {
     display: flex;
     flex-direction: column;
+    padding-top: 50px;
   }
   .card__item {
-    width: 287px;
-    height: 197px;
-    margin-right: 20px;
+    width: 299px;
+    height: auto;
+    margin: 0 10px 30px;
   }
   .card__subtitle {
-    width: 287px;
+    width: 300px;
   }
   /* How it work styles end */
   /* Pets in zoo  start*/
+  .pets-in-zoo__title {
+    width: 300px;
+    height: 42px;
+    font-size: 36px;
+    line-height: 42px;
+    text-align: center;
+    padding-bottom: 30px;
+    margin: 0 10px;
+  }
   .pets__slider {
-    margin: 0 100px;
+    margin: 0 10px;
+    overflow: hidden;
+  }
+  .pets__cards {
+    flex-wrap: nowrap;
+    margin-bottom: 30px;
+    overflow: hidden;
+  }
+  .pets__arrow {
+    display: none;
   }
   .pets__card {
     width: 210px;
     height: 301px;
+    margin-right: 16px;
+    overflow: hidden;
   }
   .pets__card-img {
     width: 100%;
     height: auto;
   }
+  .pets-favorite__form {
+    padding-bottom: 50px;
+  }
   /* Pets in zoo end*/
   /* Pay and feed start*/
-  .pay-and-feed__cards {
+  .pay-and-feed__title {
+    width: 300px;
+    height: 42px;
+    font-size: 36px;
+    line-height: 42px;
     padding-top: 50px;
-    padding-bottom: 50px;
-    max-width: 600px;
-    margin: 0 auto;
+    padding-bottom: 30px;
+    margin: 0 10px;
+  }
+  .pay-and-feed__subtitle {
+    display: none;
+  }
+  .pay-and-feed__cards {
+    padding-top: 0px;
+    padding-bottom: 36px;
+    margin: 0 10px;
     flex-direction: column;
   }
   .pay-and-feed__card {
-    margin-right: 17px;
+    margin-right: 0px;
+    margin-bottom: 30px;
   }
   .pay-and-feed__img {
+  }
+  .pay-and-feed__form {
+    padding-bottom: 50px;
   }
   /* Pay and feed end*/
 
   /* Testimonials  start*/
   .testimonials__wrapper {
     max-width: 320px;
+    height: 705px;
+    overflow: hidden;
   }
   .testimonials__title {
-    padding: 94px 0 50px 0;
+    padding: 50px 0 25px 0;
+    width: 300px;
+    height: 42px;
+    font-size: 36px;
+    line-height: 42px;
+    margin: 0 10px;
   }
   .testimonials__slider {
     max-width: 300px;
-    margin-top: 13px;
+    margin: 10px 10px 20px;
+  }
+  .testimonials__arrow {
+    display: none;
   }
   .testimonials__cards {
-    margin-bottom: 48px;
+    margin-bottom: 40px;
+    flex-wrap: nowrap;
+  }
+  .testimonials__card:nth-child(3) {
+    display: none;
+  }
+  .testimonials__card {
+    width: 300px;
+    height: 363px;
+  }
+  .testimonials__form {
+    margin-top: 20px;
+    margin-bottom: 50px;
   }
   /* Testimonials  end*/
 
   /* Map  start*/
   .map__wrapper {
-    max-width: 320px;
-    height: 837px;
+    width: 320px;
+    height: 413px;
   }
   .map__title {
-    padding-top: 95px;
+    padding-top: 50px;
+    padding-bottom: 30px;
+    font-size: 36px;
+    line-height: 42px;
+    width: 300px;
+    height: 42px;
+    margin: 0 10px;
   }
   .map__world {
-    padding-bottom: 35px;
+    padding-bottom: 30px;
     width: 300px;
-    height: 290px;
-    margin: 0 auto;
+    height: 146px;
+    margin: 0 10px;
   }
   .map__image {
     width: 100%;
-    height: 436px;
+    height: auto;
+  }
+  .map__eagle-icon,
+  .map__alligator-icon,
+  .map__gorilla-icon,
+  .map__panda-icon {
+    display: none;
+  }
+  .map__form {
+    padding-bottom: 60px;
   }
   /* Map  end*/
 
   /* Footer  start*/
 
   .footer__wrapper {
-    max-width: 300px;
-    height: 737px;
+    width: 320px;
+    height: 1100px;
+    margin: 0 10px;
   }
 
   .footer__line {
