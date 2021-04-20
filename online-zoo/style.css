@@ -18,6 +18,7 @@
     /* Chrome 26+, Opera 23+, Firefox 39+ */
       url("./assets/fonts/roboto-v20-latin-900.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
+@import url(./media-style.css);
 .body {
   margin: 0;
   font-family: "Roboto", "Arial", sans-serif;
