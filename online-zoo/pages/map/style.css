@@ -100,3 +100,64 @@
   background: url(../../assets/images/map_red-pin.svg);
   background-repeat: no-repeat;
 }
+
+@media screen and (max-width: 1200px) {
+  .choose-your-favorite__subtitle {
+    padding-bottom: 35px;
+  }
+  .gallery {
+    width: 800px;
+    height: 231px;
+    margin: 0 200px 50px;
+    align-items: center;
+    justify-content: center;
+  }
+  .gallery__arrow {
+    cursor: pointer;
+    margin-right: 0px;
+  }
+  .map__gallery {
+    flex-wrap: nowrap;
+  }
+  .gallery__cards {
+    flex-wrap: nowrap;
+  }
+  .gallery__card:nth-child(8) {
+    display: none;
+  }
+  .gallery__card:nth-child(6) {
+    display: none;
+  }
+  .gallery__card:nth-child(7) {
+    display: none;
+  }
+  .map__world {
+    padding-bottom: 35px;
+    width: 800px;
+    height: 388px;
+    margin: 0 200px;
+  }
+  .watch-online-form {
+    margin-bottom: 100px;
+  }
+  .map__wrapper {
+    max-width: 1200px;
+    height: auto;
+  }
+  .map__image {
+    width: 800px;
+    height: 388px;
+  }
+  .map__eagle-icon {
+    transform: translate(70px, -346px);
+  }
+  .map__alligator-icon {
+    transform: translate(151px, -434px);
+  }
+  .map__gorilla-icon {
+    transform: translate(369px, -459px);
+  }
+  .map__panda-icon {
+    transform: translate(581px, -636px);
+  }
+}
