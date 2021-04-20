@@ -25,6 +25,9 @@
   .intro__watch-online-form {
     margin-left: 150px;
   }
+  .main-gallery__wrapper {
+    margin-bottom: 23px;
+  }
   .main-gallery {
     top: 498px;
     right: 0px;
@@ -87,9 +90,12 @@
   /* Pay and feed start*/
   .pay-and-feed__cards {
     padding-top: 50px;
-    padding-bottom: 50px;
+    padding-bottom: 45px;
     max-width: 900px;
-    margin: 0 auto;
+    margin: 0 150px;
+  }
+  .pay-and-feed__arrow {
+    width: 48px;
   }
   .pay-and-feed__card {
     margin-right: 17px;
@@ -99,27 +105,32 @@
   /* Testimonials  start*/
   .testimonials__wrapper {
     max-width: 1200px;
+    height: 810px;
   }
   .testimonials__title {
-    padding: 94px 0 50px 0;
+    padding: 100px 0 50px 0;
   }
   .testimonials__slider {
-    max-width: 1000px;
-    margin-top: 13px;
+    max-width: 1200px;
+    margin: 13px 100px 0;
+    flex-direction: column;
   }
   .testimonials__cards {
     margin-bottom: 48px;
-    flex-direction: column;
+  }
+  .testimonials__card {
+    width: 440px;
+    height: 310px;
   }
   /* Testimonials  end*/
 
   /* Map  start*/
   .map__wrapper {
     max-width: 1200px;
-    height: 837px;
+    height: 842px;
   }
   .map__title {
-    padding-top: 95px;
+    padding-top: 100px;
   }
   .map__world {
     padding-bottom: 35px;
@@ -131,11 +142,23 @@
     width: 100%;
     height: 436px;
   }
-  .map__eagle-icon,
+  /* .map__eagle-icon,
   .map__alligator-icon,
   .map__gorilla-icon,
   .map__panda-icon {
     transform: translate(0px, 0px);
+  } */
+  .map__eagle-icon {
+    transform: translate(85px, -383px);
+  }
+  .map__alligator-icon {
+    transform: translate(174px, -472px);
+  }
+  .map__gorilla-icon {
+    transform: translate(424px, -486px);
+  }
+  .map__panda-icon {
+    transform: translate(657px, -671px);
   }
   /* Map  end*/
 
@@ -145,12 +168,82 @@
     max-width: 900px;
     height: 737px;
   }
+  .footer__logo {
+    padding-bottom: 20px;
+    padding-top: 100px;
+    margin-right: 400px;
+  }
+  .footer__navbar {
+    padding-top: 0px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: end;
+  }
 
+  .footer__nav {
+    margin-left: 0;
+    padding-top: 86px;
+  }
+  .footer__list {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+  }
+  .footer__item {
+    margin-right: 73px;
+  }
+  .footer__item:last-child {
+    margin-right: 0px;
+  }
+  .footer__contacts {
+    padding-top: 0px;
+    flex-direction: row;
+    padding-bottom: 25px;
+  }
+  .footer__form {
+    padding-top: 18px;
+    display: flex;
+    flex-direction: column;
+    width: 383px;
+    padding-bottom: 77px;
+  }
+  .footer__form-title {
+    margin-bottom: 30px;
+  }
+  .footer__form-name {
+    margin-bottom: 15px;
+    width: 383px;
+  }
+  .footer__form-email {
+    margin-bottom: 25px;
+    width: 383px;
+  }
+  .footer__form-message-fieldset {
+    width: 383px;
+    height: 124px;
+    margin-bottom: 16px;
+  }
+  .footer__form-checkbox {
+    margin-bottom: 23px;
+  }
+  .footer__form-button {
+    margin-left: 254px;
+  }
+  .footer__contacts-info {
+    padding-top: 5px;
+    margin-left: 76px;
+  }
+  .footer__button {
+    position: relative;
+    bottom: 782px;
+    right: -326px;
+    display: none;
+  }
   .footer__line {
     width: 900px;
-  }
-  .footer__nav {
-    margin-left: 400px;
+    margin: -37px 0px 28px 0px;
   }
 }
 
