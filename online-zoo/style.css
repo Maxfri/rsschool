@@ -40,20 +40,18 @@ p {
 }
 .wrapper {
   max-width: 1920px;
-  margin: 0 auto;
-
   box-shadow: 0px 4px 8px rgba(44, 101, 77, 0.08);
 }
 
 /* Header styles start */
 .header__wrapper {
-  max-width: 1620px;
   height: 94px;
   background: #ffffff;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
+  padding: 0 150px;
 }
 .header__list {
   display: flex;
@@ -84,6 +82,9 @@ p {
   border-bottom: 1px solid #333333;
   cursor: context-menu;
 }
+.header__toggle {
+  display: none;
+}
 .switch {
   position: relative;
   display: inline-block;
@@ -91,11 +92,9 @@ p {
   height: 34px;
   margin: 32px 0px;
 }
-
 .switch input {
   display: none;
 }
-
 .slider {
   position: absolute;
   cursor: pointer;
@@ -107,7 +106,6 @@ p {
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
-
 .slider:before {
   position: absolute;
   content: "";
@@ -119,26 +117,21 @@ p {
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
-
 input:checked + .slider {
   background-color: #2196f3;
 }
-
 input:focus + .slider {
   box-shadow: 0 0 1px #2196f3;
 }
-
 input:checked + .slider:before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
 }
-
 /* Rounded sliders */
 .slider.round {
   border-radius: 34px;
 }
-
 .slider.round:before {
   border-radius: 50%;
 }
@@ -293,12 +286,12 @@ input:checked + .slider:before {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-flow: column wrap;
+  flex-direction: column;
   background-color: #fff;
 }
 .how-it-works__title {
   text-align: left;
-  width: 790px;
+  max-width: 790px;
   height: 56px;
   font-family: Roboto;
   font-style: normal;
@@ -311,7 +304,7 @@ input:checked + .slider:before {
   margin: 0;
 }
 .how-it-works__subtitle {
-  width: 790px;
+  max-width: 790px;
   height: 80px;
   margin: 0;
   padding-bottom: 30px;
@@ -324,9 +317,13 @@ input:checked + .slider:before {
 }
 .how-it-works__slider {
   padding-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 .how-it-works__slider-img {
-  width: 790px;
+  max-width: 790px;
   height: 323px;
   border-radius: 5px;
   margin-bottom: 25px;
@@ -436,7 +433,6 @@ input:checked + .slider:before {
   width: 278px;
   height: 399px;
 }
-
 .pets__card:hover > .pets__info {
   opacity: 1;
   transform: translateY(calc(-20px));
@@ -604,7 +600,6 @@ input:checked + .slider:before {
   padding: 100px 0 50px 0;
 }
 .testimonials__slider {
-  max-width: 1300px;
   margin: 0 auto;
 }
 .testimonials__cards {
@@ -1072,8 +1067,9 @@ input:checked + .slider:before {
 .footer__line {
   margin-top: 60px;
   margin-bottom: 28px;
-  width: 1620px;
+  max-width: 1620px;
   border: 0.5px solid #fefefe;
+  overflow: hidden;
 }
 .footer__copyright {
   text-decoration: none;

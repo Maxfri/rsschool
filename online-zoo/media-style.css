@@ -1,12 +1,11 @@
 /* Media start */
-@media screen and (max-width: 1200px) {
+@media (max-width: 1919px) {
   .wrapper {
-    max-width: 1200px;
   }
 
   /* Header styles start */
   .header__wrapper {
-    max-width: 900px;
+    padding: 0 20px;
   }
   /* Header styles end */
 
@@ -49,29 +48,24 @@
   /* Intro styles end */
 
   /* How it work styles start */
-  .how-it-works__intro {
-    max-width: 900px;
-    margin: 0 227px;
-    display: block;
-  }
   .how-it-works__subtitle {
-    width: 746px;
+    max-width: 746px;
     height: 96px;
     padding-bottom: 14px;
   }
   .how-it-works__slider-img {
-    width: 746px;
+    max-width: 746px;
     height: 323px;
     border-radius: 5px;
     margin-bottom: 25px;
   }
   .card__item {
-    width: 287px;
+    max-width: 287px;
     height: 197px;
     margin-right: 20px;
   }
   .card__subtitle {
-    width: 287px;
+    max-width: 287px;
   }
   /* How it work styles end */
   /* Pets in zoo  start*/
@@ -85,6 +79,10 @@
   .pets__card-img {
     width: 100%;
     height: auto;
+  }
+  .pets__paginator {
+    width: 605px;
+    padding-bottom: 10px;
   }
   /* Pets in zoo end*/
   /* Pay and feed start*/
@@ -104,14 +102,12 @@
 
   /* Testimonials  start*/
   .testimonials__wrapper {
-    max-width: 1200px;
     height: 810px;
   }
   .testimonials__title {
     padding: 100px 0 50px 0;
   }
   .testimonials__slider {
-    max-width: 1200px;
     margin: 13px 100px 0;
     flex-direction: column;
   }
@@ -119,7 +115,6 @@
     margin-bottom: 48px;
   }
   .testimonials__card {
-    width: 440px;
     height: 310px;
   }
   /* Testimonials  end*/
@@ -247,24 +242,32 @@
   }
 }
 
-@media screen and (max-width: 640px) {
-  .wrapper {
-    max-width: 640px;
+@media (max-width: 1199px) {
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100000;
   }
-
   /* Header styles start */
-  .header__wrapper {
-    max-width: 600px;
-  }
   .switch {
     position: relative;
     display: inline-block;
     width: 54px;
     height: 30px;
     margin: 0;
+    left: 115px;
   }
   .header__list {
     display: none;
+  }
+  .header__toggle {
+    display: block;
+    width: 40px;
+    height: 21px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    background-image: url(./assets/images/burger-menu.svg);
   }
   /* Header styles end */
 
@@ -316,22 +319,17 @@
   /* Intro styles end */
 
   /* How it work styles start */
-  .how-it-works__intro {
-    max-width: 640px;
-    margin: 0 20px;
-    display: block;
-  }
   .how-it-works__title {
-    width: 600px;
+    max-width: 600px;
     height: 56px;
   }
   .how-it-works__subtitle {
-    width: 600px;
+    max-width: 600px;
     height: 112px;
     padding-bottom: 30px;
   }
   .how-it-works__slider-img {
-    width: 600px;
+    max-width: 600px;
     height: 323px;
     border-radius: 5px;
     margin-bottom: 25px;
@@ -340,7 +338,6 @@
     padding-bottom: 68px;
   }
   .card__wrapper {
-    width: 640px;
     height: 875px;
   }
   .card__items {
@@ -406,26 +403,28 @@
   }
   .pay-and-feed__cards {
     padding-top: 50px;
-    padding-bottom: 47px;
+    padding-bottom: 0px;
     margin: 0 auto;
     flex-direction: column;
   }
+  .pay-and-feed__arrow {
+    display: block;
+    transform: rotate(90deg);
+  }
   .pay-and-feed__card {
     margin-right: 0px;
-    margin-bottom: 30px;
+    margin-bottom: 45px;
   }
   /* Pay and feed end*/
 
   /* Testimonials  start*/
   .testimonials__wrapper {
-    max-width: 640px;
     height: 795px;
   }
   .testimonials__title {
     padding: 100px 0 35px 0;
   }
   .testimonials__slider {
-    max-width: 600px;
     margin: 10px 30px 20px;
   }
   .testimonials__arrow {
@@ -434,6 +433,13 @@
   .testimonials__cards {
     margin-bottom: 48px;
     flex-wrap: nowrap;
+  }
+  .testimonials__card {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .testimonials__card:nth-child(2) {
+    margin-left: 0;
   }
   .testimonials__card:nth-child(3) {
     display: none;
@@ -551,14 +557,15 @@
   }
 }
 
-@media screen and (max-width: 320px) {
-  .wrapper {
-    max-width: 320px;
+@media (max-width: 639px) {
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100000;
   }
-
   /* Header styles start */
   .header__wrapper {
-    max-width: 300px;
+    padding-right: 10px;
   }
   .switch {
     position: relative;
@@ -566,9 +573,19 @@
     width: 54px;
     height: 30px;
     margin: 0;
+    left: 0px;
   }
   .header__list {
     display: none;
+  }
+  .header__toggle {
+    display: block;
+    width: 40px;
+    height: 21px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    background-image: url(./assets/images/burger-menu.svg);
   }
   /* Header styles end */
 
@@ -593,7 +610,7 @@
     margin-left: 10px;
   }
   .main-gallery {
-    top: 498px;
+    top: 258px;
     right: 0px;
     width: 320px;
   }
@@ -612,9 +629,8 @@
     height: 202px;
   }
   .main__paginator {
-    left: 0px;
-    width: 245px;
-    height: 49px;
+    left: 54px;
+    width: 140px;
   }
   .social-net {
     display: none;
@@ -625,13 +641,8 @@
   /* Intro styles end */
 
   /* How it work styles start */
-  .how-it-works__intro {
-    max-width: 320px;
-    margin: 0 10px;
-    display: block;
-  }
   .how-it-works__title {
-    width: 300px;
+    max-width: 300px;
     height: 42px;
     font-size: 36px;
     line-height: 42px;
@@ -639,7 +650,7 @@
     padding-bottom: 20px;
   }
   .how-it-works__subtitle {
-    width: 300px;
+    max-width: 300px;
     height: 224px;
     padding-bottom: 30px;
   }
@@ -647,7 +658,7 @@
     padding-bottom: 20px;
   }
   .how-it-works__slider-img {
-    width: 300px;
+    max-width: 300px;
     height: 323px;
     border-radius: 5px;
     margin-bottom: 15px;
@@ -656,7 +667,6 @@
     padding-bottom: 50px;
   }
   .card__wrapper {
-    width: 320px;
     height: 719px;
   }
   .card__items {
@@ -675,7 +685,6 @@
   /* How it work styles end */
   /* Pets in zoo  start*/
   .pets-in-zoo__title {
-    width: 300px;
     height: 42px;
     font-size: 36px;
     line-height: 42px;
@@ -705,6 +714,10 @@
     width: 100%;
     height: auto;
   }
+  .pets__paginator {
+    width: 605px;
+    padding-bottom: 10px;
+  }
   .pets-favorite__form {
     padding-bottom: 50px;
   }
@@ -732,6 +745,10 @@
     margin-right: 0px;
     margin-bottom: 30px;
   }
+  .pay-and-feed__arrow {
+    display: block;
+    transform: rotate(90deg);
+  }
   .pay-and-feed__form {
     padding-bottom: 50px;
   }
@@ -739,7 +756,6 @@
 
   /* Testimonials  start*/
   .testimonials__wrapper {
-    max-width: 320px;
     height: 705px;
     overflow: hidden;
   }
@@ -752,7 +768,6 @@
     margin: 0 10px;
   }
   .testimonials__slider {
-    max-width: 300px;
     margin: 10px 10px 20px;
   }
   .testimonials__arrow {
@@ -766,7 +781,6 @@
     display: none;
   }
   .testimonials__card {
-    width: 300px;
     height: 363px;
   }
   .testimonials__form {
