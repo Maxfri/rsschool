@@ -2,7 +2,7 @@
 @media (max-width: 1919px) {
   /* Header styles start */
   .header__wrapper {
-    padding: 0 20px;
+    padding: 0 150px;
   }
   /* Header styles end */
 
@@ -28,6 +28,15 @@
     top: 498px;
     right: 0px;
     width: 720px;
+  }
+  .main-gallery__item {
+    width: 180px;
+    height: auto;
+    margin-right: 30px;
+  }
+  .main-gallery__active-item {
+    width: 245px;
+    height: 352px;
   }
   .main__paginator {
     left: 350px;
