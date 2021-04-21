@@ -1,8 +1,5 @@
 /* Media start */
 @media (max-width: 1919px) {
-  .wrapper {
-  }
-
   /* Header styles start */
   .header__wrapper {
     padding: 0 20px;
@@ -81,7 +78,6 @@
     height: auto;
   }
   .pets__paginator {
-    width: 605px;
     padding-bottom: 10px;
   }
   /* Pets in zoo end*/
@@ -103,6 +99,7 @@
   /* Testimonials  start*/
   .testimonials__wrapper {
     height: 810px;
+    overflow: hidden;
   }
   .testimonials__title {
     padding: 100px 0 50px 0;
@@ -384,7 +381,6 @@
     padding-bottom: 100px;
   }
   .pets__paginator {
-    width: 605px;
     padding-bottom: 10px;
   }
   /* Pets in zoo end*/
@@ -422,7 +418,7 @@
     height: 795px;
   }
   .testimonials__title {
-    padding: 100px 0 35px 0;
+    padding: 120px 0 35px 0;
   }
   .testimonials__slider {
     margin: 10px 30px 20px;
@@ -468,11 +464,17 @@
     width: 100%;
     height: auto;
   }
-  .map__eagle-icon,
-  .map__alligator-icon,
-  .map__gorilla-icon,
+  .map__eagle-icon {
+    transform: translate(56px, -242px);
+  }
+  .map__alligator-icon {
+    transform: translate(102px, -334px);
+  }
+  .map__gorilla-icon {
+    transform: translate(269px, -384px);
+  }
   .map__panda-icon {
-    display: none;
+    transform: translate(427px, -538px);
   }
   /* Map  end*/
 
@@ -622,11 +624,18 @@
     top: 15px;
     margin: 0;
     padding: 0;
-    display: none;
+  }
+  .main-gallery__item {
+    width: 113px;
+    margin-right: 10px;
+  }
+  .main-gallery__active-item {
+    width: 245px;
+    height: auto;
   }
   .main-gallery__img {
-    width: 140px;
-    height: 202px;
+    width: 100%;
+    height: auto;
   }
   .main__paginator {
     left: 54px;
@@ -708,14 +717,12 @@
     width: 210px;
     height: 301px;
     margin-right: 16px;
-    overflow: hidden;
   }
   .pets__card-img {
     width: 100%;
     height: auto;
   }
   .pets__paginator {
-    width: 605px;
     padding-bottom: 10px;
   }
   .pets-favorite__form {
@@ -813,11 +820,43 @@
     width: 100%;
     height: auto;
   }
+  .map__eagle-icon {
+    transform: translate(22px, -139px);
+  }
+  .map__alligator-icon {
+    transform: translate(53px, -176px);
+  }
+  .map__gorilla-icon {
+    transform: translate(135px, -198px);
+  }
+  .map__panda-icon {
+    transform: translate(217px, -267px);
+  }
   .map__eagle-icon,
   .map__alligator-icon,
   .map__gorilla-icon,
   .map__panda-icon {
-    display: none;
+    width: 32px;
+    height: 46px;
+    filter: drop-shadow(5px 5px 7px rgba(0, 0, 0, 0.5));
+    cursor: pointer;
+    margin: 0;
+    background: url(./assets/images/pin-min.svg);
+    background-repeat: no-repeat;
+    z-index: 1;
+  }
+  .map__pin-img {
+    width: 22px;
+    height: 22px;
+  }
+  .map__eagle-img,
+  .map__alligator-img,
+  .map__gorilla-img,
+  .map__panda-img {
+    position: relative;
+    top: 5px;
+    left: 6px;
+    z-index: 1;
   }
   .map__form {
     padding-bottom: 60px;
