@@ -482,7 +482,6 @@ input:checked + .slider:before {
 }
 .pets__info {
   position: absolute;
-  width: 197px;
   bottom: 42px;
   left: 23px;
   opacity: 0;

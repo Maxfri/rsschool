@@ -72,12 +72,12 @@
     padding-bottom: 35px;
   }
   .card__item {
-    max-width: 287px;
+    width: 287px;
     height: 197px;
     margin-right: 20px;
   }
   .card__subtitle {
-    max-width: 287px;
+    width: 287px;
   }
   /* How it work styles end */
   /* Pets in zoo  start*/
@@ -574,7 +574,8 @@
   }
   /* Header styles start */
   .header__wrapper {
-    padding-right: 10px;
+    padding: 0px 10px;
+    height: 92px;
   }
   .switch {
     position: relative;
@@ -582,7 +583,7 @@
     width: 54px;
     height: 30px;
     margin: 0;
-    left: 0px;
+    left: 25px;
   }
   .header__list {
     display: none;
@@ -619,15 +620,21 @@
     margin-left: 10px;
   }
   .main-gallery {
-    top: 258px;
+    top: 352px;
     right: 0px;
     width: 320px;
+  }
+  .main-gallery__wrapper {
+    overflow: hidden;
+    margin-bottom: 25px;
+    background-position-y: 54%;
+    background-position-x: 0%;
   }
   .main-gallery__slider {
     width: 320px;
   }
   .main-gallery__list {
-    right: 0px;
+    right: -25px;
     top: 15px;
     margin: 0;
     padding: 0;
@@ -636,8 +643,21 @@
     width: 113px;
     margin-right: 10px;
   }
+  .pets__description {
+    font-size: 12px;
+    line-height: 14px;
+  }
+  .pets__info {
+    bottom: 8px;
+    left: 5px;
+  }
+  .pets__buttons {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+  }
   .main-gallery__active-item {
-    width: 245px;
+    width: 140px;
     height: auto;
   }
   .main-gallery__img {
@@ -645,7 +665,15 @@
     height: auto;
   }
   .main__paginator {
-    left: 54px;
+    left: 146px;
+    width: 140px;
+    top: -90px;
+    margin: 0;
+  }
+  .paginator__count-light {
+    margin-bottom: 0px;
+  }
+  .paginator__line {
     width: 140px;
   }
   .social-net {
@@ -677,7 +705,7 @@
     max-width: 300px;
     height: 323px;
     border-radius: 5px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
   }
   .how-it-works__form {
     padding-bottom: 50px;
@@ -691,9 +719,10 @@
     padding-top: 50px;
   }
   .card__item {
-    width: 299px;
+    width: 320px;
     height: auto;
     margin: 0 10px 30px;
+    align-items: center;
   }
   .card__subtitle {
     width: 300px;
@@ -711,6 +740,7 @@
   .pets__slider {
     margin: 0 10px;
     overflow: hidden;
+    padding-bottom: 20px;
   }
   .pets__cards {
     flex-wrap: nowrap;
@@ -728,6 +758,11 @@
   .pets__card-img {
     width: 100%;
     height: auto;
+  }
+  .pets__buttons-pet-in-zoo {
+    display: flex;
+    flex-direction: row;
+    margin-top: 5px;
   }
   .pets__paginator {
     padding-bottom: 10px;
@@ -751,13 +786,16 @@
   }
   .pay-and-feed__cards {
     padding-top: 0px;
-    padding-bottom: 36px;
+    padding-bottom: 0px;
     margin: 0 10px;
     flex-direction: column;
   }
   .pay-and-feed__card {
     margin-right: 0px;
-    margin-bottom: 30px;
+    margin-bottom: 45px;
+  }
+  .pay-and-feed__card:last-child {
+    margin-bottom: 40px;
   }
   .pay-and-feed__arrow {
     display: block;
@@ -773,7 +811,7 @@
     overflow: hidden;
   }
   .testimonials__title {
-    padding: 50px 0 25px 0;
+    padding: 45px 0 25px 0;
     width: 300px;
     height: 42px;
     font-size: 36px;
@@ -786,7 +824,7 @@
     display: none;
   }
   .testimonials__cards {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     flex-wrap: nowrap;
   }
   .testimonials__card:nth-child(3) {
@@ -794,6 +832,23 @@
   }
   .testimonials__card {
     height: 363px;
+    padding: 11px 10px 19px 10px;
+  }
+  .testimonials__card-item {
+    height: 363px;
+  }
+  .testimonials__card-name {
+    font-size: 16px;
+    line-height: 19px;
+    margin-bottom: 19px;
+  }
+  .testimonials__card-description {
+    font-size: 14px;
+    line-height: 16px;
+    width: 272px;
+  }
+  .testimonials__card-userimg {
+    margin-bottom: 47px;
   }
   .testimonials__form {
     margin-top: 20px;
