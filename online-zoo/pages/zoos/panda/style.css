@@ -46,7 +46,7 @@ p {
   display: flex;
   flex-flow: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
 .zoo-gallery__card-active {
   cursor: auto;
@@ -139,10 +139,8 @@ p {
   cursor: pointer;
 }
 @media (max-width: 1919px) {
-  .main {
-  }
   .sidebar {
-    margin: 60px 50px 10px 10px;
+    margin: 60px 65px 10px 15px;
     position: sticky;
     top: 30px;
   }
@@ -151,6 +149,9 @@ p {
     flex-flow: column;
     align-items: center;
   }
+  .zoo-gallery__cards {
+    height: 438px;
+  }
   .zoo-gallery__image {
     width: 100%;
     height: auto;
@@ -158,10 +159,13 @@ p {
   .zoo-gallery__card {
     width: 96px;
     height: 96px;
+    margin-top: 0px;
+    margin-bottom: 0px;
   }
   .zoo-gallery__card-active {
     width: 120px;
     height: 120px;
+    margin-bottom: 0px;
   }
   .zoo-gallery__arrow:last-child {
     margin-top: 20px;
@@ -169,6 +173,7 @@ p {
   .the-zoo__video-stream {
     width: 527px;
     height: 297px;
+    margin-bottom: 27px;
   }
   .the-zoo__slider-img {
     width: 164px;
@@ -197,7 +202,7 @@ p {
     margin-bottom: 20px;
   }
   .slider__pagination {
-    margin: 30px 0 93px 0;
+    margin: 30px 0 96px 0;
   }
   .feed__button {
     width: 185px;
@@ -211,7 +216,7 @@ p {
     height: 982px;
   }
   .sidebar {
-    margin: 60px 20px 10px 10px;
+    margin: 58px 28px 10px 6px;
     position: sticky;
     top: 30px;
   }
@@ -219,6 +224,9 @@ p {
     display: flex;
     flex-flow: column;
     align-items: center;
+  }
+  .zoo-gallery__cards {
+    height: 330px;
   }
   .zoo-gallery__card {
     width: 70px;
@@ -292,7 +300,7 @@ p {
     margin-bottom: 0px;
   }
   .sidebar {
-    margin: 30px 20px 10px 5px;
+    margin: 35px 25px 10px 5px;
     position: sticky;
     top: 30px;
   }
@@ -300,6 +308,10 @@ p {
     display: flex;
     flex-flow: column;
     align-items: center;
+  }
+  .zoo-gallery__cards {
+    height: 200px;
+    gap: 5px;
   }
   .zoo-gallery__card {
     width: 40px;
@@ -309,10 +321,13 @@ p {
   .zoo-gallery__card-active {
     width: 65px;
     height: 65px;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
+  }
+  .zoo-gallery__arrow {
+    margin-bottom: 0px;
   }
   .zoo-gallery__arrow:last-child {
-    margin-top: 0px;
+    margin-top: 20px;
   }
   .the-zoo__title {
     width: 184px;

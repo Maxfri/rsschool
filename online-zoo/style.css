@@ -183,7 +183,7 @@ input:checked + .slider:before {
   width: 245px;
   height: 55px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
 }
 .main-gallery {

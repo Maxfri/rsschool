@@ -25,7 +25,16 @@
     margin-bottom: 23px;
   }
   .main-gallery__list {
-    right: -123px;
+    right: -135px;
+  }
+  .main__pets-info {
+    position: absolute;
+    bottom: 30px;
+    left: 23px;
+  }
+  .pets__description {
+    width: 194px;
+    margin-bottom: 14px;
   }
   .main-gallery {
     top: 498px;
@@ -98,6 +107,11 @@
   .pets__paginator {
     padding-bottom: 5px;
   }
+  .pets__info {
+    position: absolute;
+    bottom: 30px;
+    left: 8px;
+  }
   /* Pets in zoo end*/
   /* Pay and feed start*/
   .pay-and-feed__cards {
@@ -124,9 +138,29 @@
   .testimonials__card {
     height: 340px;
     margin: 0;
+    padding: 11px 11px 19px 11px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .testimonials__card-item {
     height: 310px;
+  }
+  .testimonials__card-name {
+    margin-top: 10px;
+  }
+  .testimonials__arrow {
+    position: relative;
+    top: -18px;
+    left: -8px;
+  }
+  .testimonials__arrow:last-child {
+    left: 8px;
+  }
+  .testimonials__card-description {
+    font-size: 14px;
+    line-height: 16px;
+    height: 48px;
   }
   /* Testimonials  end*/
 
@@ -400,6 +434,7 @@
   .pets__paginator {
     padding-bottom: 10px;
   }
+
   /* Pets in zoo end*/
   /* Pay and feed start*/
   .pay-and-feed__title {
