@@ -139,7 +139,7 @@ p {
   margin: 30px 0 100px 0;
   cursor: pointer;
 }
-@media (max-width: 1200px) {
+@media (max-width: 1919px) {
   .main {
     max-width: 1200px;
     max-height: 715px;
@@ -155,6 +155,21 @@ p {
     display: flex;
     flex-flow: column;
     align-items: center;
+  }
+  .zoo-gallery__image {
+    width: 100%;
+    height: auto;
+  }
+  .zoo-gallery__card {
+    width: 96px;
+    height: 96px;
+  }
+  .zoo-gallery__card-active {
+    width: 120px;
+    height: 120px;
+  }
+  .zoo-gallery__arrow:last-child {
+    margin-top: 20px;
   }
   .the-zoo {
     max-width: 900px;
@@ -196,7 +211,7 @@ p {
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 1199px) {
   .main {
     max-width: 640px;
     max-height: 982px;
@@ -274,7 +289,7 @@ p {
   }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 639px) {
   .main {
     max-width: 320px;
     max-height: 685px;

@@ -957,6 +957,9 @@ input:checked + .slider:before {
 .footer__form-message:focus {
   outline: none;
 }
+fieldset {
+  padding: 0.35em 0em 0.625em;
+}
 .footer__form-message-placeholder {
   background: #333333;
   left: 7px;
