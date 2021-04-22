@@ -101,7 +101,7 @@
   background-repeat: no-repeat;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1919px) {
   .choose-your-favorite__subtitle {
     padding-bottom: 35px;
   }
@@ -111,6 +111,9 @@
     margin: 0 200px 50px;
     align-items: center;
     justify-content: center;
+  }
+  .map__gallery {
+    margin-bottom: 25px;
   }
   .gallery__arrow {
     cursor: pointer;
@@ -162,7 +165,7 @@
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 1199px) {
   .choose-your-favorite {
     margin: 0 20px;
   }
@@ -231,19 +234,19 @@
     height: 290px;
   }
   .map__eagle-icon {
-    transform: translate(70px, -346px);
+    transform: translate(52px, -289px);
   }
   .map__alligator-icon {
-    transform: translate(151px, -434px);
+    transform: translate(103px, -380px);
   }
   .map__gorilla-icon {
-    transform: translate(369px, -459px);
+    transform: translate(269px, -423px);
   }
   .map__panda-icon {
-    transform: translate(581px, -636px);
+    transform: translate(429px, -581px);
   }
   .footer__logo {
-    padding-top: 0;
+    padding-top: 100px;
   }
   .footer__nav {
     padding-top: 0;
@@ -253,7 +256,7 @@
   }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 639px) {
   .choose-your-favorite {
     margin: 0 20px;
   }
@@ -338,19 +341,30 @@
     height: 146px;
   }
   .map__eagle-icon {
-    transform: translate(70px, -346px);
+    transform: translate(24px, -150px);
   }
   .map__alligator-icon {
-    transform: translate(151px, -434px);
+    transform: translate(46px, -187px);
   }
   .map__gorilla-icon {
-    transform: translate(369px, -459px);
+    transform: translate(121px, -206px);
   }
   .map__panda-icon {
-    transform: translate(581px, -636px);
+    transform: translate(188px, -282px);
+    background: url(../../assets/images/red-min-pin.svg);
+    background-repeat: no-repeat;
+  }
+  .map__eagle-icon:hover,
+  .map__alligator-icon:hover,
+  .map__gorilla-icon:hover,
+  .map__panda-icon:hover {
+    background: url(../../assets/images/red-min-pin.svg);
+    background-repeat: no-repeat;
+    width: 32px;
+    height: 46px;
   }
   .footer__logo {
-    padding-top: 0;
+    padding-top: 50px;
   }
   .footer__nav {
     padding-top: 0;

@@ -482,7 +482,6 @@ input:checked + .slider:before {
 }
 .pets__info {
   position: absolute;
-  width: 197px;
   bottom: 42px;
   left: 23px;
   opacity: 0;
@@ -1087,7 +1086,7 @@ input:checked + .slider:before {
 .footer__line {
   margin-top: 60px;
   margin-bottom: 28px;
-  max-width: 1620px;
+  width: 1620px;
   border: 0.5px solid #fefefe;
   overflow: hidden;
 }
