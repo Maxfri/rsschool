@@ -106,24 +106,36 @@
     padding-bottom: 35px;
   }
   .gallery {
-    width: 800px;
     height: 231px;
-    margin: 0 200px 50px;
+    margin: 0 0px 50px;
     align-items: center;
     justify-content: center;
   }
   .map__gallery {
     margin-bottom: 25px;
+    width: 800px;
+    justify-content: space-between;
+    flex-wrap: nowrap;
   }
   .gallery__arrow {
     cursor: pointer;
     margin-right: 0px;
   }
-  .map__gallery {
-    flex-wrap: nowrap;
+  .gallery__card:first-child {
+    margin-right: 0px;
+  }
+  .gallery__card {
+    margin: 0 15px;
+  }
+  .gallery__card-active {
+    width: 157px;
+    height: 157px;
+    margin: 0 0px;
   }
   .gallery__cards {
     flex-wrap: nowrap;
+    width: 100%;
+    justify-content: center;
   }
   .gallery__card:nth-child(8) {
     display: none;
