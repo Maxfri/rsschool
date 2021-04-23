@@ -626,6 +626,11 @@ input:checked + .slider:before {
 .testimonials__slider {
   width: 100%;
 }
+.testimonials__slider-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .testimonials__cards {
   display: flex;
   align-items: center;
@@ -641,7 +646,6 @@ input:checked + .slider:before {
   height: 310px;
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
   background: #fefefe;
   box-shadow: 2px 4px 15px rgba(6, 12, 70, 0.1);
@@ -669,9 +673,6 @@ input:checked + .slider:before {
   margin-bottom: 17px;
 }
 .testimonials__card-description {
-  width: 440px;
-  height: 32px;
-
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
