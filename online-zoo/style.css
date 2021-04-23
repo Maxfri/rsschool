@@ -1157,3 +1157,33 @@ fieldset {
   background-color: rgba(189, 189, 189, 0.57);
 }
 /* Paginator end */
+
+@media (max-width: 1920px) {
+  .testimonials__cards {
+    margin-bottom: 34px;
+  }
+  .footer__form-email {
+    margin-bottom: 25px;
+  }
+  .footer__button {
+    position: relative;
+    bottom: 451px;
+    right: -1346px;
+  }
+  .footer__line {
+    margin: 2px 0px 28px 0px;
+  }
+  .footer__form-message-fieldset {
+    margin-bottom: 33px;
+  }
+  .footer__nav {
+    margin-left: 767px;
+  }
+  .footer__navbar {
+    justify-content: normal;
+    padding-bottom: 57px;
+  }
+  .footer__contacts-info {
+    margin-left: 438px;
+  }
+}
