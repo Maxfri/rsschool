@@ -277,9 +277,8 @@
   }
   .footer__button {
     position: relative;
-    bottom: 782px;
-    right: -326px;
-    display: none;
+    bottom: 231px;
+    right: -456px;
   }
   .footer__line {
     width: 900px;
@@ -593,10 +592,8 @@
     margin-left: 0;
   }
   .footer__button {
-    position: relative;
-    bottom: 782px;
+    bottom: 835px;
     right: -326px;
-    display: none;
   }
   .footer__line {
     width: 599px;
@@ -1037,8 +1034,8 @@
     margin-left: 0;
   }
   .footer__button {
-    position: relative;
     right: -13px;
+    bottom: -35px;
   }
   .footer__line {
     width: 300px;
