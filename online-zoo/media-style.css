@@ -165,7 +165,7 @@
   .testimonials__arrow:last-child {
     left: 8px;
   }
-  .testimonials__description-wrapper{
+  .testimonials__description-wrapper {
     width: 326px;
     height: 48px;
   }
@@ -359,6 +359,14 @@
     background-position-y: 57%;
     background-position-x: -12%;
   }
+  .main-gallery__list {
+    right: -123px;
+  }
+  .main__pets-info {
+    position: absolute;
+    bottom: 30px;
+    left: 23px;
+  }
   .main-gallery__slider {
     width: 640px;
   }
@@ -484,16 +492,28 @@
     padding: 100px 0 35px 0;
   }
   .testimonials__slider {
+    width: 100%;
+  }
+  .testimonials__slider-wrapper {
+    width: 600px;
   }
   .testimonials__arrow {
     display: none;
   }
   .testimonials__card {
-    width: 100%;
-    padding: 11px 30px 19px 33px;
+    width: 585px;
+    padding: 11px 8px 19px 45px;
   }
-  .testimonials__card:nth-child(3) {
+  .testimonials__card-item {
+    height: 310px;
+    width: 585px;
+  }
+  .testimonials__card:nth-child(2) {
     display: none;
+  }
+  .testimonials__description-wrapper {
+    width: 440px;
+    height: 32px;
   }
   .testimonials__form {
     margin-bottom: 100px;
@@ -575,7 +595,7 @@
     display: flex;
     flex-direction: column;
     width: 383px;
-    padding-bottom: 77px;
+    padding-bottom: 70px;
   }
   .footer__form-title {
     margin-bottom: 30px;
@@ -866,6 +886,10 @@
   }
   .testimonials__slider {
   }
+  .testimonials__slider-wrapper {
+    width: 300px;
+    margin: 0 0 0 0;
+  }
   .testimonials__arrow {
     display: none;
   }
@@ -878,23 +902,28 @@
   }
   .testimonials__card {
     height: 363px;
-    padding: 11px 10px 19px 10px;
+    width: 300px;
+    padding: 11px 5px 19px 20px;
   }
   .testimonials__card-item {
     height: 363px;
+    width: 300px;
   }
   .testimonials__card-name {
     font-size: 16px;
     line-height: 19px;
     margin-bottom: 19px;
   }
+  .testimonials__description-wrapper {
+    width: 272px;
+  }
   .testimonials__card-description {
     font-size: 14px;
     line-height: 16px;
-    width: 272px;
+
   }
   .testimonials__card-userimg {
-    margin-bottom: 47px;
+    margin: 52px 0 35px;
   }
   .testimonials__form {
     margin-top: 20px;
@@ -1050,7 +1079,7 @@
   }
   .footer__line {
     width: 300px;
-    margin: 133px 0px 28px 0px;
+    margin: 116px 0px 45px 0px;
   }
 }
 
