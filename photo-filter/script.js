@@ -1,3 +1,5 @@
+const fullscreen = document.querySelector(".fullscreen");
+
 fullscreen.addEventListener("click", getFullscreen);
 
 function getFullscreen() {
