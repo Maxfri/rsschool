@@ -1,5 +1,8 @@
 const fullscreen = document.querySelector(".fullscreen");
 const inputs = document.querySelectorAll("input");
+const fileInput = document.querySelector('input[type="file"]');
+const imageContainer = document.querySelector("img");
+const reset = document.querySelector(".btn-reset")
 
 function handleUpdate() {
   const suffix = this.dataset.sizing || "";
@@ -7,6 +10,18 @@ function handleUpdate() {
     `--${this.name}`,
     this.value + suffix
   );
+}
+
+function resetValue(input) {
+  input.value = input.defaultValue;
+  const suffix = input.dataset.sizing || "";
+  document.documentElement.style.setProperty(
+    `--${input.name}`,
+    input.value + suffix
+  );
+  if (input.name !== "upload") {
+    input.nextElementSibling.value = input.defaultValue;
+  }
 }
 
 function getFullscreen() {
@@ -18,9 +33,6 @@ function getFullscreen() {
     document.exitFullscreen();
   }
 }
-
-const fileInput = document.querySelector('input[type="file"]');
-const imageContainer = document.querySelector("img");
 
 fileInput.addEventListener("change", function (e) {
   const file = fileInput.files[0];
@@ -35,7 +47,9 @@ fileInput.addEventListener("change", function (e) {
 });
 
 fullscreen.addEventListener("click", getFullscreen);
-
+reset.addEventListener("click", () => {
+  inputs.forEach((input) => resetValue(input))
+})
 inputs.forEach((input) => input.addEventListener("input", handleUpdate));
 inputs.forEach((input) =>
   input.addEventListener("input", () => {
