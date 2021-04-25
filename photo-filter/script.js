@@ -1,6 +1,11 @@
 const fullscreen = document.querySelector(".fullscreen");
+const inputs = document.querySelectorAll('input');
 
-fullscreen.addEventListener("click", getFullscreen);
+function handleUpdate() {
+  const suffix = this.dataset.sizing || '';
+  document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
+  console.log(this.name);
+}
 
 function getFullscreen() {
   if (document.documentElement.requestFullscreen) {
@@ -11,3 +16,8 @@ function getFullscreen() {
     document.exitFullscreen();
   }
 }
+
+fullscreen.addEventListener("click", getFullscreen);
+
+inputs.forEach(input => input.addEventListener('change', handleUpdate));
+inputs.forEach(input => input.addEventListener('mousemove', handleUpdate));
