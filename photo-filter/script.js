@@ -49,6 +49,7 @@ fileInput.addEventListener("change", function (e) {
 
 fullscreen.addEventListener("click", getFullscreen);
 reset.addEventListener("click", () => {
+  reset.classList.toggle('btn-active');
   inputs.forEach((input) => resetValue(input));
 });
 inputs.forEach((input) => input.addEventListener("input", handleUpdate));
@@ -96,19 +97,17 @@ function viewBgImage(src) {
 function getDate() {
   const now = new Date();
   let hours = now.getHours();
-  // let minutes = now.getMinutes();
-  // let seconds = now.getSeconds();
+  let timeOfDay = '';
 
-  if (hours > 6 && hours < 12) {
+  if (hours >= 6 && hours < 12) {
     timeOfDay = "morning/";
-  } else if (hours > 12 && hours < 18) {
+  } else if (hours >= 12 && hours < 18) {
     timeOfDay = "day/";
-  } else if (hours > 18 && hours < 24) {
+  } else if (hours >= 18 && hours < 24) {
     timeOfDay = "evening/";
-  } else if (hours > 0 && hours < 6) {
+  } else if (hours >= 0 && hours < 6) {
     timeOfDay = "night/";
   }
-  console.log(timeOfDay);
   return timeOfDay;
 }
 
