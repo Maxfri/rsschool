@@ -1,6 +1,6 @@
 const fullscreen = document.querySelector(".fullscreen");
 const inputs = document.querySelectorAll("input");
-const fileInput = document.querySelector('input[type="file"]');
+const fileInput = document.querySelector('.btn-load--input');
 const inputLoadPicture = document.querySelector('#btnInput');
 const imageContainer = document.querySelector("img");
 const reset = document.querySelector(".btn-reset");
@@ -33,7 +33,6 @@ const images = [
   "20.jpg",
 ];
 
-
 function handleUpdate() {
   const suffix = this.dataset.sizing || "";
   imageContainer.style.setProperty(`--${this.name}`, this.value + suffix);
@@ -60,19 +59,6 @@ function getFullscreen() {
   }
 }
 
-// fileInput.onchange = function (e) {
-//   const file = fileInput.files[0];
-//   const reader = new FileReader();
-//   imageContainer.src = '';
-//   reader.onload = function () {
-    
-//     console.log(reader.result);
-//     imageContainer.src = reader.result;
-//   };
-//   reader.readAsDataURL(file);
-//   e.target.value = '';
-// };
-
 fileInput.addEventListener("change", function (event) {
   const file = fileInput.files[0];
   const reader = new FileReader();
@@ -82,7 +68,6 @@ fileInput.addEventListener("change", function (event) {
   };
   reader.readAsDataURL(file);
   inputLoadPicture.value = '';
-  imageContainer.value = '';
 });
 
 fullscreen.addEventListener("click", getFullscreen);
@@ -103,7 +88,10 @@ inputs.forEach((input) =>
   })
 );
 
-next.addEventListener("click", getImage);
+next.addEventListener("click", ()=> {
+  getImage();
+  imageContainer.value = '';
+});
 
 download.addEventListener("click", () => {
   drawCanvasImage();
@@ -131,17 +119,10 @@ function drawCanvasImage() {
     const sepia = document.querySelector('input[name="sepia"]');  
     // console.log(blur, invert, sepia, saturate, hue);
     ctx.filter = `blur(${blur}) invert(${invert.value}%) sepia(${sepia.value}%) saturate(${saturate}) hue-rotate(${hue})`;
-    console.log(ctx.filter);
+    // console.log(ctx.filter);
     ctx.drawImage(img, 0, 0);
   };
 
-}
-function viewBgImage(src) {
-  imageContainer.src = src;
-  imageContainer.onload = () => {
-    imageContainer.src = `${src}`;
-  };
-  drawCanvasImage();
 }
 
 function getDate() {
@@ -165,6 +146,7 @@ function getImage() {
   const index = i % images.length;
   const today = getDate();
   const imageSrc = base + today + images[index];
-  viewBgImage(imageSrc);
+  imageContainer.src = imageSrc;
+  drawCanvasImage();
   i++;
 }
