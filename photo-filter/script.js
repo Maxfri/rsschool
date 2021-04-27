@@ -112,13 +112,20 @@ function drawCanvasImage() {
     canvas.width = img.width;
     canvas.height = img.height;
     ctx.filter = 'none';
-    let blur = imageContainer.style.getPropertyValue(`--blur`);
+    let ratio = 0;
+    if ((img.height / imageContainer.height) > (img.width / imageContainer.width)) {
+      ratio = (img.height / imageContainer.height);
+    } else {
+      ratio = (img.width / imageContainer.width);
+    }
+    const blur = document.querySelector('input[name="blur"]').value;
+    // console.log(ratio, blur, ratio * blur);
     let saturate = imageContainer.style.getPropertyValue(`--saturate`);
     let hue = imageContainer.style.getPropertyValue(`--hue`);
     const invert = document.querySelector('input[name="invert"]');
     const sepia = document.querySelector('input[name="sepia"]');  
     // console.log(blur, invert, sepia, saturate, hue);
-    ctx.filter = `blur(${blur}) invert(${invert.value}%) sepia(${sepia.value}%) saturate(${saturate}) hue-rotate(${hue})`;
+    ctx.filter = `blur(${ratio * blur}px) invert(${invert.value}%) sepia(${sepia.value}%) saturate(${saturate}) hue-rotate(${hue})`;
     // console.log(ctx.filter);
     ctx.drawImage(img, 0, 0);
   };
