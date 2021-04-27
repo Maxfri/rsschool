@@ -5,6 +5,8 @@ const imageContainer = document.querySelector("img");
 const reset = document.querySelector(".btn-reset");
 const next = document.querySelector(".btn-next");
 const download = document.querySelector(".btn-save");
+const canvas = document.querySelector("canvas");
+const ctx = canvas.getContext("2d");
 let i = 0;
 const base =
   "https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/";
@@ -29,30 +31,12 @@ const images = [
   "19.jpg",
   "20.jpg",
 ];
-const canvas = document.querySelector("canvas");
-function drawImage() {
-  const img = new Image();
-  img.setAttribute("crossOrigin", "anonymous");
-  img.src = imageContainer.src;
-  img.onload = function () {
-    canvas.width = img.width;
-    canvas.height = img.height;
 
-    const ctx = canvas.getContext("2d");
-    const blur = imageContainer.style.getPropertyValue(`--blur`);
-    const invert = imageContainer.style.getPropertyValue(`--invert`);
-    const sepia = imageContainer.style.getPropertyValue(`--sepia`);
-    const saturate = imageContainer.style.getPropertyValue(`--saturate`);
-    const hue = imageContainer.style.getPropertyValue(`--hue`);
-    console.log(blur, invert, sepia, saturate, hue);
-    ctx.filter = `blur(${blur}) invert(${invert}) sepia(${sepia}) saturate(${saturate}) hue-rotate(${hue})`;
-    console.log(ctx.filter);
-    ctx.drawImage(img, 0, 0);
-  };
-}
+
 function handleUpdate() {
   const suffix = this.dataset.sizing || "";
   imageContainer.style.setProperty(`--${this.name}`, this.value + suffix);
+  drawCanvasImage();
 }
 
 function resetValue(input) {
@@ -62,6 +46,7 @@ function resetValue(input) {
   if (input.name !== "upload") {
     input.nextElementSibling.value = input.defaultValue;
   }
+  drawCanvasImage();
 }
 
 function getFullscreen() {
@@ -74,6 +59,19 @@ function getFullscreen() {
   }
 }
 
+// fileInput.onchange = function (e) {
+//   const file = fileInput.files[0];
+//   const reader = new FileReader();
+//   imageContainer.src = '';
+//   reader.onload = function () {
+    
+//     console.log(reader.result);
+//     imageContainer.src = reader.result;
+//   };
+//   reader.readAsDataURL(file);
+//   e.target.value = '';
+// };
+
 fileInput.addEventListener("change", function (event) {
   const file = fileInput.files[0];
   const reader = new FileReader();
@@ -81,7 +79,7 @@ fileInput.addEventListener("change", function (event) {
     imageContainer.src = reader.result;
   };
   reader.readAsDataURL(file);
-  event.target.value = null;
+  drawCanvasImage();
 });
 
 fullscreen.addEventListener("click", getFullscreen);
@@ -89,6 +87,7 @@ fullscreen.addEventListener("click", getFullscreen);
 reset.addEventListener("click", () => {
   reset.classList.toggle("btn-active");
   inputs.forEach((input) => resetValue(input));
+  drawCanvasImage();
 });
 
 inputs.forEach((input) => input.addEventListener("input", handleUpdate));
@@ -97,25 +96,49 @@ inputs.forEach((input) =>
     if (input.name !== "upload") {
       input.nextElementSibling.value = input.value;
     }
+    drawCanvasImage();
   })
 );
 
 next.addEventListener("click", getImage);
 
 download.addEventListener("click", () => {
-  drawImage();
+  drawCanvasImage();
   let link = document.createElement("a");
   link.download = "download.png";
   link.href = canvas.toDataURL();
   link.click();
   link.delete;
 });
+canvas.style.setProperty("display", 'none');
+drawCanvasImage();
 
+function drawCanvasImage() {
+  const img = new Image();
+  img.setAttribute("crossOrigin", "anonymous");
+  img.src = imageContainer.src;
+  img.onload = function () {
+    canvas.width = img.width;
+    canvas.height = img.height;
+    ctx.filter = 'none';
+    let blur = imageContainer.style.getPropertyValue(`--blur`);
+    let invert = imageContainer.style.getPropertyValue(`--invert`);
+    let sepia = imageContainer.style.getPropertyValue(`--sepia`);
+    let saturate = imageContainer.style.getPropertyValue(`--saturate`);
+    let hue = imageContainer.style.getPropertyValue(`--hue`);
+    // console.log(blur, invert, sepia, saturate, hue);
+    ctx.filter = `blur(${blur}) invert(${invert}) sepia(${sepia}) saturate(${saturate}) hue-rotate(${hue})`;
+    console.log(ctx.filter);
+    ctx.drawImage(img, 0, 0);
+  };
+
+}
 function viewBgImage(src) {
   imageContainer.src = src;
   imageContainer.onload = () => {
     imageContainer.src = `${src}`;
   };
+  drawCanvasImage();
 }
 
 function getDate() {
