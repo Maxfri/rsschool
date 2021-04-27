@@ -1,6 +1,7 @@
 const fullscreen = document.querySelector(".fullscreen");
 const inputs = document.querySelectorAll("input");
 const fileInput = document.querySelector('input[type="file"]');
+const inputLoadPicture = document.querySelector('#btnInput');
 const imageContainer = document.querySelector("img");
 const reset = document.querySelector(".btn-reset");
 const next = document.querySelector(".btn-next");
@@ -77,9 +78,11 @@ fileInput.addEventListener("change", function (event) {
   const reader = new FileReader();
   reader.onload = () => {
     imageContainer.src = reader.result;
+    drawCanvasImage(reader.result);
   };
   reader.readAsDataURL(file);
-  drawCanvasImage();
+  inputLoadPicture.value = '';
+  imageContainer.value = '';
 });
 
 fullscreen.addEventListener("click", getFullscreen);
@@ -106,7 +109,7 @@ download.addEventListener("click", () => {
   drawCanvasImage();
   let link = document.createElement("a");
   link.download = "download.png";
-  link.href = canvas.toDataURL();
+  link.href = canvas.toDataURL('image/png');
   link.click();
   link.delete;
 });
@@ -122,12 +125,12 @@ function drawCanvasImage() {
     canvas.height = img.height;
     ctx.filter = 'none';
     let blur = imageContainer.style.getPropertyValue(`--blur`);
-    let invert = imageContainer.style.getPropertyValue(`--invert`);
-    let sepia = imageContainer.style.getPropertyValue(`--sepia`);
     let saturate = imageContainer.style.getPropertyValue(`--saturate`);
     let hue = imageContainer.style.getPropertyValue(`--hue`);
+    const invert = document.querySelector('input[name="invert"]');
+    const sepia = document.querySelector('input[name="sepia"]');  
     // console.log(blur, invert, sepia, saturate, hue);
-    ctx.filter = `blur(${blur}) invert(${invert}) sepia(${sepia}) saturate(${saturate}) hue-rotate(${hue})`;
+    ctx.filter = `blur(${blur}) invert(${invert.value}%) sepia(${sepia.value}%) saturate(${saturate}) hue-rotate(${hue})`;
     console.log(ctx.filter);
     ctx.drawImage(img, 0, 0);
   };
