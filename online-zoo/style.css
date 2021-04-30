@@ -1195,8 +1195,19 @@ fieldset {
   background-color: #333333;
   color: #FEFEFE
 }
-.header__link-dark {
+.header__link-dark,
+.how-it-works__title-dark,
+.card__title-dark,
+.pets-in-zoo__title-dark,
+.pay-and-feed__title-dark,
+.testimonials__title-dark,
+.map__title-dark {
     color: #FEFEFE;;
+}
+.how-it-works__subtitle-dark,
+.card__subtitle-dark,
+.pay-and-feed__subtitle-dark {
+  color: #F2F2F2;
 }
 .how-it-works__intro-dark {
   background-color: #333333;
@@ -1213,6 +1224,6 @@ fieldset {
 .testimonials__wrapper-dark {
   background-color: #333333;
 }
-.map__wrapper-dark {
+.map-dark {
   background-color: #4F4F4F;
 }
