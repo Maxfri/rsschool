@@ -118,15 +118,16 @@ p {
   transition: 0.4s;
 }
 input:checked + .slider {
-  background-color: #2196f3;
+  background-color: #4F4F4F;
 }
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196f3;
+  box-shadow: 0 0 1px #4F4F4F;
 }
 input:checked + .slider:before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
+  background-color: #1B1B1B;
 }
 /* Rounded sliders */
 .slider.round {
@@ -1186,4 +1187,43 @@ fieldset {
   .footer__contacts-info {
     margin-left: 438px;
   }
+}
+
+/* DARK THEME */
+
+.header__wrapper-dark {
+  background-color: #333333;
+  color: #FEFEFE
+}
+.header__link-dark,
+.how-it-works__title-dark,
+.card__title-dark,
+.pets-in-zoo__title-dark,
+.pay-and-feed__title-dark,
+.testimonials__title-dark,
+.map__title-dark {
+    color: #FEFEFE;;
+}
+.how-it-works__subtitle-dark,
+.card__subtitle-dark,
+.pay-and-feed__subtitle-dark {
+  color: #F2F2F2;
+}
+.how-it-works__intro-dark {
+  background-color: #333333;
+}
+.card__wrapper-dark {
+  background-color: #4F4F4F;
+}
+.pets-in-zoo__wrapper-dark {
+  background-color: #333333;
+}
+.pay-and-feed__wrapper-dark {
+  background-color: #4F4F4F;
+}
+.testimonials__wrapper-dark {
+  background-color: #333333;
+}
+.map-dark {
+  background-color: #4F4F4F;
 }
