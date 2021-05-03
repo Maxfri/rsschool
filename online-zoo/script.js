@@ -2,7 +2,59 @@
 let switchTheme = document.querySelector("#switchTheme");
 
 switchTheme.addEventListener("click", switchDarkTheme);
+let paginators = document.querySelectorAll("input[type=range]");
+let paginatorsLabel = document.querySelectorAll("label");
+function paginatorsCount() {
+  paginators.forEach((paginator) => {
+    paginatorsLabel.forEach((label) => {
 
+      if (
+        paginator.id === "paginator-line-main" &&
+        label.htmlFor === "paginator-line-main"
+      ) {
+        paginator.addEventListener('input', () => {
+          let number = label.querySelector('.paginator__number');
+          number.innerHTML = `0${paginator.value}/`;
+          console.log(number);
+        });
+      }
+
+      if (
+        paginator.id === "paginator-line-animals" &&
+        label.htmlFor === "paginator-line-animals"
+      ) {
+        paginator.addEventListener('input', () => {
+          let number = label.querySelector('.paginator__number-dark');
+          number.innerHTML = `0${paginator.value}/`;
+          console.log(number);
+        });
+      }
+
+      if (
+        paginator.id === "paginator-line-pets" &&
+        label.htmlFor === "paginator-line-pets"
+      ) {
+        paginator.addEventListener('input', () => {
+          let number = label.querySelector('.paginator__number-dark');
+          number.innerHTML = `0${paginator.value}/`;
+          console.log(number);
+        });
+      }
+
+      if (
+        paginator.id === "paginator-line-testimonials" &&
+        label.htmlFor === "paginator-line-testimonials"
+      ) {
+        paginator.addEventListener('input', () => {
+          let number = label.querySelector('.paginator__number-dark');
+          number.innerHTML = `0${paginator.value}/`;
+          console.log(number);
+        });
+      }
+    });
+  });
+}
+paginatorsCount();
 function switchDarkTheme() {
   // HEADER
   let headerWrapper = document.querySelector(".header__wrapper");
@@ -37,7 +89,7 @@ function switchDarkTheme() {
 
   //PETS IN ZOO
   let petsInZooWrapper = document.querySelector(".pets-in-zoo__wrapper");
-  let petsInZooTitle= document.querySelector(".pets-in-zoo__title");
+  let petsInZooTitle = document.querySelector(".pets-in-zoo__title");
   petsInZooWrapper.classList.toggle("pets-in-zoo__wrapper-dark");
   petsInZooTitle.classList.toggle("pets-in-zoo__title-dark");
 
