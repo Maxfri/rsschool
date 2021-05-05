@@ -404,11 +404,11 @@ input:checked + .slider:before {
   flex-direction: column;
   flex-wrap: wrap;
   padding-bottom: 30px;
-  margin: 0 310px;
+  margin: 0 370px;
 }
 .pets__cards {
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   justify-content: center;
   align-items: center;
   margin-bottom: 30px;
@@ -1196,7 +1196,9 @@ fieldset {
 }
 .how-it-works__subtitle-dark,
 .card__subtitle-dark,
-.pay-and-feed__subtitle-dark {
+.pay-and-feed__subtitle-dark,
+.testimonials__card-name-dark,
+.testimonials__card-description-dark {
   color: #F2F2F2;
 }
 .how-it-works__intro-dark {
@@ -1214,6 +1216,9 @@ fieldset {
 .testimonials__wrapper-dark {
   background-color: #333333;
 }
+.testimonials__card-item-dark {
+  background: #3C3C3C;
+}
 .map-dark {
   background-color: #4F4F4F;
 }
@@ -1221,7 +1226,7 @@ fieldset {
 /* PETS SLIDER */
 
 /* User styles */
-@media screen and (min-width: 911px) {
+/* @media screen and (min-width: 911px) {
   .ant-carousel {
     max-width: 810px;
   }
@@ -1237,19 +1242,19 @@ fieldset {
   .ant-carousel {
     max-width: 270px;
   }
-}
+} */
 
-.ant-carousel {
+/* .ant-carousel {
   margin: 50px auto auto;
   padding-top: 10px;
   border: 1px solid #ccd;
   background-color: white;
-}
+} */
 
-.ant-carousel-element {
+/* .ant-carousel-element {
   width: 270px;
   text-align: center;
-}
+} */
 
 /* General styles */
 .ant-carousel {
@@ -1259,6 +1264,7 @@ fieldset {
 
 .ant-carousel-hider {
   overflow: hidden;
+  width: 100%;
 }
 
 .ant-carousel-list {
@@ -1290,14 +1296,12 @@ div.ant-carousel-arrow-left {
   left: -40px;
   top: 40%;
   display: block;
-  background: url("http://pvbk.spb.ru/inc/carousel/ant-files/ant-arrow-left.png") no-repeat;
 }
 
 div.ant-carousel-arrow-right {
   right: -40px;
   top: 40%;
   display: block;
-  background: url("http://pvbk.spb.ru/inc/carousel/ant-files/ant-arrow-right.png") no-repeat;
 }
 
 div.ant-carousel-arrow-left:hover {
@@ -1316,6 +1320,7 @@ div.ant-carousel-dots {
   bottom: -30px;
   z-index: 30;
   text-align: center;
+  display: none;
 }
 
 span.ant-dot {
