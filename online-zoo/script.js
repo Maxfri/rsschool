@@ -4,16 +4,39 @@ let switchTheme = document.querySelector("#switchTheme");
 switchTheme.addEventListener("click", switchDarkTheme);
 let paginators = document.querySelectorAll("input[type=range]");
 let paginatorsLabel = document.querySelectorAll("label");
+
+let animalSlider = [
+  "./assets/images/Deers.png",
+  "./assets/images/slider_panda.png",
+  "./assets/images/slider_monke.png",
+  "./assets/images/slider_chempanse.png",
+];
+let animalSliderImage = document.querySelector(".how-it-works__slider-img");
+
+let mainGalleryItems = document.querySelectorAll(".main-gallery__item");
+
+let mainSlider = [
+  "./assets/images/eagle.png",
+  "./assets/images/panda.png",
+  "./assets/images/monke.png",
+  "./assets/images/croko.png",
+  "./assets/images/fox.png",
+  "./assets/images/lazy.png",
+  "./assets/images/elephant.png",
+  "./assets/images/jaguar.png",
+];
+
 function paginatorsCount() {
   paginators.forEach((paginator) => {
     paginatorsLabel.forEach((label) => {
-
       if (
         paginator.id === "paginator-line-main" &&
         label.htmlFor === "paginator-line-main"
       ) {
-        paginator.addEventListener('input', () => {
-          let number = label.querySelector('.paginator__number');
+        paginator.addEventListener("input", () => {
+          let mainItemImg = document.querySelector(".main-gallery__big-img");
+          mainItemImg.src = mainSlider[paginator.value - 1];
+          let number = label.querySelector(".paginator__number");
           number.innerHTML = `0${paginator.value}/`;
           console.log(number);
         });
@@ -23,8 +46,9 @@ function paginatorsCount() {
         paginator.id === "paginator-line-animals" &&
         label.htmlFor === "paginator-line-animals"
       ) {
-        paginator.addEventListener('input', () => {
-          let number = label.querySelector('.paginator__number-dark');
+        paginator.addEventListener("input", () => {
+          animalSliderImage.src = animalSlider[paginator.value - 1];
+          let number = label.querySelector(".paginator__number");
           number.innerHTML = `0${paginator.value}/`;
           console.log(number);
         });
@@ -34,8 +58,8 @@ function paginatorsCount() {
         paginator.id === "paginator-line-pets" &&
         label.htmlFor === "paginator-line-pets"
       ) {
-        paginator.addEventListener('input', () => {
-          let number = label.querySelector('.paginator__number-dark');
+        paginator.addEventListener("input", () => {
+          let number = label.querySelector(".paginator__number");
           number.innerHTML = `0${paginator.value}/`;
           console.log(number);
         });
@@ -45,8 +69,8 @@ function paginatorsCount() {
         paginator.id === "paginator-line-testimonials" &&
         label.htmlFor === "paginator-line-testimonials"
       ) {
-        paginator.addEventListener('input', () => {
-          let number = label.querySelector('.paginator__number-dark');
+        paginator.addEventListener("input", () => {
+          let number = label.querySelector(".paginator__number");
           number.innerHTML = `0${paginator.value}/`;
           console.log(number);
         });
@@ -54,8 +78,15 @@ function paginatorsCount() {
     });
   });
 }
+
 paginatorsCount();
+
 function switchDarkTheme() {
+  //PAGINATOR
+  let paginators = document.querySelectorAll(".paginator__number");
+  paginators.forEach((paginator) => {
+    paginator.classList.toggle("paginator__number-dark");
+  });
   // HEADER
   let headerWrapper = document.querySelector(".header__wrapper");
   let headerLogo = document.querySelector(".header__logo-pic");
