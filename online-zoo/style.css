@@ -239,24 +239,20 @@ input:checked + .slider:before {
   position: relative;
   left: -97px;
 }
-.paginator__count-light {
+.paginator__count {
   width: 53px;
   height: 28px;
-
   font-family: Roboto;
   font-style: normal;
-  color: #fefefe;
   margin-bottom: 15px;
 }
 .paginator__number {
   font-weight: 900;
   font-size: 24px;
   line-height: 28px;
+  color: #ffffff;
 }
 .paginator__number-dark {
-  font-weight: 900;
-  font-size: 24px;
-  line-height: 28px;
   color: #333333;
 }
 .paginator__total-number {
@@ -333,14 +329,6 @@ input:checked + .slider:before {
   justify-content: center;
   align-items: center;
   flex-flow: column wrap;
-}
-.paginator__count-dark {
-  width: 53px;
-  height: 28px;
-  font-family: Roboto;
-  font-style: normal;
-  color: #333333;
-  margin-bottom: 15px;
 }
 .how-it-works__form {
   display: flex;
