@@ -81,14 +81,22 @@ function paginatorsCount() {
 
 paginatorsCount();
 
+let flagTheme = true;
+
 function switchDarkTheme() {
+  flagTheme = !flagTheme;
+  console.log(flagTheme);
   //PAGINATOR
+  paginators.forEach((paginator) => {
+    if (paginator.classList.contains("paginator__line-dark")) {
+      paginator.classList.toggle("paginator__line-dark");
+      paginator.classList.add("paginator__line-light");
+    } else if (paginator.id !== "paginator-line-main") {
+      paginator.classList.toggle("paginator__line-dark");
+    }
+  });
   let paginatorsNumber = document.querySelectorAll(".paginator__number");
   paginatorsNumber.forEach((paginator) => {
-    // if (paginator) {
-
-    // }
-    console.log(paginator);
     paginator.classList.toggle("paginator__number-dark");
   });
   // HEADER
@@ -100,7 +108,13 @@ function switchDarkTheme() {
   headerLinks.forEach((link) => {
     link.classList.toggle("header__link-dark");
   });
-  headerLogo.src = "./assets/images/logo-light.svg";
+  document.querySelector('.header__toggle').classList.toggle('header__toggle-dark');
+  if (flagTheme) {
+    headerLogo.src = "./assets/images/logo.svg";
+    
+  } else {
+    headerLogo.src = "./assets/images/logo-light.svg";
+  }
 
   //HOW IT WORKS
   let howItWorksWrapper = document.querySelector(".how-it-works__intro");
@@ -129,6 +143,17 @@ function switchDarkTheme() {
   petsInZooTitle.classList.toggle("pets-in-zoo__title-dark");
 
   //PAY AND FEED
+  if (flagTheme) {
+    document.querySelector("#panda-feed").src =
+      "./assets/images/panda_feed.svg";
+    document.querySelector("#payment").src = "./assets/images/payment.svg";
+    document.querySelector("#visa").src = "./assets/images/visa_card.svg";
+  } else {
+    document.querySelector("#panda-feed").src =
+      "./assets/images/panda_feed-dark.svg";
+    document.querySelector("#payment").src = "./assets/images/payment-dark.svg";
+    document.querySelector("#visa").src = "./assets/images/visa_card-dark.svg";
+  }
   let payAndFeedWrapper = document.querySelector(".pay-and-feed__wrapper");
   let payAndFeedTitle = document.querySelector(".pay-and-feed__title");
   let payAndFeedSubtitle = document.querySelector(".pay-and-feed__subtitle");
@@ -139,10 +164,35 @@ function switchDarkTheme() {
   //TESTIMONIALS
   let testimonialsWrapper = document.querySelector(".testimonials__wrapper");
   let testimonialsTitle = document.querySelector(".testimonials__title");
+  let testimonialsCards = document.querySelectorAll(".testimonials__card-item");
+  let testimonialsCardsName = document.querySelectorAll(
+    ".testimonials__card-name"
+  );
+  let testimonialsCardsDescription = document.querySelectorAll(
+    ".testimonials__card-description"
+  );
+
+  testimonialsCards.forEach((testimonialsCard) => {
+    testimonialsCard.classList.toggle("testimonials__card-item-dark");
+  });
+  testimonialsCardsName.forEach((testimonialsCardName) => {
+    testimonialsCardName.classList.toggle("testimonials__card-name-dark");
+  });
+  testimonialsCardsDescription.forEach((testimonialsCardDescription) => {
+    testimonialsCardDescription.classList.toggle(
+      "testimonials__card-description-dark"
+    );
+  });
+
   testimonialsWrapper.classList.toggle("testimonials__wrapper-dark");
   testimonialsTitle.classList.toggle("testimonials__title-dark");
 
   //MAP
+  if (flagTheme) {
+    document.querySelector(".map__image").src = "./assets/images/map.png";
+  } else {
+    document.querySelector(".map__image").src = "./assets/images/map-dark.png";
+  }
   let mapWrapper = document.querySelector(".map");
   let mapTitle = document.querySelector(".map__title");
   mapWrapper.classList.toggle("map-dark");
