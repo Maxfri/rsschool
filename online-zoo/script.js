@@ -83,8 +83,12 @@ paginatorsCount();
 
 function switchDarkTheme() {
   //PAGINATOR
-  let paginators = document.querySelectorAll(".paginator__number");
-  paginators.forEach((paginator) => {
+  let paginatorsNumber = document.querySelectorAll(".paginator__number");
+  paginatorsNumber.forEach((paginator) => {
+    // if (paginator) {
+
+    // }
+    console.log(paginator);
     paginator.classList.toggle("paginator__number-dark");
   });
   // HEADER
