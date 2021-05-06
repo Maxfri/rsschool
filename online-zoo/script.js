@@ -38,7 +38,7 @@ function paginatorsCount() {
           mainItemImg.src = mainSlider[paginator.value - 1];
           let number = label.querySelector(".paginator__number");
           number.innerHTML = `0${paginator.value}/`;
-          console.log(number);
+          // console.log(number);
         });
       }
 
@@ -50,20 +50,20 @@ function paginatorsCount() {
           animalSliderImage.src = animalSlider[paginator.value - 1];
           let number = label.querySelector(".paginator__number");
           number.innerHTML = `0${paginator.value}/`;
-          console.log(number);
+          // console.log(number);
         });
       }
 
-      if (
-        paginator.id === "paginator-line-pets" &&
-        label.htmlFor === "paginator-line-pets"
-      ) {
-        paginator.addEventListener("input", () => {
-          let number = label.querySelector(".paginator__number");
-          number.innerHTML = `0${paginator.value}/`;
-          console.log(number);
-        });
-      }
+      // if (
+      //   paginator.id === "paginator-line-pets" &&
+      //   label.htmlFor === "paginator-line-pets"
+      // ) {
+      //   paginator.addEventListener("input", () => {
+      //     let number = label.querySelector(".paginator__number");
+      //     number.innerHTML = `0${paginator.value}/`;
+      //     // console.log(number);
+      //   });
+      // }
 
       if (
         paginator.id === "paginator-line-testimonials" &&
@@ -72,7 +72,7 @@ function paginatorsCount() {
         paginator.addEventListener("input", () => {
           let number = label.querySelector(".paginator__number");
           number.innerHTML = `0${paginator.value}/`;
-          console.log(number);
+          // console.log(number);
         });
       }
     });
@@ -85,7 +85,6 @@ let flagTheme = true;
 
 function switchDarkTheme() {
   flagTheme = !flagTheme;
-  console.log(flagTheme);
   //PAGINATOR
   paginators.forEach((paginator) => {
     if (paginator.classList.contains("paginator__line-dark")) {

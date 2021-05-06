@@ -5,7 +5,6 @@ let flagTheme = true;
 
 function switchDarkTheme() {
   flagTheme = !flagTheme;
-  console.log(flagTheme);
 
   // HEADER
   let headerWrapper = document.querySelector(".header__wrapper");
