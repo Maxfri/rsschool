@@ -404,3 +404,13 @@
     padding-top: 0;
   }
 }
+
+.map-dark {
+  background-color: #4F4F4F;
+}
+.choose-your-favorite__title-dark {
+  color: #FEFEFE;
+}
+.choose-your-favorite__subtitle-dark {
+  color: #F2F2F2;
+}

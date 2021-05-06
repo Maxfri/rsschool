@@ -298,6 +298,12 @@
 }
 
 @media (max-width: 1199px) {
+  .slider:before {
+    bottom: 4px;
+  }
+  input:checked + .slider:before {
+    transform: translateX(24px);
+  }
   .header {
     position: sticky;
     top: 0;
@@ -923,7 +929,6 @@
   .testimonials__card-description {
     font-size: 14px;
     line-height: 16px;
-
   }
   .testimonials__card-userimg {
     margin: 52px 0 35px;

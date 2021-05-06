@@ -79,8 +79,8 @@
 
         <div class="gallery">
           <div class="map__gallery">
-            <div class="gallery__arrow">
-              <img src="../../assets/images/left-arrow.svg" alt="left arrow" />
+            <div class="gallery__arrow left-arrow">
+              <img src="../../assets/images/right-arrow.svg" alt="left arrow" />
             </div>
   
             <div class="gallery__cards">
@@ -142,17 +142,33 @@
               </div>
             </div>
   
-            <div class="gallery__arrow">
+            <div class="gallery__arrow right-arrow">
               <img src="../../assets/images/right-arrow.svg" alt="right arrow" />
             </div>
           </div>
 
-          <div class="paginator">  
+          <!-- <div class="paginator">  
             <label for="paginator-line">
               <p class="paginator__count-dark">
                 <span class="paginator__number-dark">02/</span><span class="paginator__total-number">08</span></p>
               </label>
               <input type="range" id="paginator-line" class="paginator__line paginator__line-dark" min="1" max="8" value="2">
+          </div> -->
+          <div class="paginator">
+            <label for="paginator-line">
+              <p class="paginator__count">
+                <span class="paginator__number paginator__number-dark">02/</span
+                ><span class="paginator__total-number">08</span>
+              </p>
+            </label>
+            <input
+              type="range"
+              id="paginator-line"
+              class="paginator__line paginator__line-dark"
+              min="1"
+              max="8"
+              value="2"
+            />
           </div>
         </div>
 
@@ -362,6 +378,6 @@
       </div>
     </footer>
     <!-- Footer end -->
-    <script src="../../script.js"></script>
+    <script src="./script.js"></script>
   </body>
 </html>

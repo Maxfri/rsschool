@@ -106,12 +106,16 @@ function switchDarkTheme() {
 
   headerWrapper.classList.toggle("header__wrapper-dark");
   headerLinks.forEach((link) => {
+    if (link.classList.contains("header__link-active")) {
+      link.classList.toggle("header__link-active-dark");
+    }
     link.classList.toggle("header__link-dark");
   });
-  document.querySelector('.header__toggle').classList.toggle('header__toggle-dark');
+  document
+    .querySelector(".header__toggle")
+    .classList.toggle("header__toggle-dark");
   if (flagTheme) {
     headerLogo.src = "./assets/images/logo.svg";
-    
   } else {
     headerLogo.src = "./assets/images/logo-light.svg";
   }
@@ -141,6 +145,24 @@ function switchDarkTheme() {
   let petsInZooTitle = document.querySelector(".pets-in-zoo__title");
   petsInZooWrapper.classList.toggle("pets-in-zoo__wrapper-dark");
   petsInZooTitle.classList.toggle("pets-in-zoo__title-dark");
+  let leftArrow = document.querySelectorAll(".left-arrow");
+  let rightArrow = document.querySelectorAll(".right-arrow");
+
+  if (flagTheme) {
+    leftArrow.forEach((arrow) => {
+      arrow.querySelector("img").src = "./assets/images/right-arrow.svg";
+    });
+    rightArrow.forEach((arrow) => {
+      arrow.querySelector("img").src = "./assets/images/right-arrow.svg";
+    });
+  } else {
+    leftArrow.forEach((arrow) => {
+      arrow.querySelector("img").src = "./assets/images/right-arrow-dark.svg";
+    });
+    rightArrow.forEach((arrow) => {
+      arrow.querySelector("img").src = "./assets/images/right-arrow-dark.svg";
+    });
+  }
 
   //PAY AND FEED
   if (flagTheme) {
