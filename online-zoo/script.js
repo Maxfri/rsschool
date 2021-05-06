@@ -21,9 +21,9 @@ let mainSlider = [
   "./assets/images/monke.png",
   "./assets/images/croko.png",
   "./assets/images/fox.png",
-  "./assets/images/lazy.png",
+  "./assets/images/sloth.png",
   "./assets/images/elephant.png",
-  "./assets/images/jaguar.png",
+  "./assets/images/leopard.png",
 ];
 
 function paginatorsCount() {

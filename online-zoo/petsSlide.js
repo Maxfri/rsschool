@@ -86,7 +86,17 @@ Ant.prototype.elemNext = function (num) {
         label.htmlFor === "paginator-line-pets"
       ) {
         let number = label.querySelector(".paginator__number");
-				paginator.value = this.currentElement + 1;
+        let petsInfo = document.querySelectorAll("pets__info");
+        petsInfo.forEach((info) => {
+          if (info.classList.contains("pets__info-hover")) {
+            info.classList.remove("pets__info-hover");
+          }
+					if (info.id == (this.currentElement + 1)) {
+						console.log(info.id);
+						info.classList.toggle("pets__info-hover");
+					}
+        });
+        paginator.value = this.currentElement + 1;
         number.innerHTML = `0${this.currentElement + 1}/`;
       }
     });
