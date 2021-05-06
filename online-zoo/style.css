@@ -755,6 +755,9 @@ input:checked + .slider:before {
   border-radius: 8px;
   z-index: 100;
 }
+.map__tooltip-card-dark {
+  background: #333333;
+}
 .map__tooltip:hover .map__tooltip-card {
   visibility: visible;
   z-index: 1;
@@ -1197,14 +1200,18 @@ fieldset {
 .pets-in-zoo__title-dark,
 .pay-and-feed__title-dark,
 .testimonials__title-dark,
-.map__title-dark {
+.map__title-dark,
+.map__tooltip-title-dark,
+.map__tooltip-subtitle-dark span {
     color: #FEFEFE;
 }
 .how-it-works__subtitle-dark,
 .card__subtitle-dark,
 .pay-and-feed__subtitle-dark,
 .testimonials__card-name-dark,
-.testimonials__card-description-dark {
+.testimonials__card-description-dark,
+.map__tooltip-subtitle-dark,
+.map__tooltip-subtitle-dark span {
   color: #F2F2F2;
 }
 .how-it-works__intro-dark {
