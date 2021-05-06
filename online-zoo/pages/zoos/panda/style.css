@@ -398,3 +398,15 @@ p {
     margin-bottom: 60px;
   }
 }
+
+.the-zoo__title-dark,
+.population__title-dark,
+.habitat__title-dark,
+.diet__title-dark {
+  color: #fefefe;
+}
+.population__subtitle-dark,
+.habitat__subtitle-dark,
+.diet__subtitle-dark {
+  color: #F2F2F2;
+}

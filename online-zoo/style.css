@@ -109,10 +109,10 @@ p {
 .slider:before {
   position: absolute;
   content: "";
-  height: 26px;
-  width: 26px;
+  height: 23px;
+  width: 23px;
   left: 4px;
-  bottom: 4px;
+  bottom: 6px;
   background-color: white;
   -webkit-transition: 0.4s;
   transition: 0.4s;
@@ -126,7 +126,7 @@ input:focus + .slider {
 input:checked + .slider:before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
-  transform: translateX(26px);
+  transform: translateX(28px);
   background-color: #1B1B1B;
 }
 /* Rounded sliders */
@@ -413,6 +413,9 @@ input:checked + .slider:before {
   align-items: center;
   margin-bottom: 30px;
   list-style: none;
+}
+.left-arrow {
+  transform: rotate(-180deg);
 }
 .pets__arrow,
 .testimonials__arrow {
@@ -1185,6 +1188,9 @@ fieldset {
   background-color: #333333;
   color: #FEFEFE
 }
+.header__link-active-dark {
+  border-bottom: 1px solid #ffffff;
+}
 .header__link-dark,
 .how-it-works__title-dark,
 .card__title-dark,
@@ -1192,7 +1198,7 @@ fieldset {
 .pay-and-feed__title-dark,
 .testimonials__title-dark,
 .map__title-dark {
-    color: #FEFEFE;;
+    color: #FEFEFE;
 }
 .how-it-works__subtitle-dark,
 .card__subtitle-dark,
@@ -1222,7 +1228,9 @@ fieldset {
 .map-dark {
   background-color: #4F4F4F;
 }
-
+.main-dark {
+  background-color: #4F4F4F;
+}
 /* PETS SLIDER */
 
 /* User styles */
