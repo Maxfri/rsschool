@@ -34,9 +34,9 @@ function paginatorsCount() {
         label.htmlFor === "paginator-line-main"
       ) {
         paginator.addEventListener("input", () => {
+          let number = label.querySelector(".paginator__number-main");
           let mainItemImg = document.querySelector(".main-gallery__big-img");
           mainItemImg.src = mainSlider[paginator.value - 1];
-          let number = label.querySelector(".paginator__number");
           number.innerHTML = `0${paginator.value}/`;
           // console.log(number);
         });
