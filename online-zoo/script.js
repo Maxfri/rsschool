@@ -218,4 +218,17 @@ function switchDarkTheme() {
   let mapTitle = document.querySelector(".map__title");
   mapWrapper.classList.toggle("map-dark");
   mapTitle.classList.toggle("map__title-dark");
+
+  let mapTooltip = document.querySelectorAll(".map__tooltip-card");
+  mapTooltip.forEach((tooltip) => {
+    tooltip.classList.toggle("map__tooltip-card-dark");
+  });
+  let mapTooltipTitle = document.querySelectorAll(".map__tooltip-title");
+  mapTooltipTitle.forEach((tooltip) => {
+    tooltip.classList.toggle("map__tooltip-title-dark");
+  });
+  let mapTooltipSubtitle = document.querySelectorAll(".map__tooltip-subtitle");
+  mapTooltipSubtitle.forEach((tooltip) => {
+    tooltip.classList.toggle("map__tooltip-subtitle-dark");
+  });
 }
