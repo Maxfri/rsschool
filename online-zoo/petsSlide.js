@@ -34,6 +34,44 @@ Ant.defaults = {
 Ant.prototype.elemPrev = function (num) {
   num = num || 1;
 
+  paginators.forEach((paginator) => {
+    paginatorsLabel.forEach((label) => {
+      if (
+        paginator.id === "paginator-line-pets" &&
+        label.htmlFor === "paginator-line-pets"
+      ) {
+
+        let number = label.querySelector(".paginator__number");
+        let petsInfo = document.querySelectorAll(".pets__info");
+
+        // petsInfo.forEach((info) => {
+       
+        //   if (info.classList.contains("pets__info-hover")) {
+        //     info.classList.remove("pets__info-hover");
+        //   }
+
+        //   if (this.currentElement  == 7 && info.id == 0) {
+        //     info.classList.add("pets__info-hover");
+        //   }
+
+        //   if (info.id  == (this.currentElement + 1)) {
+				// 		info.classList.add("pets__info-hover");
+				// 	}	
+
+        // });
+
+        console.log(this.currentElement);
+        if (this.currentElement === 0) {
+          paginator.value = this.currentElement + 8;
+          number.innerHTML = `0${this.currentElement + 8}/`;
+        } else {
+          paginator.value = this.currentElement;
+          number.innerHTML = `0${this.currentElement}/`;
+        }
+      }
+    });
+  });
+
   if (this.options.dots) this.dotOn(this.currentElement);
   this.currentElement -= num;
   if (this.currentElement < 0) this.currentElement = this.dotsVisible - 1;
@@ -74,11 +112,9 @@ Ant.prototype.elemPrev = function (num) {
 Ant.prototype.elemNext = function (num) {
   num = num || 1;
 
-  
-  // let paginator = document.querySelector('#paginator-line-pets');
-  // let paginatorNumber = document.querySelector('#paginator-line-pets');
   let paginators = document.querySelectorAll("input[type=range]");
   let paginatorsLabel = document.querySelectorAll("label");
+
   paginators.forEach((paginator) => {
     paginatorsLabel.forEach((label) => {
       if (
