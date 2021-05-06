@@ -672,6 +672,9 @@
     border: none;
     background-image: url(./assets/images/burger-menu.svg);
   }
+  .header__toggle-dark {
+    background-image: url(./assets/images/burger-menu-dark.svg);
+  }
   /* Header styles end */
 
   /* Intro styles start */
