@@ -135,8 +135,13 @@ Ant.prototype.elemNext = function (num) {
 						info.classList.add("pets__info-hover");
 					}	
         });
-        paginator.value = this.currentElement + 1;
-        number.innerHTML = `0${this.currentElement + 1}/`;
+        if (this.currentElement == 7) {
+          paginator.value = 1;
+          number.innerHTML = `01/`;
+        } else {
+          paginator.value = this.currentElement + 2;
+          number.innerHTML = `0${this.currentElement + 2}/`;
+        } 
       }
     });
   });
