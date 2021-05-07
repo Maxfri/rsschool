@@ -34,6 +34,16 @@ mapPaginator.addEventListener("input", () => {
   });
 });
 
+mapGallaryCards.forEach((card) => {
+  card.addEventListener('click', () => {
+    mapTooltips.forEach((tooltips) => {
+      if (card.dataset.id == tooltips.dataset.id) {
+        pickTooltip(tooltips);
+      }
+    });
+  })
+});
+
 function pickRightArrow() {
   mapGallaryCards.forEach((card) => {
     card.classList.remove("gallery__card-active");
