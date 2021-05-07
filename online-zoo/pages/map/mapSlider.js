@@ -24,9 +24,9 @@ mapPaginator.addEventListener("input", () => {
   mapGallaryCards.forEach((card) => {
     card.classList.remove("gallery__card-active");
   });
-  let number = mapPaginator.value;
-  mapGallaryCards[number - 1].classList.add("gallery__card-active");
-  mapPaginatorNumber.innerHTML = `0${number}/`;
+  let paginatorNumber = mapPaginator.value;
+  mapGallaryCards[paginatorNumber - 1].classList.add("gallery__card-active");
+  mapPaginatorNumber.innerHTML = `0${paginatorNumber}/`;
 });
 
 function pickRightArrow() {
@@ -37,6 +37,11 @@ function pickRightArrow() {
   if (number > 8) {
     number = 1;
   }
+  mapTooltips.forEach((tooltips) => {
+    if (tooltips.dataset.id == number) {
+      pickTooltip(tooltips);
+    }
+  });
   mapGallaryCards[number - 1].classList.add("gallery__card-active");
   mapPaginatorNumber.innerHTML = `0${number}/`;
   mapPaginator.value = mapGallaryCards[number -1].dataset.id;
@@ -50,12 +55,18 @@ function pickLeftArrow() {
   if (number < 1) {
     number = 8;
   }
+  mapTooltips.forEach((tooltips) => {
+    if (tooltips.dataset.id == number) {
+      pickTooltip(tooltips);
+    }
+  });
   mapGallaryCards[number - 1].classList.add("gallery__card-active");
   mapPaginatorNumber.innerHTML = `0${number}/`;
   mapPaginator.value = mapGallaryCards[number -1].dataset.id;
 }
 
 function pickTooltip(tooltip) {
+  console.log(tooltip);
   mapTooltips.forEach((tooltips) => {
     tooltips.classList.remove("map__tooltip-hover");
   });
