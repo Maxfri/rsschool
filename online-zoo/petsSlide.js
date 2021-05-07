@@ -12,7 +12,7 @@ function Ant(crslId) {
   this.crslElemFirst = this.crslList.querySelector(".ant-carousel-element");
   this.leftArrow = this.crslRoot.querySelector("div.ant-carousel-arrow-left");
   this.rightArrow = this.crslRoot.querySelector("div.ant-carousel-arrow-right");
-  this.indicatorDots = this.crslRoot.querySelector("div.ant-carousel-dots");
+  this.indicatorDots = this.crslRoot.querySelector(".paginator-number-pets");
 
   // Initialization
   this.options = Ant.defaults;
@@ -21,14 +21,14 @@ function Ant(crslId) {
 
 Ant.defaults = {
   // Default options for the carousel
-  elemVisible: 4, // ���-�� ������������ ��������� � ��������
-  loop: true, // ����������� ������������ ��������
-  auto: true, // �������������� ���������
-  interval: 5000, // �������� ����� ���������� ��������� (��)
-  speed: 750, // �������� �������� (��)
-  touch: true, // ���������  ��������������
-  arrows: true, // ��������� ���������
-  dots: true, // ������������ �����
+  elemVisible: 4, 
+  loop: true, 
+  auto: true, 
+  interval: 5000, 
+  speed: 750, 
+  touch: true, 
+  arrows: true, 
+  dots: true, 
 };
 
 Ant.prototype.elemPrev = function (num) {
@@ -45,7 +45,7 @@ Ant.prototype.elemPrev = function (num) {
         let petsInfo = document.querySelectorAll(".pets__info");
 
         // petsInfo.forEach((info) => {
-       
+
         //   if (info.classList.contains("pets__info-hover")) {
         //     info.classList.remove("pets__info-hover");
         //   }
@@ -55,8 +55,8 @@ Ant.prototype.elemPrev = function (num) {
         //   }
 
         //   if (info.id  == (this.currentElement + 1)) {
-				// 		info.classList.add("pets__info-hover");
-				// 	}	
+        // 		info.classList.add("pets__info-hover");
+        // 	}	
 
         // });
 
@@ -123,17 +123,18 @@ Ant.prototype.elemNext = function (num) {
       ) {
         let number = label.querySelector(".paginator__number");
         let petsInfo = document.querySelectorAll(".pets__info");
+
         petsInfo.forEach((info) => {
-       
+
           if (info.classList.contains("pets__info-hover")) {
             info.classList.remove("pets__info-hover");
           }
-          if (this.currentElement  == 7 && info.id == 0) {
+          if (this.currentElement == 7 && info.id == 0) {
             info.classList.add("pets__info-hover");
           }
-          if (info.id  == (this.currentElement + 1)) {
-						info.classList.add("pets__info-hover");
-					}	
+          if (info.id == (this.currentElement + 1)) {
+            info.classList.add("pets__info-hover");
+          }
         });
         if (this.currentElement == 7) {
           paginator.value = 1;
@@ -141,7 +142,7 @@ Ant.prototype.elemNext = function (num) {
         } else {
           paginator.value = this.currentElement + 2;
           number.innerHTML = `0${this.currentElement + 2}/`;
-        } 
+        }
       }
     });
   });
@@ -182,14 +183,16 @@ Ant.prototype.elemNext = function (num) {
   }
 };
 
+// document.querySelector('#paginator-line-pets').addEventListener('input', () => elemNext(paginator.value));
+
 Ant.prototype.dotOn = function (num) {
-  this.indicatorDotsAll[num].style.cssText =
-    "background-color:#BBB; cursor:pointer;";
+  // this.indicatorDotsAll[num].style.cssText =
+  //   "background-color:#BBB; cursor:pointer;";
 };
 
 Ant.prototype.dotOff = function (num) {
-  this.indicatorDotsAll[num].style.cssText =
-    "background-color:#556; cursor:default;";
+  // this.indicatorDotsAll[num].style.cssText =
+  //   "background-color:#556; cursor:default;";
 };
 
 Ant.initialize = function (that) {
@@ -325,37 +328,14 @@ Ant.initialize = function (that) {
   }
 
   if (that.options.dots) {
-    // ������������� ������������ �����
-    let sum = "",
-      diffNum;
-    for (let i = 0; i < that.dotsVisible; i++) {
-      sum += '<span class="ant-dot"></span>';
-    }
-    that.indicatorDots.innerHTML = sum;
-    that.indicatorDotsAll = that.crslRoot.querySelectorAll("span.ant-dot");
-    // ��������� ������ ���������� ������� 'click'
-    for (let n = 0; n < that.dotsVisible; n++) {
-      that.indicatorDotsAll[n].addEventListener(
-        "click",
-        function () {
-          diffNum = Math.abs(n - that.currentElement);
-          console.log(n);
-          if (n < that.currentElement) {
-            bgTime = getTime();
-            that.elemPrev(diffNum);
-          } else if (n > that.currentElement) {
-            bgTime = getTime();
-            that.elemNext(diffNum);
-          }
-          // ���� n == that.currentElement ������ �� ������
-        },
-        false
-      );
-    }
-    that.dotOff(0); // �����[0] ���������, ��������� ��������
-    for (let i = 1; i < that.dotsVisible; i++) {
-      that.dotOn(i);
-    }
+
+    that.indicatorDotsAll = that.crslRoot.querySelectorAll("#paginator-line-pets");
+    console.log(that.indicatorDotsAll[0]);
+    that.indicatorDotsAll[0].addEventListener("input", () => {
+      bgTime = getTime();
+      that.elemNext(that.indicatorDotsAll[0].value);
+      that.prevNext(that.indicatorDotsAll[0].value);
+    });
   }
 };
 
