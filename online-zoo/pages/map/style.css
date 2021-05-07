@@ -89,6 +89,8 @@
 .gallery__card-active {
   margin-right: 30px;
   cursor: pointer;
+  width: 157px;
+  height: 157px;
 }
 .gallery__image {
   width: 100%;
@@ -100,11 +102,23 @@
   align-items: center;
   margin-bottom: 116px;
 }
-.map__panda-icon {
+.map__tooltip-hover {
   background: url(../../assets/images/map_red-pin.svg);
   background-repeat: no-repeat;
 }
 
+.map__eagle-icon {
+  transform: translate(140px, -746px);
+}
+.map__alligator-icon {
+  transform: translate(241px, -624px);
+}
+.map__gorilla-icon {
+  transform: translate(569px, -315px);
+}
+.map__panda-icon {
+  transform: translate(871px, -526px);
+}
 @media (max-width: 1919px) {
   .choose-your-favorite__subtitle {
     padding-bottom: 35px;
@@ -382,7 +396,6 @@
   }
   .map__panda-icon {
     transform: translate(188px, -282px);
-    background: url(../../assets/images/red-min-pin.svg);
     background-repeat: no-repeat;
   }
   .map__eagle-icon:hover,
