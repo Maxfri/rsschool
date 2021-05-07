@@ -27,6 +27,11 @@ mapPaginator.addEventListener("input", () => {
   let paginatorNumber = mapPaginator.value;
   mapGallaryCards[paginatorNumber - 1].classList.add("gallery__card-active");
   mapPaginatorNumber.innerHTML = `0${paginatorNumber}/`;
+  mapTooltips.forEach((tooltips) => {
+    if (tooltips.dataset.id == paginatorNumber) {
+      pickTooltip(tooltips);
+    }
+  });
 });
 
 function pickRightArrow() {
@@ -66,7 +71,6 @@ function pickLeftArrow() {
 }
 
 function pickTooltip(tooltip) {
-  console.log(tooltip);
   mapTooltips.forEach((tooltips) => {
     tooltips.classList.remove("map__tooltip-hover");
   });
