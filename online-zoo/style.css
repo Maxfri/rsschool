@@ -191,13 +191,11 @@ input:checked + .slider:before {
   position: absolute;
   top: 473px;
   right: 0;
-  width: 1080px;
+  width: 1000px;
 }
 .main-gallery__wrapper {
-
   margin-bottom: 15px;
-  background-image: url(./assets/images/line.svg);
-  background-repeat: no-repeat;
+  background: url(./assets/images/line-gallery.svg) no-repeat;
   background-position-y: 57%;
 }
 .main-gallery__slider {

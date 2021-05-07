@@ -329,13 +329,13 @@ Ant.initialize = function (that) {
 
   if (that.options.dots) {
 
-    that.indicatorDotsAll = that.crslRoot.querySelectorAll("#paginator-line-pets");
-    console.log(that.indicatorDotsAll[0]);
-    that.indicatorDotsAll[0].addEventListener("input", () => {
-      bgTime = getTime();
-      that.elemNext(that.indicatorDotsAll[0].value);
-      that.prevNext(that.indicatorDotsAll[0].value);
-    });
+    // that.indicatorDotsAll = that.crslRoot.querySelectorAll("#paginator-line-pets");
+    // console.log(that.indicatorDotsAll[0]);
+    // that.indicatorDotsAll[0].addEventListener("input", () => {
+    //   bgTime = getTime();
+    //   that.elemNext(that.indicatorDotsAll[0].value);
+    //   that.prevNext(that.indicatorDotsAll[0].value);
+    // });
   }
 };
 
