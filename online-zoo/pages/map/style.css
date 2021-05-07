@@ -182,16 +182,16 @@
     height: 388px;
   }
   .map__eagle-icon {
-    transform: translate(70px, -346px);
+    transform: translate(70px, -676px);
   }
   .map__alligator-icon {
-    transform: translate(151px, -434px);
+    transform: translate(151px, -554px);
   }
   .map__gorilla-icon {
-    transform: translate(369px, -459px);
+    transform: translate(369px, -269px);
   }
   .map__panda-icon {
-    transform: translate(581px, -636px);
+    transform: translate(581px, -446px);
   }
 }
 
