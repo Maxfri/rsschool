@@ -219,6 +219,7 @@ input:checked + .slider:before {
   width: 140px;
   margin-right: 45px;
   position: relative;
+  cursor: pointer;
 }
 .main-gallery__item:last-child {
   margin-right: 0;
