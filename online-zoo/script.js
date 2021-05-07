@@ -13,18 +13,16 @@ let animalSlider = [
 ];
 let animalSliderImage = document.querySelector(".how-it-works__slider-img");
 
-let mainGalleryItems = document.querySelectorAll(".main-gallery__item");
-
-let mainSlider = [
-  "./assets/images/eagle.png",
-  "./assets/images/panda.png",
-  "./assets/images/monke.png",
-  "./assets/images/croko.png",
-  "./assets/images/fox.png",
-  "./assets/images/sloth.png",
-  "./assets/images/elephant.png",
-  "./assets/images/leopard.png",
-];
+// let mainSlider = [
+//   "./assets/images/eagle.png",
+//   "./assets/images/panda.png",
+//   "./assets/images/monke.png",
+//   "./assets/images/croko.png",
+//   "./assets/images/fox.png",
+//   "./assets/images/sloth.png",
+//   "./assets/images/elephant.png",
+//   "./assets/images/leopard.png",
+// ];
 
 function paginatorsCount() {
   paginators.forEach((paginator) => {
@@ -33,13 +31,13 @@ function paginatorsCount() {
         paginator.id === "paginator-line-main" &&
         label.htmlFor === "paginator-line-main"
       ) {
-        paginator.addEventListener("input", () => {
-          let number = label.querySelector(".paginator__number-main");
-          let mainItemImg = document.querySelector(".main-gallery__big-img");
-          mainItemImg.src = mainSlider[paginator.value - 1];
-          number.innerHTML = `0${paginator.value}/`;
-          // console.log(number);
-        });
+        // paginator.addEventListener("input", () => {
+        //   let number = label.querySelector(".paginator__number-main");
+        //   let mainItemImg = document.querySelector(".main-gallery__big-img");
+        //   mainItemImg.src = mainSlider[paginator.value - 1];
+        //   number.innerHTML = `0${paginator.value}/`;
+        //   // console.log(number);
+        // });
       }
 
       if (

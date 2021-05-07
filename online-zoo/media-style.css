@@ -24,9 +24,6 @@
   .main-gallery__wrapper {
     margin-bottom: 23px;
   }
-  .main-gallery__list {
-    right: -135px;
-  }
   .main__pets-info {
     position: absolute;
     bottom: 30px;
@@ -367,9 +364,6 @@
     margin-bottom: 25px;
     background-position-y: 57%;
     background-position-x: -12%;
-  }
-  .main-gallery__list {
-    right: -123px;
   }
   .main__pets-info {
     position: absolute;
@@ -712,7 +706,6 @@
     width: 320px;
   }
   .main-gallery__list {
-    right: -25px;
     top: 15px;
     margin: 0;
     padding: 0;
