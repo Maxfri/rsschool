@@ -21,14 +21,14 @@ function Ant(crslId) {
 
 Ant.defaults = {
   // Default options for the carousel
-  elemVisible: 4, 
-  loop: true, 
-  auto: true, 
-  interval: 5000, 
-  speed: 750, 
-  touch: true, 
-  arrows: true, 
-  dots: true, 
+  elemVisible: 4,
+  loop: true,
+  auto: false,
+  interval: 5000,
+  speed: 750,
+  touch: true,
+  arrows: true,
+  dots: true,
 };
 
 Ant.prototype.elemPrev = function (num) {
@@ -40,25 +40,20 @@ Ant.prototype.elemPrev = function (num) {
         paginator.id === "paginator-line-pets" &&
         label.htmlFor === "paginator-line-pets"
       ) {
-
         let number = label.querySelector(".paginator__number");
         let petsInfo = document.querySelectorAll(".pets__info");
 
-        // petsInfo.forEach((info) => {
-
-        //   if (info.classList.contains("pets__info-hover")) {
-        //     info.classList.remove("pets__info-hover");
-        //   }
-
-        //   if (this.currentElement  == 7 && info.id == 0) {
-        //     info.classList.add("pets__info-hover");
-        //   }
-
-        //   if (info.id  == (this.currentElement + 1)) {
-        // 		info.classList.add("pets__info-hover");
-        // 	}	
-
-        // });
+				petsInfo.forEach((info) => {
+          if (info.classList.contains("pets__info-hover")) {
+            info.classList.remove("pets__info-hover");
+          }
+          if (this.currentElement == 0 && info.id == 7) {
+            info.classList.add("pets__info-hover");
+          }
+          if (info.id == this.currentElement - 1) {
+            info.classList.add("pets__info-hover");
+          }
+        });
 
         console.log(this.currentElement);
         if (this.currentElement === 0) {
@@ -78,7 +73,6 @@ Ant.prototype.elemPrev = function (num) {
   if (this.options.dots) this.dotOff(this.currentElement);
 
   if (!this.options.loop) {
-    // ����� ������ ��� �����
     this.currentOffset += this.elemWidth * num;
     this.crslList.style.marginLeft = this.currentOffset + "px";
     if (this.currentElement == 0) {
@@ -88,7 +82,6 @@ Ant.prototype.elemPrev = function (num) {
     this.rightArrow.style.display = "block";
     this.touchNext = true;
   } else {
-    // ����� ������ � ������
     let elm,
       buf,
       this$ = this;
@@ -125,14 +118,13 @@ Ant.prototype.elemNext = function (num) {
         let petsInfo = document.querySelectorAll(".pets__info");
 
         petsInfo.forEach((info) => {
-
           if (info.classList.contains("pets__info-hover")) {
             info.classList.remove("pets__info-hover");
           }
           if (this.currentElement == 7 && info.id == 0) {
             info.classList.add("pets__info-hover");
           }
-          if (info.id == (this.currentElement + 1)) {
+          if (info.id == this.currentElement + 1) {
             info.classList.add("pets__info-hover");
           }
         });
@@ -153,7 +145,6 @@ Ant.prototype.elemNext = function (num) {
   if (this.options.dots) this.dotOff(this.currentElement);
 
   if (!this.options.loop) {
-    // ����� ����� ��� �����
     this.currentOffset -= this.elemWidth * num;
     this.crslList.style.marginLeft = this.currentOffset + "px";
     if (this.currentElement == this.dotsVisible - 1) {
@@ -163,7 +154,6 @@ Ant.prototype.elemNext = function (num) {
     this.leftArrow.style.display = "block";
     this.touchPrev = true;
   } else {
-    // ����� ����� � ������
     let elm,
       buf,
       this$ = this;
@@ -197,11 +187,11 @@ Ant.prototype.dotOff = function (num) {
 
 Ant.initialize = function (that) {
   // Constants
-  that.elemCount = that.crslElements.length; // ���������� ���������
-  that.dotsVisible = that.elemCount; // ����� ������� �����
+  that.elemCount = that.crslElements.length;
+  that.dotsVisible = that.elemCount;
   let elemStyle = window.getComputedStyle(that.crslElemFirst);
   that.elemWidth =
-    that.crslElemFirst.offsetWidth + // ������ �������� (��� margin)
+    that.crslElemFirst.offsetWidth +
     parseInt(elemStyle.marginLeft) +
     parseInt(elemStyle.marginRight);
 
@@ -229,7 +219,6 @@ Ant.initialize = function (that) {
 
   // Start initialization
   if (that.elemCount <= that.options.elemVisible) {
-    // ��������� ���������
     that.options.auto = false;
     that.options.touch = false;
     that.options.arrows = false;
@@ -239,15 +228,12 @@ Ant.initialize = function (that) {
   }
 
   if (!that.options.loop) {
-    // ���� ��� ����� - �������� ���������� �����
     that.dotsVisible = that.elemCount - that.options.elemVisible + 1;
-    that.leftArrow.style.display = "none"; // ��������� ����� �������
-    that.touchPrev = false; // ��������� ��������� �������������� ������
-    that.options.auto = false; // ��������� ������������
+    that.leftArrow.style.display = "none";
+    that.touchPrev = false;
+    that.options.auto = false;
   } else if (that.options.auto) {
-    // ������������� ������������
     setAutoScroll();
-    // ��������� ��������� ��� ��������� ���� �� �������
     that.crslList.addEventListener(
       "mouseenter",
       function () {
@@ -258,45 +244,43 @@ Ant.initialize = function (that) {
     that.crslList.addEventListener("mouseleave", setAutoScroll, false);
   }
 
-  if (that.options.touch) {
-    // ������������� ��������� ��������������
-    that.crslList.addEventListener(
-      "touchstart",
-      function (e) {
-        xTouch = parseInt(e.touches[0].clientX);
-        yTouch = parseInt(e.touches[0].clientY);
-        stTime = getTime();
-      },
-      false
-    );
-    that.crslList.addEventListener(
-      "touchmove",
-      function (e) {
-        if (!xTouch || !yTouch) return;
-        xDiff = xTouch - parseInt(e.touches[0].clientX);
-        yDiff = yTouch - parseInt(e.touches[0].clientY);
-        mvTime = getTime();
-        if (
-          Math.abs(xDiff) > 15 &&
-          Math.abs(xDiff) > Math.abs(yDiff) &&
-          mvTime - stTime < 75
-        ) {
-          stTime = 0;
-          if (that.touchNext && xDiff > 0) {
-            bgTime = mvTime;
-            that.elemNext();
-          } else if (that.touchPrev && xDiff < 0) {
-            bgTime = mvTime;
-            that.elemPrev();
-          }
-        }
-      },
-      false
-    );
-  }
+  // if (that.options.touch) {
+  //   that.crslList.addEventListener(
+  //     "touchstart",
+  //     function (e) {
+  //       xTouch = parseInt(e.touches[0].clientX);
+  //       yTouch = parseInt(e.touches[0].clientY);
+  //       stTime = getTime();
+  //     },
+  //     false
+  //   );
+  //   that.crslList.addEventListener(
+  //     "touchmove",
+  //     function (e) {
+  //       if (!xTouch || !yTouch) return;
+  //       xDiff = xTouch - parseInt(e.touches[0].clientX);
+  //       yDiff = yTouch - parseInt(e.touches[0].clientY);
+  //       mvTime = getTime();
+  //       if (
+  //         Math.abs(xDiff) > 15 &&
+  //         Math.abs(xDiff) > Math.abs(yDiff) &&
+  //         mvTime - stTime < 75
+  //       ) {
+  //         stTime = 0;
+  //         if (that.touchNext && xDiff > 0) {
+  //           bgTime = mvTime;
+  //           that.elemNext();
+  //         } else if (that.touchPrev && xDiff < 0) {
+  //           bgTime = mvTime;
+  //           that.elemPrev();
+  //         }
+  //       }
+  //     },
+  //     false
+  //   );
+  // }
 
   if (that.options.arrows) {
-    // ������������� �������
     if (!that.options.loop)
       that.crslList.style.cssText =
         "transition:margin " + that.options.speed + "ms ease;";
@@ -328,7 +312,6 @@ Ant.initialize = function (that) {
   }
 
   if (that.options.dots) {
-
     // that.indicatorDotsAll = that.crslRoot.querySelectorAll("#paginator-line-pets");
     // console.log(that.indicatorDotsAll[0]);
     // that.indicatorDotsAll[0].addEventListener("input", () => {
