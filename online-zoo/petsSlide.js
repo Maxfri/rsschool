@@ -106,33 +106,23 @@ Ant.prototype.elemNext = function (num) {
   this.currentElement += num;
   if (this.currentElement >= this.dotsVisible) this.currentElement = 0;
 
-  if (!this.options.loop) {
-    this.currentOffset -= this.elemWidth * num;
-    this.crslList.style.marginLeft = this.currentOffset + "px";
-    if (this.currentElement == this.dotsVisible - 1) {
-      this.rightArrow.style.display = "none";
-      this.touchNext = false;
+  let elm,
+    buf,
+    this$ = this;
+  this.crslList.style.cssText =
+    "transition:margin " + this.options.speed + "ms ease;";
+  this.crslList.style.marginLeft = "-" + this.elemWidth * num + "px";
+
+  setTimeout(function () {
+    this$.crslList.style.cssText = "transition:none;";
+    for (let i = 0; i < num; i++) {
+      elm = this$.crslList.firstElementChild;
+      buf = elm.cloneNode(true);
+      this$.crslList.appendChild(buf);
+      this$.crslList.removeChild(elm);
     }
-    this.leftArrow.style.display = "block";
-    this.touchPrev = true;
-  } else {
-    let elm,
-      buf,
-      this$ = this;
-    this.crslList.style.cssText =
-      "transition:margin " + this.options.speed + "ms ease;";
-    this.crslList.style.marginLeft = "-" + this.elemWidth * num + "px";
-    setTimeout(function () {
-      this$.crslList.style.cssText = "transition:none;";
-      for (let i = 0; i < num; i++) {
-        elm = this$.crslList.firstElementChild;
-        buf = elm.cloneNode(true);
-        this$.crslList.appendChild(buf);
-        this$.crslList.removeChild(elm);
-      }
-      this$.crslList.style.marginLeft = "0px";
-    }, this.options.speed);
-  }
+    this$.crslList.style.marginLeft = "0px";
+  }, this.options.speed);
 
   paginators.forEach((paginator) => {
     paginatorsLabel.forEach((label) => {
@@ -241,12 +231,12 @@ Ant.initialize = function (that) {
         let fnTime = getTime();
         if (fnTime - bgTime > that.options.speed) {
           bgTime = fnTime;
-					console.log(that.currentElement);
-					if (that.currentElement == 0) {
-						that.elemPrev(4);
-					} else {
-						that.elemPrev();
-					}
+          console.log(that.currentElement);
+          if (that.currentElement == 0) {
+            that.elemNext(7);
+          } else {
+            that.elemPrev();
+          }
         }
       },
       false
@@ -257,12 +247,12 @@ Ant.initialize = function (that) {
         let fnTime = getTime();
         if (fnTime - bgTime > that.options.speed) {
           bgTime = fnTime;
-					console.log(that.currentElement);
-					if (that.currentElement == 7) {
-						that.elemNext(4);
-					} else {
-						that.elemNext();
-					}
+          console.log(that.currentElement);
+          if (that.currentElement == 7) {
+            that.elemPrev(7);
+          } else {
+            that.elemNext();
+          }
         }
       },
       false
