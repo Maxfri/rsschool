@@ -85,7 +85,6 @@ Ant.prototype.elemPrev = function (num) {
             info.classList.add("pets__info-hover");
           }
         });
-				console.log(this.currentElement);
         if (this.currentElement === 7) {
           paginator.value = this.currentElement + 1;
           number.innerHTML = `08/`;
@@ -104,10 +103,8 @@ Ant.prototype.elemNext = function (num) {
   let paginators = document.querySelectorAll("input[type=range]");
   let paginatorsLabel = document.querySelectorAll("label");
 
-  if (this.options.dots) this.dotOn(this.currentElement);
   this.currentElement += num;
   if (this.currentElement >= this.dotsVisible) this.currentElement = 0;
-  if (this.options.dots) this.dotOff(this.currentElement);
 
   if (!this.options.loop) {
     this.currentOffset -= this.elemWidth * num;
@@ -237,53 +234,19 @@ Ant.initialize = function (that) {
     that.crslList.addEventListener("mouseleave", setAutoScroll, false);
   }
 
-  // if (that.options.touch) {
-  //   that.crslList.addEventListener(
-  //     "touchstart",
-  //     function (e) {
-  //       xTouch = parseInt(e.touches[0].clientX);
-  //       yTouch = parseInt(e.touches[0].clientY);
-  //       stTime = getTime();
-  //     },
-  //     false
-  //   );
-  //   that.crslList.addEventListener(
-  //     "touchmove",
-  //     function (e) {
-  //       if (!xTouch || !yTouch) return;
-  //       xDiff = xTouch - parseInt(e.touches[0].clientX);
-  //       yDiff = yTouch - parseInt(e.touches[0].clientY);
-  //       mvTime = getTime();
-  //       if (
-  //         Math.abs(xDiff) > 15 &&
-  //         Math.abs(xDiff) > Math.abs(yDiff) &&
-  //         mvTime - stTime < 75
-  //       ) {
-  //         stTime = 0;
-  //         if (that.touchNext && xDiff > 0) {
-  //           bgTime = mvTime;
-  //           that.elemNext();
-  //         } else if (that.touchPrev && xDiff < 0) {
-  //           bgTime = mvTime;
-  //           that.elemPrev();
-  //         }
-  //       }
-  //     },
-  //     false
-  //   );
-  // }
-
   if (that.options.arrows) {
-    if (!that.options.loop)
-      that.crslList.style.cssText =
-        "transition:margin " + that.options.speed + "ms ease;";
     that.leftArrow.addEventListener(
       "click",
       function () {
         let fnTime = getTime();
         if (fnTime - bgTime > that.options.speed) {
           bgTime = fnTime;
-          that.elemPrev();
+					console.log(that.currentElement);
+					if (that.currentElement == 0) {
+						that.elemPrev(4);
+					} else {
+						that.elemPrev();
+					}
         }
       },
       false
@@ -294,7 +257,12 @@ Ant.initialize = function (that) {
         let fnTime = getTime();
         if (fnTime - bgTime > that.options.speed) {
           bgTime = fnTime;
-          that.elemNext();
+					console.log(that.currentElement);
+					if (that.currentElement == 7) {
+						that.elemNext(4);
+					} else {
+						that.elemNext();
+					}
         }
       },
       false
