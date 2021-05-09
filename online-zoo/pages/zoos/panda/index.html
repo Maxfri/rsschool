@@ -31,7 +31,7 @@
                 <a href="../../../index.html" class="header__link">About</a>
               </li>
               <li class="header__item" active>
-                <a href="#" class="header__link  header__link-active">Zoos</a>
+                <a href="#" class="header__link header__link-active">Zoos</a>
               </li>
               <li class="header__item">
                 <a href="../../map/index.html" class="header__link">Map</a>
@@ -40,7 +40,11 @@
                 <a href="#footer__form" class="header__link">Contact Us</a>
               </li>
               <li class="header__item">
-                <a href="https://www.figma.com/file/HKt5Nlx0jghQtJp6jW9q8F/zooApp" class="header__link">Design</a>
+                <a
+                  href="https://www.figma.com/file/HKt5Nlx0jghQtJp6jW9q8F/zooApp"
+                  class="header__link"
+                  >Design</a
+                >
               </li>
             </ul>
           </nav>
@@ -124,32 +128,52 @@
             ></iframe>
 
             <div class="the-zoo__slider">
-              <div class="the-zoo__slider-item">
-                <img
-                  src="../../../assets/images/video_panda.png"
-                  alt=""
+              <div class="the-zoo__slider-item" data-id="1">
+                <div class="the-zoo__slider-defender"></div>
+                <iframe
+                  width="246"
+                  height="141"
+                  src="https://www.youtube.com/embed/OObOQ2GElhA"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
                   class="the-zoo__slider-img"
-                />
+                ></iframe>
               </div>
-              <div class="the-zoo__slider-item">
-                <img
-                  src="../../../assets/images/video_panda.png"
-                  alt=""
+              <div class="the-zoo__slider-item" data-id="2">
+                <div class="the-zoo__slider-defender"></div>
+                <iframe
+                  width="246"
+                  height="141"
+                  src="https://www.youtube.com/embed/65JHo3Cy2tY"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
                   class="the-zoo__slider-img"
-                />
+                ></iframe>
               </div>
-              <div class="the-zoo__slider-item">
-                <img
-                  src="../../../assets/images/video_panda.png"
-                  alt=""
+              <div class="the-zoo__slider-item" data-id="3">
+                <div class="the-zoo__slider-defender"></div>
+                <iframe
+                  width="246"
+                  height="141"
+                  src="https://www.youtube.com/embed/D0eqnda8dOk"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
                   class="the-zoo__slider-img"
-                />
+                ></iframe>
               </div>
-
-              
             </div>
             <div class="slider__pagination">
-              <img src="../../../assets/images/slider_pagination.svg" alt="" class="slider__pagination-img">
+              <img
+                src="../../../assets/images/slider_pagination.svg"
+                alt=""
+                class="slider__pagination-img"
+              />
             </div>
           </div>
 
@@ -204,17 +228,25 @@
                 <a href="../../map/index.html" class="footer__link">Map</a>
               </li>
               <li class="footer__item">
-                <a href="https://www.figma.com/file/HKt5Nlx0jghQtJp6jW9q8F/zooApp" class="footer__link">Design</a>
+                <a
+                  href="https://www.figma.com/file/HKt5Nlx0jghQtJp6jW9q8F/zooApp"
+                  class="footer__link"
+                  >Design</a
+                >
               </li>
             </ul>
           </nav>
-
         </div>
 
         <div class="footer__contacts">
           <form action="#" class="footer__form" id="footer__form">
             <h3 class="footer__form-title">Contact us</h3>
-            <input type="text" class="footer__form-name" placeholder="Name" required/>
+            <input
+              type="text"
+              class="footer__form-name"
+              placeholder="Name"
+              required
+            />
             <input
               type="email"
               class="footer__form-email"
@@ -222,8 +254,17 @@
               required
             />
             <fieldset class="footer__form-message-fieldset">
-              <legend class="footer__form-message-placeholder">Please enter your message</legend>
-              <textarea class="footer__form-message" name="footer-textarea" cols="46" rows="5" maxlength="280" required></textarea>
+              <legend class="footer__form-message-placeholder">
+                Please enter your message
+              </legend>
+              <textarea
+                class="footer__form-message"
+                name="footer-textarea"
+                cols="46"
+                rows="5"
+                maxlength="280"
+                required
+              ></textarea>
             </fieldset>
             <input
               type="checkbox"
@@ -234,63 +275,89 @@
               required
             />
             <button class="footer__form-button" type="submit">
-              <span class="footer__form-button-span">
-                send
-              </span>
-              <img src="../../../assets/images/btn_arrow.svg" alt="" class="footer__form-button-img">
+              <span class="footer__form-button-span"> send </span>
+              <img
+                src="../../../assets/images/btn_arrow.svg"
+                alt=""
+                class="footer__form-button-img"
+              />
             </button>
           </form>
 
           <div class="footer__contacts-info">
             <h3 class="footer__online-centre">ZOO Online Centre</h3>
-            <p>
-              <address class="footer__address">132, Address District, Street</address>  
-            </p>
+            <address class="footer__address">
+              132, Address District, Street
+            </address>
             <p class="footer__open">Open Daily 10:00 am - 5:00 pm</p>
 
             <p class="footer__tel">
-              T <a href="tel:7021633433" class="footer__tel-link">(702) 163-3433</a>
-            </p>  
-              <p class="footer__email">
-                <a href="mailto:zoo.online@gmail.com" class="footer_email-link">zoo.online@gmail.com</a>
-              </p>
+              T
+              <a href="tel:7021633433" class="footer__tel-link"
+                >(702) 163-3433</a
+              >
+            </p>
+            <p class="footer__email">
+              <a href="mailto:zoo.online@gmail.com" class="footer_email-link"
+                >zoo.online@gmail.com</a
+              >
+            </p>
 
             <div class="footer__social-net">
-            <ul class="footer__social-net-list">
-              <li class="footer__social-net-item">
-                <a href="https://www.instagram.com/?hl=ru" class="footer__social-net-link">
-                  <img
-                    src="../../../assets/images/instagram_icon.svg"
-                    alt=""
-                    class=""
-                  />
-                </a>
-              </li>
-              <li class="footer__social-net-item">
-                <a href="https://twitter.com/?lang=ru" class="footer__social-net-link">
-                  <img src="../../../assets/images/twitter_icon.svg" alt="" class="" />
-                </a>
-              </li>
-              <li class="footer__social-net-item">
-                <a href="https://www.youtube.com/" class="footer__social-net-link">
-                  <img src="../../../assets/images/youtube_icon.svg" alt="" class="" />
-                </a>
-              </li>
-              <li class="footer__social-net-item">
-                <a href="https://vk.com/" class="footer__social-net-link">
-                  <img src="../../../assets/images/vk_icon.svg" alt="" class="" />
-                </a>
-              </li>
-            </ul>
-          </div>
+              <ul class="footer__social-net-list">
+                <li class="footer__social-net-item">
+                  <a
+                    href="https://www.instagram.com/?hl=ru"
+                    class="footer__social-net-link"
+                  >
+                    <img
+                      src="../../../assets/images/instagram_icon.svg"
+                      alt=""
+                      class=""
+                    />
+                  </a>
+                </li>
+                <li class="footer__social-net-item">
+                  <a
+                    href="https://twitter.com/?lang=ru"
+                    class="footer__social-net-link"
+                  >
+                    <img
+                      src="../../../assets/images/twitter_icon.svg"
+                      alt=""
+                      class=""
+                    />
+                  </a>
+                </li>
+                <li class="footer__social-net-item">
+                  <a
+                    href="https://www.youtube.com/"
+                    class="footer__social-net-link"
+                  >
+                    <img
+                      src="../../../assets/images/youtube_icon.svg"
+                      alt=""
+                      class=""
+                    />
+                  </a>
+                </li>
+                <li class="footer__social-net-item">
+                  <a href="https://vk.com/" class="footer__social-net-link">
+                    <img
+                      src="../../../assets/images/vk_icon.svg"
+                      alt=""
+                      class=""
+                    />
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
         <button class="footer__button btn">donate for volunteers</button>
         <hr class="footer__line" />
 
-        <a href="#" class="footer__copyright">
-          ©Noora Sagnayeva
-        </a>
+        <a href="#" class="footer__copyright"> ©Noora Sagnayeva </a>
         <a href="#" class="footer__copyright">
           ©RSSchool and ©Yem Digital - 2021
         </a>

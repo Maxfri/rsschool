@@ -127,6 +127,8 @@ p {
 }
 .the-zoo__slider-item {
   margin-right: 25px;
+  position: relative;
+  cursor: pointer;
 }
 .the-zoo__slider-item:last-child {
   margin-right: 0;
@@ -408,5 +410,19 @@ p {
 .population__subtitle-dark,
 .habitat__subtitle-dark,
 .diet__subtitle-dark {
-  color: #F2F2F2;
+  color: #f2f2f2;
 }
+
+.the-zoo__slider-defender {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+}
+.the-zoo__slider-item::before {
+  content: "";
+  display: block;
+}
+
