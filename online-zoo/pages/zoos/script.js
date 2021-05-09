@@ -29,12 +29,34 @@ function switchDarkTheme() {
 
   //PAGE ZOO
   document.querySelector(".main").classList.toggle("main-dark");
-  document.querySelector('.the-zoo__title').classList.toggle("the-zoo__title-dark");
-  document.querySelector('.population__title').classList.toggle("population__title-dark");
-  document.querySelector('.habitat__title').classList.toggle("habitat__title-dark");
-  document.querySelector('.diet__title').classList.toggle("diet__title-dark");
+  document
+    .querySelector(".the-zoo__title")
+    .classList.toggle("the-zoo__title-dark");
+  document
+    .querySelector(".population__title")
+    .classList.toggle("population__title-dark");
+  document
+    .querySelector(".habitat__title")
+    .classList.toggle("habitat__title-dark");
+  document.querySelector(".diet__title").classList.toggle("diet__title-dark");
 
-  document.querySelector('.population__subtitle').classList.toggle("population__subtitle-dark");
-  document.querySelector('.habitat__subtitle').classList.toggle("habitat__subtitle-dark");
-  document.querySelector('.diet__subtitle').classList.toggle("diet__subtitle-dark");
+  document
+    .querySelector(".population__subtitle")
+    .classList.toggle("population__subtitle-dark");
+  document
+    .querySelector(".habitat__subtitle")
+    .classList.toggle("habitat__subtitle-dark");
+  document
+    .querySelector(".diet__subtitle")
+    .classList.toggle("diet__subtitle-dark");
 }
+
+let sliderZooVideos = document.querySelectorAll(".the-zoo__slider-item");
+sliderZooVideos.forEach((slider) => {
+  slider.addEventListener("click", () => {
+    let sliderMainVideo = document.querySelector(".the-zoo__video-stream");
+    let pickSlide = slider.querySelector('iframe').src;
+    slider.querySelector('iframe').src = sliderMainVideo.src;
+    sliderMainVideo.src = pickSlide;
+  });
+});
