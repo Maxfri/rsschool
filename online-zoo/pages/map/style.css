@@ -155,15 +155,6 @@
     width: 100%;
     justify-content: center;
   }
-  .gallery__card:nth-child(8) {
-    display: none;
-  }
-  .gallery__card:nth-child(6) {
-    display: none;
-  }
-  .gallery__card:nth-child(7) {
-    display: none;
-  }
   .map__world {
     padding-bottom: 35px;
     width: 800px;
