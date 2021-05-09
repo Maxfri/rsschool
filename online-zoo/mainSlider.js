@@ -13,7 +13,11 @@ mainGalleryItems.forEach((item) =>
 );
 
 function selectItem(item) {
-  widthLeft = 187;
+  if (window.innerWidth <= 1200) {
+    widthLeft = 245;
+  } else {
+    widthLeft = 187;
+  }
   let moveLeft = (item.dataset.id - 2) * widthLeft;
   mainGallerylist.style.left = `${-moveLeft}px`;
   mainGalleryItems.forEach((items) => {
@@ -31,7 +35,11 @@ function selectItem(item) {
 }
 
 mainPaginator.addEventListener("input", function () {
-  widthLeft = 187;
+  if (window.innerWidth <= 1200) {
+    widthLeft = 245;
+  } else {
+    widthLeft = 187;
+  }
   let moveLeft = (mainPaginator.value - 2) * widthLeft;
   mainGallerylist.style.left = `${-moveLeft}px`;
   mainGalleryItems.forEach((items) => {

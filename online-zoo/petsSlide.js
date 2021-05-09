@@ -85,6 +85,7 @@ Ant.prototype.elemPrev = function (num) {
             info.classList.add("pets__info-hover");
           }
         });
+				console.log(this.currentElement);
         if (this.currentElement === 7) {
           paginator.value = this.currentElement + 1;
           number.innerHTML = `08/`;
