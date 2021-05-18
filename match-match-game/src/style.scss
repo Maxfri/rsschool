@@ -1,5 +1,27 @@
-$bodyColor: chocolate;
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 20px;
+}
 
 body {
-  background-color: $bodyColor;
+  color: white;
+  background-color: darkslategray;
+}
+
+main {
+  min-height: calc(100vh - 2rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer {
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
