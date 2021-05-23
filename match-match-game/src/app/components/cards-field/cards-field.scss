@@ -1,8 +1,10 @@
 .cards-field {
-  width: 70%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
 }

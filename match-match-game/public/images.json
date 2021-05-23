@@ -4,7 +4,33 @@
     "images": [
       "elephant.png",
       "hippo.png",
-      "snake.png"
+      "snake.png",
+      "bat.png",
+      "frog.png",
+      "owl.png",
+      "panda.png",
+      "pig.png"
+    ]
+  },
+  {
+    "category": "unsorted",
+    "images": [
+      "elephant.png",
+      "hippo.png",
+      "snake.png",
+      "bat.png",
+      "frog.png",
+      "owl.png",
+      "panda.png",
+      "pig.png",
+      "clown-fish.png",
+      "lion.png",
+      "mouse.png",
+      "parrot.png",
+      "rabbit.png",
+      "turtle.png",
+      "zebra.png",
+      "crab.png"
     ]
   }
 ]

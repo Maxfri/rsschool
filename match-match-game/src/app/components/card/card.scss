@@ -20,8 +20,8 @@
 
 .card {
   position: relative;
-  width: 10rem;
-  height: 12rem;
+  width: 168px;
+  height: 168px;
   transition: all .5s;
   transform-style: preserve-3d;
   transform-origin: right;
@@ -47,7 +47,7 @@
 
   &__back {
     background-color: gray;
-    background-image: url('../../../assets/image.jpg');
+    background-image: url('../../../assets/back-side-cards.png');
     transform: rotateY(180deg);
   }
 }

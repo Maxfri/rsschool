@@ -44,7 +44,9 @@ export class Game extends BaseComponent {
       this.isAnimation = false;
       return;
     }
-
+    if (this.activeCard.image === card.image) {
+      console.log('same');
+    }
     if (this.activeCard.image !== card.image) {
       delay(FLIP_DELAY);
       await Promise.all([this.activeCard.flipToBack(), card.flipToBack()]);
