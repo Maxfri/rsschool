@@ -12,6 +12,8 @@ export class Game extends BaseComponent {
 
   private isAnimation = false;
 
+  private count = 0;
+
   constructor() {
     super();
     this.cardsField = new CardsField();
@@ -32,6 +34,10 @@ export class Game extends BaseComponent {
     this.cardsField.addCards(cards);
   }
 
+  score(): number {
+    return this.count++;
+  }
+
   private async cardHandler(card: Card) {
     if (this.isAnimation) return;
     if (!card.isFlipped) return;
@@ -45,7 +51,7 @@ export class Game extends BaseComponent {
       return;
     }
     if (this.activeCard.image === card.image) {
-      console.log('same');
+      this.score();
     }
     if (this.activeCard.image !== card.image) {
       delay(FLIP_DELAY);
@@ -54,5 +60,9 @@ export class Game extends BaseComponent {
 
     this.activeCard = undefined;
     this.isAnimation = false;
+
+    if (this.count === 8) {
+      console.log('You win');
+    }
   }
 }

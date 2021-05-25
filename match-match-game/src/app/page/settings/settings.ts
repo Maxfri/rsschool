@@ -1,7 +1,6 @@
-// import { CounterService } from '../counter.service';
-import { Component, RootElement } from '../app.api';
+import { Component, RootElement } from '../../app.api';
 
-export class Page implements Component {
+export class Settings {
   private readonly page: HTMLElement;
 
   constructor(private readonly root: RootElement) {
@@ -10,9 +9,15 @@ export class Page implements Component {
   }
 
   render(): HTMLElement {
-    this.page.innerHTML = 'Hello from page';
+    this.page.innerHTML = 'Hello from Settings page';
     this.root?.appendChild(this.page);
 
     return this.page;
   }
+  // render() {
+  //   return `<section>
+  //   <h1>Settings</h1>
+  //   <p>This is just a test </p>
+  //   </section>`;
+  // }
 }

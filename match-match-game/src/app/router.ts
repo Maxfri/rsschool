@@ -83,3 +83,36 @@
 //     });
 //   }
 // }
+
+import { Score } from './page/score/score';
+import { About } from './page/about/about';
+import { Settings } from './page/settings/settings';
+import { HomePage } from './page/home';
+
+const body = document.querySelector('main');
+const home = new HomePage();
+const about = new About();
+const score = new Score();
+const settings = new Settings(body);
+
+const routes = [
+  { path: '/', component: home },
+  { path: '/about', component: about },
+  { path: '/score', component: score },
+  { path: '/settings', component: settings },
+];
+
+const parseLocation = (): string => location.hash.slice(1).toLowerCase() || '/';
+
+const findComponentByPath = (path: any, routes: any[]): any => routes.find((r) => r.path.match(new RegExp(`^\\${path}$`, 'gm'))) || undefined;
+
+export const Router = (): void => {
+  const path = parseLocation();
+  console.log(path);
+  const component: any = findComponentByPath(path, routes) || home;
+  (<any>document.querySelector('main')).innerHTML = component.render();
+  // (<any>document.querySelector('body')).innerHTML = 'Ты лох';
+  // (<any>document.querySelector('body')).append(
+  //   component.component.element,
+  // );
+};

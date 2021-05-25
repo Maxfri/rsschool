@@ -33,7 +33,7 @@ export class App implements Component {
   async start() {
     const res = await fetch('./images.json');
     const categories: ImageCategoryModel[] = await res.json();
-    const cat = categories[1];
+    const cat = categories[0];
     const images = cat.images.map((name: string) => `${cat.category}/${name}`);
     this.game.newGame(images);
   }
