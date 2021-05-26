@@ -91,8 +91,8 @@ import { HomePage } from './page/home';
 
 const body = document.querySelector('main');
 const home = new HomePage();
-const about = new About();
-const score = new Score();
+const about = new About(body);
+const score = new Score(body);
 const settings = new Settings(body);
 
 const routes = [
@@ -109,8 +109,9 @@ const findComponentByPath = (path: any, routes: any[]): any => routes.find((r) =
 export const Router = (): void => {
   const path = parseLocation();
   console.log(path);
-  const component: any = findComponentByPath(path, routes) || home;
-  (<any>document.querySelector('main')).innerHTML = component.render();
+  const component: any = findComponentByPath(path, routes) || {};
+  console.log(component);
+  (<any>document.querySelector('main')).appendChild(component.component.render());
   // (<any>document.querySelector('body')).innerHTML = 'Ты лох';
   // (<any>document.querySelector('body')).append(
   //   component.component.element,
