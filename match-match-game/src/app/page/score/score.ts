@@ -15,5 +15,4 @@ export class Score {
 
     return this.page;
   }
-
 }

@@ -89,11 +89,11 @@ import { About } from './page/about/about';
 import { Settings } from './page/settings/settings';
 import { HomePage } from './page/home';
 
-const body = document.querySelector('main');
-const home = new HomePage();
-const about = new About(body);
-const score = new Score(body);
-const settings = new Settings(body);
+const main = document.querySelector('main');
+const home = new HomePage(main);
+const about = new About(main);
+const score = new Score(main);
+const settings = new Settings(main);
 
 const routes = [
   { path: '/', component: home },
@@ -112,8 +112,4 @@ export const Router = (): void => {
   const component: any = findComponentByPath(path, routes) || {};
   console.log(component);
   (<any>document.querySelector('main')).appendChild(component.component.render());
-  // (<any>document.querySelector('body')).innerHTML = 'Ты лох';
-  // (<any>document.querySelector('body')).append(
-  //   component.component.element,
-  // );
 };
