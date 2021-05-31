@@ -62,7 +62,7 @@ export class Game extends BaseComponent {
     this.isAnimation = false;
 
     if (this.count === 8) {
-      console.log('You win');
+      // console.log('You win');
     }
   }
 }

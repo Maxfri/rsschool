@@ -60,5 +60,4 @@ export class Timer extends BaseComponent {
 //       </div>`;
 // }
 
-
 // }

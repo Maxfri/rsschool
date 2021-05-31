@@ -1,10 +1,6 @@
 export class DataBase {
   public db: IDBDatabase;
 
-  constructor() {
-
-  }
-
   init(dbName: string, version?: number) {
     const iDB = window.indexedDB;
     const openRequest = iDB.open(dbName, version);
@@ -32,13 +28,13 @@ export class DataBase {
     });
 
     result.onsuccess = () => {
-      console.log('complite', result.result);
+      // console.log('complite', result.result);
     };
     result.onerror = () => {
-      console.log('error', result.error);
+      // console.log('error', result.error);
     };
     transaction.onabort = () => {
-      console.log('abort');
+      // console.log('abort');
     };
   }
 
@@ -47,7 +43,7 @@ export class DataBase {
     const store = transaction.objectStore(collection);
     const result = store.getAll();
     transaction.oncomplete = () => {
-      console.log(result.result);
+      // console.log(result.result);
     };
   }
 
@@ -60,8 +56,8 @@ export class DataBase {
     result.onsuccess = () => {
       const cursor = result.result;
       if (cursor) {
-        console.log(cursor.value);
-        if (cursor.value.email[0] == 'a') {
+        // console.log(cursor.value);
+        if (cursor.value.email[0] === 'a') {
           resData.push(cursor.value);
         }
         cursor?.continue();
@@ -69,7 +65,7 @@ export class DataBase {
     };
 
     transaction.oncomplete = () => {
-      console.log(resData);
+      // console.log(resData);
     };
   }
 }

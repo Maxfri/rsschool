@@ -11,17 +11,31 @@ import { Component, RootElement } from './app.api';
 export class App implements Component {
   private readonly application: HTMLDivElement;
 
-  // private readonly cardsField: CardsField;
+  private readonly cardsField: CardsField;
+
   private readonly game: Game;
 
   public iDB: DataBase;
 
   constructor(private readonly root: RootElement) {
-    // this.cardsField = new CardsField();
+    this.cardsField = new CardsField();
     this.game = new Game();
     this.root?.appendChild(new Timer().element);
     this.root?.appendChild(this.game.element);
     this.application = document.createElement('div');
+
+    function saveData() {
+      const firstName = (<HTMLInputElement>document.querySelector('#first-name'));
+      const secondName = (<HTMLInputElement>document.querySelector('#second-name'));
+      const email = (<HTMLInputElement>document.querySelector('#email'));
+      const data = {
+        firstName: firstName?.value,
+        secondName: secondName?.value,
+        email: email?.value,
+      };
+      // console.log(data);
+      return data;
+    }
 
     this.iDB = new DataBase();
     this.iDB.init('testDB');
@@ -38,18 +52,6 @@ export class App implements Component {
       this.iDB.write(data.firstName, data.secondName, data.email);
     });
 
-    function saveData() {
-      const firstName = (<HTMLInputElement>document.querySelector('#first-name'));
-      const secondName = (<HTMLInputElement>document.querySelector('#second-name'));
-      const email = (<HTMLInputElement>document.querySelector('#email'));
-      let data = {
-        'firstName': firstName?.value,
-        'secondName': secondName?.value,
-        'email': email?.value,
-      };
-      console.log(data);
-      return data;
-    }
     const saveButton = document.querySelector('.save');
     // console.log(listButton);
     saveButton?.addEventListener('click', () => {
