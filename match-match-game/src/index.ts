@@ -13,7 +13,7 @@ window.onload = () => {
   const appElement = document.getElementById('app');
   if (!appElement) throw Error('App root element not found');
   // new App(appElement, counterService).render();
-  // new App(appElement).start();
+  new App(appElement).start();
   // window.addEventListener('popstate', () => console.log('change'));
   // let router = Router;
   // console.log(router());

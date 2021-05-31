@@ -33,13 +33,16 @@
   <!-- 
   <div class="root"></div> -->
   <main  id="app">
+    <button class="write">write</button>
+    <button class="list">list</button>
+    <button class="filtr">filtr</button>
     <!-- Button trigger modal -->
 <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
   Запустить модальное окно
 </button> -->
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<!-- <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -48,15 +51,56 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        ...
+      <div class="modal-body"> -->
+
+        <form id="register-form">
+          <div class="modal-form">
+            <div>
+              <label for="first-name" class="required">
+                First Name:
+              </label>
+              <input type="text" id="first-name" name="first-name" value="" />
+            </div>
+            <div>
+              <label for="second-name" class="required">
+                Second Name:
+              </label>
+              <input type="text" id="second-name" name="second-name" value="" />
+            </div>
+            <div>
+              <label for="email">
+                Email:
+              </label>
+              <input type="email" id="email" name="email" value="" />
+            </div>
+            <div>
+              <label for="image-file">
+                File image:
+              </label>
+              <input type="file" id="image-file"/>
+            </div>
+            <!-- <div>
+              <label for="pub-file-url">
+                Online-file image URL:<br/>
+                <span class="note">(same origin URL)</span>
+              </label>
+              <input type="text" id="pub-file-url" name="pub-file-url"/>
+            </div> -->
+          </div>
+          
+          <div class="button-pane">
+            <input type="button" id="add-button" value="Add Publication" />
+            <input type="reset" id="register-form-reset"/>
+          </div>
+        </form>
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-primary save">Save changes</button>
       </div>
-    </div>
-  </div>
+    <!-- </div>
+  </div> -->
 </div>
   </main>
   <footer>RS School 2021 Q1</footer>

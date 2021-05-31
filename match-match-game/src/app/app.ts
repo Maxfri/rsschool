@@ -1,7 +1,9 @@
+// import { Button } from './button';
 import { Timer } from './components/timer/timer';
 import { ImageCategoryModel } from './models/image-category-model';
 import { Game } from './components/game/game';
 import { CardsField } from './components/cards-field/cards-field';
+import { DataBase } from './indexedDB';
 // import { CounterService } from './counter.service';
 import { Page } from './page/page';
 import { Component, RootElement } from './app.api';
@@ -12,12 +14,57 @@ export class App implements Component {
   // private readonly cardsField: CardsField;
   private readonly game: Game;
 
+  public iDB: DataBase;
+
   constructor(private readonly root: RootElement) {
     // this.cardsField = new CardsField();
     this.game = new Game();
     this.root?.appendChild(new Timer().element);
     this.root?.appendChild(this.game.element);
     this.application = document.createElement('div');
+
+    this.iDB = new DataBase();
+    this.iDB.init('testDB');
+    const listButton = document.querySelector('.list');
+    // console.log(listButton);
+    listButton?.addEventListener('click', () => {
+      this.iDB.readAll('testCollection');
+    });
+
+    const writeButton = document.querySelector('.write');
+    // console.log(listButton);
+    writeButton?.addEventListener('click', () => {
+      const data = saveData();
+      this.iDB.write(data.firstName, data.secondName, data.email);
+    });
+
+    function saveData() {
+      const firstName = (<HTMLInputElement>document.querySelector('#first-name'));
+      const secondName = (<HTMLInputElement>document.querySelector('#second-name'));
+      const email = (<HTMLInputElement>document.querySelector('#email'));
+      let data = {
+        'firstName': firstName?.value,
+        'secondName': secondName?.value,
+        'email': email?.value,
+      };
+      console.log(data);
+      return data;
+    }
+    const saveButton = document.querySelector('.save');
+    // console.log(listButton);
+    saveButton?.addEventListener('click', () => {
+      const data = saveData();
+      this.iDB.write(data.firstName, data.secondName, data.email);
+    });
+    // readAllButton.onClick = () => {
+    //   this.iDB.readAll('testCollection');
+    // };
+
+    // const filterButton = new Button(document.body, 'filtered list');
+    // filterButton.onClick = () => {
+    //   this.iDB.readFiltere();
+    // };
+    // openDb();
     // console.log(new Timer().element);
     // this.counterService.subscribeOnCounter((counter: number) => console.log(counter));
   }

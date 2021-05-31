@@ -5,12 +5,12 @@ import { Component, RootElement } from '../app.api';
 export class HomePage {
   private readonly page: HTMLElement;
 
-  private readonly game: Game;
+  // private readonly game: Game;
 
   constructor(private readonly root: RootElement) {
-    this.game = new Game();
-    this.root?.appendChild(new Timer().element);
-    this.root?.appendChild(this.game.element);
+    // this.game = new Game();
+    // this.root?.appendChild(new Timer().element);
+    // this.root?.appendChild(this.game.element);
     this.page = document.createElement('div');
   }
 
