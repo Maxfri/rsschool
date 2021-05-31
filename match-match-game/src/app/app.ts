@@ -18,10 +18,10 @@ export class App implements Component {
   public iDB: DataBase;
 
   constructor(private readonly root: RootElement) {
-    this.cardsField = new CardsField();
-    this.game = new Game();
-    this.root?.appendChild(new Timer().element);
-    this.root?.appendChild(this.game.element);
+    // this.cardsField = new CardsField();
+    // this.game = new Game();
+    // this.root?.appendChild(new Timer().element);
+    // this.root?.appendChild(this.game.element);
     this.application = document.createElement('div');
 
     function saveData() {

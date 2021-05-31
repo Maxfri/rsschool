@@ -84,3 +84,10 @@ footer {
   align-items: center;
   justify-content: center;
 }
+
+input:invalid {
+  background: #fdd; /* Красный цвет фона */
+ }
+ input:valid {
+  background: #dfd; /* Зелёный цвет фона */
+ }

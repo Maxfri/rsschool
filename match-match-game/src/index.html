@@ -33,10 +33,6 @@
   <!-- 
   <div class="root"></div> -->
   <main  id="app">
-    <button class="write">write</button>
-    <button class="list">list</button>
-    <button class="filtr">filtr</button>
-    <!-- Button trigger modal -->
 <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
   Запустить модальное окно
 </button> -->
@@ -59,19 +55,19 @@
               <label for="first-name" class="required">
                 First Name:
               </label>
-              <input type="text" id="first-name" name="first-name" value="" />
+              <input type="text" id="first-name" name="first-name" value="" minlength="1" maxlength="30" required />
             </div>
             <div>
               <label for="second-name" class="required">
                 Second Name:
               </label>
-              <input type="text" id="second-name" name="second-name" value="" />
+              <input type="text" id="second-name" name="second-name" value="" minlength="1" maxlength="30" required />
             </div>
             <div>
               <label for="email">
                 Email:
               </label>
-              <input type="email" id="email" name="email" value="" />
+              <input type="email" id="email" name="email" value="" minlength="1" maxlength="30" pattern="/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/" required  />
             </div>
             <div>
               <label for="image-file">
