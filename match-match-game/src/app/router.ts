@@ -1,3 +1,4 @@
+import { Auth } from './components/auth/auth';
 import { Score } from './page/score/score';
 import { About } from './page/about/about';
 import { Settings } from './page/settings/settings';
@@ -8,12 +9,14 @@ const game = new HomePage(main);
 const about = new About(main);
 const score = new Score(main);
 const settings = new Settings(main);
+const auth = new Auth(main);
 
 const routes = [
   { path: '/', component: game },
   { path: '/about', component: about },
   { path: '/score', component: score },
   { path: '/settings', component: settings },
+  { path: '/auth', component: auth },
 ];
 
 const parseLocation = (): string => window.location.hash.slice(1).toLowerCase() || '/';

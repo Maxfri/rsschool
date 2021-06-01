@@ -18,7 +18,7 @@ export class About {
           Register new player in game
         </div>
         <div class="rule-image">
-          <img src="./assets/image 4.jpg" alt="" srcset="">
+          <img src="./assets/image1.png" alt="" srcset="">
         </div>
       </div>
       <div class="rules">
@@ -29,7 +29,7 @@ export class About {
           Configure your game settings
         </div>
         <div class="rule-image">
-          <img src="./assets/image 4.jpg" alt="" srcset="">
+          <img src="./assets/image2.png" alt="" srcset="">
         </div>
       </div>
       <div class="rules">
@@ -40,7 +40,7 @@ export class About {
           Start you new game! Remember card positions and match it before times up.
         </div>
         <div class="rule-image">
-          <img src="./assets/image 4.jpg" alt="" srcset="">
+          <img src="./assets/image4.jpg" alt="" srcset="">
         </div>
       </div>
     </div>`;

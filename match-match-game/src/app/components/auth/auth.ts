@@ -1,12 +1,17 @@
-import { BaseComponent } from '../base-component';
+import { DataBase } from '../../indexedDB';
+import { Component, RootElement } from '../../app.api';
 
-export class Auth extends BaseComponent {
-  constructor() {
-    super('div', ['auth']);
-    this.element.innerHTML = `<div id="my_modal" class="modal">
-    <div class="modal_content">
-      <span class="close_modal_window">×</span>
-      <form id="register-form">
+export class Auth {
+  private readonly page: HTMLElement;
+
+  public iDB: DataBase;
+
+  constructor(private readonly root: RootElement) {
+    this.page = document.createElement('div');
+  }
+
+  render(): HTMLElement {
+    this.page.innerHTML = `<form id="register-form" action="#/">
         <div class="register-user-form">
           <div>
             <label for="first-name" class="required">
@@ -25,23 +30,55 @@ export class Auth extends BaseComponent {
               Email:
             </label>
             <input type="email" id="email" name="email" value="" minlength="1" maxlength="30"
-              pattern="/^([A-Za-z0-9_-.])+@([A-Za-z0-9_-.])+.([A-Za-z]{2,4})$/" required />
-          </div>
-          <div>
-            <label for="image-file">
-              File image:
-            </label>
-            <input type="file" id="image-file" />
+               required />
           </div>
         </div>
   
         <div class="button-pane">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Reset</button>
-          <button type="button" class="btn btn-primary save">Add User</button>
+          <button type="submit" class="btn btn-primary save">Add User</button>
         </div>
-      </form>
-    </div>
-  </div>`;
+      </form>`;
+    this.root?.appendChild(this.page);
+    function saveData() {
+      const firstName = (<HTMLInputElement>document.querySelector('#first-name'));
+      const secondName = (<HTMLInputElement>document.querySelector('#second-name'));
+      const email = (<HTMLInputElement>document.querySelector('#email'));
+      const data = {
+        firstName: firstName?.value,
+        secondName: secondName?.value,
+        email: email?.value,
+      };
+      // console.log(data);
+      return data;
+    }
+    this.iDB = new DataBase();
+    this.iDB.init('testDB');
+    const listButton = document.querySelector('.list');
+    // console.log(listButton);
+    listButton?.addEventListener('click', () => {
+      this.iDB.readAll('testCollection');
+    });
+
+    const writeButton = document.querySelector('.write');
+    // console.log(listButton);
+    writeButton?.addEventListener('click', () => {
+      const data = saveData();
+      this.iDB.write(data.firstName, data.secondName, data.email);
+    });
+
+    const saveButton = document.querySelector('.save');
+    console.log(saveButton);
+    saveButton?.addEventListener('click', () => {
+      const data = saveData();
+      console.log(data);
+      this.iDB.write(data.firstName, data.secondName, data.email);
+      const reg = document.querySelector('.header__register');
+      console.log(reg);
+      this.page.innerHTML = `<div>${data.firstName} ${data.secondName}</div>`;
+      reg?.replaceWith(this.page);
+    });
+    return this.page;
   }
 
   // modal() {

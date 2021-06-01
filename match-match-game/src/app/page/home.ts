@@ -19,7 +19,6 @@ export class HomePage {
     // this.root?.appendChild(new Timer().element);
     // this.root?.appendChild(this.game.element);
     this.page = document.createElement('div');
-    new App(this.page).start(0);
   }
 
   render(): HTMLElement {
@@ -27,7 +26,7 @@ export class HomePage {
     // if (valueCard) {
     //   // console.log(valueCard);
     // }
-
+    new App(this.page).start(0);
     this.root?.append(this.page);
 
     return this.page;

@@ -19,8 +19,6 @@ export class App implements Component {
 
   private readonly game: Game;
 
-  public iDB: DataBase;
-
   public gameCards = '0';
 
   constructor(private readonly root: RootElement) {
@@ -29,40 +27,6 @@ export class App implements Component {
     this.root?.appendChild(this.game.element);
     this.application = document.createElement('div');
 
-    function saveData() {
-      const firstName = (<HTMLInputElement>document.querySelector('#first-name'));
-      const secondName = (<HTMLInputElement>document.querySelector('#second-name'));
-      const email = (<HTMLInputElement>document.querySelector('#email'));
-      const data = {
-        firstName: firstName?.value,
-        secondName: secondName?.value,
-        email: email?.value,
-      };
-      // console.log(data);
-      return data;
-    }
-
-    this.iDB = new DataBase();
-    this.iDB.init('testDB');
-    const listButton = document.querySelector('.list');
-    // console.log(listButton);
-    listButton?.addEventListener('click', () => {
-      this.iDB.readAll('testCollection');
-    });
-
-    const writeButton = document.querySelector('.write');
-    // console.log(listButton);
-    writeButton?.addEventListener('click', () => {
-      const data = saveData();
-      this.iDB.write(data.firstName, data.secondName, data.email);
-    });
-
-    const saveButton = document.querySelector('.save');
-    // console.log(listButton);
-    saveButton?.addEventListener('click', () => {
-      const data = saveData();
-      this.iDB.write(data.firstName, data.secondName, data.email);
-    });
     // new Settings(this.application).selectCard();
     // const gameCard = document.getElementById('game-cards');
     // console.log(gameCard);
@@ -85,10 +49,10 @@ export class App implements Component {
   render(): HTMLElement {
     const header = new Header();
     const footer = new Footer();
-    const auth = new Auth();
+    // const auth = new Auth();
     (<any>document.querySelector('body')).prepend(header.element);
     (<any>document.querySelector('body')).append(footer.element);
-    (<any>document.querySelector('main')).appendChild(auth.element);
+    // (<any>document.querySelector('main')).appendChild(auth.element);
     // auth.modal();
     // this.application.innerHTML = 'Hello from app';
     // this.root?.appendChild(this.cardsField.element);
