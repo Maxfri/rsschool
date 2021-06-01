@@ -60,23 +60,30 @@ export class Auth {
       this.iDB.readAll('testCollection');
     });
 
-    const writeButton = document.querySelector('.write');
-    // console.log(listButton);
-    writeButton?.addEventListener('click', () => {
-      const data = saveData();
-      this.iDB.write(data.firstName, data.secondName, data.email);
-    });
+    // const writeButton = document.querySelector('.write');
+    // // console.log(listButton);
+    // writeButton?.addEventListener('click', () => {
+    //   const data = saveData();
+    //   this.iDB.write(data.firstName, data.secondName, data.email);
+    // });
 
     const saveButton = document.querySelector('.save');
-    console.log(saveButton);
+    // console.log(saveButton);
     saveButton?.addEventListener('click', () => {
       const data = saveData();
-      console.log(data);
+      // console.log(data);
       this.iDB.write(data.firstName, data.secondName, data.email);
       const reg = document.querySelector('.header__register');
-      console.log(reg);
+      // console.log(reg);
       this.page.innerHTML = `<div>${data.firstName} ${data.secondName}</div>`;
       reg?.replaceWith(this.page);
+      // this.page.innerHTML = '<a href="#/game">GAME</a>';
+      const gameButton = document.createElement('div');
+      if (gameButton) {
+        gameButton.innerHTML = '<a href="#/game">GAME</a>';
+        // console.log(gameButton);
+        document.querySelector('#app')?.appendChild(gameButton);
+      }
     });
     return this.page;
   }

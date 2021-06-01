@@ -12,7 +12,7 @@ const settings = new Settings(main);
 const auth = new Auth(main);
 
 const routes = [
-  { path: '/', component: game },
+  { path: '/game', component: game },
   { path: '/about', component: about },
   { path: '/score', component: score },
   { path: '/settings', component: settings },
