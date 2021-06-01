@@ -4,13 +4,13 @@ import { Settings } from './page/settings/settings';
 import { HomePage } from './page/home';
 
 const main = document.querySelector('main');
-const home = new HomePage(main);
+const game = new HomePage(main);
 const about = new About(main);
 const score = new Score(main);
 const settings = new Settings(main);
 
 const routes = [
-  { path: '/', component: home },
+  { path: '/', component: game },
   { path: '/about', component: about },
   { path: '/score', component: score },
   { path: '/settings', component: settings },
@@ -25,5 +25,7 @@ export const Router = (): void => {
   // console.log(path);
   const component: any = findComponentByPath(path, routes) || {};
   // console.log(component);
-  (<any>document.querySelector('main')).appendChild(component.component.render());
+  // console.log(component.component.render());
+  (<any>document.querySelector('main')).innerHTML = '';
+  (<any>document.querySelector('main')).append(component.component.render());
 };

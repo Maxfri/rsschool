@@ -1,3 +1,7 @@
+import { Auth } from './components/auth/auth';
+import { Settings } from './page/settings/settings';
+import { Footer } from './components/footer/footer';
+import { Header } from './components/header/header';
 // import { Button } from './button';
 import { Timer } from './components/timer/timer';
 import { ImageCategoryModel } from './models/image-category-model';
@@ -17,11 +21,12 @@ export class App implements Component {
 
   public iDB: DataBase;
 
+  public gameCards = '0';
+
   constructor(private readonly root: RootElement) {
-    // this.cardsField = new CardsField();
-    // this.game = new Game();
-    // this.root?.appendChild(new Timer().element);
-    // this.root?.appendChild(this.game.element);
+    this.cardsField = new CardsField();
+    this.game = new Game();
+    this.root?.appendChild(this.game.element);
     this.application = document.createElement('div');
 
     function saveData() {
@@ -58,6 +63,12 @@ export class App implements Component {
       const data = saveData();
       this.iDB.write(data.firstName, data.secondName, data.email);
     });
+    // new Settings(this.application).selectCard();
+    // const gameCard = document.getElementById('game-cards');
+    // console.log(gameCard);
+    // document.getElementById('months').addEventListener('change', function() {
+    //   const n = this.value;
+    // })
     // readAllButton.onClick = () => {
     //   this.iDB.readAll('testCollection');
     // };
@@ -72,6 +83,13 @@ export class App implements Component {
   }
 
   render(): HTMLElement {
+    const header = new Header();
+    const footer = new Footer();
+    const auth = new Auth();
+    (<any>document.querySelector('body')).prepend(header.element);
+    (<any>document.querySelector('body')).append(footer.element);
+    (<any>document.querySelector('main')).appendChild(auth.element);
+    // auth.modal();
     // this.application.innerHTML = 'Hello from app';
     // this.root?.appendChild(this.cardsField.element);
     // this.root?.appendChild(this.application);
@@ -79,10 +97,10 @@ export class App implements Component {
     return this.application;
   }
 
-  async start() {
+  async start(categ: any) {
     const res = await fetch('./images.json');
     const categories: ImageCategoryModel[] = await res.json();
-    const cat = categories[0];
+    const cat = categories[categ];
     const images = cat.images.map((name: string) => `${cat.category}/${name}`);
     this.game.newGame(images);
   }

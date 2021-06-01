@@ -1,9 +1,10 @@
+import { Timer } from '../timer/timer';
 import { CardsField } from '../cards-field/cards-field';
 import { Card } from '../card/card';
 import { BaseComponent } from '../base-component';
 import { delay } from '../../shared/delay';
 
-const FLIP_DELAY = 3000;
+const FLIP_DELAY = 5000;
 
 export class Game extends BaseComponent {
   private readonly cardsField: CardsField;
@@ -32,6 +33,7 @@ export class Game extends BaseComponent {
     });
 
     this.cardsField.addCards(cards);
+    this.element.prepend(new Timer().element);
   }
 
   score(): number {

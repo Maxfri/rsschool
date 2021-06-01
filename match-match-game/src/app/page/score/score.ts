@@ -5,12 +5,19 @@ export class Score {
   private readonly page: HTMLElement;
 
   constructor(private readonly root: RootElement) {
-    // counterService.increment();
     this.page = document.createElement('div');
   }
 
   render(): HTMLElement {
-    this.page.innerHTML = 'Hello from Score page';
+    this.page.innerHTML = `<div class="best-players">
+    <table>
+      <tr>
+        <td>PHOTO</td>
+        <td>Name, Email</td>
+        <td>Score</td>
+      </tr>
+    </table>
+  </div>`;
     this.root?.appendChild(this.page);
 
     return this.page;
