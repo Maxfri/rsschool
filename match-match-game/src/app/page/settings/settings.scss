@@ -1,0 +1,37 @@
+.settings {
+  width: 1200px;
+  height: 600px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+.settings-title {
+  margin: 10px;
+}
+.game-settings {
+  width: 70%;
+  padding: 30px;
+  margin-top: 30px;
+  background: #fff;
+  box-shadow: 0px 6px 5px rgb(0 0 0 / 24%), 0px 9px 18px rgb(0 0 0 / 18%);
+}
+.game-title {
+  margin: 10px 0 10px 0;
+}
+.game-select {
+  padding-top: 8px;
+  border: none;
+  background: inherit;
+  border-bottom: 1px solid #e5e5e5;
+  width: 256px;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: 0.25px;
+  color: rgba(0, 0, 0, 0.6);
+  padding-left: 16px;
+  padding-bottom: 16px;
+  outline: 0;
+}

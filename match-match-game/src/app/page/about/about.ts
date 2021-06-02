@@ -1,5 +1,6 @@
 import { Component, RootElement } from '../../app.api';
 import { BaseComponent } from '../../components/base-component';
+import './about.scss';
 
 export class About {
   private readonly page: HTMLElement;
@@ -9,35 +10,37 @@ export class About {
   }
 
   render(): HTMLElement {
-    this.page.innerHTML = `<div class="rules-list">
+    this.page.classList.add('about');
+    this.page.innerHTML = `<h2 class="about-title">How to play?</h2>
+    <div class="rules-list">
       <div class="rules">
-        <div class="number">
-          <img src="./assets/1.png" alt="" srcset="">
-        </div>
         <div class="rule">
-          Register new player in game
+          <div class="number">
+            <img src="./assets/1.png" alt="" srcset="">
+          </div>
+          <p class="rule-text">Register new player in game</p>
         </div>
         <div class="rule-image">
           <img src="./assets/image1.png" alt="" srcset="">
         </div>
       </div>
       <div class="rules">
-        <div class="number">
-          <img src="./assets/2.png" alt="" srcset="">
-        </div>
         <div class="rule">
-          Configure your game settings
+          <div class="number">
+            <img src="./assets/2.png" alt="" srcset="">
+          </div>
+          <p class="rule-text">Configure your game settings</p>
         </div>
         <div class="rule-image">
           <img src="./assets/image2.png" alt="" srcset="">
         </div>
       </div>
       <div class="rules">
-        <div class="number">
-          <img src="./assets/3.png" alt="" srcset="">
-        </div>
         <div class="rule">
-          Start you new game! Remember card positions and match it before times up.
+          <div class="number">
+            <img src="./assets/3.png" alt="" srcset="">
+          </div>
+          <p class="rule-text">Start you new game! Remember card positions and match it before times up.</p>
         </div>
         <div class="rule-image">
           <img src="./assets/image4.jpg" alt="" srcset="">
