@@ -49,10 +49,10 @@ export class App implements Component {
   render(): HTMLElement {
     const header = new Header();
     const footer = new Footer();
-    // const auth = new Auth();
     (<any>document.querySelector('body')).prepend(header.element);
     (<any>document.querySelector('body')).append(footer.element);
-    // (<any>document.querySelector('main')).appendChild(auth.element);
+    const auth = new Auth(<any>document.querySelector('header'));
+    auth.render();
     // auth.modal();
     // this.application.innerHTML = 'Hello from app';
     // this.root?.appendChild(this.cardsField.element);

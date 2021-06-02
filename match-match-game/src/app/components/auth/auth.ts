@@ -15,7 +15,7 @@ export class Auth {
     this.page.classList.add('modal');
     this.page.innerHTML = `<div class="auth">
     <h2 class="auth-header">Registr new player</h2>
-    <form class="auth-form auth-form" action="#">
+    <div class="auth-form auth-form">
       <div class="auth-form__areas">
         <div class="auth-form__area">
           <div class="auth-form__title">First Name</div>
@@ -55,7 +55,7 @@ export class Auth {
           </div>
         </div>
         <div class="auth-form__buttons">
-          <button class="auth-form__btn auth-form__btn_submit">
+          <button class="auth-form__btn auth-form__btn_submit"" type="submit" >
             Add user
           </button>
           <button class="auth-form__btn auth-form__btn_cancel" type="button">
@@ -63,7 +63,7 @@ export class Auth {
           </button>
         </div>
       </div>
-  </div></form></div>`;
+  </div></div></div>`;
 
     this.root?.appendChild(this.page);
 
@@ -82,7 +82,7 @@ export class Auth {
         modal.style.display = 'none';
       }
     };
-    let dataImageUrl;
+    let dataImageUrl: string;
     function handleFiles(e: any) {
       const canvas: any = document.getElementById('canvas');
       const ctx: any = canvas.getContext('2d');
@@ -90,14 +90,19 @@ export class Auth {
       img.src = URL.createObjectURL(e.target.files[0]);
       img.onload = function () {
         ctx.drawImage(img, 20, 20);
-        dataImageUrl = canvas.toDataURL();
+        let avatar = document.createElement('div');
+        avatar.innerHTML = `<div><img src="${canvas.toDataURL()}" alt=""></div>`;
+        document.querySelector('header')?.appendChild(avatar);
       };
-      // return canvas.toDataURL();
+      return canvas.toDataURL();
     }
 
     const input: any = document.querySelector('#file');
-    input.addEventListener('change', handleFiles);
-    console.log(dataImageUrl);
+    input.addEventListener('change', (event: any) => {
+      dataImageUrl = handleFiles(event);
+      console.log(dataImageUrl);
+    });
+    // console.log(dataImageUrl);
     function saveData() {
       const firstName = (<HTMLInputElement>document.querySelector('#firstName'));
       const secondName = (<HTMLInputElement>document.querySelector('#secondName'));
@@ -105,6 +110,7 @@ export class Auth {
       const data = {
         firstName: firstName?.value,
         secondName: secondName?.value,
+        dataImageUrl,
         email: email?.value,
       };
       return data;
@@ -128,11 +134,13 @@ export class Auth {
     const saveButton = document.querySelector('.auth-form__btn_submit');
     saveButton?.addEventListener('click', () => {
       const data = saveData();
-      this.iDB.write(data.firstName, data.secondName, data.email);
+      this.iDB.write(data.firstName, data.secondName, data.email, data.dataImageUrl);
       const reg = document.querySelector('.header__register');
       const header = document.querySelector('.header__wrapper');
       const user = document.createElement('div');
-      user.innerHTML = `<div>${data.firstName} ${data.secondName}</div>`;
+      user.innerHTML = `<div class="avatar">
+      <img src="${data.dataImageUrl}" alt=""></div>
+      <div>${data.firstName} ${data.secondName}</div>`;
       reg?.replaceWith(user);
       const gameButton = document.createElement('div');
       gameButton.innerHTML = '<a href="#/game">GAME</a>';

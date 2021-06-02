@@ -11,6 +11,7 @@ export class DataBase {
       store.createIndex('firstName', 'firstName');
       store.createIndex('secondName', 'secondName');
       store.createIndex('score', 'score');
+      store.createIndex('image', 'image');
       store.createIndex('email', 'email', { unique: true });
       this.db = database;
     };
@@ -20,11 +21,11 @@ export class DataBase {
     };
   }
 
-  write(firstName: string, secondName: string, email: string) {
+  write(firstName: string, secondName: string, email: string, image: string) {
     const transaction = this.db.transaction('testCollection', 'readwrite');
     const store = transaction.objectStore('testCollection');
     const result = store.put({
-      secondName, score: 0, firstName, email,
+      secondName, score: 0, firstName, image, email,
     });
 
     result.onsuccess = () => {

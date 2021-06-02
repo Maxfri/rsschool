@@ -15,9 +15,9 @@ export class Header extends BaseComponent {
         <a href="#/settings" class="nav__link">Game Settings</a>
       </nav>
       <div class="header__register">
-        <a href="#/auth" id="modal-btn" class="btn header__new-player" type="button">
+        <button id="modal-btn" class="btn header__new-player" type="button">
           register new player
-        </a>
+        </button>
       </div>
     </div>`;
   }
