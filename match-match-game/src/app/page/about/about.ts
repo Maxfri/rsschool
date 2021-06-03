@@ -1,5 +1,4 @@
-import { Component, RootElement } from '../../app.api';
-import { BaseComponent } from '../../components/base-component';
+import { RootElement } from '../../app.api';
 import './about.scss';
 
 export class About {

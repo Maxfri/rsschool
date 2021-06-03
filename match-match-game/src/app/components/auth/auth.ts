@@ -1,5 +1,5 @@
 import { DataBase } from '../../indexedDB';
-import { Component, RootElement } from '../../app.api';
+import { RootElement } from '../../app.api';
 import './auth.scss';
 
 export class Auth {
@@ -95,62 +95,19 @@ export class Auth {
         const canvas: any = document.getElementById('canvas');
         const ctx: any = canvas.getContext('2d');
         ctx.drawImage(img, 20, 20);
-        // avatar = document.createElement('div');
-        // avatar.innerHTML = `<div><img class="avatar" src="${canvas.toDataURL()}" alt=""></div>`;
         dataURL = canvas.toDataURL();
         callback(dataURL);
       };
       return img;
     }
 
-    // function toDataURL(src, callback, outputFormat) {
-    //   var img = new Image();
-    //   img.crossOrigin = 'Anonymous';
-    //   img.onload = function () {
-    //     var canvas = document.createElement('CANVAS');
-    //     var ctx = canvas.getContext('2d');
-    //     var dataURL;
-    //     canvas.height = this.naturalHeight;
-    //     canvas.width = this.naturalWidth;
-    //     ctx.drawImage(this, 0, 0);
-    //     dataURL = canvas.toDataURL(outputFormat);
-    //     callback(dataURL);
-    //   };
-    //   img.src = src;
-    //   if (img.complete || img.complete === undefined) {
-    //     img.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
-    //     img.src = src;
-    //   }
-    // }
-
-    // function toDataURL(url, callback) {
-    //   var xhr = new XMLHttpRequest();
-    //   xhr.onload = function () {
-    //     var reader = new FileReader();
-    //     reader.onloadend = function () {
-    //       callback(reader.result);
-    //     }
-    //     reader.readAsDataURL(xhr.response);
-    //   };
-    //   xhr.open('GET', url);
-    //   xhr.responseType = 'blob';
-    //   xhr.send();
-    // }
-
-    // toDataURL('https://www.gravatar.com/avatar/d50c83cc0c6523b4d3f6085295c953e0', function (dataUrl) {
-    //   console.log('RESULT:', dataUrl)
-    // })
-
     const input: any = document.querySelector('#file');
     input.addEventListener('change', (event: any) => {
       const dataImage = handleFiles(event, (dataUrl: string) => {
-        // console.log('RESULT:', dataUrl);
         dataImageUrl = dataUrl;
       });
-      // dataImageUrl = dataImage.src;
-      // console.log(dataImageUrl);
     });
-    // console.log(dataImageUrl);
+
     function saveData() {
       const firstName = (<HTMLInputElement>document.querySelector('#firstName'));
       const secondName = (<HTMLInputElement>document.querySelector('#secondName'));
@@ -166,14 +123,6 @@ export class Auth {
 
     this.iDB = new DataBase();
     this.iDB.init('maxfri');
-    const listButton = document.querySelector('.list');
-
-    // const writeButton = document.querySelector('.write');
-    // // console.log(listButton);
-    // writeButton?.addEventListener('click', () => {
-    //   const data = saveData();
-    //   this.iDB.write(data.firstName, data.secondName, data.email);
-    // });
 
     const saveButton = document.querySelector('.auth-form__btn_submit');
     saveButton?.addEventListener('click', () => {

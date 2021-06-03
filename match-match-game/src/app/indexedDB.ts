@@ -21,7 +21,7 @@ export class DataBase {
     };
   }
 
-  write(firstName: string, secondName: string, email: string, image: string) {
+  write(firstName: string, secondName: string, email: string, image: string): void {
     const transaction = this.db.transaction('maxfri', 'readwrite');
     const store = transaction.objectStore('maxfri');
     const result = store.put({
@@ -49,7 +49,7 @@ export class DataBase {
     };
   }
 
-  list() {
+  list(): void {
     const transaction = this.db.transaction('maxfri', 'readonly');
     const store = transaction.objectStore('maxfri');
 
@@ -57,7 +57,6 @@ export class DataBase {
     const userPlace: HTMLDivElement = document.createElement('div');
     userPlace.classList.add('best-players-table');
     players.onsuccess = () => {
-      // console.log(players.result);
       userPlace.innerHTML = players.result.map((player: any) => `<div class="best-players-place">
           <div class="best-players-photo">
             <img class="best-players-img" src="${player.image}" alt="photo">
@@ -73,7 +72,7 @@ export class DataBase {
     };
   }
 
-  readFilter() {
+  readFilter(): void {
     const transaction = this.db.transaction('maxfri', 'readonly');
     const store = transaction.objectStore('maxfri');
     const result = store.index('score').openCursor(null, 'next');
@@ -82,21 +81,19 @@ export class DataBase {
     result.onsuccess = () => {
       const cursor = result.result;
       if (cursor) {
-        // console.log(cursor.value);
-        // if (cursor.value.email[0] === 'a') {
-        resData.push(cursor.value);
-        // }
+        if (cursor.value.email[0] === 'a') {
+          resData.push(cursor.value);
+        }
         cursor?.continue();
       }
     };
 
     transaction.oncomplete = () => {
       // console.log(resData);
-      // return resData;
     };
   }
 }
 
 // const DB_NAME = 'maxfri';
 // // const DB_VERSION = 1;
-// const DB_STORE_NAME = 'users';
+// const DB_STORE_NAME = 'players';

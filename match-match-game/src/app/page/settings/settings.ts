@@ -1,4 +1,4 @@
-import { Component, RootElement } from '../../app.api';
+import { RootElement } from '../../app.api';
 import './settings.scss';
 
 export class Settings {
@@ -28,22 +28,6 @@ export class Settings {
     </div>
   </div>`;
     this.root?.appendChild(this.page);
-    // this.selectCard();
     return this.page;
   }
-
-  // selectCard(): number {
-  //   let n = '';
-  //   const gameCard = document.getElementById('game-cards');
-  //   if (gameCard) {
-  //     gameCard.addEventListener('change', function () {
-  //       n = (<HTMLSelectElement> this).value;
-  //       console.log(n);
-  //     });
-  //   }
-  //   if (n === '0') {
-  //     return 0;
-  //   }
-  //   return 1;
-  // }
 }

@@ -21,14 +21,11 @@ const routes = [
 
 const parseLocation = (): string => window.location.hash.slice(1).toLowerCase() || '/';
 
-const findComponentByPath = (path: any, findRoutes: any[]): any => routes.find((r) => r.path.match(new RegExp(`^\\${path}$`, 'gm'))) || undefined;
+const findComponentByPath = (path: any, listRoutes: any[]): any => listRoutes.find((r) => r.path.match(new RegExp(`^\\${path}$`, 'gm'))) || undefined;
 
 export const Router = (): void => {
   const path = parseLocation();
-  // console.log(path);
   const component: any = findComponentByPath(path, routes) || {};
-  // console.log(component);
-  // console.log(component.component.render());
-  (<any>document.querySelector('main')).innerHTML = '';
-  (<any>document.querySelector('main')).append(component.component.render());
+  (<HTMLDivElement>document.querySelector('main')).innerHTML = '';
+  (<HTMLDivElement>document.querySelector('main')).append(component.component.render());
 };

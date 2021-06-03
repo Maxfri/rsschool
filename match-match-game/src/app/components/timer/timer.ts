@@ -17,7 +17,6 @@ export class Timer extends BaseComponent {
     this.minutes = minutes;
     this.seconds = seconds;
     this.timeStart = timeStart;
-    // console.log(this.timer());
     this.element.innerHTML = `
           <div class="timer">
           <h2 id="timer"> 00:00:00</h2>
@@ -26,7 +25,7 @@ export class Timer extends BaseComponent {
     this.timer();
   }
 
-  timer() {
+  timer(): void {
     this.time = setInterval(() => {
       this.seconds++;
 
@@ -42,22 +41,7 @@ export class Timer extends BaseComponent {
     }, 1000);
   }
 
-  stopTimer() {
+  stopTimer(): void {
     clearInterval(this.time);
   }
 }
-
-// let time: Date;
-// let minutes = 0;
-// let seconds = 0;
-// let timeStart = false;
-
-// constructor() {
-//   super('div', ['timer__wrapper']);
-
-//   this.element.innerHTML = `
-//       <div class="timer">
-//       </div>`;
-// }
-
-// }

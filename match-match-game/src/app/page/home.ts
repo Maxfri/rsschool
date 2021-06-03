@@ -2,7 +2,7 @@ import { App } from '../app';
 import { Game } from '../components/game/game';
 import { Settings } from './settings/settings';
 import { Timer } from '../components/timer/timer';
-import { Component, RootElement } from '../app.api';
+import { RootElement } from '../app.api';
 import { CardsField } from '../components/cards-field/cards-field';
 
 export class HomePage {

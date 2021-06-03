@@ -1,6 +1,5 @@
 import { DataBase } from '../../indexedDB';
-import { Component, RootElement } from '../../app.api';
-import { BaseComponent } from '../../components/base-component';
+import { RootElement } from '../../app.api';
 import './score.scss';
 
 export class Score {
@@ -39,25 +38,8 @@ export class Score {
     return this.page;
   }
 
-  // getData() {
-  //   let data = this.iDB.readFilter();
-  //   return data;
-  // }
-
   showScore(): HTMLElement {
     const data = this.iDB.list();
-    // console.log(data);
-    // this.userPlace = document.createElement('div');
-    // this.userPlace.classList.add('best-players-place');
-    // this.userPlace.innerHTML = `<div class="best-players-photo">
-    //       <img class="best-players-img" src="{data}" alt="photo">
-    //     </div>
-    //     <div class="best-players-name">
-    //     {data}
-    //     </div>
-    //     <div class="best-players-score">
-    //     {data}
-    //     </div>`;
     return this.userPlace;
   }
 }

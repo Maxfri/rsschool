@@ -16,15 +16,14 @@ export class Card extends BaseComponent {
       </div>`;
   }
 
-  flipToBack() {
+  flipToBack(): Promise<void> {
     this.isFlipped = true;
-    // console.log(this);
     return this.flip(true);
   }
 
-  flipToFront() {
+  flipToFront(): Promise<void> {
     this.isFlipped = false;
-    return this.flip();
+    return this.flip(false);
   }
 
   private flip(isFront = false): Promise<void> {
