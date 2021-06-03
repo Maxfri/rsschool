@@ -82,25 +82,73 @@ export class Auth {
         modal.style.display = 'none';
       }
     };
+
     let dataImageUrl: string;
-    function handleFiles(e: any) {
-      const canvas: any = document.getElementById('canvas');
-      const ctx: any = canvas.getContext('2d');
+    let avatar: any;
+
+    function handleFiles(e: any, callback: any): HTMLImageElement {
       const img = new Image();
+      let dataURL: string;
+      img.crossOrigin = 'Anonymous';
       img.src = URL.createObjectURL(e.target.files[0]);
       img.onload = function () {
+        const canvas: any = document.getElementById('canvas');
+        const ctx: any = canvas.getContext('2d');
         ctx.drawImage(img, 20, 20);
-        let avatar = document.createElement('div');
-        avatar.innerHTML = `<div><img src="${canvas.toDataURL()}" alt=""></div>`;
-        document.querySelector('header')?.appendChild(avatar);
+        // avatar = document.createElement('div');
+        // avatar.innerHTML = `<div><img class="avatar" src="${canvas.toDataURL()}" alt=""></div>`;
+        dataURL = canvas.toDataURL();
+        callback(dataURL);
       };
-      return canvas.toDataURL();
+      return img;
     }
+
+    // function toDataURL(src, callback, outputFormat) {
+    //   var img = new Image();
+    //   img.crossOrigin = 'Anonymous';
+    //   img.onload = function () {
+    //     var canvas = document.createElement('CANVAS');
+    //     var ctx = canvas.getContext('2d');
+    //     var dataURL;
+    //     canvas.height = this.naturalHeight;
+    //     canvas.width = this.naturalWidth;
+    //     ctx.drawImage(this, 0, 0);
+    //     dataURL = canvas.toDataURL(outputFormat);
+    //     callback(dataURL);
+    //   };
+    //   img.src = src;
+    //   if (img.complete || img.complete === undefined) {
+    //     img.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
+    //     img.src = src;
+    //   }
+    // }
+
+    // function toDataURL(url, callback) {
+    //   var xhr = new XMLHttpRequest();
+    //   xhr.onload = function () {
+    //     var reader = new FileReader();
+    //     reader.onloadend = function () {
+    //       callback(reader.result);
+    //     }
+    //     reader.readAsDataURL(xhr.response);
+    //   };
+    //   xhr.open('GET', url);
+    //   xhr.responseType = 'blob';
+    //   xhr.send();
+    // }
+
+    // toDataURL('https://www.gravatar.com/avatar/d50c83cc0c6523b4d3f6085295c953e0', function (dataUrl) {
+    //   console.log('RESULT:', dataUrl)
+    // })
 
     const input: any = document.querySelector('#file');
     input.addEventListener('change', (event: any) => {
-      dataImageUrl = handleFiles(event);
-      console.log(dataImageUrl);
+      const dataImage = handleFiles(event, (dataUrl: string) => {
+        // console.log('RESULT:', dataUrl);
+        dataImageUrl = dataUrl;
+      });
+      // dataImageUrl = dataImage.src;
+      // console.log(dataImageUrl);
     });
     // console.log(dataImageUrl);
     function saveData() {
@@ -117,12 +165,8 @@ export class Auth {
     }
 
     this.iDB = new DataBase();
-    this.iDB.init('testDB');
+    this.iDB.init('maxfri');
     const listButton = document.querySelector('.list');
-
-    listButton?.addEventListener('click', () => {
-      this.iDB.readAll('testCollection');
-    });
 
     // const writeButton = document.querySelector('.write');
     // // console.log(listButton);
@@ -139,7 +183,7 @@ export class Auth {
       const header = document.querySelector('.header__wrapper');
       const user = document.createElement('div');
       user.innerHTML = `<div class="avatar">
-      <img src="${data.dataImageUrl}" alt=""></div>
+      <img class="avatar-img" src="${data.dataImageUrl}" alt=""></div>
       <div>${data.firstName} ${data.secondName}</div>`;
       reg?.replaceWith(user);
       const gameButton = document.createElement('div');

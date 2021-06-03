@@ -34,7 +34,7 @@ export class App implements Component {
     //   const n = this.value;
     // })
     // readAllButton.onClick = () => {
-    //   this.iDB.readAll('testCollection');
+    //   this.iDB.readAll('maxfri');
     // };
 
     // const filterButton = new Button(document.body, 'filtered list');

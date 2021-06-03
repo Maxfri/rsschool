@@ -160,3 +160,10 @@
   border: none;
   background-color: var(--header-color);
 }
+
+.avatar-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+}

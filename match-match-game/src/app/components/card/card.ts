@@ -18,6 +18,7 @@ export class Card extends BaseComponent {
 
   flipToBack() {
     this.isFlipped = true;
+    // console.log(this);
     return this.flip(true);
   }
 

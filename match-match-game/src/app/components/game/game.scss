@@ -1,0 +1,8 @@
+.right {
+  transition: all 0.5s;
+  box-shadow: 0px 0px 15px 1px green;
+}
+.wrong {
+  transition: all .5s;
+  box-shadow: 0px 0px 15px 1px red;
+}

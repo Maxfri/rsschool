@@ -3,6 +3,7 @@ import { CardsField } from '../cards-field/cards-field';
 import { Card } from '../card/card';
 import { BaseComponent } from '../base-component';
 import { delay } from '../../shared/delay';
+import './game.scss';
 
 const FLIP_DELAY = 5000;
 
@@ -36,7 +37,7 @@ export class Game extends BaseComponent {
     this.element.prepend(new Timer().element);
   }
 
-  score(): number {
+  move(): number {
     return this.count++;
   }
 
@@ -53,16 +54,22 @@ export class Game extends BaseComponent {
       return;
     }
     if (this.activeCard.image === card.image) {
-      this.score();
+      this.activeCard.element.classList.add('right');
+      card.element.classList.add('right');
+      // console.log(this.activeCard);
+      // console.log(card);
     }
     if (this.activeCard.image !== card.image) {
-      delay(FLIP_DELAY);
+      // delay(FLIP_DELAY);
+      this.activeCard.element.classList.add('wrong');
+      card.element.classList.add('wrong');
       await Promise.all([this.activeCard.flipToBack(), card.flipToBack()]);
     }
 
     this.activeCard = undefined;
     this.isAnimation = false;
 
+    this.move();
     if (this.count === 8) {
       // console.log('You win');
     }

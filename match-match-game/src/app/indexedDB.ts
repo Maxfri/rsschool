@@ -7,7 +7,7 @@ export class DataBase {
 
     openRequest.onupgradeneeded = () => {
       const database = openRequest.result;
-      const store = database.createObjectStore('testCollection', { keyPath: 'id', autoIncrement: true });
+      const store = database.createObjectStore('maxfri', { keyPath: 'id', autoIncrement: true });
       store.createIndex('firstName', 'firstName');
       store.createIndex('secondName', 'secondName');
       store.createIndex('score', 'score');
@@ -22,8 +22,8 @@ export class DataBase {
   }
 
   write(firstName: string, secondName: string, email: string, image: string) {
-    const transaction = this.db.transaction('testCollection', 'readwrite');
-    const store = transaction.objectStore('testCollection');
+    const transaction = this.db.transaction('maxfri', 'readwrite');
+    const store = transaction.objectStore('maxfri');
     const result = store.put({
       secondName, score: 0, firstName, image, email,
     });
@@ -39,34 +39,60 @@ export class DataBase {
     };
   }
 
-  readAll(collection: string): void {
-    const transaction = this.db.transaction(collection, 'readonly');
-    const store = transaction.objectStore(collection);
+  readAll(): void {
+    const transaction = this.db.transaction('maxfri', 'readonly');
+    const store = transaction.objectStore('maxfri');
     const result = store.getAll();
     transaction.oncomplete = () => {
       // console.log(result.result);
+      // result.result;
     };
   }
 
-  readFiltere() {
-    const transaction = this.db.transaction('testCollection', 'readonly');
-    const store = transaction.objectStore('testCollection');
-    const result = store.index('email').openCursor(null, 'prev');
+  list() {
+    const transaction = this.db.transaction('maxfri', 'readonly');
+    const store = transaction.objectStore('maxfri');
+
+    const players: any = store.getAll();
+    const userPlace: HTMLDivElement = document.createElement('div');
+    userPlace.classList.add('best-players-table');
+    players.onsuccess = () => {
+      // console.log(players.result);
+      userPlace.innerHTML = players.result.map((player: any) => `<div class="best-players-place">
+          <div class="best-players-photo">
+            <img class="best-players-img" src="${player.image}" alt="photo">
+          </div>
+          <div class="best-players-name">
+            ${player.firstName} ${player.secondName} ${player.email}
+          </div>
+          <div class="best-players-score">
+          Score: ${player.score}
+          </div>
+        </div>`).join('');
+      document.querySelector('.best-players')?.appendChild(userPlace);
+    };
+  }
+
+  readFilter() {
+    const transaction = this.db.transaction('maxfri', 'readonly');
+    const store = transaction.objectStore('maxfri');
+    const result = store.index('score').openCursor(null, 'next');
     const resData: Array<any> = [];
 
     result.onsuccess = () => {
       const cursor = result.result;
       if (cursor) {
         // console.log(cursor.value);
-        if (cursor.value.email[0] === 'a') {
-          resData.push(cursor.value);
-        }
+        // if (cursor.value.email[0] === 'a') {
+        resData.push(cursor.value);
+        // }
         cursor?.continue();
       }
     };
 
     transaction.oncomplete = () => {
       // console.log(resData);
+      // return resData;
     };
   }
 }
