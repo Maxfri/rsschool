@@ -1,6 +1,7 @@
 import { DataBase } from '../../indexedDB';
 import { RootElement } from '../../app.api';
 import './auth.scss';
+import { validator } from '../../validator';
 
 export class Auth {
   private readonly page: HTMLElement;
@@ -126,18 +127,21 @@ export class Auth {
 
     const saveButton = document.querySelector('.auth-form__btn_submit');
     saveButton?.addEventListener('click', () => {
-      const data = saveData();
-      this.iDB.write(data.firstName, data.secondName, data.email, data.dataImageUrl);
-      const reg = document.querySelector('.header__register');
-      const header = document.querySelector('.header__wrapper');
-      const user = document.createElement('div');
-      user.innerHTML = `<div class="avatar">
+      if (validator()) {
+        const data = saveData();
+        this.iDB.write(data.firstName, data.secondName, data.email, data.dataImageUrl);
+        const reg = document.querySelector('.header__register');
+        const header = document.querySelector('.header__wrapper');
+        const user = document.createElement('div');
+        user.innerHTML = `<div class="avatar">
       <img class="avatar-img" src="${data.dataImageUrl}" alt=""></div>
       <div>${data.firstName} ${data.secondName}</div>`;
-      reg?.replaceWith(user);
-      const gameButton = document.createElement('div');
-      gameButton.innerHTML = '<a href="#/game">GAME</a>';
-      header?.appendChild(gameButton);
+        reg?.replaceWith(user);
+        const gameButton = document.createElement('div');
+        gameButton.innerHTML = '<a href="#/game">GAME</a>';
+        header?.appendChild(gameButton);
+        modal.style.display = 'none';
+      }
     });
 
     return this.page;
