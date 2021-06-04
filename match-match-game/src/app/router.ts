@@ -21,7 +21,7 @@ const routes = [
 
 const parseLocation = (): string => window.location.hash.slice(1).toLowerCase() || '/';
 
-const findComponentByPath = (path: any, listRoutes: any[]): any => listRoutes.find((r) => r.path.match(new RegExp(`^\\${path}$`, 'gm'))) || undefined;
+const findComponentByPath = (path: string, listRoutes: any[]): any => listRoutes.find((r) => r.path.match(new RegExp(`^\\${path}$`, 'gm'))) || undefined;
 
 export const Router = (): void => {
   const path = parseLocation();

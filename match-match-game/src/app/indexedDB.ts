@@ -1,7 +1,7 @@
 export class DataBase {
   public db: IDBDatabase;
 
-  init(dbName: string, version?: number) {
+  init(dbName: string, version?: number): void {
     const iDB = window.indexedDB;
     const openRequest = iDB.open(dbName, version);
 

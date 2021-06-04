@@ -1,7 +1,7 @@
 import { DataBase } from '../../indexedDB';
 import { RootElement } from '../../app.api';
 import './auth.scss';
-import { validator } from '../../validator';
+import { Validator } from '../../validator';
 
 export class Auth {
   private readonly page: HTMLElement;
@@ -108,11 +108,11 @@ export class Auth {
         dataImageUrl = dataUrl;
       });
     });
+    const firstName = (<HTMLInputElement>document.querySelector('#firstName'));
+    const secondName = (<HTMLInputElement>document.querySelector('#secondName'));
+    const email = (<HTMLInputElement>document.querySelector('#email'));
 
     function saveData() {
-      const firstName = (<HTMLInputElement>document.querySelector('#firstName'));
-      const secondName = (<HTMLInputElement>document.querySelector('#secondName'));
-      const email = (<HTMLInputElement>document.querySelector('#email'));
       const data = {
         firstName: firstName?.value,
         secondName: secondName?.value,
@@ -124,10 +124,10 @@ export class Auth {
 
     this.iDB = new DataBase();
     this.iDB.init('maxfri');
-
+    const validator = new Validator();
     const saveButton = document.querySelector('.auth-form__btn_submit');
     saveButton?.addEventListener('click', () => {
-      if (validator()) {
+      if (validator.validateName(firstName) && validator.validateName(secondName) && validator.validateEmail(email)) {
         const data = saveData();
         this.iDB.write(data.firstName, data.secondName, data.email, data.dataImageUrl);
         const reg = document.querySelector('.header__register');
