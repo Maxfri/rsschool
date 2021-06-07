@@ -3,8 +3,8 @@ import { Garage } from './components/garage/garage';
 import { Button } from './components/button/button';
 import { Component } from './component';
 
-export class App {
-  private readonly application: HTMLDivElement; 
+export class App implements Component {
+  private readonly application: HTMLDivElement;
 
   constructor() {
     this.application = document.createElement('div');

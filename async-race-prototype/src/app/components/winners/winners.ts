@@ -1,11 +1,11 @@
-import { BaseComponent } from './../base-component';
+import { BaseComponent } from '../base-component';
 
 export class Winners extends BaseComponent {
-  constructor(){
-    super('div', ['winners'])
+  constructor() {
+    super('div', ['winners']);
   }
 
-  render() {
+  render(): HTMLElement {
     this.element.innerHTML = `<h1>Winners</h1>
     <h2>Page</h2>
     <table>
