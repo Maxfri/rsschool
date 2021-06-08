@@ -1,4 +1,4 @@
-import { Button } from './../button/button';
+import { Button } from '../button/button';
 import { BaseComponent } from '../base-component';
 
 import './garage.scss';
@@ -7,6 +7,7 @@ export type Car = { id: number, name: string, color: string };
 
 export class Garage extends BaseComponent {
   private readonly car: Car;
+
   constructor() {
     super('div', ['garage']);
     const btnCreate = new Button('Create car');
