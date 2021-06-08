@@ -3,6 +3,7 @@ import { BaseComponent } from '../base-component';
 export class Winners extends BaseComponent {
   constructor() {
     super('div', ['winners']);
+    this.getWinners();
   }
 
   render(): HTMLElement {
@@ -20,5 +21,11 @@ export class Winners extends BaseComponent {
       </tbody>
     </table>`;
     return this.element;
+  }
+
+  async getWinners() {
+    let response = await fetch('http://127.0.0.1:3000/winners');
+    let result = await response.json();
+    console.log(result);
   }
 }
