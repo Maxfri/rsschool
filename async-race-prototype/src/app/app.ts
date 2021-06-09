@@ -17,8 +17,11 @@ export class App implements Component {
     const winners = new Winners();
     this.application.appendChild(btnGarage.element);
     this.application.appendChild(btnWinners.element);
+    this.application.appendChild(garage.renderCreateCar());
     this.application.appendChild(garage.render());
+    
     this.application.appendChild(winners.render());
+    
     return this.application;
   }
 }
