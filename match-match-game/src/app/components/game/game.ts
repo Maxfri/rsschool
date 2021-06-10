@@ -5,7 +5,7 @@ import { BaseComponent } from '../base-component';
 import { delay } from '../../shared/delay';
 import './game.scss';
 
-const FLIP_DELAY = 5000;
+const FLIP_DELAY = 1000;
 
 export class Game extends BaseComponent {
   private readonly cardsField: CardsField;
@@ -37,6 +37,10 @@ export class Game extends BaseComponent {
     this.element.prepend(new Timer().element);
   }
 
+  stopGame() {
+    this.cardsField.clear();
+  }
+
   move(): number {
     return this.count++;
   }
@@ -60,12 +64,14 @@ export class Game extends BaseComponent {
       // console.log(card);
     }
     if (this.activeCard.image !== card.image) {
-      // delay(FLIP_DELAY);
+      await delay(FLIP_DELAY);
       this.activeCard.element.classList.add('wrong');
       card.element.classList.add('wrong');
       await Promise.all([this.activeCard.flipToBack(), card.flipToBack()]);
     }
 
+    this.activeCard.element.classList.remove('wrong');
+    card.element.classList.remove('wrong');
     this.activeCard = undefined;
     this.isAnimation = false;
 

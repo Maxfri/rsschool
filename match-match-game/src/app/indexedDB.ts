@@ -1,3 +1,5 @@
+const DB_STORE_NAME = 'players';
+
 export class DataBase {
   public db: IDBDatabase;
 
@@ -7,7 +9,7 @@ export class DataBase {
 
     openRequest.onupgradeneeded = () => {
       const database = openRequest.result;
-      const store = database.createObjectStore('maxfri', { keyPath: 'id', autoIncrement: true });
+      const store = database.createObjectStore(DB_STORE_NAME, { keyPath: 'id', autoIncrement: true });
       store.createIndex('firstName', 'firstName');
       store.createIndex('secondName', 'secondName');
       store.createIndex('score', 'score');
@@ -22,38 +24,34 @@ export class DataBase {
   }
 
   write(firstName: string, secondName: string, email: string, image: string): void {
-    const transaction = this.db.transaction('maxfri', 'readwrite');
-    const store = transaction.objectStore('maxfri');
+    const transaction = this.db.transaction(DB_STORE_NAME, 'readwrite');
+    const store = transaction.objectStore(DB_STORE_NAME);
     const result = store.put({
       secondName, score: 0, firstName, image, email,
     });
 
     result.onsuccess = () => {
-      // console.log('complite', result.result);
     };
     result.onerror = () => {
-      // console.log('error', result.error);
+      throw new Error(`Error: ${result.error}`);
     };
     transaction.onabort = () => {
-      // console.log('abort');
     };
   }
 
   readAll(): void {
-    const transaction = this.db.transaction('maxfri', 'readonly');
-    const store = transaction.objectStore('maxfri');
+    const transaction = this.db.transaction(DB_STORE_NAME, 'readonly');
+    const store = transaction.objectStore(DB_STORE_NAME);
     const result = store.getAll();
     transaction.oncomplete = () => {
-      // console.log(result.result);
-      // result.result;
     };
   }
 
   list(): void {
-    const transaction = this.db.transaction('maxfri', 'readonly');
-    const store = transaction.objectStore('maxfri');
+    const transaction = this.db.transaction(DB_STORE_NAME, 'readonly');
+    const store = transaction.objectStore(DB_STORE_NAME);
 
-    const players: any = store.getAll();
+    const players: IDBRequest = store.getAll();
     const userPlace: HTMLDivElement = document.createElement('div');
     userPlace.classList.add('best-players-table');
     players.onsuccess = () => {
@@ -73,10 +71,10 @@ export class DataBase {
   }
 
   readFilter(): void {
-    const transaction = this.db.transaction('maxfri', 'readonly');
-    const store = transaction.objectStore('maxfri');
+    const transaction = this.db.transaction(DB_STORE_NAME, 'readonly');
+    const store = transaction.objectStore(DB_STORE_NAME);
     const result = store.index('score').openCursor(null, 'next');
-    const resData: Array<any> = [];
+    const resData: Array<string> = [];
 
     result.onsuccess = () => {
       const cursor = result.result;
@@ -89,11 +87,6 @@ export class DataBase {
     };
 
     transaction.oncomplete = () => {
-      // console.log(resData);
     };
   }
 }
-
-// const DB_NAME = 'maxfri';
-// // const DB_VERSION = 1;
-// const DB_STORE_NAME = 'players';

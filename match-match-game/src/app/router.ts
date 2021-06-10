@@ -1,8 +1,11 @@
+import { Component } from './app.api';
 import { Auth } from './components/auth/auth';
 import { Score } from './page/score/score';
 import { About } from './page/about/about';
 import { Settings } from './page/settings/settings';
 import { HomePage } from './page/home';
+
+export type Route = { path: string, component: Component };
 
 const main = document.querySelector('main');
 const game = new HomePage(main);
@@ -25,7 +28,7 @@ const findComponentByPath = (path: string, listRoutes: any[]): any => listRoutes
 
 export const Router = (): void => {
   const path = parseLocation();
-  const component: any = findComponentByPath(path, routes) || {};
+  const component: Route = findComponentByPath(path, routes) || {};
   (<HTMLDivElement>document.querySelector('main')).innerHTML = '';
   (<HTMLDivElement>document.querySelector('main')).append(component.component.render());
 };

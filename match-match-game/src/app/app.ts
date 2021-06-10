@@ -23,20 +23,21 @@ export class App implements Component {
   }
 
   render(): HTMLElement {
+    const body = <HTMLElement>document.querySelector('body');
     const header = new Header();
     const footer = new Footer();
-    (<any>document.querySelector('body')).prepend(header.element);
-    (<any>document.querySelector('body')).append(footer.element);
-    const auth = new Auth(<any>document.querySelector('header'));
+    body.prepend(header.element);
+    body.append(footer.element);
+    const auth = new Auth(<HTMLElement>document.querySelector('header'));
     auth.render();
     return this.application;
   }
 
-  async start(categ: any) {
+  async start(difficultyGame: string) {
     const res = await fetch('./images.json');
-    const categories: ImageCategoryModel[] = await res.json();
-    const cat = categories[categ];
-    const images = cat.images.map((name: string) => `${cat.category}/${name}`);
+    const categories = await res.json();
+    const category = categories[difficultyGame];
+    const images = category.images.map((name: string) => `${category.category}/${name}`);
     this.game.newGame(images);
   }
 }

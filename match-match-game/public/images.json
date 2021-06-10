@@ -1,5 +1,5 @@
-[
-  {
+{
+  "4x4": {
     "category": "unsorted",
     "images": [
       "elephant.png",
@@ -12,7 +12,7 @@
       "pig.png"
     ]
   },
-  {
+  "6x6": {
     "category": "unsorted",
     "images": [
       "elephant.png",
@@ -33,4 +33,4 @@
       "crab.png"
     ]
   }
-]
+}

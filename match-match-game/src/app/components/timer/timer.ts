@@ -2,7 +2,7 @@ import './timer.scss';
 import { BaseComponent } from '../base-component';
 
 export class Timer extends BaseComponent {
-  time: any;
+  time: NodeJS.Timeout;
 
   minutes;
 

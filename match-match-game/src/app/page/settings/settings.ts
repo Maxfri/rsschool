@@ -1,6 +1,8 @@
 import { RootElement } from '../../app.api';
 import './settings.scss';
 
+export let difficulty = '4x4';
+
 export class Settings {
   private readonly page: HTMLElement;
 
@@ -22,12 +24,27 @@ export class Settings {
     <div class="game-difficulty">
       <h3 class="game-title">Difficulty</h3>
       <select class="game-select" name="difficulty" id="difficulty">
-        <option value="value1" selected>4 x 4</option>
-        <option value="value2">6 x 6</option>
+        <option value="4x4" selected>4 x 4</option>
+        <option value="6x6">6 x 6</option>
       </select>
     </div>
   </div>`;
     this.root?.appendChild(this.page);
+    this.selectDifficulty();
+    this.selectGameCards();
     return this.page;
+  }
+
+  selectDifficulty() {
+    const difficultyGame = <HTMLSelectElement>document.querySelector('#difficulty');
+    difficultyGame.addEventListener('change', () => {
+      difficulty = difficultyGame.value;
+    });
+  }
+
+  selectGameCards() {
+    const gameCards = <HTMLSelectElement>document.querySelector('#cards');
+    gameCards.addEventListener('change', () => {
+    });
   }
 }
