@@ -6,7 +6,7 @@ import { delay } from '../../shared/delay';
 import './game.scss';
 
 const FLIP_DELAY = 500;
-const SHOW_TIME = 5;
+const SHOW_TIME = 30;
 const SECOND = 1000;
 const RANDOM = 0.5;
 const STYLE_WRONG_CARD = 'wrong';
