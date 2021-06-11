@@ -1,36 +1,74 @@
 {
-  "4x4": {
-    "category": "unsorted",
-    "images": [
-      "elephant.png",
-      "hippo.png",
-      "snake.png",
-      "bat.png",
-      "frog.png",
-      "owl.png",
-      "panda.png",
-      "pig.png"
-    ]
+  "animals": {
+    "4x4": {
+      "category": "animals",
+      "images": [
+        "elephant.png",
+        "hippo.png",
+        "snake.png",
+        "bat.png",
+        "frog.png",
+        "owl.png",
+        "panda.png",
+        "pig.png"
+      ]
+    },
+    "6x6": {
+      "category": "animals",
+      "images": [
+        "elephant.png",
+        "hippo.png",
+        "snake.png",
+        "bat.png",
+        "frog.png",
+        "owl.png",
+        "panda.png",
+        "pig.png",
+        "clown-fish.png",
+        "lion.png",
+        "mouse.png",
+        "parrot.png",
+        "rabbit.png",
+        "turtle.png",
+        "zebra.png",
+        "crab.png"
+      ]
+    }
   },
-  "6x6": {
-    "category": "unsorted",
-    "images": [
-      "elephant.png",
-      "hippo.png",
-      "snake.png",
-      "bat.png",
-      "frog.png",
-      "owl.png",
-      "panda.png",
-      "pig.png",
-      "clown-fish.png",
-      "lion.png",
-      "mouse.png",
-      "parrot.png",
-      "rabbit.png",
-      "turtle.png",
-      "zebra.png",
-      "crab.png"
-    ]
+  "nature": {
+    "4x4": {
+      "category": "nature",
+      "images": [
+        "acorn.png",
+        "bee.png",
+        "cactus.png",
+        "fields.png",
+        "fish.png",
+        "ladybug.png",
+        "leaf.png",
+        "moon.png"
+      ]
+    },
+    "6x6": {
+      "category": "nature",
+      "images": [
+        "acorn.png",
+        "bee.png",
+        "cactus.png",
+        "fields.png",
+        "fish.png",
+        "ladybug.png",
+        "leaf.png",
+        "moon.png",
+        "mushroom.png",
+        "rainbow.png",
+        "sun.png",
+        "sunflower.png",
+        "tree.png",
+        "tulip.png",
+        "wood.png",
+        "world.png"
+      ]
+    }
   }
 }

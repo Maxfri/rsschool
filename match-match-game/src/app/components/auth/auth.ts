@@ -1,7 +1,13 @@
 import { DataBase } from '../../indexedDB';
 import { RootElement } from '../../app.api';
-import './auth.scss';
 import { Validator } from '../../validator';
+
+import './auth.scss';
+
+type CallbackFunction = (...args: string[]) => void;
+
+const dX = 20;
+const dY = 20;
 
 export class Auth {
   private readonly page: HTMLElement;
@@ -20,12 +26,14 @@ export class Auth {
         <div class="auth-form__areas">
           <div class="auth-form__area">
             <div class="auth-form__title">First Name</div>
-            <input id="firstName" class="auth-form__value form__name" type="text" minlength="1" maxlength="30" required >
+            <input id="firstName" class="auth-form__value form__name"
+             type="text" minlength="1" maxlength="30" required >
             <label for="firstName" class="auth-form__message">The name can't contains only numbers or symbols </label>
           </div>
           <div class="auth-form__area">
             <div class="auth-form__title">Second Name</div>
-            <input id="secondName" class="auth-form__value form__last-name" type="text" minlength="1" maxlength="30" required >
+            <input id="secondName" class="auth-form__value form__last-name" type="text"
+             minlength="1" maxlength="30" required >
             <label for="secondName" class="auth-form__message">
             The last name can't contains only numbers or symbols
             </label>
@@ -71,15 +79,14 @@ export class Auth {
 
     const modalBtn = <HTMLElement>document.getElementById('modal-btn');
     const modal = <HTMLElement>document.querySelector('.modal');
-    // const closeBtn: any = document.querySelector('.close-btn');
 
     if (modalBtn) {
-      modalBtn.onclick = function () {
+      modalBtn.onclick = () => {
         modal.style.display = 'block';
       };
     }
 
-    window.onclick = function (event: any) {
+    window.onclick = (event: MouseEvent) => {
       if (event.target === modal) {
         modal.style.display = 'none';
       }
@@ -87,24 +94,26 @@ export class Auth {
 
     let dataImageUrl: string;
 
-    function handleFiles(e: any, callback: any): HTMLImageElement {
+    function handleFiles(event: Event, callback: CallbackFunction): HTMLImageElement {
       const img = new Image();
       let dataURL: string;
       img.crossOrigin = 'Anonymous';
-      img.src = URL.createObjectURL(e.target.files[0]);
-      img.onload = function () {
+      const target = event.target as HTMLInputElement;
+      const file: File = (target.files as FileList)[0];
+      img.src = URL.createObjectURL(file);
+      img.onload = () => {
         const canvas = <HTMLCanvasElement>document.getElementById('canvas');
-        const ctx: any = canvas.getContext('2d');
-        ctx.drawImage(img, 20, 20);
+        const ctx = <CanvasRenderingContext2D>canvas.getContext('2d');
+        ctx.drawImage(img, dX, dY);
         dataURL = canvas.toDataURL();
         callback(dataURL);
       };
       return img;
     }
 
-    const input: any = document.querySelector('#file');
-    input.addEventListener('change', (event: any) => {
-      const dataImage = handleFiles(event, (dataUrl: string) => {
+    const input = <HTMLSelectElement>document.querySelector('#file');
+    input.addEventListener('change', (event: Event) => {
+      handleFiles(event, (dataUrl: string) => {
         dataImageUrl = dataUrl;
       });
     });

@@ -1,7 +1,7 @@
 import { RootElement } from '../../app.api';
 import './settings.scss';
 
-export let difficulty = '4x4';
+export const gameSettings = { difficulty: '4x4', cardsIcon: 'animals' };
 
 export class Settings {
   private readonly page: HTMLElement;
@@ -17,8 +17,8 @@ export class Settings {
     <div class="game-cards">
       <h3 class="game-title">Game cards</h3>
       <select class="game-select" name="cards" id="cards">
-        <option value="0" selected>Animals</option>
-        <option value="1">Other</option>
+        <option value="animals" selected>Animals</option>
+        <option value="nature">Nature</option>
       </select>
     </div>
     <div class="game-difficulty">
@@ -30,21 +30,22 @@ export class Settings {
     </div>
   </div>`;
     this.root?.appendChild(this.page);
-    this.selectDifficulty();
-    this.selectGameCards();
+    Settings.selectDifficulty();
+    Settings.selectGameCards();
     return this.page;
   }
 
-  selectDifficulty() {
+  static selectDifficulty(): void {
     const difficultyGame = <HTMLSelectElement>document.querySelector('#difficulty');
     difficultyGame.addEventListener('change', () => {
-      difficulty = difficultyGame.value;
+      gameSettings.difficulty = difficultyGame.value;
     });
   }
 
-  selectGameCards() {
+  static selectGameCards(): void {
     const gameCards = <HTMLSelectElement>document.querySelector('#cards');
     gameCards.addEventListener('change', () => {
+      gameSettings.cardsIcon = gameCards.value;
     });
   }
 }

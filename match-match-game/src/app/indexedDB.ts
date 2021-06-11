@@ -1,5 +1,7 @@
 const DB_STORE_NAME = 'players';
 
+type Player = { firstName: string, secondName: string, email: string, image: string, score: number };
+
 export class DataBase {
   public db: IDBDatabase;
 
@@ -9,7 +11,7 @@ export class DataBase {
 
     openRequest.onupgradeneeded = () => {
       const database = openRequest.result;
-      const store = database.createObjectStore(DB_STORE_NAME, { keyPath: 'id', autoIncrement: true });
+      const store: IDBObjectStore = database.createObjectStore(DB_STORE_NAME, { keyPath: 'id', autoIncrement: true });
       store.createIndex('firstName', 'firstName');
       store.createIndex('secondName', 'secondName');
       store.createIndex('score', 'score');
@@ -24,9 +26,9 @@ export class DataBase {
   }
 
   write(firstName: string, secondName: string, email: string, image: string): void {
-    const transaction = this.db.transaction(DB_STORE_NAME, 'readwrite');
-    const store = transaction.objectStore(DB_STORE_NAME);
-    const result = store.put({
+    const transaction: IDBTransaction = this.db.transaction(DB_STORE_NAME, 'readwrite');
+    const store: IDBObjectStore = transaction.objectStore(DB_STORE_NAME);
+    const result: IDBRequest<IDBValidKey> = store.put({
       secondName, score: 0, firstName, image, email,
     });
 
@@ -40,22 +42,22 @@ export class DataBase {
   }
 
   readAll(): void {
-    const transaction = this.db.transaction(DB_STORE_NAME, 'readonly');
-    const store = transaction.objectStore(DB_STORE_NAME);
-    const result = store.getAll();
+    const transaction: IDBTransaction = this.db.transaction(DB_STORE_NAME, 'readonly');
+    const store: IDBObjectStore = transaction.objectStore(DB_STORE_NAME);
+    store.getAll();
     transaction.oncomplete = () => {
     };
   }
 
   list(): void {
-    const transaction = this.db.transaction(DB_STORE_NAME, 'readonly');
-    const store = transaction.objectStore(DB_STORE_NAME);
-
+    const transaction: IDBTransaction = this.db.transaction(DB_STORE_NAME, 'readonly');
+    const store: IDBObjectStore = transaction.objectStore(DB_STORE_NAME);
     const players: IDBRequest = store.getAll();
     const userPlace: HTMLDivElement = document.createElement('div');
     userPlace.classList.add('best-players-table');
     players.onsuccess = () => {
-      userPlace.innerHTML = players.result.map((player: any) => `<div class="best-players-place">
+      userPlace.innerHTML = players.result.map(
+        (player: Player) => `<div class="best-players-place">
           <div class="best-players-photo">
             <img class="best-players-img" src="${player.image}" alt="photo">
           </div>
@@ -65,15 +67,16 @@ export class DataBase {
           <div class="best-players-score">
           Score: ${player.score}
           </div>
-        </div>`).join('');
+        </div>`,
+      ).join('');
       document.querySelector('.best-players')?.appendChild(userPlace);
     };
   }
 
   readFilter(): void {
-    const transaction = this.db.transaction(DB_STORE_NAME, 'readonly');
-    const store = transaction.objectStore(DB_STORE_NAME);
-    const result = store.index('score').openCursor(null, 'next');
+    const transaction: IDBTransaction = this.db.transaction(DB_STORE_NAME, 'readonly');
+    const store: IDBObjectStore = transaction.objectStore(DB_STORE_NAME);
+    const result: IDBRequest<IDBCursorWithValue | null> = store.index('score').openCursor(null, 'next');
     const resData: Array<string> = [];
 
     result.onsuccess = () => {

@@ -39,7 +39,7 @@ export class Score {
   }
 
   showScore(): HTMLElement {
-    const data = this.iDB.list();
+    this.iDB.list();
     return this.userPlace;
   }
 }

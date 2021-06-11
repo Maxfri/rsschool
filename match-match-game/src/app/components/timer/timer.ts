@@ -1,5 +1,10 @@
-import './timer.scss';
 import { BaseComponent } from '../base-component';
+
+import './timer.scss';
+
+const ONE_MINUTE = 60;
+const ZERO_SECONDS = 0;
+const SECOND = 1000;
 
 export class Timer extends BaseComponent {
   time: NodeJS.Timeout;
@@ -9,8 +14,6 @@ export class Timer extends BaseComponent {
   seconds;
 
   timeStart;
-
-  // timerCounter: HTMLElement;
 
   constructor(minutes = 0, seconds = 0, timeStart = false) {
     super('div', ['timer__wrapper']);
@@ -29,16 +32,16 @@ export class Timer extends BaseComponent {
     this.time = setInterval(() => {
       this.seconds++;
 
-      if (this.seconds === 60) {
+      if (this.seconds === ONE_MINUTE) {
         this.minutes++;
-        this.seconds = 0;
+        this.seconds = ZERO_SECONDS;
       }
 
       this.element.innerHTML = `
       <div class="timer">
-          <h2 id="timer"> ${this.minutes}:${this.seconds}</h2>
+          <h2 id="timer"> 0${this.minutes}:${this.seconds}</h2>
           </div>`;
-    }, 1000);
+    }, SECOND);
   }
 
   stopTimer(): void {
