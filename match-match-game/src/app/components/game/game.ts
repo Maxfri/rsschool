@@ -32,10 +32,13 @@ export class Game extends BaseComponent {
 
   private modal: HTMLElement;
 
+  private startGame: boolean;
+
   constructor() {
     super();
     this.modal = <HTMLElement>document.querySelector('.modal');
     this.cardsField = new CardsField();
+    this.startGame = false;
 
     setTimeout(() => {
       this.timer = new Timer();
@@ -48,6 +51,7 @@ export class Game extends BaseComponent {
         this.endGame();
       });
       this.startTime = Game.getCurrentTime();
+      this.startGame = true;
     }, SHOW_TIME * SECOND);
     this.element.appendChild(this.cardsField.element);
   }
@@ -62,7 +66,7 @@ export class Game extends BaseComponent {
     this.cards.forEach((card) => {
       card.element.addEventListener('click', () => {
         this.cardHandler(card);
-        if (this.cards.every(Game.isFlipped)) {
+        if (this.cards.every(Game.isFlipped) && this.startGame) {
           this.endGame();
         }
       });
