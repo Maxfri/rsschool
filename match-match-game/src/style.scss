@@ -67,6 +67,25 @@ body {
   letter-spacing: 1.25px;
   text-transform: uppercase;
 }
+.btn_stop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 207px;
+  height: 36px;
+  background: #fef2fb;
+  border-radius: 4px;
+  border: none;
+  color: #2196f3;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  /* or 145% */
+  letter-spacing: 1.25px;
+  text-transform: uppercase;
+}
 .modal-form {
   color: #000;
 }

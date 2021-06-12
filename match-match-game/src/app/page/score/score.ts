@@ -28,7 +28,7 @@ export class Score {
           your ad could be here
         </div>
         <div class="best-players-score">
-          Score: 0
+          Score
         </div>
       </div>
     </div>

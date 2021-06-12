@@ -1,3 +1,5 @@
+export const currentId: { id: IDBValidKey } = { id: 0 };
+
 const DB_STORE_NAME = 'players';
 
 type Player = { firstName: string, secondName: string, email: string, image: string, score: number };
@@ -25,14 +27,32 @@ export class DataBase {
     };
   }
 
-  write(firstName: string, secondName: string, email: string, image: string): void {
+  add(firstName: string, secondName: string, score = 0, image: string, email: string): void {
     const transaction: IDBTransaction = this.db.transaction(DB_STORE_NAME, 'readwrite');
     const store: IDBObjectStore = transaction.objectStore(DB_STORE_NAME);
     const result: IDBRequest<IDBValidKey> = store.put({
-      secondName, score: 0, firstName, image, email,
+      secondName, score, firstName, image, email,
     });
 
     result.onsuccess = () => {
+      currentId.id = result.result;
+    };
+    result.onerror = () => {
+      throw new Error(`Error: ${result.error}`);
+    };
+    transaction.onabort = () => {
+    };
+  }
+
+  write(firstName: string, secondName: string, score = 0, image: string, email: string, id?: IDBValidKey): void {
+    const transaction: IDBTransaction = this.db.transaction(DB_STORE_NAME, 'readwrite');
+    const store: IDBObjectStore = transaction.objectStore(DB_STORE_NAME);
+    const result: IDBRequest<IDBValidKey> = store.put({
+      secondName, score, firstName, image, email, id,
+    });
+
+    result.onsuccess = () => {
+      currentId.id = result.result;
     };
     result.onerror = () => {
       throw new Error(`Error: ${result.error}`);

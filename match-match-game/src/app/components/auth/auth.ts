@@ -4,15 +4,20 @@ import { Validator } from '../../validator';
 
 import './auth.scss';
 
-type CallbackFunction = (...args: string[]) => void;
+export type CallbackFunction = (...args: string[]) => void;
+export type User = {
+  id: IDBValidKey, firstName: string, secondName: string, dataImageUrl: string, email: string, score: number
+};
 
 const dX = 20;
 const dY = 20;
 
+export const currrentUser: User = {
+  id: 0, firstName: '', secondName: '', dataImageUrl: '', email: '', score: 0,
+};
+export const iDB: DataBase = new DataBase();
 export class Auth {
   private readonly page: HTMLElement;
-
-  public iDB: DataBase;
 
   constructor(private readonly root: RootElement) {
     this.page = document.createElement('div');
@@ -131,8 +136,7 @@ export class Auth {
       return data;
     }
 
-    this.iDB = new DataBase();
-    this.iDB.init('maxfri');
+    iDB.init('maxfri');
     const validator = new Validator();
     const addButton = <HTMLButtonElement>document.querySelector('.auth-form__btn_submit');
     const cancelButton = <HTMLButtonElement>document.querySelector('.auth-form__btn_cancel');
@@ -164,8 +168,13 @@ export class Auth {
         if (data.dataImageUrl === undefined) {
           data.dataImageUrl = './assets/unknown.png';
         }
-        this.iDB.write(data.firstName, data.secondName, data.email, data.dataImageUrl);
+        currrentUser.firstName = data.firstName;
+        currrentUser.secondName = data.secondName;
+        currrentUser.score = 0;
+        currrentUser.email = data.email;
+        currrentUser.dataImageUrl = data.dataImageUrl;
 
+        iDB.add(data.firstName, data.secondName, 0, data.dataImageUrl, data.email);
         const reg = <HTMLElement>document.querySelector('.header__register');
         const header = <HTMLElement>document.querySelector('.header__wrapper');
         const user = <HTMLElement>document.createElement('div');
