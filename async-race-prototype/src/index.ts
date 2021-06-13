@@ -1,12 +1,14 @@
+import { renderPage, listen } from './app/components/garage/garage';
 import { App } from './app/app';
-import { Garage } from './app/components/garage/garage';
 
-window.onload = () => {
+window.onload = async () => {
   const body = document.querySelector('body');
-
   const app = new App();
   body?.appendChild(app.render());
-  const formElem = <HTMLFormElement>document.querySelector('#create');
-    console.log(formElem);
-    new Garage().listen(formElem);
+  await renderPage();
+  const form = <HTMLFormElement>document.querySelector('#create');
+  listen(form);
+  // form.addEventListener('submit', (data) => {
+  //   console.log(data)
+  // });
 };
