@@ -1,4 +1,4 @@
-import { BASE_URL } from "../api";
+import { BASE_URL } from '../api';
 
 const GARAGE_URL = `${BASE_URL}/garage`;
 
@@ -6,12 +6,12 @@ type Body = { name: string, color: string };
 
 export const getCars = async (page: number, limit = 7) => {
   const response = await fetch(`${GARAGE_URL}?_page=${page}&_limit=${limit}`);
-  
+
   return {
     items: await response.json(),
-    count: response.headers.get('X-Total-Count')
+    count: response.headers.get('X-Total-Count'),
   };
-}
+};
 
 export const getCar = async (id: number) => (await fetch(`${GARAGE_URL}/${id}`)).json();
 

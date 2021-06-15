@@ -1,6 +1,6 @@
-import { Winner, Winners } from './../../app/components/winners/winners';
-import { getCar } from './../garage/garage.api';
-import { BASE_URL } from "../api";
+import { Winner, Winners } from '../../app/components/winners/winners';
+import { getCar } from '../garage/garage.api';
+import { BASE_URL } from '../api';
 
 const WINNERS_URL = `${BASE_URL}/winners`;
 
@@ -10,7 +10,7 @@ type Order = 'ASC' | 'DESC';
 
 type Body = { id: number, wins: number, time: number };
 
-type Parametrs = { page: number, limit: number, sort: Sort, order: Order};
+type Parametrs = { page: number, limit: number, sort: Sort, order: Order };
 
 // export const getWinners = async ({ page, limit = 10, sort, order }: Parametrs) => {
 //   const response = await fetch(`${WINNERS_URL}?_page=${page}&_limit=${limit}&_sort=${sort}&_order=${order}`);
@@ -23,7 +23,6 @@ type Parametrs = { page: number, limit: number, sort: Sort, order: Order};
 // }
 
 export const getWinner = async (id: number) => (await fetch(`${WINNERS_URL}/${id}`)).json();
-
 
 export const createWinners = async (body: Body) => (await fetch(`${WINNERS_URL}`, {
   method: 'POST',
@@ -45,4 +44,4 @@ export const updateWinner = async (id: number, body: Body) => (await fetch(`${WI
 
 export const saveWinner = async (id: number, time: number) => {
 
-}
+};
