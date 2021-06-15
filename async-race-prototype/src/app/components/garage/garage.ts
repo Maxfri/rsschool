@@ -50,6 +50,8 @@ export const listen = (formElem: HTMLFormElement) => {
 export const renderGarage = async () => {
   const cars = (await getCars(3)).items;
   console.log(cars);
+  const garage = document.querySelector('#garage');
+  
   return `<h1>Garage</h1>
         <h2>Page</h2>
         <ul class="garage">
