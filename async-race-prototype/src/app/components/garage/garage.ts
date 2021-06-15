@@ -28,13 +28,14 @@ export const renderPage = async () => {
           </form>
         </div>
         <div id="garage">
-         ${await renderGarage()}
+         
         </div>
       </div>`;
 
   const root = document.createElement('div');
   root.innerHTML = html;
   document.body.appendChild(root);
+  await renderGarage();
 }
 
 export const listen = (formElem: HTMLFormElement) => {
@@ -42,21 +43,25 @@ export const listen = (formElem: HTMLFormElement) => {
     e.preventDefault();
     const name = (<HTMLInputElement>document.querySelector('#create-name')).value;
     const color = (<HTMLInputElement>document.querySelector('#create-color')).value;
-    await createCar({name, color});
+    await createCar({ name, color });
     await renderGarage();
   };
 }
 
 export const renderGarage = async () => {
-  const cars = (await getCars(3)).items;
+  const cars = (await getCars(2)).items;
   console.log(cars);
-  const garage = document.querySelector('#garage');
-  
-  return `<h1>Garage</h1>
+  const garagePage =<HTMLDivElement> document.querySelector('#garage');
+  const garage = document.createElement('div');
+
+  garage.innerHTML = `<h1>Garage</h1>
         <h2>Page</h2>
         <ul class="garage">
         ${cars.map((car: Car) => `<li>${renderCar(car)}</li>`).join('')}
         </ul>`;
+
+  garagePage.innerHTML = '';
+  garagePage.appendChild(garage);
 }
 
 // renderCreateCar(): HTMLElement {
