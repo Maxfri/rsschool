@@ -1,7 +1,6 @@
 import { Header } from './components/header/header';
 import { Garage } from './components/garage/garage';
 import { Winners } from './components/winners/winners';
-import { Button } from './components/button/button';
 import { Component } from './component';
 
 export class App implements Component {
@@ -17,6 +16,13 @@ export class App implements Component {
     const garage = new Garage();
     const garageButton = <HTMLButtonElement>document.querySelector('#garage-menu');
     const winnersButton = <HTMLButtonElement>document.querySelector('#winners-menu');
+    const createRandomButton = <HTMLButtonElement>document.querySelector('.random');
+    const form = <HTMLFormElement>document.querySelector('#create');
+
+    garage.listen(form);
+    createRandomButton.addEventListener('click', async () => {
+      await garage.createRandomCars();
+    });
 
     garageButton.addEventListener('click', () => {
       garage.element.style.visibility = 'visible';
@@ -26,11 +32,6 @@ export class App implements Component {
       garage.element.style.visibility = 'hidden';
       winners.element.style.visibility = 'visible';
     });
-    // this.application.appendChild(garage.renderCreateCar());
-    // this.application.appendChild(garage.render());
-    // this.application.appendChild(header.render());
-    // this.application.appendChild(winners.render());
-
     return this.application;
   }
 }
