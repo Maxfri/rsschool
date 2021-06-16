@@ -1,5 +1,5 @@
 // import { getWinners } from './../../api/winners/winners.api';
-import { getCars } from '../../api/garage/garage.api';
+// import { getCars } from '../../api/garage/garage.api';
 
 // const { items: cars, count: carsCount } = async() => await getCars(1);
 

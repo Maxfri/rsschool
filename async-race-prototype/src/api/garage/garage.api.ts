@@ -17,17 +17,16 @@ export const getCar = async (id: number) => (await fetch(`${GARAGE_URL}/${id}`))
 
 export const createCar = async (body: Body) => {
   (await fetch(`${GARAGE_URL}`, {
-  method: 'POST',
-  body: JSON.stringify({
-    "name": body.carName,
-    "color": body.carColor
-}),
-  headers: {
-    'Content-Type': 'application/json',
-  },
-})).json();
-console.log(body);
-}
+    method: 'POST',
+    body: JSON.stringify({
+      name: body.carName,
+      color: body.carColor,
+    }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })).json();
+};
 
 export const deleteCar = async (id: number) => (await fetch(`${GARAGE_URL}/${id}`, { method: 'DELETE' })).json();
 

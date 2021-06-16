@@ -1,4 +1,3 @@
-import { Garage } from './app/components/garage/garage';
 import { App } from './app/app';
 
 window.onload = async () => {

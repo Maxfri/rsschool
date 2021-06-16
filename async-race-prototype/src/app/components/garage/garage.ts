@@ -21,7 +21,7 @@ const CARS_MARKS = [
   'Cadillac',
   'Renault',
   'Mazda',
-  'Hummer'
+  'Hummer',
 ];
 
 const CARS_MODELS = [
@@ -39,7 +39,7 @@ const CARS_MODELS = [
   'Rapid',
   'Octavia',
   'Nexia',
-  'Tahoe'
+  'Tahoe',
 ];
 
 export class Garage extends BaseComponent {
@@ -58,7 +58,6 @@ export class Garage extends BaseComponent {
       store.carPage--;
       this.renderGarage(store.carPage);
     });
-
   }
 
   render() {
@@ -93,7 +92,6 @@ export class Garage extends BaseComponent {
   async renderGarage(pageNumber: number) {
     const cars = (await getCars(pageNumber)).items;
     const carsCount = (await getCars(pageNumber)).count;
-    // console.log(cars);
     const garagePage = <HTMLDivElement>document.querySelector('#garage');
     const garage = document.createElement('div');
 
@@ -105,7 +103,7 @@ export class Garage extends BaseComponent {
 
     garagePage.innerHTML = '';
     garagePage.appendChild(garage);
-  };
+  }
 
   renderCar = (car: Car) => `<div class="car_wrapper">
   <div class="car" id="${car.id}">
@@ -119,8 +117,7 @@ export class Garage extends BaseComponent {
       e.preventDefault();
       const carName = (<HTMLInputElement>document.querySelector('#create-name')).value;
       const carColor = (<HTMLInputElement>document.querySelector('#create-color')).value;
-      const car = { carName, carColor }
-      console.log(car);
+      const car = { carName, carColor };
       await createCar(car);
       await this.renderGarage(store.carPage);
     };
@@ -134,9 +131,8 @@ export class Garage extends BaseComponent {
       for (let j = 0; j < 6; j++) {
         carColor += letters[Math.floor(Math.random() * 16)];
       }
-      // console.log(carName, carColor);
       const car = { carName, carColor };
-      await createCar(car);
+      createCar(car);
     }
     this.renderGarage(store.carPage);
   }
