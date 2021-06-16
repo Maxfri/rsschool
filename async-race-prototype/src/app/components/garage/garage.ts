@@ -1,4 +1,4 @@
-import { Car } from './../car/car';
+import { Car } from '../car/car';
 import { createCar, getCars } from '../../../api/garage/garage.api';
 import { BaseComponent } from '../base-component';
 

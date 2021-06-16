@@ -17,10 +17,8 @@ export class App implements Component {
     const garageButton = <HTMLButtonElement>document.querySelector('#garage-menu');
     const winnersButton = <HTMLButtonElement>document.querySelector('#winners-menu');
     const createRandomButton = <HTMLButtonElement>document.querySelector('.random');
-    
+
     const form = <HTMLFormElement>document.querySelector('#create');
-    
-    
 
     garage.listen(form);
     createRandomButton.addEventListener('click', async () => {
@@ -35,7 +33,7 @@ export class App implements Component {
       garage.element.style.visibility = 'hidden';
       winners.element.style.visibility = 'visible';
     });
-    
+
     return this.application;
   }
 }
