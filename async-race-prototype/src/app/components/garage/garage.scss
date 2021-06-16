@@ -1,8 +1,20 @@
+.garage {
+  list-style: none;
+  padding: 0;
+}
+
+.car-wrapper {
+  margin-bottom: 10px;
+}
+.car-button {
+  margin-bottom: 10px;
+}
 #car-image {
-  width: 15%;
+  width: 25%;
   height: 50%;
   transform: scale(-1,1);
 }
+
 #garage-view {
   position: absolute;
   left: 0px;
