@@ -6,7 +6,9 @@ export class Car extends BaseComponent {
   name: string;
 
   color: string;
+
   timer?: NodeJS.Timeout;
+
   status: boolean;
 
   constructor(id: number, name: string, color: string, timer?: NodeJS.Timeout) {

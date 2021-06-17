@@ -1,6 +1,6 @@
 import { startEngine, drive, stopEngine } from '../../../api/engine/engine.api';
 import { Car } from '../car/car';
-import { createCar, getCars } from '../../../api/garage/garage.api';
+import { createCar, deleteCar, getCars } from '../../../api/garage/garage.api';
 import { BaseComponent } from '../base-component';
 
 import './garage.scss';
@@ -107,13 +107,25 @@ export class Garage extends BaseComponent {
         <h2>Page (${store.carPage})</h2>
         <ul class="garage-list">
         ${cars.map((car: Cars) => {
-      this.carsList.push(car);
-      return `<li>${this.renderCar(car)}</li>`;
-    }).join('')}</ul>`;
+    this.carsList.push(car);
+    return `<li>${this.renderCar(car)}</li>`;
+  }).join('')}</ul>`;
 
     garagePage.innerHTML = '';
     garagePage.appendChild(garage);
     await this.listenStartCar();
+    await this.removeCar();
+  }
+
+  async removeCar() {
+    const removeButtons = document.querySelectorAll('.remove');
+    removeButtons.forEach((remove) => {
+      remove.addEventListener('click', async () => {
+        const id = <number><unknown>remove.attributes[1].value;
+        await deleteCar(id);
+        await this.renderGarage(store.carPage);
+      });
+    });
   }
 
   async listenStartCar() {
@@ -181,7 +193,7 @@ export class Garage extends BaseComponent {
           }
         }, 25);
       }
-    })
+    });
   }
 
   async stopRace(id: number) {
