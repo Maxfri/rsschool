@@ -128,6 +128,17 @@ export class Garage extends BaseComponent {
     });
   }
 
+  async editCar() {
+    const editButtons = document.querySelectorAll('.edit');
+    editButtons.forEach((edit) => {
+      edit.addEventListener('click', async () => {
+        const id = <number><unknown>edit.attributes[1].value;
+        await deleteCar(id);
+        await this.renderGarage(store.carPage);
+      });
+    });
+  }
+
   async listenStartCar() {
     const startButton = document.querySelectorAll('.engine-start');
     const stopButton = document.querySelectorAll('.engine-stop');
@@ -187,7 +198,7 @@ export class Garage extends BaseComponent {
               });
               carItem.dispatchEvent(finish);
             } else {
-              (<HTMLElement>carItem).style.transform = `translateX(${speed}px)`;
+              (<HTMLElement>carItem).style.transform = `translateX(${speed}px) scale(-1,1)`;
               speed += shift;
             }
           }
