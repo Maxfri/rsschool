@@ -31,7 +31,10 @@ export const deleteCar = async (id: number):Promise<JSON> => (await fetch(`${GAR
 export const updateCar = async (id: number, body: Body):Promise<JSON> => (await fetch(`${GARAGE_URL}/${id}`, {
   method: 'PUT',
   headers: {
-    'Content-Type': 'application/json;charset=utf-8',
+    'Content-Type': 'application/json',
   },
-  body: JSON.stringify(body),
+  body: JSON.stringify({
+    name: body.carName,
+    color: body.carColor,
+  }),
 })).json();

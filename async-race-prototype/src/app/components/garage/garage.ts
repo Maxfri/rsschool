@@ -1,6 +1,8 @@
 import { startEngine, drive, stopEngine } from '../../../api/engine/engine.api';
 import { Car } from '../car/car';
-import { createCar, deleteCar, getCars } from '../../../api/garage/garage.api';
+import {
+  createCar, deleteCar, getCars, updateCar,
+} from '../../../api/garage/garage.api';
 import { BaseComponent } from '../base-component';
 
 import './garage.scss';
@@ -115,6 +117,7 @@ export class Garage extends BaseComponent {
     garagePage.appendChild(garage);
     await this.listenStartCar();
     await this.removeCar();
+    await this.editCar();
   }
 
   async removeCar() {
@@ -131,13 +134,32 @@ export class Garage extends BaseComponent {
   async editCar() {
     const editButtons = document.querySelectorAll('.edit');
     editButtons.forEach((edit) => {
-      edit.addEventListener('click', async () => {
-        const id = <number><unknown>edit.attributes[1].value;
-        await deleteCar(id);
-        await this.renderGarage(store.carPage);
+      edit.addEventListener('click', () => {
+        const id = Number(edit.attributes[1].value);
+        this.carsList.forEach((car) => {
+          if (car.id === id) {
+            const updateName = <HTMLInputElement>document.querySelector('#update-name');
+            const updateColor = <HTMLInputElement>document.querySelector('#update-color');
+            updateName.value = car.name;
+            updateColor.value = car.color;
+            this.listenEdit(id);
+          }
+        });
       });
     });
   }
+
+  listenEdit = (id: number) => {
+    const edit = <HTMLFormElement>document.querySelector('#update');
+    edit.onsubmit = async (e) => {
+      e.preventDefault();
+      const carName = (<HTMLInputElement>document.querySelector('#update-name')).value;
+      const carColor = (<HTMLInputElement>document.querySelector('#update-color')).value;
+      const car = { carName, carColor };
+      await updateCar(id, car);
+      await this.renderGarage(store.carPage);
+    };
+  };
 
   async listenStartCar() {
     const startButton = document.querySelectorAll('.engine-start');
