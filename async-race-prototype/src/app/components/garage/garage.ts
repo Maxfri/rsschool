@@ -1,3 +1,4 @@
+import { startEngine, drive, stopEngine } from '../../../api/engine/engine.api';
 import { Car } from '../car/car';
 import { createCar, getCars } from '../../../api/garage/garage.api';
 import { BaseComponent } from '../base-component';
@@ -44,6 +45,12 @@ const CARS_MODELS = [
 ];
 
 export class Garage extends BaseComponent {
+  carsList: Cars[] = [];
+
+  move = true;
+
+  raceTime: Date;
+
   constructor() {
     super('div', ['garage']);
     document.body.appendChild(this.render());
@@ -76,8 +83,8 @@ export class Garage extends BaseComponent {
           </form>
         </div>
         <div class="race">
-          <button class="start" disabled="true">Start</button>
-          <button class="stop">Stop</button>
+          <button class="start-race">Start Race</button>
+          <button class="stop-race">Stop</button>
           <button class="random">Create 100 random cars</button>
         </div>
         <div id="garage">
@@ -95,15 +102,102 @@ export class Garage extends BaseComponent {
     const carsCount = (await getCars(pageNumber)).count;
     const garagePage = <HTMLDivElement>document.querySelector('#garage');
     const garage = document.createElement('div');
-
+    this.carsList = [];
     garage.innerHTML = `<h1>Garage (${carsCount})</h1>
         <h2>Page (${store.carPage})</h2>
         <ul class="garage-list">
-        ${cars.map((car: Cars) => `<li>${this.renderCar(car)}</li>`).join('')}
-        </ul>`;
+        ${cars.map((car: Cars) => {
+    this.carsList.push(car);
+    return `<li>${this.renderCar(car)}</li>`;
+  }).join('')}</ul>`;
 
     garagePage.innerHTML = '';
     garagePage.appendChild(garage);
+    await this.listenStartCar();
+  }
+
+  async listenStartCar() {
+    const startButton = document.querySelectorAll('.engine-start');
+    const stopButton = document.querySelectorAll('.engine-stop');
+    const raceButton = document.querySelector('.start-race');
+    raceButton?.addEventListener('click', () => {
+      this.raceCars();
+    });
+    startButton.forEach((start) => {
+      start.addEventListener('click', async () => {
+        const id = <number><unknown>start.attributes[1].value;
+        await this.startCar(id);
+
+        stopButton.forEach((stop) => {
+          if (<number><unknown>stop.attributes[1].value === id) {
+            stop.removeAttribute('disabled');
+          }
+          stop.addEventListener('click', async () => {
+            await this.stopRace(id);
+          });
+        });
+        start.setAttribute('disabled', 'true');
+      });
+    });
+  }
+
+  async startCar(id: number) {
+    const start = await startEngine(id);
+    const { velocity } = start;
+    const { distance } = start;
+    this.race(id, velocity, distance);
+    const status = await drive(id);
+    if (status.success === false) {
+      // this.move = false;
+    }
+  }
+
+  race(id: number, velocity: number, distance: number): void {
+    const carItem = document.getElementById(`car-image-${id}`);
+    const shift = velocity / 16;
+    let speed = shift;
+    const timer = setInterval(() => {
+      if (carItem !== null) {
+        if (Garage.getPosition(carItem).left >= document.documentElement.clientWidth - 200) {
+          this.move = false;
+          const finish = new CustomEvent('carFinish', {
+            bubbles: true,
+            detail: { winnerId: id, winnerTime: distance / velocity },
+          });
+          carItem.dispatchEvent(finish);
+        } else {
+          (<HTMLElement>carItem).style.transform = `translateX(${speed}px)`;
+          speed += shift;
+        }
+      }
+    }, 25);
+  }
+
+  async stopRace(id: number) {
+    this.move = true;
+    await stopEngine(id);
+    const carItem = document.getElementById(`car-image-${id}`);
+    if (carItem) {
+      (<HTMLElement>carItem).style.transform = 'translateX(0)';
+    }
+  }
+
+  async raceCars() {
+    this.raceTime = new Date();
+
+    if (this.carsList) {
+      this.carsList.forEach((car) => {
+        this.startCar(car.id);
+      });
+    }
+  }
+
+  static getPosition(el: HTMLElement) {
+    const rect = el.getBoundingClientRect();
+    return {
+      left: rect.left + window.scrollX,
+      top: rect.top + window.scrollY,
+    };
   }
 
   renderCar = (car: Cars) => {
