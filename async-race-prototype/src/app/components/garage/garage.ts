@@ -6,7 +6,7 @@ import { BaseComponent } from '../base-component';
 import './garage.scss';
 import store from '../../state/store';
 
-export type Cars = { id: number, name: string, color: string };
+export type Cars = { id: number, name: string, color: string, timer: NodeJS.Timeout };
 
 const CARS_MARKS = [
   'LADA',
@@ -107,9 +107,9 @@ export class Garage extends BaseComponent {
         <h2>Page (${store.carPage})</h2>
         <ul class="garage-list">
         ${cars.map((car: Cars) => {
-    this.carsList.push(car);
-    return `<li>${this.renderCar(car)}</li>`;
-  }).join('')}</ul>`;
+      this.carsList.push(car);
+      return `<li>${this.renderCar(car)}</li>`;
+    }).join('')}</ul>`;
 
     garagePage.innerHTML = '';
     garagePage.appendChild(garage);
@@ -120,9 +120,16 @@ export class Garage extends BaseComponent {
     const startButton = document.querySelectorAll('.engine-start');
     const stopButton = document.querySelectorAll('.engine-stop');
     const raceButton = document.querySelector('.start-race');
+    const stopRaceButton = document.querySelector('.stop-race');
+
     raceButton?.addEventListener('click', () => {
       this.raceCars();
     });
+
+    stopRaceButton?.addEventListener('click', () => {
+      this.resetCars();
+    });
+
     startButton.forEach((start) => {
       start.addEventListener('click', async () => {
         const id = <number><unknown>start.attributes[1].value;
@@ -156,21 +163,25 @@ export class Garage extends BaseComponent {
     const carItem = document.getElementById(`car-image-${id}`);
     const shift = velocity / 16;
     let speed = shift;
-    const timer = setInterval(() => {
-      if (carItem !== null) {
-        if (Garage.getPosition(carItem).left >= document.documentElement.clientWidth - 200) {
-          this.move = false;
-          const finish = new CustomEvent('carFinish', {
-            bubbles: true,
-            detail: { winnerId: id, winnerTime: distance / velocity },
-          });
-          carItem.dispatchEvent(finish);
-        } else {
-          (<HTMLElement>carItem).style.transform = `translateX(${speed}px)`;
-          speed += shift;
-        }
+    this.carsList.forEach((car) => {
+      if (car.id === id) {
+        car.timer = setInterval(() => {
+          if (carItem !== null) {
+            if (Garage.getPosition(carItem).left >= document.documentElement.clientWidth - 200) {
+              this.move = false;
+              const finish = new CustomEvent('finish', {
+                bubbles: true,
+                detail: { winnerId: id, winnerTime: distance / velocity },
+              });
+              carItem.dispatchEvent(finish);
+            } else {
+              (<HTMLElement>carItem).style.transform = `translateX(${speed}px)`;
+              speed += shift;
+            }
+          }
+        }, 25);
       }
-    }, 25);
+    })
   }
 
   async stopRace(id: number) {
@@ -182,12 +193,20 @@ export class Garage extends BaseComponent {
     }
   }
 
+  async resetCars() {
+    if (this.carsList) {
+      this.carsList.forEach(async (car) => {
+        clearInterval(car.timer);
+        await this.stopRace(car.id);
+      });
+    }
+  }
+
   async raceCars() {
     this.raceTime = new Date();
-
     if (this.carsList) {
-      this.carsList.forEach((car) => {
-        this.startCar(car.id);
+      this.carsList.forEach(async (car) => {
+        await this.startCar(car.id);
       });
     }
   }
