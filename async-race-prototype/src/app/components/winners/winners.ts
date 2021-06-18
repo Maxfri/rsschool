@@ -1,4 +1,4 @@
-import { getWinners } from './../../../api/winners/winners.api';
+import { getWinners } from '../../../api/winners/winners.api';
 import { BaseComponent } from '../base-component';
 import store from '../../state/store';
 import { getCar } from '../../../api/garage/garage.api';
@@ -7,7 +7,6 @@ import { Cars } from '../garage/garage';
 export type Winner = { id: number, name: string, wins: number, time: number };
 
 export class Winners extends BaseComponent {
-
   winnersList: Winner[] = [];
 
   constructor() {
@@ -52,40 +51,32 @@ export class Winners extends BaseComponent {
   async renderWinners(pageNumber: number) {
     const winners = (await getWinners(pageNumber, 10, 'id', 'ASC')).items;
     const winnersCount = (await getWinners(pageNumber, 10, 'id', 'ASC')).count;
-   
+    const winnersTable = <HTMLElement>document.querySelector('.winners-list');
+
     this.winnersList = [];
     winners.map(async (item: Winner) => {
-      const car = await getCar(item.id);
-      item.name = car.name;
+      const car = async () => getCar(item.id);
+      const name = await car();
+      item.name = name.name;
       this.winnersList.push(item);
-    })
-    // console.log(this.winnersList);
+    });
+
     // winnersTable.innerHTML = '';
-    // // const winnersItems = document.createElement('tr');
+    winnersTable.innerHTML = `
+        ${winners.map((winner: Winner) => `<tr>${Winners.renderWinner(winner)}</tr>`).join('')}`;
+
     // winnersTable.innerHTML = `${this.winnersList.map((winner: Winner) => {
     //   console.log(winner);
-    //   return `<tr>${this.renderWinner()}</tr>`;
+    //   return this.renderWinner(winner);
     // }).join('')}`;
-
-    this.renderWinner();
     // winnersTable.appendChild(winnersItems);
     // await this.listenStartCar();
     // await this.removeCar();
     // await this.editCar();
   }
 
-  renderWinner() {
-    console.log(this.winnersList);
-    const winnersTable = <HTMLElement>document.querySelector('.winners-list');
-    winnersTable.innerHTML = '';
-    this.winnersList.forEach((winner: Winner) => {
-      console.log('TS GOVNO')
-    })
-
-    this.winnersList.forEach((winner: Winner) => {
-      const element = document.createElement('tr');
-      console.log(element);
-      element.innerHTML = `<td>${winner.id}</td>
+  static renderWinner(winner: Winner) {
+    return `<td>${winner.id}</td>
       <td>${winner.name}</td>
       <td><svg version="1.1" id="car-image" xmlns="http://www.w3.org/2000/svg" 
       xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 122.88 35.03" 
@@ -115,9 +106,5 @@ export class Winners extends BaseComponent {
       c-0.21-0.36,0.51-1.87,1.99-2.74C13.02,8.4,31.73,8.52,40.82,10.3L40.82,10.3z"/></g></svg></td>
       <td>${winner.wins}</td>
       <td>${winner.time}</td>`;
-      winnersTable.appendChild(element);
-    });
-
-    console.log(winnersTable);
   }
 }
