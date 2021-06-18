@@ -54,12 +54,12 @@ export class Winners extends BaseComponent {
     const winnersTable = <HTMLElement>document.querySelector('.winners-list');
 
     this.winnersList = [];
-    winners.map(async (item: Winner) => {
-      const car = async () => getCar(item.id);
-      const name = await car();
-      item.name = name.name;
-      this.winnersList.push(item);
-    });
+    // winners.map(async (item: Winner) => {
+    //   const car = async () => getCar(item.id);
+    //   const name = await car();
+    //   item.name = name.name;
+    //   this.winnersList.push(item);
+    // });
 
     // winnersTable.innerHTML = '';
     winnersTable.innerHTML = `

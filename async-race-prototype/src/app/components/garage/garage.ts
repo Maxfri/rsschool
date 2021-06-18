@@ -109,9 +109,9 @@ export class Garage extends BaseComponent {
         <h2>Page (${store.carPage})</h2>
         <ul class="garage-list">
         ${cars.map((car: Cars) => {
-    this.carsList.push(car);
-    return `<li>${this.renderCar(car)}</li>`;
-  }).join('')}</ul>`;
+      this.carsList.push(car);
+      return `<li>${this.renderCar(car)}</li>`;
+    }).join('')}</ul>`;
 
     garagePage.innerHTML = '';
     garagePage.appendChild(garage);
@@ -175,20 +175,29 @@ export class Garage extends BaseComponent {
       this.resetCars();
     });
 
-    stopButton.forEach((stop) => {
-      const stopId = Number(stop.attributes[1].value);
-    });
     startButton.forEach((start) => {
       start.addEventListener('click', async () => {
         const startId = Number(start.attributes[1].value);
         await this.startCar(startId);
-        // if (stopId === startId) {
-        //   stop.removeAttribute('disabled');
-        // }
-        // stop.addEventListener('click', async () => {
-        //   await this.stopRace(startId);
-        //   start.setAttribute('disabled', 'false');
-        // });
+
+        stopButton.forEach((stop) => {
+          const stopId = Number(stop.attributes[1].value);
+
+          // if (stopId === startId) {
+          //   stop.removeAttribute('disabled');
+          // }
+
+          stop.addEventListener('click', async () => {
+            this.carsList.forEach(async (car) => {
+              if (car.id === stopId) {
+                console.log(car.id, car.timer);
+                clearInterval(car.timer);
+                await this.stopRace(car.id);
+              }
+            });
+          });
+        });
+
         // start.setAttribute('disabled', 'true');
       }, false);
     });
@@ -239,9 +248,9 @@ export class Garage extends BaseComponent {
   async stopRace(id: number) {
     this.move = true;
     await stopEngine(id);
-    const carItem = document.getElementById(`car-image-${id}`);
+    const carItem = <HTMLElement>document.getElementById(`car-image-${id}`);
     if (carItem) {
-      (<HTMLElement>carItem).style.transform = 'translateX(0)';
+      carItem.style.transform = 'translateX(0) scale(-1, 1)';
     }
   }
 
