@@ -13,7 +13,7 @@ export const getCars = async (page: number, limit = 7) => {
   };
 };
 
-export const getCar = async (id: number): Promise<JSON> => (await fetch(`${GARAGE_URL}/${id}`)).json();
+export const getCar = async (id: number) => (await fetch(`${GARAGE_URL}/${id}`)).json();
 
 export const createCar = async (body: Body):Promise<JSON> => (await fetch(`${GARAGE_URL}`, {
   method: 'POST',
