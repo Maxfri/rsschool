@@ -4,26 +4,34 @@ import store from '../../state/store';
 import { getCar } from '../../../api/garage/garage.api';
 import { Cars } from '../garage/garage';
 
+type Sort = 'id' | 'wins' | 'time';
+
+type Order = 'ASC' | 'DESC';
+
 export type Winner = { id: number, name: string, color: string, wins: number, time: number };
 
 export class Winners extends BaseComponent {
   winnersList: Winner[] = [];
 
+  sort: Sort = 'time';
+
+  order: Order = 'ASC';
+
   constructor() {
     super('div', ['winners']);
     this.element.style.visibility = 'hidden';
     document.body.appendChild(this.render());
-
+    this.sortListener();
     const next = document.querySelector('#next');
     const prev = document.querySelector('#prev');
 
     next?.addEventListener('click', () => {
       store.carPage++;
-      this.renderWinners(store.carPage);
+      this.renderWinners(store.winnersPage, <Sort>store.sortdBy, <Order>store.sortOrder);
     });
     prev?.addEventListener('click', () => {
       store.carPage--;
-      this.renderWinners(store.carPage);
+      this.renderWinners(store.winnersPage, <Sort>store.sortdBy, <Order>store.sortOrder);
     });
   }
 
@@ -34,9 +42,9 @@ export class Winners extends BaseComponent {
         <thead>
           <th>Number</th>
           <th>Car</th>
-          <th>Name</th>
-          <th>Wins</th>
-          <th>Best time</th>
+          <th class="sort-name sort" data-order="ASC">Name</th>
+          <th class="sort-wins sort" data-order="ASC">Wins</th>
+          <th class="sort-time sort" data-order="ASC">Best time</th>
         </thead>
         <tbody class="winners-list">
 
@@ -44,13 +52,13 @@ export class Winners extends BaseComponent {
       </table>
       <button id="prev">Prev page</button>
       <button id="next">Next page</button>`;
-    this.renderWinners(store.winnersPage);
+    this.renderWinners(store.winnersPage, <Sort>store.sortdBy, <Order>store.sortOrder);
     return this.element;
   }
 
-  async renderWinners(pageNumber: number) {
-    const winners = (await getWinners(pageNumber, 10, 'id', 'ASC')).items;
-    const winnersCount = (await getWinners(pageNumber, 10, 'id', 'ASC')).count;
+  async renderWinners(pageNumber: number, sort: Sort, order: Order) {
+    const winners = (await getWinners(pageNumber, 10, sort, order)).items;
+    const winnersCount = (await getWinners(pageNumber, 10, sort, order)).count;
     const winnersTable = <HTMLElement>document.querySelector('.winners-list');
     const title = <HTMLElement>document.querySelector('.winners-title');
     const subtitle = <HTMLElement>document.querySelector('.winners-subtitle');
@@ -67,5 +75,40 @@ export class Winners extends BaseComponent {
       <td>${winner.name}</td>
       <td>${winner.wins}</td>
       <td>${winner.time}</td>`;
+  }
+
+  sortListener():void {
+    const sortName = <HTMLElement>document.querySelector('.sort-name');
+    const sortWins = <HTMLElement>document.querySelector('.sort-wins');
+    const sortTime = <HTMLElement>document.querySelector('.sort-time');
+
+    sortName.addEventListener('click', () => {
+      this.sorting(sortName, 'id');
+    });
+
+    sortWins.addEventListener('click', () => {
+      this.sorting(sortWins, 'wins');
+    });
+
+    sortTime.addEventListener('click', () => {
+      this.sorting(sortTime, 'time');
+    });
+  }
+
+  async sorting(element: HTMLElement, sort: Sort) {
+    let order: Order = element.getAttribute('data-order') as Order;
+    // let reverseOrder;
+    if (order === 'DESC') {
+      order = 'ASC';
+    } else {
+      order = 'DESC';
+    }
+    if (order) {
+      store.sortdBy = sort;
+      store.sortOrder = order;
+      await this.renderWinners(1, sort, order);
+      element.removeAttribute('data-order');
+      element.setAttribute('data-order', order);
+    }
   }
 }
