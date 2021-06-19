@@ -18,11 +18,6 @@ export const getWinner = async (id: number) => (await fetch(`${WINNERS_URL}/${id
 export const getWinners = async (page: number, limit = 10, sort: Sort, order: Order) => {
   const response = await fetch(`${WINNERS_URL}?_page=${page}&_limit=${limit}&_sort=${sort}&_order=${order}`);
   const winners = await response.json();
-  winners.map(async (winner: Winner) => {
-    const car = await getCar(winner.id);
-    winner.name = car.name;
-    winner.color = car.color;
-  });
   return {
     items: winners,
     count: response.headers.get('X-Total-Count'),
@@ -32,7 +27,7 @@ export const getWinners = async (page: number, limit = 10, sort: Sort, order: Or
 export const createWinner = async (body: Body) => (await fetch(`${WINNERS_URL}`, {
   method: 'POST',
   headers: {
-    'Content-Type': 'application/json;charset=utf-8',
+    'Content-Type': 'application/json',
   },
   body: JSON.stringify(body),
 })).json();
@@ -42,7 +37,7 @@ export const deleteWinner = async (id: number) => (await fetch(`${WINNERS_URL}/$
 export const updateWinner = async (id: number, body: Body) => (await fetch(`${WINNERS_URL}/${id}`, {
   method: 'PUT',
   headers: {
-    'Content-Type': 'application/json;charset=utf-8',
+    'Content-Type': 'application/json',
   },
   body: JSON.stringify(body),
 })).json();

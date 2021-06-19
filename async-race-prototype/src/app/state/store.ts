@@ -5,7 +5,7 @@ export default {
   // cars,
   // carsCount,
   winnersPage: 1,
-  // winners,
+  winners: [],
   // winnersCount,
   animation: {},
   view: 'garage',

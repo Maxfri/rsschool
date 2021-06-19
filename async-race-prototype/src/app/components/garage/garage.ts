@@ -221,6 +221,11 @@ export class Garage extends BaseComponent {
     const status = await drive(id);
     if (status.success === false) {
       // await this.stopRace(id);
+      this.carsList.forEach((car) => {
+        if (car.id === id) {
+          clearInterval(car.timer);
+        }
+      });
       await stopEngine(id);
     }
   }
@@ -237,19 +242,25 @@ export class Garage extends BaseComponent {
           this.move = false;
           const raceEndTime = new Date();
           const time = (raceEndTime.getTime() - raceStartTime.getTime());
-          Garage.finishCar(id, time / 1000);
+          this.carsList.forEach((car) => {
+            if (car.id === id) {
+              Garage.finishCar(car.name, time / 1000);
+            }
+          });
           const winner = { id, wins: 1, time: time / 1000 };
-          const response = await createWinner(winner);
-          if (response.success === false) {
+          try {
+            const response = await createWinner(winner);
+          } catch {
             let updateCarWins;
             await getWinner(id).then((val) => {
-              updateCarWins = val[0].wins;
+              updateCarWins = val.wins;
             });
             if (updateCarWins) {
               winner.wins = updateCarWins + 1;
             }
             await updateWinner(id, winner);
           }
+
           // const finish = new CustomEvent('finish', {
           //   bubbles: true,
           //   detail: { winnerId: id, winnerTime: distance / velocity },
@@ -269,7 +280,7 @@ export class Garage extends BaseComponent {
     });
   }
 
-  static finishCar(name: number, time: number) {
+  static finishCar(name: string, time: number) {
     const finishMessage = <HTMLElement>document.querySelector('.finish-winners');
     if (finishMessage) {
       finishMessage.innerHTML = `Winner is ${name} (${time}s)`;
