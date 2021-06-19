@@ -1,3 +1,6 @@
+import {
+  getWinner, updateWinner, createWinner, deleteWinner,
+} from '../../../api/winners/winners.api';
 import { startEngine, drive, stopEngine } from '../../../api/engine/engine.api';
 import { Car } from '../car/car';
 import {
@@ -8,7 +11,7 @@ import { BaseComponent } from '../base-component';
 import './garage.scss';
 import store from '../../state/store';
 
-export type Cars = { id: number, name: string, color: string, timer: NodeJS.Timeout };
+export type Cars = { id: number, name: string, color: string, timer: NodeJS.Timeout, driveStatus: boolean };
 
 const CARS_MARKS = [
   'LADA',
@@ -51,14 +54,19 @@ export class Garage extends BaseComponent {
 
   move = true;
 
-  raceTime: Date;
+  raceStartTime: Date;
 
   constructor() {
     super('div', ['garage']);
     document.body.appendChild(this.render());
 
-    const next = document.querySelector('#next');
-    const prev = document.querySelector('#prev');
+    const next = document.querySelector('#next-garage');
+    const prev = document.querySelector('#prev-garage');
+
+    const finishMessage = <HTMLElement>document.createElement('div');
+    finishMessage.classList.add('finish-winners');
+    finishMessage.style.visibility = 'hidden';
+    document.body.appendChild(finishMessage);
 
     next?.addEventListener('click', () => {
       store.carPage++;
@@ -92,8 +100,8 @@ export class Garage extends BaseComponent {
         <div id="garage">
          
         </div>
-        <button id="prev">Prev page</button>
-        <button id="next">Next page</button>
+        <button id="prev-garage">Prev page</button>
+        <button id="next-garage">Next page</button>
       </div>`;
     this.renderGarage(store.carPage);
     return this.element;
@@ -109,9 +117,9 @@ export class Garage extends BaseComponent {
         <h2>Page (${store.carPage})</h2>
         <ul class="garage-list">
         ${cars.map((car: Cars) => {
-      this.carsList.push(car);
-      return `<li>${this.renderCar(car)}</li>`;
-    }).join('')}</ul>`;
+    this.carsList.push(car);
+    return `<li>${this.renderCar(car)}</li>`;
+  }).join('')}</ul>`;
 
     garagePage.innerHTML = '';
     garagePage.appendChild(garage);
@@ -126,6 +134,7 @@ export class Garage extends BaseComponent {
       remove.addEventListener('click', async () => {
         const id = <number><unknown>remove.attributes[1].value;
         await deleteCar(id);
+        await deleteWinner(id);
         await this.renderGarage(store.carPage);
       });
     });
@@ -190,7 +199,6 @@ export class Garage extends BaseComponent {
           stop.addEventListener('click', async () => {
             this.carsList.forEach(async (car) => {
               if (car.id === stopId) {
-                console.log(car.id, car.timer);
                 clearInterval(car.timer);
                 await this.stopRace(car.id);
               }
@@ -212,7 +220,8 @@ export class Garage extends BaseComponent {
 
     const status = await drive(id);
     if (status.success === false) {
-      // this.move = false;
+      // await this.stopRace(id);
+      await stopEngine(id);
     }
   }
 
@@ -221,11 +230,26 @@ export class Garage extends BaseComponent {
     const shift = velocity / 10;
     let speed = shift;
     // console.log(distance, shift, velocity)
-
-    const timer = setInterval(() => {
-      if (carItem !== null) {
+    const raceStartTime = new Date();
+    const timer = setInterval(async () => {
+      if (carItem !== null && this.move) {
         if (Garage.getPosition(carItem).left >= document.documentElement.clientWidth - 200) {
-          // this.move = false;
+          this.move = false;
+          const raceEndTime = new Date();
+          const time = (raceEndTime.getTime() - raceStartTime.getTime());
+          Garage.finishCar(id, time / 1000);
+          const winner = { id, wins: 1, time: time / 1000 };
+          const response = await createWinner(winner);
+          if (response.success === false) {
+            let updateCarWins;
+            await getWinner(id).then((val) => {
+              updateCarWins = val[0].wins;
+            });
+            if (updateCarWins) {
+              winner.wins = updateCarWins + 1;
+            }
+            await updateWinner(id, winner);
+          }
           // const finish = new CustomEvent('finish', {
           //   bubbles: true,
           //   detail: { winnerId: id, winnerTime: distance / velocity },
@@ -243,6 +267,14 @@ export class Garage extends BaseComponent {
         car.timer = timer;
       }
     });
+  }
+
+  static finishCar(name: number, time: number) {
+    const finishMessage = <HTMLElement>document.querySelector('.finish-winners');
+    if (finishMessage) {
+      finishMessage.innerHTML = `Winner is ${name} (${time}s)`;
+      finishMessage.style.visibility = 'visible';
+    }
   }
 
   async stopRace(id: number) {
@@ -264,7 +296,7 @@ export class Garage extends BaseComponent {
   }
 
   async raceCars() {
-    this.raceTime = new Date();
+    this.raceStartTime = new Date();
     if (this.carsList) {
       this.carsList.forEach(async (car) => {
         await this.startCar(car.id);

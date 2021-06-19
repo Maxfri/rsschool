@@ -9,14 +9,15 @@ export class Car extends BaseComponent {
 
   timer?: NodeJS.Timeout;
 
-  status: boolean;
+  driveStatus = false;
 
-  constructor(id: number, name: string, color: string, timer?: NodeJS.Timeout) {
+  constructor(id: number, name: string, color: string, timer?: NodeJS.Timeout, driveStatus = false) {
     super('div', ['car-wrapper']);
     this.id = id;
     this.name = name;
     this.color = color;
     this.timer = timer;
+    this.driveStatus = driveStatus;
   }
 
   render() {

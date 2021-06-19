@@ -20,6 +20,7 @@ export class App implements Component {
 
     const form = <HTMLFormElement>document.querySelector('#create');
     // const edit = <HTMLFormElement>document.querySelector('#edit');
+
     garage.listen(form);
     // garage.listen(edit);
     createRandomButton.addEventListener('click', async () => {
@@ -31,6 +32,7 @@ export class App implements Component {
       winners.element.style.visibility = 'hidden';
     });
     winnersButton.addEventListener('click', () => {
+      const update = new Winners();
       garage.element.style.visibility = 'hidden';
       winners.element.style.visibility = 'visible';
     });
