@@ -19,10 +19,8 @@ export class App implements Component {
     const createRandomButton = <HTMLButtonElement>document.querySelector('.random');
 
     const form = <HTMLFormElement>document.querySelector('#create');
-    // const edit = <HTMLFormElement>document.querySelector('#edit');
 
     garage.listen(form);
-    // garage.listen(edit);
     createRandomButton.addEventListener('click', async () => {
       await garage.createRandomCars();
     });

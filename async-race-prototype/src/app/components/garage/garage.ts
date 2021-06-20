@@ -191,11 +191,6 @@ export class Garage extends BaseComponent {
 
         stopButton.forEach((stop) => {
           const stopId = Number(stop.attributes[1].value);
-
-          // if (stopId === startId) {
-          //   stop.removeAttribute('disabled');
-          // }
-
           stop.addEventListener('click', async () => {
             this.carsList.forEach(async (car) => {
               if (car.id === stopId) {
@@ -205,22 +200,17 @@ export class Garage extends BaseComponent {
             });
           });
         });
-
-        // start.setAttribute('disabled', 'true');
       }, false);
     });
   }
 
   async startCar(id: number) {
-    // console.log(id);
     const start = await startEngine(id);
-    const { velocity } = start;
-    const { distance } = start;
+    const { velocity, distance } = start;
     this.race(id, velocity, distance);
 
     const status = await drive(id);
     if (status.success === false) {
-      // await this.stopRace(id);
       this.carsList.forEach((car) => {
         if (car.id === id) {
           clearInterval(car.timer);
@@ -234,7 +224,6 @@ export class Garage extends BaseComponent {
     const carItem = <HTMLElement>document.getElementById(`car-image-${id}`);
     const shift = velocity / 10;
     let speed = shift;
-    // console.log(distance, shift, velocity)
     const raceStartTime = new Date();
     const timer = setInterval(async () => {
       if (carItem !== null && this.move) {
@@ -260,12 +249,6 @@ export class Garage extends BaseComponent {
             }
             await updateWinner(id, winner);
           }
-
-          // const finish = new CustomEvent('finish', {
-          //   bubbles: true,
-          //   detail: { winnerId: id, winnerTime: distance / velocity },
-          // });
-          // carItem.dispatchEvent(finish);
         } else {
           carItem.style.transform = `translateX(${speed}px) scale(-1,1)`;
           speed += shift;

@@ -1,5 +1,4 @@
 import { BASE_URL } from '../api';
-import { getCar } from '../garage/garage.api';
 
 const WINNERS_URL = `${BASE_URL}/winners`;
 
@@ -41,7 +40,3 @@ export const updateWinner = async (id: number, body: Body) => (await fetch(`${WI
   },
   body: JSON.stringify(body),
 })).json();
-
-export const saveWinner = async (id: number, time: number) => {
-
-};

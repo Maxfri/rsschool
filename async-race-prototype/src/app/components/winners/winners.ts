@@ -75,8 +75,6 @@ export class Winners extends BaseComponent {
     title.innerHTML = `Winners (${winnersCount})`;
     subtitle.innerHTML = `Page #${pageNumber}`;
 
-    // console.log(winners);
-
     winners.map(async (winner: Winner) => {
       const car = await Promise.all([getCar(winner.id)]);
       winner.name = car[0].name;
@@ -99,13 +97,8 @@ export class Winners extends BaseComponent {
   }
 
   sortListener(): void {
-    // const sortName = <HTMLElement>document.querySelector('.sort-name');
     const sortWins = <HTMLElement>document.querySelector('.sort-wins');
     const sortTime = <HTMLElement>document.querySelector('.sort-time');
-
-    // sortName.addEventListener('click', () => {
-    //   this.sorting(sortName, 'id');
-    // });
 
     sortWins.addEventListener('click', () => {
       this.sorting(sortWins, 'wins');
