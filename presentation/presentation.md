@@ -1,0 +1,3 @@
+- Youtube link: 
+- Deploy: 
+- Link to the transcript: 
