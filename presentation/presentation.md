@@ -1,2 +1,2 @@
 - YouTube video: https://www.youtube.com/watch?v=9goBkaKVeOc
-- Reveal presentation's deploy: https://rolling-scopes-school.github.io/maxfri-JSFE2021Q1/presentation/
+- Reveal presentation's deploy: https://maxfri-presentation.netlify.app/
