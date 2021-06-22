@@ -2,112 +2,182 @@
 <html>
 
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-	<title>Refactoring</title>
+  <title>Refactoring</title>
 
-	<meta name="description" content="Refactoring code in JavaScript">
-	<meta name="author" content="Iaroslav Silkin">
+  <meta name="description" content="Refactoring code in JavaScript">
+  <meta name="author" content="Iaroslav Silkin">
 
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-	<link rel="stylesheet" href="dist/reset.css">
-	<link rel="stylesheet" href="dist/reveal.css">
-	<link rel="stylesheet" href="dist/theme/moon.css">
+  <link rel="stylesheet" href="dist/reset.css">
+  <link rel="stylesheet" href="dist/reveal.css">
+  <link rel="stylesheet" href="dist/theme/moon.css">
 
-	<!-- Theme used for syntax highlighted code -->
-	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+  <!-- Theme used for syntax highlighted code -->
+  <link rel="stylesheet" href="plugin/highlight/monokai.css">
 </head>
 
 <body>
-	<div class="reveal">
-		<div class="slides">
-			<section>
+  <div class="reveal">
+    <div class="slides">
+      <section>
 
-				<img src="./img/Refactoring_code.png" alt="refactoring code"
-					style="height: 180px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+        <img src="./img/Refactoring_code.png" alt="refactoring code"
+          style="height: 180px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
 
-				<h3>Refactoring code</h3>
-				<p>
-					<small>Created by <a href="https://github.com/Maxfri">Iaroslav Silkin</a></small>
-				</p>
-			</section>
+        <h3>Refactoring code</h3>
+        <p>
+          <small>Created by <a href="https://github.com/Maxfri">Iaroslav Silkin</a></small>
+        </p>
+        <aside class="notes">
+          Good morning/afternoon everyone and welcome to my presentation. First of all, let me thank you all for coming
+          here today. I'am Iaroslav Silkin.
+        </aside>
+      </section>
 
-			<section>
-				<h3>What is Refactoring?</h3>
-				<p>
-					Code refactoring is the process of changing a program’s source code without modifying its external functional
-					behavior, to improve some of the nonfunctional attributes of the software.
-				</p>
-			</section>
+      <section>
+        <h3>What is Refactoring?</h3>
+        <p>
+          Code refactoring is the process of changing a program’s source code without modifying its external functional
+          behavior, to improve some of the nonfunctional attributes of the software.
+        </p>
+      </section>
 
-			<section>
+      <section>
 
-				<section>
-					<h3>What to keep in mind during refactoring?</h3>
-					<img src="./img/memes/refactor.jpg" alt="refactor">
-				</section>
+        <section>
+          <h3>What to keep in mind during refactoring?</h3>
+          <img src="./img/memes/refactor.jpg" alt="refactor">
+        </section>
 
-				<section>
-					<p>
-						It should be done as a series of small iterations rather than re-writing the whole system again. Each
-						iteration should be responsible for slightly improving the code while leaving the system in working order.
-					</p>
-				</section>
+        <section>
+          <p>
+            It should be done as a series of small iterations rather than re-writing the whole system again. Each
+            iteration should be responsible for slightly improving the code while leaving the system in working order.
+          </p>
+        </section>
 
-				<section>
-					<p>
-						We should be following Test Driven Development and Continuous Integration during code refactoring. It will
-						greatly minimize the risk of introducing new bugs in the system.
-					</p>
-				</section>
+        <section>
+          <p>
+            We should be following Test Driven Development and Continuous Integration during code refactoring. It will
+            greatly minimize the risk of introducing new bugs in the system.
+          </p>
+        </section>
 
-				<section>
-					<p>
-						We should not “club” Code refactoring with Development of new functionality. Ideally there should NOT be any
-						new development during Code Refactoring. Bare minimum, person who is doing code optimization should not work
-						on new feature development for that period of time.
-					</p>
-				</section>
+        <section>
+          <p>
+            We should not “club” Code refactoring with Development of new functionality. Ideally there should NOT be any
+            new development during Code Refactoring. Bare minimum, person who is doing code optimization should not work
+            on new feature development for that period of time.
+          </p>
+        </section>
 
-			</section>
+      </section>
 
-			<section>
-				<h3>Refactoring According to Standards</h3>
-			</section>
+      <section>
+        <h3>Refactoring According to Standards</h3>
+      </section>
 
-			<section>
-				<h3>Don’t Repeat Yourself</h3>
-			</section>
+      <section>
+        <h3>Don’t Repeat Yourself</h3>
+      </section>
 
-			<section>
-				<h3>Stop use Jquery</h3>
-				<img src="./img/memes/jquery.jpg" alt="jquery">
-			</section>
+      <section>
+        <h3>Modularization</h3>
+      </section>
 
-			<section>
-				<h3>Modularization</h3>
-			</section>
-		</div>
-	</div>
+      <section>
 
-	<script src="dist/reveal.js"></script>
-	<script src="plugin/notes/notes.js"></script>
-	<script src="plugin/markdown/markdown.js"></script>
-	<script src="plugin/highlight/highlight.js"></script>
-	<script>
-		// More info about initialization & config:
-		// - https://revealjs.com/initialization/
-		// - https://revealjs.com/config/
-		Reveal.initialize({
-			hash: true,
+        <section>
+          <h3>Code Smells</h3>
+          <ul>
+            <li>Duplicated Code</li>
+            <li>Long Method</li>
+            <li>Large Class</li>
+            <li>Long Parameter List</li>
+          </ul>
+        </section>
 
-			// Learn about plugins: https://revealjs.com/plugins/
-			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
-		});
-	</script>
+        <section>
+          <h3>Code Smells</h3>
+          <ul>
+            <li>Divergent Change</li>
+            <li>Lazy Class</li>
+            <li>Speculative Generality</li>
+            <li>Temporary Field</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Code Smells</h3>
+          <ul>
+            <li>Data Class</li>
+            <li>Refused Bequest</li>
+            <li>Comments (!)</li>
+          </ul>
+        </section>
+
+      </section>
+
+      <section>
+        <h3>Summary</h3>
+      </section>
+
+      <section data-transition="zoom">
+        <h3>Refactoring improves the design of software </h3>
+      </section>
+
+      <section data-transition="zoom">
+        <h3>Refactoring makes software easier to understand</h3>
+      </section>
+
+      <section data-transition="zoom">
+        <h3>Refactoring helps you find bugs</h3>
+      </section>
+
+      <section data-transition="zoom">
+        <h3>Refactoring helps you program faster</h3>
+      </section>
+
+      <section data-background="./img/memes/jquery.jpg">
+        <h3>Stop use Jquery</h3>
+        <!-- <img src="./img/memes/jquery.jpg" alt="jquery"> -->
+
+        <aside class="notes">
+          One more thing... Don't use JQuery.
+        </aside>
+      </section>
+
+      <section style="text-align: left;">
+        <h1>THE END</h1>
+        <p>
+          - <a href=""></a> <br>
+          - <a href=""></a>
+        </p>
+      </section>
+    </div>
+  </div>
+
+  <script src="dist/reveal.js"></script>
+  <script src="plugin/notes/notes.js"></script>
+  <script src="plugin/markdown/markdown.js"></script>
+  <script src="plugin/highlight/highlight.js"></script>
+  <script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+      hash: true,
+
+      // Learn about plugins: https://revealjs.com/plugins/
+      plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+    });
+    Reveal.configure({ backgroundTransition: 'zoom' });
+  </script>
 </body>
 
 </html>
