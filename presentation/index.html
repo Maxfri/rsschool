@@ -2,182 +2,401 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-  <title>Refactoring</title>
+	<title>Refactoring</title>
 
-  <meta name="description" content="Refactoring code in JavaScript">
-  <meta name="author" content="Iaroslav Silkin">
+	<meta name="description" content="Refactoring code in JavaScript">
+	<meta name="author" content="Iaroslav Silkin">
 
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-  <link rel="stylesheet" href="dist/reset.css">
-  <link rel="stylesheet" href="dist/reveal.css">
-  <link rel="stylesheet" href="dist/theme/moon.css">
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/moon.css">
 
-  <!-- Theme used for syntax highlighted code -->
-  <link rel="stylesheet" href="plugin/highlight/monokai.css">
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
 </head>
 
 <body>
-  <div class="reveal">
-    <div class="slides">
-      <section>
+	<div class="reveal">
+		<div class="slides">
+			<section>
 
-        <img src="./img/Refactoring_code.png" alt="refactoring code"
-          style="height: 180px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+				<img src="./img/Refactoring_code.png" alt="refactoring code"
+					style="height: 180px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
 
-        <h3>Refactoring code</h3>
-        <p>
-          <small>Created by <a href="https://github.com/Maxfri">Iaroslav Silkin</a></small>
-        </p>
-        <aside class="notes">
-          Good morning/afternoon everyone and welcome to my presentation. First of all, let me thank you all for coming
-          here today. I'am Iaroslav Silkin.
-        </aside>
-      </section>
+				<h3>Refactoring code</h3>
+				<p>
+					<small>Created by <a href="https://github.com/Maxfri">Iaroslav Silkin</a></small>
+				</p>
+				<aside class="notes">
+					Good morning/afternoon everyone and welcome to my presentation. First of all, let me thank you all for coming
+					here today. I'am Iaroslav Silkin.
+					The topic of my presentation is refactoring.
+				</aside>
+			</section>
 
-      <section>
-        <h3>What is Refactoring?</h3>
-        <p>
-          Code refactoring is the process of changing a program’s source code without modifying its external functional
-          behavior, to improve some of the nonfunctional attributes of the software.
-        </p>
-      </section>
+			<section>
+				<h3>What is Refactoring?</h3>
+				<p>
+					<img src="./img/what is refactoring.png" alt="">
+				</p>
+				<aside class="notes">
+					<p>
+						Code refactoring is the process of changing a program’s source code without modifying its external
+						functional
+						behavior, to improve some of the nonfunctional attributes of the software.
+					</p>
 
-      <section>
+					<p>
+						Basically it means, re-writing it so that it will be easier to read, understand and easily adapt to changes
+						in
+						the future. Behavior of the system SHOULD NOT get changed.
+					</p>
 
-        <section>
-          <h3>What to keep in mind during refactoring?</h3>
-          <img src="./img/memes/refactor.jpg" alt="refactor">
-        </section>
+					<p>Sometimes, Code Refactoring also helps us to cut down the size of the code and improve our performance.</p>
+				</aside>
+			</section>
 
-        <section>
-          <p>
-            It should be done as a series of small iterations rather than re-writing the whole system again. Each
-            iteration should be responsible for slightly improving the code while leaving the system in working order.
-          </p>
-        </section>
+			<section>
 
-        <section>
-          <p>
-            We should be following Test Driven Development and Continuous Integration during code refactoring. It will
-            greatly minimize the risk of introducing new bugs in the system.
-          </p>
-        </section>
+				<section>
+					<h3>What to keep in mind during refactoring?</h3>
+					<img src="./img/memes/refactor.jpg" alt="refactor">
+					<aside class="notes">
+						The goal of refactoring is NOT to add new functionality
+						The goal is refactoring is to make code easier to maintain in the future
 
-        <section>
-          <p>
-            We should not “club” Code refactoring with Development of new functionality. Ideally there should NOT be any
-            new development during Code Refactoring. Bare minimum, person who is doing code optimization should not work
-            on new feature development for that period of time.
-          </p>
-        </section>
+						If we have testing on the project we should be following Test Driven Development (TDD) and Continuous
+						Integration (CD) during code refactoring. It will
+						greatly minimize the risk of introducing new bugs in the system.
+					</aside>
+				</section>
 
-      </section>
+				<section>
+					<p>
+						It should be done as a series of small iterations rather than re-writing the whole system again. Each
+						iteration should be responsible for slightly improving the code while leaving the system in working order.
+					</p>
+				</section>
 
-      <section>
-        <h3>Refactoring According to Standards</h3>
-      </section>
+				<section>
+					<p>
+						We should not combine Code refactoring with Development of new functionality.
+					</p>
+					<aside class="notes">
+						Ideally there should NOT be any
+						new development during Code Refactoring. Minimum, person who is doing code optimization should not work
+						on new feature development for that period of time.
+					</aside>
+				</section>
 
-      <section>
-        <h3>Don’t Repeat Yourself</h3>
-      </section>
+			</section>
 
-      <section>
-        <h3>Modularization</h3>
-      </section>
+			<section>
+				<section>
+					<h3>Refactoring According to Standards</h3>
 
-      <section>
+					<aside class="notes">
+					</aside>
+				</section>
 
-        <section>
-          <h3>Code Smells</h3>
-          <ul>
-            <li>Duplicated Code</li>
-            <li>Long Method</li>
-            <li>Large Class</li>
-            <li>Long Parameter List</li>
-          </ul>
-        </section>
+				<section>
+					<h3>Naming Booleans</h3>
 
-        <section>
-          <h3>Code Smells</h3>
-          <ul>
-            <li>Divergent Change</li>
-            <li>Lazy Class</li>
-            <li>Speculative Generality</li>
-            <li>Temporary Field</li>
-          </ul>
-        </section>
+					<p>
+						For Booleans, we want to stick to natural language.
+					</p>
+					<aside class="notes">
+						For example, we want to know if a car has a license plate. The result is a Boolean, so we name the variable
+						that holds this Boolean hasLicense. To give another example, we want to know if a person is sick so we use
+						isSick.
 
-        <section>
-          <h3>Code Smells</h3>
-          <ul>
-            <li>Data Class</li>
-            <li>Refused Bequest</li>
-            <li>Comments (!)</li>
-          </ul>
-        </section>
+						Both is and has are commonly used prepositions to indicate the variable holds a Boolean.
+					</aside>
+				</section>
 
-      </section>
+				<section>
+					<h3>Looping Arrays</h3>
+					<p>
+						Last, keep things simple when naming variables for looping arrays. Let’s take a look at the below example,
+						which takes a car out of the cars array:
+					</p>
+					<pre data-id="code-animation">
+						<code class="hljs" data-trim data-line-numbers>
+							for (const car of cars) {
+								// business logic
+							}
+						</code>
+					</pre>
 
-      <section>
-        <h3>Summary</h3>
-      </section>
+					<aside class="notes">
+						Use the above conventions for refactoring your code. These standards help you to make your code more
+						readable.
+					</aside>
+				</section>
 
-      <section data-transition="zoom">
-        <h3>Refactoring improves the design of software </h3>
-      </section>
+			</section>
 
-      <section data-transition="zoom">
-        <h3>Refactoring makes software easier to understand</h3>
-      </section>
+			<section>
+				<section>
+					<h3>Meaningful Variable Names</h3>
+					<p>A name should be descriptive and tell a fellow developer what it holds</p>
+					<aside class="notes">
 
-      <section data-transition="zoom">
-        <h3>Refactoring helps you find bugs</h3>
-      </section>
+					</aside>
+				</section>
 
-      <section data-transition="zoom">
-        <h3>Refactoring helps you program faster</h3>
-      </section>
+				<section>
+					<h3>Meaningful Variable Names</h3>
 
-      <section data-background="./img/memes/jquery.jpg">
-        <h3>Stop use Jquery</h3>
-        <!-- <img src="./img/memes/jquery.jpg" alt="jquery"> -->
+					<pre data-id="code-animation">
+						<code class="hljs" data-trim data-line-numbers>	
+							const t = 10; // elapsed time in days
+						</code>
+					</pre>
 
-        <aside class="notes">
-          One more thing... Don't use JQuery.
-        </aside>
-      </section>
+					<aside class="notes">
+						For example, what if we want to store the number of days that have elapsed? We could a simple one-letter
+						variable with a comment. Of course, that’s a bad practice.
+					</aside>
+				</section>
 
-      <section style="text-align: left;">
-        <h1>THE END</h1>
-        <p>
-          - <a href=""></a> <br>
-          - <a href=""></a>
-        </p>
-      </section>
-    </div>
-  </div>
+				<section>
+					<h3>Meaningful Variable Names</h3>
 
-  <script src="dist/reveal.js"></script>
-  <script src="plugin/notes/notes.js"></script>
-  <script src="plugin/markdown/markdown.js"></script>
-  <script src="plugin/highlight/highlight.js"></script>
-  <script>
-    // More info about initialization & config:
-    // - https://revealjs.com/initialization/
-    // - https://revealjs.com/config/
-    Reveal.initialize({
-      hash: true,
+					<pre data-id="code-animation">
+						<code class="hljs" data-trim data-line-numbers>
+							const elapsedTime = 10;
+						</code>
+					</pre>
 
-      // Learn about plugins: https://revealjs.com/plugins/
-      plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
-    });
-    Reveal.configure({ backgroundTransition: 'zoom' });
-  </script>
+					<aside class="notes">
+						To further improve the naming of this variable, let’s try using elapsedTime. Again, this is not a very good
+						naming as it does not reveal the type of the variable.
+					</aside>
+				</section>
+
+				<section>
+					<h3>Meaningful Variable Names</h3>
+
+					<pre data-id="code-animation">
+						<code class="hljs" data-trim data-line-numbers>
+							const elapsedTimeInDays = 10;
+						</code>
+					</pre>
+
+					<aside class="notes">
+						Finally, let’s try one more time using elapsedTimeInDays. This name is much better as it indicates the
+						variable holds a number and explains what the number represents.
+					</aside>
+				</section>
+			</section>
+
+
+			<section>
+				<h3>Don’t Repeat Yourself</h3>
+				<h4>Advantages of DRY Code</h4>
+				<ul>
+					<li>Maintainability</li>
+					<li>Re-usability</li>
+					<li>Resourceful</li>
+					<li>Ease of Access</li>
+				</ul>
+				<aside class="notes">
+					<p>Maintaining the code is easier since we already have the logic in place. In case of any
+						update, it will be fast since we have to update only at one place, worst case only at few places only
+						depending on the application complexity.</p>
+
+					<p>That piece of code can be re-used any number of times.</p>
+
+					<p>Saves time and Space. Initially writing DRY code will take time, however on longer run, it is
+						highly beneficial.</p>
+
+					<p>Easier to read, and saves time during the crucial debugging process.</p>
+				</aside>
+			</section>
+
+			<section>
+				<h3>Modularization</h3>
+				<ul>
+					<li>Shorter functions</li>
+					<li>More explicative names to describe the code’s purpose</li>
+					<li>Less useless comments</li>
+				</ul>
+				<aside class="notes">
+					<p>We should be organizing our code in multiple modules or functions, where each one is responsible for doing
+						single task. It should be in accordance with Single Responsibility Principle or SRP in short.</p>
+
+					<p>If we don’t follow SRP, logic will be scattered around all over the place and it will be very hard to
+						understand.</p>
+				</aside>
+			</section>
+
+			<section>
+				<h3>When Should You Refactor Your Code?</h3>
+				<aside class="notes">
+					When you see this...
+				</aside>
+			</section>
+
+			<section>
+
+				<section data-background="https://media.giphy.com/media/oHvs9z8v1YvIc/source.gif">
+					<h3>Code Smells</h3>
+					<ul>
+						<li>Duplicated Code</li>
+						<li>Long Method</li>
+						<li>Large Class</li>
+						<li>Long Parameter List</li>
+					</ul>
+					<aside class="notes">
+						<p> Duplicated Code
+							bad because if you modify one instance of duplicated code but not the others, you (may) have introduced a
+							bug!</p>
+
+						<p> Long Method
+							long methods are more difﬁcult to understand
+							performance concerns with respect to lots of short methods are largely obsolete</p>
+
+						<p>Large Class
+							classes try to do too much, which reduces cohesion</p>
+
+						<p>Long Parameter List
+							hard to understand, can become inconsistent</p>
+
+					</aside>
+				</section>
+
+				<section data-background="https://media.giphy.com/media/oHvs9z8v1YvIc/source.gif">
+					<h3>Code Smells</h3>
+					<ul>
+						<li>Divergent Change</li>
+						<li>Lazy Class</li>
+						<li>Speculative Generality</li>
+						<li>Temporary Field</li>
+					</ul>
+					<aside class="notes">
+						<p>Divergent Change
+							Related to cohesion: symptom: one type of change requires changing one subset of methods; another type of
+							change requires changing another subset</p>
+
+						<p>Lazy Class
+							A class that no longer “pays its way”
+							e.g. may be a class that was downsized by a previous refactoring, or represented planned functionality
+							that
+							did not pan out</p>
+
+						<p>
+							Speculative Generality
+							“Oh I think we need the ability to do this kind of thing someday”
+						</p>
+
+						<p>Temporary Field
+							An attribute of an object is only set in certain circumstances; but an object should need all of its
+							attributes</p>
+					</aside>
+				</section>
+
+				<section data-background="https://media.giphy.com/media/oHvs9z8v1YvIc/source.gif">
+					<h3>Code Smells</h3>
+					<ul>
+						<li>Data Class</li>
+						<li>Refused Bequest</li>
+						<li>Comments (!)</li>
+					</ul>
+					<aside class="notes">
+						<p>Data Class
+							These are classes that have ﬁelds, getting and setting methods for the ﬁelds, and nothing else; they are
+							data holders, but objects should be about data AND behavior</p>
+
+						<p>
+							Refused Bequest
+							A subclass ignores most of the functionality provided by its superclass
+							Subclass may not pass the “IS-A” test
+						</p>
+
+						<p>
+							Comments (!)
+							Comments are sometimes used to hide bad code
+							“…comments often are used as a deodorant” (!)
+						</p>
+
+					</aside>
+				</section>
+
+			</section>
+
+			<section>
+				<h3>Summary</h3>
+			</section>
+
+			<section data-transition="zoom">
+				<h3>Refactoring improves the design of your code</h3>
+			</section>
+
+			<section data-transition="zoom">
+				<h3>Refactoring makes your code easier to understand</h3>
+			</section>
+
+			<section data-transition="zoom">
+				<h3>Refactoring helps you find bugs</h3>
+			</section>
+
+			<section data-transition="zoom">
+				<h3>Refactoring helps you program faster</h3>
+			</section>
+
+			<section data-transition="zoom">
+				<h3>And one more thing...</h3>
+			</section>
+
+			<section data-transition="zoom" data-background="./img/memes/jquery.jpg" data-background-size="650px">
+				<h1 style="background-color: rgba(0, 0, 0, 0.8);">Stop use Jquery</h1>
+				<!-- <img src="./img/memes/jquery.jpg" alt="jquery"> -->
+
+				<aside class="notes">
+					One more thing... Don't use JQuery.
+					I'm kidding, of course. Or not
+				</aside>
+			</section>
+
+			<section style="text-align: left;">
+				<h1>THE END</h1>
+				<p>
+					You can find out more information from the book <br>
+					- <a href="https://www.amazon.com/Clean-Coder-Conduct-Professional-Programmers/dp/0137081073">The Clean
+						Coder</a> <br>
+					- <a href="https://www.amazon.com/Refactoring-Improving-Design-Existing-Code/dp/0201485672">Refactoring:
+						Improving the Design of Existing Code</a>
+				</p>
+				<aside class="notes">
+					Thanks for your attention
+				</aside>
+			</section>
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+		Reveal.configure({ backgroundTransition: 'zoom' });
+	</script>
 </body>
 
 </html>
