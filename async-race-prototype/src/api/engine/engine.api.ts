@@ -4,9 +4,15 @@ const ENGINE_URL = `${BASE_URL}/engine`;
 
 export type Status = 'start' | 'stop';
 
-export const startEngine = async (id: number) => (await fetch(`${ENGINE_URL}?id=${id}&status=started`)).json();
+type VelocityDistance = { velocity: number, distance: number };
 
-export const stopEngine = async (id: number) => (await fetch(`${ENGINE_URL}?id=${id}&status=stopped`)).json();
+export const startEngine = async (id: number): Promise<VelocityDistance> => (await fetch(`
+${ENGINE_URL}?id=${id}&status=started
+`)).json();
+
+export const stopEngine = async (id: number): Promise<VelocityDistance> => (await fetch(`
+${ENGINE_URL}?id=${id}&status=stopped
+`)).json();
 
 export const drive = async (id: number) => {
   const result = await fetch(`${ENGINE_URL}?id=${id}&status=drive`).catch();

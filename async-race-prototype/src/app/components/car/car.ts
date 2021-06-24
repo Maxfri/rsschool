@@ -20,7 +20,7 @@ export class Car extends BaseComponent {
     this.driveStatus = driveStatus;
   }
 
-  render() {
+  render(): HTMLElement {
     this.element.innerHTML = `<div class="car-wrapper">
     <div class="car-button">
       <button class="remove" data-id="${this.id}">remove car</button>

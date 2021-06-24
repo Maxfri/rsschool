@@ -1,5 +1,3 @@
-import { getCars } from '../../api/garage/garage.api';
-
 export default {
   carPage: 1,
   // cars,

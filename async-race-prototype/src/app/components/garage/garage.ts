@@ -1,18 +1,19 @@
 import {
   getWinner, updateWinner, createWinner, deleteWinner,
 } from '../../../api/winners/winners.api';
-import { startEngine, drive, stopEngine } from '../../../api/engine/engine.api';
-import { Car } from '../car/car';
 import {
   createCar, deleteCar, getCars, updateCar,
 } from '../../../api/garage/garage.api';
+import { startEngine, drive, stopEngine } from '../../../api/engine/engine.api';
+import { Car } from '../car/car';
 import { BaseComponent } from '../base-component';
+import store from '../../state/store';
 
 import './garage.scss';
-import store from '../../state/store';
 
 export type Cars = { id: number, name: string, color: string, timer: NodeJS.Timeout, driveStatus: boolean };
 
+type Position = { left: number, top: number };
 const CARS_MARKS = [
   'LADA',
   'UAZ',
@@ -78,7 +79,7 @@ export class Garage extends BaseComponent {
     });
   }
 
-  render() {
+  render(): HTMLElement {
     this.element.innerHTML = `<div id="garage-view">
         <div>
           <form class="form" id="create">
@@ -107,7 +108,7 @@ export class Garage extends BaseComponent {
     return this.element;
   }
 
-  async renderGarage(pageNumber: number) {
+  async renderGarage(pageNumber: number): Promise<void> {
     const cars = (await getCars(pageNumber)).items;
     const carsCount = (await getCars(pageNumber)).count;
     const garagePage = <HTMLDivElement>document.querySelector('#garage');
@@ -128,7 +129,7 @@ export class Garage extends BaseComponent {
     await this.editCar();
   }
 
-  async removeCar() {
+  async removeCar(): Promise<void> {
     const removeButtons = document.querySelectorAll('.remove');
     removeButtons.forEach((remove) => {
       remove.addEventListener('click', async () => {
@@ -140,7 +141,7 @@ export class Garage extends BaseComponent {
     });
   }
 
-  async editCar() {
+  async editCar(): Promise<void> {
     const editButtons = document.querySelectorAll('.edit');
     editButtons.forEach((edit) => {
       edit.addEventListener('click', () => {
@@ -158,7 +159,7 @@ export class Garage extends BaseComponent {
     });
   }
 
-  listenEdit = (id: number) => {
+  listenEdit = (id: number): void => {
     const edit = <HTMLFormElement>document.querySelector('#update');
     edit.onsubmit = async (e) => {
       e.preventDefault();
@@ -170,7 +171,7 @@ export class Garage extends BaseComponent {
     };
   };
 
-  async listenStartCar() {
+  async listenStartCar(): Promise<void> {
     const startButton = document.querySelectorAll('.engine-start');
     const stopButton = document.querySelectorAll('.engine-stop');
     const raceButton = document.querySelector('.start-race');
@@ -188,7 +189,6 @@ export class Garage extends BaseComponent {
       start.addEventListener('click', async () => {
         const startId = Number(start.attributes[1].value);
         await this.startCar(startId);
-
         stopButton.forEach((stop) => {
           const stopId = Number(stop.attributes[1].value);
           stop.addEventListener('click', async () => {
@@ -204,10 +204,10 @@ export class Garage extends BaseComponent {
     });
   }
 
-  async startCar(id: number) {
+  async startCar(id: number): Promise<void> {
     const start = await startEngine(id);
-    const { velocity, distance } = start;
-    this.race(id, velocity, distance);
+    const { velocity } = start;
+    this.race(id, velocity);
 
     const status = await drive(id);
     if (status.success === false) {
@@ -220,12 +220,11 @@ export class Garage extends BaseComponent {
     }
   }
 
-  race(id: number, velocity: number, distance: number): void {
+  race(id: number, velocity: number): void {
     const carItem = <HTMLElement>document.getElementById(`car-image-${id}`);
-    const shift = velocity / 10;
-    let speed = shift;
+    let speed = velocity / 10;
     const raceStartTime = new Date();
-    const timer = setInterval(async () => {
+    const timer = setInterval(async (): Promise<void> => {
       if (carItem !== null && this.move) {
         if (Garage.getPosition(carItem).left >= document.documentElement.clientWidth - 200) {
           this.move = false;
@@ -238,7 +237,7 @@ export class Garage extends BaseComponent {
           });
           const winner = { id, wins: 1, time: time / 1000 };
           try {
-            const response = await createWinner(winner);
+            await createWinner(winner);
           } catch {
             let updateCarWins;
             await getWinner(id).then((val) => {
@@ -251,11 +250,10 @@ export class Garage extends BaseComponent {
           }
         } else {
           carItem.style.transform = `translateX(${speed}px) scale(-1,1)`;
-          speed += shift;
+          speed += velocity / 10;
         }
       }
     }, 25);
-
     this.carsList.forEach((car) => {
       if (car.id === id) {
         car.timer = timer;
@@ -263,7 +261,7 @@ export class Garage extends BaseComponent {
     });
   }
 
-  static finishCar(name: string, time: number) {
+  static finishCar(name: string, time: number): void {
     const finishMessage = <HTMLElement>document.querySelector('.finish-winners');
     if (finishMessage) {
       finishMessage.innerHTML = `Winner is ${name} (${time}s)`;
@@ -271,7 +269,7 @@ export class Garage extends BaseComponent {
     }
   }
 
-  async stopRace(id: number) {
+  async stopRace(id: number): Promise<void> {
     this.move = true;
     await stopEngine(id);
     const carItem = <HTMLElement>document.getElementById(`car-image-${id}`);
@@ -280,7 +278,7 @@ export class Garage extends BaseComponent {
     }
   }
 
-  async resetCars() {
+  async resetCars(): Promise<void> {
     if (this.carsList) {
       this.carsList.forEach(async (car) => {
         clearInterval(car.timer);
@@ -289,7 +287,7 @@ export class Garage extends BaseComponent {
     }
   }
 
-  async raceCars() {
+  async raceCars(): Promise<void> {
     this.raceStartTime = new Date();
     if (this.carsList) {
       this.carsList.forEach(async (car) => {
@@ -298,21 +296,21 @@ export class Garage extends BaseComponent {
     }
   }
 
-  static getPosition(el: HTMLElement) {
-    const rect = el.getBoundingClientRect();
+  static getPosition(element: HTMLElement): Position {
+    const rect = element.getBoundingClientRect();
     return {
       left: rect.left + window.scrollX,
       top: rect.top + window.scrollY,
     };
   }
 
-  renderCar = (car: Cars) => {
+  renderCar = (car: Cars): string => {
     const carItem = new Car(car.id, car.name, car.color);
     return carItem.render().outerHTML;
   };
 
-  listen = (formElem: HTMLFormElement) => {
-    formElem.onsubmit = async (e) => {
+  listen = (formElem: HTMLFormElement): void => {
+    formElem.onsubmit = async (e): Promise<void> => {
       e.preventDefault();
       const carName = (<HTMLInputElement>document.querySelector('#create-name')).value;
       const carColor = (<HTMLInputElement>document.querySelector('#create-color')).value;
@@ -322,9 +320,12 @@ export class Garage extends BaseComponent {
     };
   };
 
-  async createRandomCars() {
+  async createRandomCars(): Promise<void> {
     for (let i = 0; i < 100; i++) {
-      const carName = `${CARS_MARKS[Math.floor(Math.random() * CARS_MARKS.length)]} ${CARS_MODELS[Math.floor(Math.random() * CARS_MODELS.length)]}`;
+      const carName = `
+      ${CARS_MARKS[Math.floor(Math.random() * CARS_MARKS.length)]} 
+      ${CARS_MODELS[Math.floor(Math.random() * CARS_MODELS.length)]}
+      `;
       const letters = '0123456789abcdef';
       let carColor = '#';
       for (let j = 0; j < 6; j++) {
