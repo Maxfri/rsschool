@@ -1,6 +1,7 @@
 import { BASE_URL } from '../api';
 
 const WINNERS_URL = `${BASE_URL}/winners`;
+const PAGE_LIMIT = 10;
 
 type Sort = 'id' | 'wins' | 'time';
 
@@ -10,9 +11,11 @@ type Body = { id: number, wins: number, time: number };
 
 type Winner = { id: number, name: string, color: string, wins: number, time: number };
 
-export const getWinner = async (id: number):Promise<Winner> => (await fetch(`${WINNERS_URL}/${id}`)).json();
+type AllWinners = { items: Winner[], count: string | null };
 
-export const getWinners = async (page: number, limit = 10, sort: Sort, order: Order) => {
+export const getWinner = async (id: number): Promise<Winner> => (await fetch(`${WINNERS_URL}/${id}`)).json();
+
+export const getWinners = async (page: number, limit = PAGE_LIMIT, sort: Sort, order: Order): Promise<AllWinners> => {
   const response = await fetch(`
     ${WINNERS_URL}?_page=${page}&_limit=${limit}&_sort=${sort}&_order=${order}
   `);

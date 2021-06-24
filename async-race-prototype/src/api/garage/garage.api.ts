@@ -1,11 +1,13 @@
 import { BASE_URL } from '../api';
 
 const GARAGE_URL = `${BASE_URL}/garage`;
+const PAGE_LIMIT = 7;
 
+export type Cars = { id: number, name: string, color: string, timer: NodeJS.Timeout, driveStatus: boolean };
 type Body = { carName: string; carColor: string; };
-type AllCars = { items: Body, count: string | null };
+type AllCars = { items: Cars[], count: string | null };
 
-export const getCars = async (page: number, limit = 7) => {
+export const getCars = async (page: number, limit = PAGE_LIMIT):Promise<AllCars> => {
   const response = await fetch(`${GARAGE_URL}?_page=${page}&_limit=${limit}`);
 
   return {
@@ -14,7 +16,7 @@ export const getCars = async (page: number, limit = 7) => {
   };
 };
 
-export const getCar = async (id: number) => (await fetch(`${GARAGE_URL}/${id}`)).json();
+export const getCar = async (id: number):Promise<Cars> => (await fetch(`${GARAGE_URL}/${id}`)).json();
 
 export const createCar = async (body: Body): Promise<JSON> => (await fetch(`${GARAGE_URL}`, {
   method: 'POST',

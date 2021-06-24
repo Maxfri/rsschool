@@ -1,9 +1,11 @@
 import {
-  getWinner, updateWinner, createWinner, deleteWinner,
-} from '../../../api/winners/winners.api';
-import {
+  Cars,
   createCar, deleteCar, getCars, updateCar,
 } from '../../../api/garage/garage.api';
+import {
+  getWinner, updateWinner, createWinner, deleteWinner,
+} from '../../../api/winners/winners.api';
+
 import { startEngine, drive, stopEngine } from '../../../api/engine/engine.api';
 import { Car } from '../car/car';
 import { BaseComponent } from '../base-component';
@@ -11,9 +13,12 @@ import store from '../../state/store';
 
 import './garage.scss';
 
-export type Cars = { id: number, name: string, color: string, timer: NodeJS.Timeout, driveStatus: boolean };
-
 type Position = { left: number, top: number };
+
+const SHIFT = 10;
+const RIGHT_MARGIN = 200;
+const TIME_ITERATION = 25;
+const ONE_SECOND = 1000;
 const CARS_MARKS = [
   'LADA',
   'UAZ',
@@ -222,20 +227,20 @@ export class Garage extends BaseComponent {
 
   race(id: number, velocity: number): void {
     const carItem = <HTMLElement>document.getElementById(`car-image-${id}`);
-    let speed = velocity / 10;
+    let speed = velocity / SHIFT;
     const raceStartTime = new Date();
     const timer = setInterval(async (): Promise<void> => {
       if (carItem !== null && this.move) {
-        if (Garage.getPosition(carItem).left >= document.documentElement.clientWidth - 200) {
+        if (Garage.getPosition(carItem).left >= document.documentElement.clientWidth - RIGHT_MARGIN) {
           this.move = false;
           const raceEndTime = new Date();
           const time = (raceEndTime.getTime() - raceStartTime.getTime());
           this.carsList.forEach((car) => {
             if (car.id === id) {
-              Garage.finishCar(car.name, time / 1000);
+              Garage.finishCar(car.name, time / ONE_SECOND);
             }
           });
-          const winner = { id, wins: 1, time: time / 1000 };
+          const winner = { id, wins: 1, time: time / ONE_SECOND };
           try {
             await createWinner(winner);
           } catch {
@@ -250,10 +255,10 @@ export class Garage extends BaseComponent {
           }
         } else {
           carItem.style.transform = `translateX(${speed}px) scale(-1,1)`;
-          speed += velocity / 10;
+          speed += velocity / SHIFT;
         }
       }
-    }, 25);
+    }, TIME_ITERATION);
     this.carsList.forEach((car) => {
       if (car.id === id) {
         car.timer = timer;

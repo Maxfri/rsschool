@@ -65,7 +65,7 @@ export class Winners extends BaseComponent {
     this.winnersList = [];
     const result = (await getWinners(pageNumber, 10, sort, order));
     const winners = result.items;
-    const winnersCount = result.count;
+    const winnersCount = <string>result.count;
 
     const winnersTable = <HTMLElement>document.querySelector('.winners-list');
     winnersTable.innerHTML = '';
