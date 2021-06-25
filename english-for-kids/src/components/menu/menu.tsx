@@ -4,14 +4,14 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import Home from "../../pages/home/home";
+import PageHome from "../../pages/home/home";
 import PageCategory from "../../pages/category/category";
-import Statistics from "../../pages/statistics/statistics";
+import PageStatistics from "../../pages/statistics/statistics";
 
 export default function SideMenu() {
   return (
     <Router>
-      <div>
+      <>
         <nav>
           <ul>
             <li>
@@ -31,13 +31,13 @@ export default function SideMenu() {
             <PageCategory />
           </Route>
           <Route path="/statistics">
-            <Statistics />
+            <PageStatistics />
           </Route>
           <Route path="/">
-            <Home />
+            <PageHome />
           </Route>
         </Switch>
-      </div>
+      </>
     </Router>
   )
 } 
