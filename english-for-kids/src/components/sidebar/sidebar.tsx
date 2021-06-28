@@ -4,15 +4,19 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import {Nav} from "react-bootstrap";
+import { withRouter } from "react-router";
 import PageHome from "../../pages/home/home";
 import PageCategory from "../../pages/category/category";
 import PageStatistics from "../../pages/statistics/statistics";
+import './sidebar.css'
 
-export default function SideMenu() {
+export default function Sidebar() {
   return (
+       
     <Router>
-      <>
-        <nav>
+        <div className="sidebar-sticky"></div>
+        <nav className="col-md-12 d-none d-md-block bg-light sidebar">
           <ul>
             <li>
               <Link to="/">Home</Link>
@@ -37,7 +41,6 @@ export default function SideMenu() {
             <PageHome />
           </Route>
         </Switch>
-      </>
     </Router>
   )
 } 
