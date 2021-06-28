@@ -1,11 +1,10 @@
+import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link
 } from "react-router-dom";
-import {Nav} from "react-bootstrap";
-import { withRouter } from "react-router";
 import PageHome from "../../pages/home/home";
 import PageCategory from "../../pages/category/category";
 import PageStatistics from "../../pages/statistics/statistics";
@@ -15,8 +14,7 @@ export default function Sidebar() {
   return (
        
     <Router>
-        <div className="sidebar-sticky"></div>
-        <nav className="col-md-12 d-none d-md-block bg-light sidebar">
+        <nav className="">
           <ul>
             <li>
               <Link to="/">Home</Link>
