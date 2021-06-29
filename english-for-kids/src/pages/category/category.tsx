@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import Category from "../../components/category/category";
+import React from 'react';
+import Category from '../../components/category/category';
 
 export default function PageCategory():JSX.Element {
   return (

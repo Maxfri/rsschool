@@ -1,7 +1,4 @@
-import React from 'react';
 import ReactDom from 'react-dom';
-import { App } from './app.tsx';
+import App from './App';
 
-ReactDom.render(App(), document.body);
-
-console.log('Hello World!');
+ReactDom.render(App, document.body);
