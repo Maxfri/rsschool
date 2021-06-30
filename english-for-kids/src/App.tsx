@@ -12,7 +12,7 @@ import PageHome from './pages/home/home';
 import PageCategory from './pages/category/category';
 import PageStatistics from './pages/statistics/statistics';
 
-function App(): JSX.Element {
+export default function App() {
   return (
     <div className="container">
       <h1>English for kids</h1>
@@ -30,5 +30,3 @@ function App(): JSX.Element {
     </div>
   );
 }
-
-export default App();
