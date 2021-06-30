@@ -14,8 +14,7 @@ import PageStatistics from './pages/statistics/statistics';
 
 export default function App() {
   return (
-    <div className="container">
-      <h1>English for kids</h1>
+    <div className="app-container">
       <Router>
         <Navbar />
         <Switch>

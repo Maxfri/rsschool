@@ -7,7 +7,7 @@ function Cards(): JSX.Element {
     <main className="grid">
       {cards.map((item, index) => (
         <article key={index} className="card">
-          <img className="img" src={item.image} alt="Card image" />
+          <img className="img" src={item.image} alt="Card" />
           <div className="card-body">
             <p className="card-text">
               {item.word}
