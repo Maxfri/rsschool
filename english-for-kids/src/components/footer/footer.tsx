@@ -11,10 +11,10 @@ export default function Footer() {
             <AiIcons.AiFillGithub />
           </div>
           <div className="col">
-            
+
           </div>
           <div className="col">
-            
+
           </div>
         </div>
       </div> */}

@@ -1,0 +1,47 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-gap: 20px;
+  align-items: stretch;
+}
+
+.grid>article img {
+  max-width: 100%;
+}
+
+.grid .text {
+  padding: 20px;
+}
+
+.card {
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
+  transform-style: preserve-3d;
+  transition: 250ms;
+  cursor: pointer;
+  transform: perspective(1000px) rotateY(var(--rotate-y, 0));
+}
+
+.card:hover {
+  box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.5);
+}
+
+.card.flip {
+  --rotate-y: 180deg;
+}
+
+.card .front,
+.card .back {
+  /* position: absolute; */
+  padding: 1rem;
+  backface-visibility: hidden;
+}
+.back {
+  position: relative;
+}
+.front {
+  position: absolute;
+}
+.card .back {
+  transform: rotateY(180deg);
+}

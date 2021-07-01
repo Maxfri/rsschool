@@ -1,10 +1,10 @@
 import React from 'react';
-import Cards from '../card/card';
+import Cards from '../cards/cards';
 
 export default function Category():JSX.Element {
   return (
     <>
-      <Cards />
+      {/* <Cards /> */}
     </>
   );
 }

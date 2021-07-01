@@ -23,7 +23,6 @@ export default function App() {
           <Route path="/category" component={PageStatistics} />
         </Switch>
       </Router>
-
       {/* <Sidebar /> */}
       <Footer />
     </div>
