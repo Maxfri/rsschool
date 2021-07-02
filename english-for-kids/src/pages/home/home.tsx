@@ -6,7 +6,7 @@ import CardList from '../../components/cardList/cardList';
 
 export default function PageHome(): JSX.Element {
   const [flashcards, setFlashcards] = useState(SAMPLE_FLASHCARDS);
-  const [cards, setCards] = useState(cardsData);
+  const [cards, setCards] = useState(cardsData[1]);
   return (
     <section className="main-section">
       <h2>Home</h2>
