@@ -3,13 +3,18 @@ import './cards.css';
 
 function Cards({ card }): JSX.Element {
   const [flip, setFlip] = useState(false);
+  const audio = new Audio(card.audioSrc);
+
+  const play = () => {
+    audio.play();
+  };
 
   return (
     <article
       key={card.id}
       className={`card${flip ? ' flip' : ''}`}
     >
-      <div className="front">
+      <div className="front" onClick={play}>
         <img className="img" src={card.image} alt="Card" />
         <div className="card-body">
           <p className="card-text">
