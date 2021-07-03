@@ -3,6 +3,9 @@ import { Garage } from './components/garage/garage';
 import { Winners } from './components/winners/winners';
 import { Component } from './component';
 
+const ELEMENT_VISIBLE = 'visible';
+const ELEMENT_HIDEN = 'hidden';
+
 export class App implements Component {
   private readonly application: HTMLDivElement;
 
@@ -27,12 +30,12 @@ export class App implements Component {
     });
 
     garageButton.addEventListener('click', () => {
-      garage.element.style.visibility = 'visible';
-      winners.element.style.visibility = 'hidden';
+      garage.element.style.visibility = ELEMENT_VISIBLE;
+      winners.element.style.visibility = ELEMENT_HIDEN;
     });
     winnersButton.addEventListener('click', () => {
-      garage.element.style.visibility = 'hidden';
-      winners.element.style.visibility = 'visible';
+      garage.element.style.visibility = ELEMENT_HIDEN;
+      winners.element.style.visibility = ELEMENT_VISIBLE;
     });
 
     return this.application;

@@ -1,12 +1,12 @@
 import {
   Cars,
   createCar, deleteCar, getCars, updateCar,
-} from '../../../api/garage/garage.api';
+} from '../../../api/garage/garage';
 import {
   getWinner, updateWinner, createWinner, deleteWinner,
-} from '../../../api/winners/winners.api';
+} from '../../../api/winners/winners';
 
-import { startEngine, drive, stopEngine } from '../../../api/engine/engine.api';
+import { startEngine, drive, stopEngine } from '../../../api/engine/engine';
 import { Car } from '../car/car';
 import { BaseComponent } from '../base-component';
 import store from '../../state/store';
@@ -15,6 +15,9 @@ import './garage.scss';
 
 type Position = { left: number, top: number };
 
+const UPDATE_NAME_ELEMENT_ID = '#update-name';
+const UPDATE_COLOR_ELEMENT_ID = '#update-color';
+const CARS_DATA_ID = 1;
 const SHIFT = 10;
 const RIGHT_MARGIN = 200;
 const TIME_ITERATION = 25;
@@ -138,7 +141,7 @@ export class Garage extends BaseComponent {
     const removeButtons = document.querySelectorAll('.remove');
     removeButtons.forEach((remove) => {
       remove.addEventListener('click', async () => {
-        const id = <number><unknown>remove.attributes[1].value;
+        const id = <number><unknown>remove.attributes[CARS_DATA_ID].value;
         await deleteCar(id);
         await deleteWinner(id);
         await this.renderGarage(store.carPage);
@@ -150,11 +153,11 @@ export class Garage extends BaseComponent {
     const editButtons = document.querySelectorAll('.edit');
     editButtons.forEach((edit) => {
       edit.addEventListener('click', () => {
-        const id = Number(edit.attributes[1].value);
+        const id = Number(edit.attributes[CARS_DATA_ID].value);
         this.carsList.forEach((car) => {
           if (car.id === id) {
-            const updateName = <HTMLInputElement>document.querySelector('#update-name');
-            const updateColor = <HTMLInputElement>document.querySelector('#update-color');
+            const updateName = <HTMLInputElement>document.querySelector(UPDATE_NAME_ELEMENT_ID);
+            const updateColor = <HTMLInputElement>document.querySelector(UPDATE_COLOR_ELEMENT_ID);
             updateName.value = car.name;
             updateColor.value = car.color;
             this.listenEdit(id);
@@ -168,8 +171,8 @@ export class Garage extends BaseComponent {
     const edit = <HTMLFormElement>document.querySelector('#update');
     edit.onsubmit = async (e) => {
       e.preventDefault();
-      const carName = (<HTMLInputElement>document.querySelector('#update-name')).value;
-      const carColor = (<HTMLInputElement>document.querySelector('#update-color')).value;
+      const carName = (<HTMLInputElement>document.querySelector(UPDATE_NAME_ELEMENT_ID)).value;
+      const carColor = (<HTMLInputElement>document.querySelector(UPDATE_COLOR_ELEMENT_ID)).value;
       const car = { carName, carColor };
       await updateCar(id, car);
       await this.renderGarage(store.carPage);

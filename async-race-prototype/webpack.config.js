@@ -62,11 +62,6 @@ module.exports = ({develop}) => ({
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',
     }),
-    // new CopyPlugin({
-    //   patterns: [
-    //     { from: './public'}
-    //   ]
-    // }),
     new CleanWebpackPlugin({
       cleanStaleWebpackAssets: false
     }),

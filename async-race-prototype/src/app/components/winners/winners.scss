@@ -8,3 +8,29 @@
 .sort {
   font-size: large;
 }
+
+.winners-table {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.winners-table-header {
+  flex-direction: row;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 100px;
+}
+
+.winners-list {
+  display: flex;
+  flex-direction: column;
+}
+.row {
+  flex-direction: row;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 30px;
+}

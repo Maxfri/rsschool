@@ -3,9 +3,9 @@ import { BASE_URL } from '../api';
 const WINNERS_URL = `${BASE_URL}/winners`;
 const PAGE_LIMIT = 10;
 
-type Sort = 'id' | 'wins' | 'time';
+export type Sort = 'id' | 'wins' | 'time';
 
-type Order = 'ASC' | 'DESC';
+export type Order = 'ASC' | 'DESC';
 
 type Body = { id: number, wins: number, time: number };
 
