@@ -11,8 +11,7 @@
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "sourceType" : "module", 
-    "project": "./tsconfig.json",
-    // "tsconfigRootDir": "__dirname"
+    "project": "./tsconfig.json"
   },
   "plugins": [
     "@typescript-eslint"
@@ -20,7 +19,7 @@
   "rules": {
     "no-plusplus": "off",
     "no-console": "error",
-    "max-len": ["warn", { "code": 120 }],
+    "max-len": ["warn", { "code": 120, "ignoreTemplateLiterals": true, "ignoreStrings": true }],
     "max-lines-per-function": ["warn", { "max": 40 }],
     "indent": ["warn", 2, {
       "SwitchCase": 1
