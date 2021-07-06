@@ -7,19 +7,19 @@ const SidebarData = [
     title: 'Home',
     path: '/',
     icon: <AiIcons.AiFillHome />,
-    cName: 'nav-text',
+    className: 'nav-text',
   },
   {
     title: 'Category',
     path: '/category',
     icon: <FaIcons.FaAdversal />,
-    cName: 'nav-text',
+    className: 'nav-text',
   },
   {
     title: 'Statistics',
     path: '/statistics',
     icon: <FaIcons.FaAdversal />,
-    cName: 'nav-text',
+    className: 'nav-text',
   },
 ];
 

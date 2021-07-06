@@ -9,28 +9,32 @@ import './Navbar.css';
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
-
   const showSidebar = () => setSidebar(!sidebar);
 
   return (
     <>
       <IconContext.Provider value={{ color: '#fff' }}>
         <div className="navbar">
-          <Link to="#" className="menu-bars">
+          <Link to="# " className="menu-bars">
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
           <h1>English for kids</h1>
           <ToggleSwitch />
         </div>
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
-          <ul className="nav-menu-items" onClick={showSidebar}>
+          <ul
+            className="nav-menu-items"
+            onClick={showSidebar}
+            onKeyDown={showSidebar}
+            role="presentation"
+          >
             <li className="navbar-toggle">
-              <Link to="#" className="menu-bars">
+              <Link to="# " className="menu-bars">
                 <AiIcons.AiOutlineClose />
               </Link>
             </li>
-            {SidebarData.map((item, index) => (
-              <li key={index} className={item.cName}>
+            {SidebarData.map((item) => (
+              <li key={item.title} className={item.className}>
                 <Link to={item.path}>
                   {item.icon}
                   <span>{item.title}</span>

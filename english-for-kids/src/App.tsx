@@ -1,10 +1,8 @@
 import React from 'react';
-// import Sidebar from './components/sidebar/sidebar';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
 } from 'react-router-dom';
 import Navbar from './components/sidebar/Navbar';
 import Footer from './components/footer/footer';
@@ -12,7 +10,7 @@ import PageHome from './pages/home/home';
 import PageCategory from './pages/category/category';
 import PageStatistics from './pages/statistics/statistics';
 
-export default function App() {
+function App() {
   return (
     <div className="app-container">
       <Router>
@@ -20,11 +18,12 @@ export default function App() {
         <Switch>
           <Route path="/" exact component={PageHome} />
           <Route path="/category" component={PageCategory} />
-          <Route path="/category" component={PageStatistics} />
+          <Route path="/statistics" component={PageStatistics} />
         </Switch>
       </Router>
-      {/* <Sidebar /> */}
       <Footer />
     </div>
   );
 }
+
+export default App;

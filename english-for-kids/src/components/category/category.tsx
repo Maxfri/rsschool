@@ -1,10 +1,20 @@
 import React from 'react';
-import Cards from '../cards/cards';
+import './category.css';
 
-export default function Category():JSX.Element {
+function Category({ category }: any): JSX.Element {
   return (
-    <>
-      {/* <Cards /> */}
-    </>
+    <article
+      key={category}
+      className="category"
+    >
+      <img className="img" src={category.image} alt="Category" />
+      <div className="category-body">
+        <p className="category-text">
+          {category.title}
+        </p>
+      </div>
+    </article>
   );
 }
+
+export default Category;
