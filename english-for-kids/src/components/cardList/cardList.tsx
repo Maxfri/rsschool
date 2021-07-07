@@ -1,22 +1,37 @@
 import React, { useState, useEffect } from 'react';
-import Cards from '../cards/cards';
+import GameBtn from '../gameBtn/gameBtn';
+import GameCards from '../gameCards/gameCards';
+import TrainCards from '../trainCards/trainCards';
+import '../cards/cards.css';
 
 function CardList({ cards }: any) {
-  const [, setGame] = useState(false);
+  const [game, setGame] = useState(false);
+
   useEffect(() => {
     const modeSwitcher: HTMLInputElement = document.querySelector('#toggleSwitch');
     const GameChangeHandler = () => setGame(modeSwitcher.checked);
     modeSwitcher.addEventListener('change', GameChangeHandler);
     return () => {
+      console.log(game);
       modeSwitcher.removeEventListener('change', GameChangeHandler);
     };
   });
 
-  return (
-    <main className="grid">
-      {cards.map((card) => <Cards card={card} key={card.id} />)}
-    </main>
-  );
+  if (game) {
+    return (
+      <main className="grid card-list">
+        {cards.map((card) => <GameCards card={card} key={card.id} game={game} />)}
+        <GameBtn cards={cards} />
+      </main>
+    );
+  } else {
+    return (
+      <main className="grid">
+        {cards.map((card) => <TrainCards card={card} key={card.id} game={game} />)}
+      </main>
+    );
+  }
+ 
 }
 
 export default CardList;

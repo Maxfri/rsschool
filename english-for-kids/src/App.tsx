@@ -6,9 +6,9 @@ import {
 } from 'react-router-dom';
 import Navbar from './components/sidebar/Navbar';
 import Footer from './components/footer/footer';
-import PageHome from './pages/home/home';
-import PageCategory from './pages/category/category';
-import PageStatistics from './pages/statistics/statistics';
+import HomePage from './pages/home/homePage';
+import CategoryPage from './pages/category/categoryPage';
+import StatisticsPage from './pages/statistics/statisticsPage';
 
 function App() {
   return (
@@ -16,9 +16,9 @@ function App() {
       <Router>
         <Navbar />
         <Switch>
-          <Route path="/" exact component={PageHome} />
-          <Route path="/category" component={PageCategory} />
-          <Route path="/statistics" component={PageStatistics} />
+          <Route path="/" exact component={HomePage} />
+          <Route path="/category" component={CategoryPage} />
+          <Route path="/statistics" component={StatisticsPage} />
         </Switch>
       </Router>
       <Footer />

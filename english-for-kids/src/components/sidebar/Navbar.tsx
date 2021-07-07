@@ -15,7 +15,7 @@ function Navbar() {
     <>
       <IconContext.Provider value={{ color: '#fff' }}>
         <div className="navbar">
-          <Link to="# " className="menu-bars">
+          <Link to="#" className="menu-bars">
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
           <h1>English for kids</h1>
@@ -29,7 +29,7 @@ function Navbar() {
             role="presentation"
           >
             <li className="navbar-toggle">
-              <Link to="# " className="menu-bars">
+              <Link to="#" className="menu-bars">
                 <AiIcons.AiOutlineClose />
               </Link>
             </li>

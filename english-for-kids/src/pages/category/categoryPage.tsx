@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import CardList from '../../components/cardList/cardList';
 import cardsData from '../../components/cards/CardsData';
 
-function PageCategory({ location }: any):JSX.Element {
+function CategoryPage({ location }: any):JSX.Element {
   const [cards] = useState(cardsData);
   const NUMBER_OF_CATEGORY: number = location.state.data;
 
@@ -14,4 +14,4 @@ function PageCategory({ location }: any):JSX.Element {
   );
 }
 
-export default PageCategory;
+export default CategoryPage;

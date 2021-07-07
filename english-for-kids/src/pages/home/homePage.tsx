@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import cardsData from '../../components/cards/CardsData';
 import CateryList from '../../components/categoryList/categoryList';
 
-export default function PageHome(): JSX.Element {
+function HomePage(): JSX.Element {
   const [categories] = useState(cardsData[0]);
 
   return (
@@ -12,3 +12,5 @@ export default function PageHome(): JSX.Element {
     </section>
   );
 }
+
+export default HomePage;
