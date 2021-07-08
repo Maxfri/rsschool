@@ -16,24 +16,21 @@ function GameBtn({ cards }) {
   };
 
   useEffect(() => {
-    const startBtn: HTMLElement = document.querySelector(`.start-btn`);
-    const repeatBtn: HTMLElement = document.querySelector(`.repeat-btn`);
-    
+    const startBtn: HTMLElement = document.querySelector('.start-btn');
+    const repeatBtn: HTMLElement = document.querySelector('.repeat-btn');
+
     const startBtnHandler = (): void => {
-      console.log('start game');
       hideElement(startBtn);
       isGame(cards);
       setTimeout(() => { showElement(repeatBtn); }, 500);
     };
 
-
     // const repeatBtnHandler = (): void => {
-    //   console.log('repeat? please');
     // };
     // repeatBtn?.addEventListener('click', repeatBtnHandler);
 
     startBtn?.addEventListener('click', startBtnHandler);
-    
+
     return () => {
       startBtn?.removeEventListener('click', startBtnHandler);
       // repeatBtn?.removeEventListener('click', repeatBtnHandler);

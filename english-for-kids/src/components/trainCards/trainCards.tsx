@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 
 function TrainCards({ card }: any) {
   const [flip, setFlip] = useState(false);
@@ -11,15 +11,15 @@ function TrainCards({ card }: any) {
     const articles: NodeListOf<Element> = document.querySelectorAll('.card');
     const backFlip = () => {
       if (flip) {
-        setFlip(!flip)
+        setFlip(!flip);
       }
-    }
+    };
     articles.forEach((article) => {
       article.addEventListener('mouseleave', backFlip);
       return () => {
         article.removeEventListener('mouseleave', backFlip);
       };
-    })
+    });
   });
 
   const play = () => {

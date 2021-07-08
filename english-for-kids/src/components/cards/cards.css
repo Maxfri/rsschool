@@ -47,3 +47,7 @@
 .card .back {
   transform: rotateY(180deg);
 }
+
+.right-check {
+  pointer-events: none;
+}

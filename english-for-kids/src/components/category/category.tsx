@@ -6,8 +6,8 @@ function Category({ category }: any): JSX.Element {
   return (
     <Link
       to={{
-        pathname: '/category',
-        state: { data: category.id },
+        pathname: `/category${category.id}`,
+        // state: { data: category.id },
       }}
       key={category.id}
     >

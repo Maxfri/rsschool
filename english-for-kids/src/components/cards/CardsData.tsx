@@ -12,21 +12,31 @@ const cards = [
     },
     {
       id: 3,
+      title: 'Action (set C)',
+      image: '../src/assets/img/draw.jpg',
+    },
+    {
+      id: 4,
       title: 'Animal (set A)',
       image: '../src/assets/img/dog.jpg',
     },
     {
-      id: 4,
+      id: 5,
       title: 'Animal (set B)',
       image: '../src/assets/img/pig.jpg',
     },
     {
-      id: 5,
+      id: 6,
+      title: 'Animal (set C)',
+      image: '../src/assets/img/lion.jpg',
+    },
+    {
+      id: 7,
       title: 'Clothes',
       image: '../src/assets/img/shirt.jpg',
     },
     {
-      id: 6,
+      id: 8,
       title: 'Emotions',
       image: '../src/assets/img/smile.jpg',
     },
@@ -133,6 +143,56 @@ const cards = [
   ],
   [
     {
+      word: 'cry',
+      translation: 'плакать',
+      image: '../src/assets/img/cry.jpg',
+      audioSrc: '../src/assets/audio/cry.mp3',
+    },
+    {
+      word: 'dance',
+      translation: 'танцевать',
+      image: '../src/assets/img/dance.jpg',
+      audioSrc: '../src/assets/audio/dance.mp3',
+    },
+    {
+      word: 'dive',
+      translation: 'нырять',
+      image: '../src/assets/img/dive.jpg',
+      audioSrc: '../src/assets/audio/dive.mp3',
+    },
+    {
+      word: 'draw',
+      translation: 'рисовать',
+      image: '../src/assets/img/draw.jpg',
+      audioSrc: '../src/assets/audio/draw.mp3',
+    },
+    {
+      word: 'run',
+      translation: 'бегать',
+      image: '../src/assets/img/run.jpg',
+      audioSrc: '../src/assets/audio/run.mp3',
+    },
+    {
+      word: 'sing',
+      translation: 'петь',
+      image: '../src/assets/img/sing.jpg',
+      audioSrc: '../src/assets/audio/sing.mp3',
+    },
+    {
+      word: 'skip',
+      translation: 'пропускать, прыгать',
+      image: '../src/assets/img/skip.jpg',
+      audioSrc: '../src/assets/audio/skip.mp3',
+    },
+    {
+      word: 'swim',
+      translation: 'плавать',
+      image: '../src/assets/img/swim.jpg',
+      audioSrc: '../src/assets/audio/swim.mp3',
+    },
+  ],
+  [
+    {
       word: 'cat',
       translation: 'кот',
       image: '../src/assets/img/cat.jpg',
@@ -205,6 +265,56 @@ const cards = [
       translation: 'жирафа',
       image: '../src/assets/img/giraffe.jpg',
       audioSrc: '../src/assets/audio/giraffe.mp3',
+    },
+    {
+      word: 'lion',
+      translation: 'лев',
+      image: '../src/assets/img/lion.jpg',
+      audioSrc: '../src/assets/audio/lion.mp3',
+    },
+    {
+      word: 'mouse',
+      translation: 'мышь',
+      image: '../src/assets/img/mouse.jpg',
+      audioSrc: '../src/assets/audio/mouse.mp3',
+    },
+    {
+      word: 'turtle',
+      translation: 'черепаха',
+      image: '../src/assets/img/turtle.jpg',
+      audioSrc: '../src/assets/audio/turtle.mp3',
+    },
+    {
+      word: 'dolphin',
+      translation: 'дельфин',
+      image: '../src/assets/img/dolphin.jpg',
+      audioSrc: '../src/assets/audio/dolphin.mp3',
+    },
+  ],
+  [
+    {
+      word: 'cat',
+      translation: 'кот',
+      image: '../src/assets/img/cat.jpg',
+      audioSrc: '../src/assets/audio/cat.mp3',
+    },
+    {
+      word: 'chick',
+      translation: 'цыплёнок',
+      image: '../src/assets/img/chick.jpg',
+      audioSrc: '../src/assets/audio/chick.mp3',
+    },
+    {
+      word: 'chicken',
+      translation: 'курица',
+      image: '../src/assets/img/chicken.jpg',
+      audioSrc: '../src/assets/audio/chicken.mp3',
+    },
+    {
+      word: 'dog',
+      translation: 'собака',
+      image: '../src/assets/img/dog.jpg',
+      audioSrc: '../src/assets/audio/dog.mp3',
     },
     {
       word: 'lion',

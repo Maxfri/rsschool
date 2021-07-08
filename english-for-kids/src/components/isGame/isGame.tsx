@@ -1,13 +1,14 @@
 import React from 'react';
+import LosePage from '../losePage/losePage';
+import WinPage from '../winPage/winPage';
 
 function isGame(cards) {
   const countAnswers = {
     right: 0,
-    wrong: 0
+    wrong: 0,
   };
-  const repeatBtn: HTMLElement = document.querySelector(`.repeat-btn`);
+  const repeatBtn: HTMLElement = document.querySelector('.repeat-btn');
   const repeatBtnHandler = (): void => {
-    console.log('repeat? please');
     playAudio();
   };
   repeatBtn?.addEventListener('click', repeatBtnHandler);
@@ -15,11 +16,9 @@ function isGame(cards) {
   const audio = [];
   cards.map((card) => audio.push({
     audio: new Audio(card.audioSrc),
-    word: card.word
+    word: card.word,
   }));
   shuffle(audio);
-
-  console.log(audio);
 
   const playAudio = () => setTimeout(() => { audio[0]?.audio.play(); }, 500);
   playAudio();
@@ -28,25 +27,24 @@ function isGame(cards) {
 
   list.addEventListener('click', (element) => {
     const elem: any = element.target;
-    console.log(elem.dataset.word);
     if (elem.dataset.word) {
-      getCheckCard(elem.dataset.word, audio[0]?.word)
+      getCheckCard(elem.dataset.word, audio[0]?.word, elem);
       playAudio();
     }
   });
 
-  function getCheckCard(card, answer) {
+  function getCheckCard(card, answer, cardItem) {
     if (card === answer) {
       audio.shift();
-      rightAnswer();
+      rightAnswer(cardItem);
     } else {
       wrongAnswer();
     }
   }
 
-  function rightAnswer() {
-    console.log('right');
-    console.log(audio);
+  function rightAnswer(cardItem: HTMLElement) {
+    console.log(cardItem.parentElement);
+    cardItem.classList.add('right-check');
     countAnswers.right++;
     if (audio.length === 0) {
       endGame();
@@ -54,8 +52,6 @@ function isGame(cards) {
   }
 
   function wrongAnswer() {
-    console.log('wrong');
-    console.log(audio);
     countAnswers.wrong++;
   }
 
@@ -64,18 +60,12 @@ function isGame(cards) {
   }
 
   function endGame() {
-    console.log('Wrong answers:', countAnswers.wrong);
     if (countAnswers.wrong > 0) {
-      document.querySelector('.card-list').innerHTML = `
-      <div>
-        <div>Errors: ${countAnswers.wrong}</div>
-        <img src='../src/assets/img/failure.jpg'}></img>
-      </div>
-      `;
+      <LosePage wrongAnswers={countAnswers.wrong} />
       const loseAudio: HTMLAudioElement = new Audio('../src/assets/audio/failure.mp3');
       loseAudio.play();
     } else {
-      document.querySelector('.card-list').innerHTML = `<div> <img src='../src/assets/img/success.jpg'}></img> </div>`;
+      <WinPage />
       const winAudio: HTMLAudioElement = new Audio('../src/assets/audio/success.mp3');
       winAudio.play();
     }

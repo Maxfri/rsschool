@@ -12,7 +12,6 @@ function CardList({ cards }: any) {
     const GameChangeHandler = () => setGame(modeSwitcher.checked);
     modeSwitcher.addEventListener('change', GameChangeHandler);
     return () => {
-      console.log(game);
       modeSwitcher.removeEventListener('change', GameChangeHandler);
     };
   });
@@ -24,14 +23,12 @@ function CardList({ cards }: any) {
         <GameBtn cards={cards} />
       </main>
     );
-  } else {
-    return (
-      <main className="grid">
-        {cards.map((card) => <TrainCards card={card} key={card.id} game={game} />)}
-      </main>
-    );
   }
- 
+  return (
+    <main className="grid">
+      {cards.map((card) => <TrainCards card={card} key={card.id} game={game} />)}
+    </main>
+  );
 }
 
 export default CardList;

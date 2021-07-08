@@ -4,7 +4,7 @@ function GameCards({ card }: any) {
   return (
     <article
       key={card.id}
-      className={`card`}
+      className="card"
       data-word={card.word}
     >
       <div className="front" data-word={card.word}>
