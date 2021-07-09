@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import isGame from '../isGame/isGame';
+import IsGame from '../isGame/isGame';
 import './gameBtn.css';
 
 function GameBtn({ cards }) {
@@ -21,8 +21,8 @@ function GameBtn({ cards }) {
 
     const startBtnHandler = (): void => {
       hideElement(startBtn);
-      isGame(cards);
       setTimeout(() => { showElement(repeatBtn); }, 500);
+      {IsGame({cards: cards})};
     };
 
     // const repeatBtnHandler = (): void => {

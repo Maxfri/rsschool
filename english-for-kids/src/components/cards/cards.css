@@ -48,6 +48,51 @@
   transform: rotateY(180deg);
 }
 
+.game-card {
+  width: 285px;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  display: flex;
+  text-align: -webkit-center;
+}
 .right-check {
+  opacity: 0.2;
   pointer-events: none;
+}
+.game-card-img {
+  width: 100%;
+  pointer-events: none;
+}
+
+.rating {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  max-width: 1350px;
+  margin: 0 auto;
+  height: 40px;
+  overflow-x: hidden;
+  line-height: 36px;
+  font-size: 36px;
+  color: #fc6262;
+}
+.star-succes {
+  background-image: url('../../assets/img/star-win.svg');
+}
+
+.star-error {
+  background-image: url('../../assets/img/star.svg');
+}
+
+.star-error, .star-succes {
+  flex-shrink: 0;
+  width: 40px;
+  min-width: 40px;
+  height: 40px;
+  background-size: 40px 40px;
+}
+
+.invise {
+  display: none;
 }

@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import LosePage from '../losePage/losePage';
 import WinPage from '../winPage/winPage';
+import { Redirect } from 'react-router';
+import { Route } from 'react-router-dom';
 
-function isGame(cards) {
+function IsGame({ cards }: any) {
+  const gameResult = document.querySelector('.game-result');
+  const gameScore = document.querySelector('.game-score');
   const countAnswers = {
     right: 0,
     wrong: 0,
@@ -36,6 +40,7 @@ function isGame(cards) {
   function getCheckCard(card, answer, cardItem) {
     if (card === answer) {
       audio.shift();
+
       rightAnswer(cardItem);
     } else {
       wrongAnswer();
@@ -43,7 +48,11 @@ function isGame(cards) {
   }
 
   function rightAnswer(cardItem: HTMLElement) {
-    console.log(cardItem.parentElement);
+    const correctAudio: HTMLAudioElement = new Audio('../src/assets/audio/correct.mp3');
+    correctAudio.play();
+    const starSucces = document.createElement('div');
+    starSucces.classList.add('star-succes');
+    gameScore.appendChild(starSucces);
     cardItem.classList.add('right-check');
     countAnswers.right++;
     if (audio.length === 0) {
@@ -52,6 +61,11 @@ function isGame(cards) {
   }
 
   function wrongAnswer() {
+    const errorAudio: HTMLAudioElement = new Audio('../src/assets/audio/error.mp3');
+    errorAudio.play();
+    const starError = document.createElement('div');
+    starError.classList.add('star-error');
+    gameScore.appendChild(starError);
     countAnswers.wrong++;
   }
 
@@ -60,16 +74,31 @@ function isGame(cards) {
   }
 
   function endGame() {
+    list.classList.add('invise');
     if (countAnswers.wrong > 0) {
-      <LosePage wrongAnswers={countAnswers.wrong} />
       const loseAudio: HTMLAudioElement = new Audio('../src/assets/audio/failure.mp3');
       loseAudio.play();
+      const lose = document.createElement('div');
+      lose.innerHTML = `<div>
+          <div>Errors: ${countAnswers.wrong}</div>
+          <img src='../src/assets/img/failure.jpg' />
+        </div>`;
+      // const lose = LosePage({wrongAnswers: countAnswers.wrong});
+      gameResult.appendChild(lose);
     } else {
-      <WinPage />
       const winAudio: HTMLAudioElement = new Audio('../src/assets/audio/success.mp3');
       winAudio.play();
+      const win = document.createElement('div');
+
+      win.innerHTML = `<div>
+          <img src='../src/assets/img/success.jpg' />
+        </div>`;
+      // const lose = LosePage({wrongAnswers: countAnswers.wrong});
+      gameResult.appendChild(win);
+      // {WinPage()};
     }
+
   }
 }
 
-export default isGame;
+export default IsGame;

@@ -4,12 +4,10 @@ function GameCards({ card }: any) {
   return (
     <article
       key={card.id}
-      className="card"
+      className="game-card"
       data-word={card.word}
     >
-      <div className="front" data-word={card.word}>
-        <img className="img" src={card.image} data-word={card.word} alt="Card" />
-      </div>
+        <img className="game-card-img" src={card.image} data-word={card.word} alt="Card" />
     </article>
   );
 }

@@ -8,8 +8,8 @@ function CategoryPage(props: any):JSX.Element {
 
   // let NUMBER_OF_CATEGORY: number = location.state.data;
   
-  console.log(location);
-  console.log(props);
+  // console.log(location);
+  // console.log(props);
   // if (location.state !== undefined) {
 
 

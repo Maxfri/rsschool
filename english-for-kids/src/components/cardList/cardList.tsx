@@ -18,12 +18,17 @@ function CardList({ cards }: any) {
 
   if (game) {
     return (
-      <main className="grid card-list">
-        {cards.map((card) => <GameCards card={card} key={card.id} game={game} />)}
-        <GameBtn cards={cards} />
-      </main>
+      <>
+        <div className='game-score rating'></div>
+        <main className="grid card-list">
+          {cards.map((card) => <GameCards card={card} key={card.id} game={game} />)}
+          <GameBtn cards={cards} />
+        </main>
+        <div className='game-result'></div>
+      </>
     );
   }
+
   return (
     <main className="grid">
       {cards.map((card) => <TrainCards card={card} key={card.id} game={game} />)}
