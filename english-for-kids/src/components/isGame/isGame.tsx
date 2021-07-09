@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { History } from 'history';
 import LosePage from '../losePage/losePage';
 import WinPage from '../winPage/winPage';
 import { Redirect } from 'react-router';
 import { Route } from 'react-router-dom';
 
-function IsGame({ cards }: any) {
+function IsGame({ cards, history }: any) {
+  const location: string = history.location.pathname;
   const gameResult = document.querySelector('.game-result');
   const gameScore = document.querySelector('.game-score');
   const countAnswers = {
@@ -97,7 +99,14 @@ function IsGame({ cards }: any) {
       gameResult.appendChild(win);
       // {WinPage()};
     }
-
+    // setInterval(() => {
+    //   document.location.href = '/';
+    // }, 2000);
+    setTimeout(() => {
+      if (history.location.pathname === location) {
+        history.push('/');
+      }
+    }, 2500);
   }
 }
 
