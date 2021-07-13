@@ -1,7 +1,7 @@
 import React from 'react';
 
 function WinPage() {
-  console.log('winner');
+  // console.log('winner');
 
   return (
     <div>

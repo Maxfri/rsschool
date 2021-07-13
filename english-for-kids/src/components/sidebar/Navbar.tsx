@@ -7,10 +7,10 @@ import SidebarData from './SidebarData';
 import ToggleSwitch from '../toggleSwitch/toggleSwitch';
 import './Navbar.css';
 
-function Navbar() {
+function Navbar({mode, setMode}: any) {
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
-
+  // console.log(mode);
   return (
     <>
       <IconContext.Provider value={{ color: '#fff' }}>
@@ -19,7 +19,7 @@ function Navbar() {
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
           <h1>English for kids</h1>
-          <ToggleSwitch />
+          <ToggleSwitch setMode={setMode} mode={mode} />
         </div>
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
           <ul

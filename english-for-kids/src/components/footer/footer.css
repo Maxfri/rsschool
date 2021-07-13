@@ -6,3 +6,12 @@
   line-height: 60px;
   background-color: #f5f5f5;
 } */
+.main-footer {
+  bottom: 0;
+  background-color: #060b26;
+  height: 80px;
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

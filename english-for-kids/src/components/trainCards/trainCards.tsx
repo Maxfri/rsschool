@@ -7,20 +7,11 @@ function TrainCards({ card }: any) {
   const imageSrc: string = card.image;
   const audio = new Audio(audioSrc);
 
-  useEffect(() => {
-    const articles: NodeListOf<Element> = document.querySelectorAll('.card');
-    const backFlip = () => {
-      if (flip) {
-        setFlip(!flip);
-      }
-    };
-    articles.forEach((article) => {
-      article.addEventListener('mouseleave', backFlip);
-      return () => {
-        article.removeEventListener('mouseleave', backFlip);
-      };
-    });
-  });
+  const backFlip = () => {
+    if (flip) {
+      setFlip(!flip);
+    }
+  };
 
   const play = () => {
     audio.play();
@@ -30,6 +21,7 @@ function TrainCards({ card }: any) {
     <article
       key={id}
       className={`card${flip ? ' flip' : ''}`}
+      onMouseLeave={backFlip}
     >
       <div className="front" onClick={play} onKeyDown={play} role="presentation">
         <img className="img" src={imageSrc} alt="Card" />

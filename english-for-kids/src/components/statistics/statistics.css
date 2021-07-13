@@ -1,0 +1,11 @@
+.statistics-category-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.statistics-category {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}

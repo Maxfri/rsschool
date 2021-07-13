@@ -2,26 +2,21 @@ import React, { useState, useEffect } from 'react';
 import GameBtn from '../gameBtn/gameBtn';
 import GameCards from '../gameCards/gameCards';
 import TrainCards from '../trainCards/trainCards';
+import { Link, withRouter } from 'react-router-dom';
+import cardsData from '../cards/CardsData';
 import '../cards/cards.css';
 
-function CardList({ cards }: any) {
-  const [game, setGame] = useState(false);
+function CardList({ match, mode, setMode }: any) {
 
-  useEffect(() => {
-    const modeSwitcher: HTMLInputElement = document.querySelector('#toggleSwitch');
-    const GameChangeHandler = () => setGame(modeSwitcher.checked);
-    modeSwitcher.addEventListener('change', GameChangeHandler);
-    return () => {
-      modeSwitcher.removeEventListener('change', GameChangeHandler);
-    };
-  });
+  const { id } = match.params;
+  const cards = cardsData[id];
 
-  if (game) {
+  if (mode === 'game') {
     return (
       <>
         <div className='game-score rating'></div>
         <main className="grid card-list">
-          {cards.map((card) => <GameCards card={card} key={card.id} game={game} />)}
+          {cards.map((card) => <GameCards card={card} key={card.word} />)}
           <GameBtn cards={cards} />
         </main>
         <div className='game-result'></div>
@@ -31,9 +26,9 @@ function CardList({ cards }: any) {
 
   return (
     <main className="grid">
-      {cards.map((card) => <TrainCards card={card} key={card.id} game={game} />)}
+      {cards.map((card) => <TrainCards card={card} key={card.word} />)}
     </main>
   );
 }
 
-export default CardList;
+export default withRouter(CardList);

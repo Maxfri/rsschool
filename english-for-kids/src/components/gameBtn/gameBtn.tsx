@@ -6,6 +6,7 @@ import './gameBtn.css';
 
 function GameBtn({ cards }) {
   const history: History = useHistory();
+  
   const hideElement = (element: HTMLElement) => {
     element.style.transition = '0.5s';
     element.style.opacity = '0';

@@ -76,7 +76,7 @@ function IsGame({ cards, history }: any) {
   }
 
   function endGame() {
-    list.classList.add('invise');
+    list.classList.add('invisibility');
     if (countAnswers.wrong > 0) {
       const loseAudio: HTMLAudioElement = new Audio('../src/assets/audio/failure.mp3');
       loseAudio.play();
@@ -99,9 +99,6 @@ function IsGame({ cards, history }: any) {
       gameResult.appendChild(win);
       // {WinPage()};
     }
-    // setInterval(() => {
-    //   document.location.href = '/';
-    // }, 2000);
     setTimeout(() => {
       if (history.location.pathname === location) {
         history.push('/');

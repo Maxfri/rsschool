@@ -1,7 +1,7 @@
 import React from 'react';
 
 function LosePage(wrongAnswers): JSX.Element {
-  console.log('loser');
+  // console.log('loser');
   return (
     <div>
       <div>Errors: ${wrongAnswers}</div>
