@@ -1,15 +1,14 @@
 import React from 'react';
 import './toggleSwitch.css';
 
-function ToggleSwitch({setMode, mode}): JSX.Element {
-
+function ToggleSwitch({ setMode, mode }): JSX.Element {
   const handelSwitch = () => {
     if (mode === 'train') {
       setMode('game');
     } else {
       setMode('train');
     }
-  }
+  };
   return (
     <div className="toggle-switch">
       <input

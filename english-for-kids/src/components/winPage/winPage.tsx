@@ -5,7 +5,7 @@ function WinPage() {
 
   return (
     <div>
-      <img src='../src/assets/img/success.jpg' />
+      <img src="../src/assets/img/success.jpg" />
     </div>
   );
 }

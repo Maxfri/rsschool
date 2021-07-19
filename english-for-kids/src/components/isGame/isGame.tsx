@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { History } from 'history';
-import LosePage from '../losePage/losePage';
-import WinPage from '../winPage/winPage';
 import { Redirect } from 'react-router';
 import { Route } from 'react-router-dom';
+import LosePage from '../losePage/losePage';
+import WinPage from '../winPage/winPage';
 
 function IsGame({ cards, history }: any) {
   const location: string = history.location.pathname;

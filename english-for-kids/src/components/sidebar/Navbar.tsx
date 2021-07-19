@@ -7,7 +7,7 @@ import SidebarData from './SidebarData';
 import ToggleSwitch from '../toggleSwitch/toggleSwitch';
 import './Navbar.css';
 
-function Navbar({mode, setMode}: any) {
+function Navbar({ mode, setMode }: any) {
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
   // console.log(mode);

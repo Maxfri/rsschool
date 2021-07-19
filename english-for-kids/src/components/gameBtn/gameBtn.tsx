@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
-import IsGame from '../isGame/isGame';
 import { useHistory } from 'react-router-dom';
 import { History } from 'history';
+import IsGame from '../isGame/isGame';
 import './gameBtn.css';
 
 function GameBtn({ cards }) {
   const history: History = useHistory();
-  
+
   const hideElement = (element: HTMLElement) => {
     element.style.transition = '0.5s';
     element.style.opacity = '0';
@@ -26,7 +26,7 @@ function GameBtn({ cards }) {
     const startBtnHandler = (): void => {
       hideElement(startBtn);
       setTimeout(() => { showElement(repeatBtn); }, 500);
-      {IsGame({cards: cards, history: history})};
+      { IsGame({ cards, history }); }
     };
 
     // const repeatBtnHandler = (): void => {

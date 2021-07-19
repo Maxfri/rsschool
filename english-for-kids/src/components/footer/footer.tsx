@@ -6,14 +6,9 @@ export default function Footer() {
     <footer className="main-footer">
       <div className="container-fluid">
         <div className="row">
-          <div className="col">
-          </div>
-          <div className="col">
-
-          </div>
-          <div className="col">
-
-          </div>
+          <div className="col" />
+          <div className="col" />
+          <div className="col" />
         </div>
       </div>
     </footer>
