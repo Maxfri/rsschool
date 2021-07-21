@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { History } from 'history';
-import LosePage from '../losePage/losePage';
-import WinPage from '../winPage/winPage';
-import { Redirect } from 'react-router';
-import { Route } from 'react-router-dom';
+// import React, { useState } from 'react';
+// import { History } from 'history';
+// import { Redirect } from 'react-router';
+// import { Route } from 'react-router-dom';
+// import LosePage from '../losePage/losePage';
+// import WinPage from '../winPage/winPage';
 
 function IsGame({ cards, history }: any) {
   const location: string = history.location.pathname;
@@ -56,7 +56,7 @@ function IsGame({ cards, history }: any) {
     starSucces.classList.add('star-succes');
     gameScore.appendChild(starSucces);
     cardItem.classList.add('right-check');
-    countAnswers.right++;
+    countAnswers.right += 1;
     if (audio.length === 0) {
       endGame();
     }
@@ -68,7 +68,7 @@ function IsGame({ cards, history }: any) {
     const starError = document.createElement('div');
     starError.classList.add('star-error');
     gameScore.appendChild(starError);
-    countAnswers.wrong++;
+    countAnswers.wrong += 1;
   }
 
   function shuffle(array) {

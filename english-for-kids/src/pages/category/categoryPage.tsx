@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import CardList from '../../components/cardList/cardList';
-import cardsData from '../../components/cards/CardsData';
 
 function CategoryPage({ mode, setMode }): JSX.Element {
   // const [cards, setCards] = useState(cardsData);

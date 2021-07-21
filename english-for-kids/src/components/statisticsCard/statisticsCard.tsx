@@ -2,7 +2,7 @@ import React from 'react';
 
 function StatisticsCard({ card }) {
   return (
-    <div className='statistics-cards'>
+    <div className="statistics-cards">
       <div className="statistics-cards-word">
         {card.word}
       </div>
@@ -10,7 +10,7 @@ function StatisticsCard({ card }) {
         {card.translation}
       </div>
       <div className="statistics-cards-click">
-        clicks: 
+        clicks:
       </div>
       <div className="statistics-cards-right">
         right-click:
@@ -19,10 +19,10 @@ function StatisticsCard({ card }) {
         wrong-click:
       </div>
       <div className="statistics-cards">
-        percent: 
+        percent:
       </div>
     </div>
-  )
+  );
 }
 
 export default StatisticsCard;
