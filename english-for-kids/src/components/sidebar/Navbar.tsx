@@ -5,6 +5,7 @@ import { IconContext } from 'react-icons';
 import { Link } from 'react-router-dom';
 import SidebarData from './SidebarData';
 import ToggleSwitch from '../toggleSwitch/toggleSwitch';
+import AuthBtn from '../authBtn/authBtn';
 import './Navbar.css';
 
 function Navbar({ mode, setMode }: any) {
@@ -20,6 +21,7 @@ function Navbar({ mode, setMode }: any) {
           </Link>
           <h1>English for kids</h1>
           <ToggleSwitch setMode={setMode} mode={mode} />
+          <AuthBtn />
         </div>
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
           <ul
