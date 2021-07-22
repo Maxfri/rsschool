@@ -75,3 +75,8 @@ span {
 h1 {
   color: #f5f5f5;
 }
+
+.navbar-btn {
+  display: flex;
+  flex-direction: row;
+}

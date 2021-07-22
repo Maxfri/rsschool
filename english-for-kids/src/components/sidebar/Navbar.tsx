@@ -8,10 +8,10 @@ import ToggleSwitch from '../toggleSwitch/toggleSwitch';
 import AuthBtn from '../authBtn/authBtn';
 import './Navbar.css';
 
-function Navbar({ mode, setMode }: any) {
+function Navbar({ mode, setMode, token, setToken }: any) {
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
-  // console.log(mode);
+
   return (
     <>
       <IconContext.Provider value={{ color: '#fff' }}>
@@ -20,8 +20,10 @@ function Navbar({ mode, setMode }: any) {
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
           <h1>English for kids</h1>
-          <ToggleSwitch setMode={setMode} mode={mode} />
-          <AuthBtn />
+          <div className="navbar-btn">
+            <ToggleSwitch setMode={setMode} mode={mode} />
+            <AuthBtn token={token} setToken={setToken} />
+          </div>
         </div>
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
           <ul

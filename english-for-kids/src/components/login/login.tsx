@@ -17,27 +17,26 @@ function Login({ setToken }) {
   const [username, setUserName] = useState();
   const [password, setPassword] = useState();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
     const token = await loginUser({
       username,
       password,
     });
     setToken(token);
-    console.log(token);
   };
 
   return (
     <div className="login-wrapper">
-      <h1>Please Log In</h1>
+      <h2>Please Log In</h2>
       <form onSubmit={handleSubmit}>
         <label>
           <p>Username</p>
-          <input type="text" onChange={(e): any => setUserName(e.target.value as any)} />
+          <input type="text" onChange={(event): any => setUserName(event.target.value as any)} />
         </label>
         <label>
           <p>Password</p>
-          <input type="password" onChange={(e): any => setPassword(e.target.value as any)} />
+          <input type="password" onChange={(event): any => setPassword(event.target.value as any)} />
         </label>
         <div>
           <button type="submit">Submit</button>

@@ -63,12 +63,12 @@ const SidebarData = [
     icon: <FaIcons.FaAdversal />,
     className: 'nav-text',
   },
-  {
-    title: 'Login',
-    path: '/login',
-    icon: <FaIcons.FaAdversal />,
-    className: 'nav-text',
-  },
+  // {
+  //   title: 'Login',
+  //   path: '/login',
+  //   icon: <FaIcons.FaAdversal />,
+  //   className: 'nav-text',
+  // },
 ];
 
 export default SidebarData;

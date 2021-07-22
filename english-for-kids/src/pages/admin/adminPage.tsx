@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
+import CategoryList from '../../components/categoryList/categoryList';
 
-function AdminPage() {
+function AdminPage({ categories }) {
+  const [mode, setMode] = useState('admin');
   return (
     <div>
-      <h1>Admin Panel</h1>
+      <h2>Admin Panel</h2>
+      <CategoryList categories={categories} mode={mode}/>
     </div>
   );
 }

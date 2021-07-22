@@ -16,24 +16,23 @@ import cards from './components/cards/CardsData';
 function App() {
   const [mode, setMode] = useState('train');
   const [token, setToken] = useState();
+  const [categories] = useState(cards[0]);
 
-  console.log('TOKEN', token);
   return (
     <div className="app-container">
       <Router>
-        <Navbar mode={mode} setMode={setMode} />
+        <Navbar mode={mode} setMode={setMode} token={token} setToken={setToken} />
         <Switch>
-          <Route path="/" exact render={() => <HomePage />} />
+          <Route path="/" exact render={() => <HomePage categories={categories} />} />
           <Route path="/category/:id" render={() => <CategoryPage mode={mode} setMode={setMode} />} />
           <Route path="/statistics" render={() => <StatisticsPage />} />
-          {/* <Route path="/login" render={() => <Login setToken={setToken} />} /> */}
           <Route
             path="/login"
             render={() => {
               if (!token) {
                 return <Login setToken={setToken} />;
               }
-              return <AdminPage />;
+              return <AdminPage categories={categories} />;
             }}
           />
         </Switch>

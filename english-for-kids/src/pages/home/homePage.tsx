@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import cardsData from '../../components/cards/CardsData';
 import CateryList from '../../components/categoryList/categoryList';
 
-function HomePage(): JSX.Element {
-  const [categories] = useState(cardsData[0]);
+function HomePage({categories}): JSX.Element {
+  // const [categories] = useState(cardsData[0]);
 
   return (
     <section className="main-section">

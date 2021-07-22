@@ -1,26 +1,30 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './authBtn.css';
 
-function AuthBtn() {
-  const [auth, setAuth] = useState(false);
+function AuthBtn({ token, setToken }) {
 
-  const handleAuth = () => {
-    setAuth(!auth);
-  };
-  console.log(auth);
+  const handleAuthLogOut = () => {
+    setToken('');
+  }
   return (
     <>
       {
-        auth
+        !token
           ? (
-            <input
-              type="button"
-              value="Login"
-              className="login"
-              onClick={handleAuth}
-            />
+            <Link to="/login">
+              <input
+                type="button"
+                value="Login"
+                className="login"
+              />
+            </Link>
           )
-          : <input type="button" value="Logout" className="logout" onClick={handleAuth} />
+          : (
+            <Link to="/">
+              <input type="button" value="Logout" className="logout" onClick={handleAuthLogOut} />
+            </Link>
+          )
       }
     </>
   );
