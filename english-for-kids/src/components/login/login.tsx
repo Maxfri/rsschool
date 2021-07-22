@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './login.css';
 
 async function loginUser(credentials) {
-  return fetch('http://localhost:3000/login', {
+  return fetch('https://english-for-kids-serve.herokuapp.com/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

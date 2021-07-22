@@ -7,7 +7,7 @@ function AddCategory({ category, setCategory }): JSX.Element {
     console.log(e);
     setCard(e.target.value)
   }
-  console.log(category);
+  // console.log(category);
 
   const handleEditCategory = () => {
     setCategory([...category, {title: card}])
