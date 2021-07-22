@@ -14,12 +14,11 @@ import AdminPage from './pages/admin/adminPage';
 import cards from './components/cards/CardsData';
 
 async function getData() {
-  return fetch('http://localhost:3000/data', {
+  return fetch('https://english-for-kids-serve.herokuapp.com/data', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
     },
-    // body: JSON.stringify(),
   })
     .then((data) => data.json());
 }

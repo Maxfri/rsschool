@@ -2,27 +2,30 @@ import React, { useState } from 'react';
 import CardsData from '../cards/CardsData';
 
 function AddCategory({ category, setCategory }): JSX.Element {
-  const [card, setCard] = useState('');
+  const [cardTitle, setCardTitle] = useState('');
+
   const handleChangeName = (e) => {
-    console.log(e);
-    setCard(e.target.value);
+    setCardTitle(e.target.value);
   };
-  // console.log(category);
 
   const handleEditCategory = () => {
-    setCategory([...category, { title: card }]);
+    setCategory([...category, { title: cardTitle }]);
     console.log(category);
+    setCardTitle('');
   };
+
   return (
     <article
-      className="category"
+      key={category.id}
+      className="category-card"
     >
-      <div className="category-body">
-        <p className="category-text">
+      <img className="category-card-img" src="../src/assets/img/default_category.png" alt="Category" />
+      <div className="category-card-body">
+        <p className="category-card-text">
           Add category
         </p>
         {/* <input type="text" value={this.state.value} onChange={this.handleChange} /> */}
-        <input className="category-input" type="text" value={card} onChange={handleChangeName} />
+        <input className="category-card-input" type="text" value={cardTitle} onChange={handleChangeName} />
       </div>
       <button className="btn btn-accent" type="button" onClick={handleEditCategory}>Add</button>
     </article>

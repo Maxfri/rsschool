@@ -13,45 +13,57 @@ function Navbar({
 }: any) {
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
-
-  return (
-    <>
-      <IconContext.Provider value={{ color: '#fff' }}>
-        <div className="navbar">
-          <Link to="#" className="menu-bars">
-            <FaIcons.FaBars onClick={showSidebar} />
-          </Link>
-          <h1>English for kids</h1>
-          <div className="navbar-btn">
-            <ToggleSwitch setMode={setMode} mode={mode} />
+  if (token) {
+    return (
+      <>
+        <IconContext.Provider value={{ color: '#fff' }}>
+          <div className="navbar">
+            <h1>English for kids</h1>
             <AuthBtn token={token} setToken={setToken} />
           </div>
-        </div>
-        <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
-          <ul
-            className="nav-menu-items"
-            onClick={showSidebar}
-            onKeyDown={showSidebar}
-            role="presentation"
-          >
-            <li className="navbar-toggle">
-              <Link to="#" className="menu-bars">
-                <AiIcons.AiOutlineClose />
-              </Link>
-            </li>
-            {SidebarData.map((item) => (
-              <li key={item.title} className={item.className}>
-                <Link to={item.path}>
-                  {item.icon}
-                  <span>{item.title}</span>
+        </IconContext.Provider>
+      </>
+    );
+  } else {
+    return (
+      <>
+        <IconContext.Provider value={{ color: '#fff' }}>
+          <div className="navbar">
+            <Link to="#" className="menu-bars">
+              <FaIcons.FaBars onClick={showSidebar} />
+            </Link>
+            <h1>English for kids</h1>
+            <div className="navbar-btn">
+              <ToggleSwitch setMode={setMode} mode={mode} />
+              <AuthBtn token={token} setToken={setToken} />
+            </div>
+          </div>
+          <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+            <ul
+              className="nav-menu-items"
+              onClick={showSidebar}
+              onKeyDown={showSidebar}
+              role="presentation"
+            >
+              <li className="navbar-toggle">
+                <Link to="#" className="menu-bars">
+                  <AiIcons.AiOutlineClose />
                 </Link>
               </li>
-            ))}
-          </ul>
-        </nav>
-      </IconContext.Provider>
-    </>
-  );
+              {SidebarData.map((item) => (
+                <li key={item.title} className={item.className}>
+                  <Link to={item.path}>
+                    {item.icon}
+                    <span>{item.title}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </IconContext.Provider>
+      </>
+    );
+  }
 }
 
 export default Navbar;

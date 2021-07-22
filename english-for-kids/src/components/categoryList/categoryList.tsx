@@ -4,7 +4,7 @@ import AddCategory from '../addCategory/addCategory';
 import CategoryAdmin from '../categoryAdmin/categoryAdmin';
 
 function CategoryList({ categories, mode }: any) {
-  const [addCategory, setAddCategory] = useState(categories);
+  const [allCategories, setAllCategories] = useState(categories);
   if (mode !== 'admin') {
     return (
       <main className="grid-wrapper">
@@ -18,10 +18,10 @@ function CategoryList({ categories, mode }: any) {
   }
   return (
     <main className="grid-wrapper">
-      <AddCategory category={addCategory} setCategory={setAddCategory} />
+      <AddCategory category={allCategories} setCategory={setAllCategories} />
       {
-        addCategory.map((category) => (
-          <CategoryAdmin category={category} key={category.id} />
+        allCategories.map((category) => (
+          <CategoryAdmin category={category} key={category.id} allCategories={allCategories} setAllCategories={setAllCategories} />
         ))
       }
     </main>
