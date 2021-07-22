@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import CateryList from '../../components/categoryList/categoryList';
 
-function HomePage({categories}): JSX.Element {
+function HomePage({ categories }): JSX.Element {
   // const [categories] = useState(cardsData[0]);
 
   return (

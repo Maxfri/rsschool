@@ -8,7 +8,9 @@ import ToggleSwitch from '../toggleSwitch/toggleSwitch';
 import AuthBtn from '../authBtn/authBtn';
 import './Navbar.css';
 
-function Navbar({ mode, setMode, token, setToken }: any) {
+function Navbar({
+  mode, setMode, token, setToken,
+}: any) {
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
 

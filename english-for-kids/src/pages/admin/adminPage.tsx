@@ -6,7 +6,7 @@ function AdminPage({ categories }) {
   return (
     <div>
       <h2>Admin Panel</h2>
-      <CategoryList categories={categories} mode={mode}/>
+      <CategoryList categories={categories} mode={mode} />
     </div>
   );
 }

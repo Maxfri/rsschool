@@ -3,10 +3,9 @@ import { Link } from 'react-router-dom';
 import './authBtn.css';
 
 function AuthBtn({ token, setToken }) {
-
   const handleAuthLogOut = () => {
     setToken('');
-  }
+  };
   return (
     <>
       {

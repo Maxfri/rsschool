@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,10 +13,31 @@ import StatisticsPage from './pages/statistics/statisticsPage';
 import AdminPage from './pages/admin/adminPage';
 import cards from './components/cards/CardsData';
 
+async function getData() {
+  return fetch('http://localhost:3000/data', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    // body: JSON.stringify(),
+  })
+    .then((data) => data.json());
+}
+
 function App() {
   const [mode, setMode] = useState('train');
   const [token, setToken] = useState();
-  const [categories] = useState(cards[0]);
+  const [categories, setCategories] = useState(cards[0]);
+
+  const handleData = async () => {
+    const data = await getData();
+    setCategories(data[0]);
+    console.log(data);
+  };
+
+  useEffect(() => {
+    handleData();
+  }, []);
 
   return (
     <div className="app-container">
