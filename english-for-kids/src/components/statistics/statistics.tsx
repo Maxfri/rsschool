@@ -2,7 +2,12 @@ import React from 'react';
 import StatisticsCardList from '../statisticsCardList/statisticsCardList';
 import './statistics.css';
 
-function Statistics({ category, cards }) {
+interface Props {
+  category: any,
+  cards: any,
+}
+
+function Statistics({ category, cards }: Props): JSX.Element {
   return (
     <div className="statistics-category">
       <div className="statistics-category-name">

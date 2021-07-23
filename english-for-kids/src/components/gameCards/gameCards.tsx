@@ -1,6 +1,6 @@
 import React from 'react';
 
-function GameCards({ card }: any) {
+function GameCards({ card }: any): JSX.Element {
   return (
     <article
       key={card.id}

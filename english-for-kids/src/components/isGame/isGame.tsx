@@ -5,7 +5,7 @@
 // import LosePage from '../losePage/losePage';
 // import WinPage from '../winPage/winPage';
 
-function IsGame({ cards, history }: any) {
+function IsGame({ cards, history }: any): JSX.Element {
   const location: string = history.location.pathname;
   const gameResult = document.querySelector('.game-result');
   const gameScore = document.querySelector('.game-score');

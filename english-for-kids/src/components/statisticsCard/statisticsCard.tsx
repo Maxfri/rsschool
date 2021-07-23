@@ -1,6 +1,10 @@
 import React from 'react';
 
-function StatisticsCard({ card }) {
+interface Props {
+  card: [];
+}
+
+function StatisticsCard({ card }: Props): JSX.Element {
   return (
     <div className="statistics-cards">
       <div className="statistics-cards-word">

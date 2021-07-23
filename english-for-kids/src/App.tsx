@@ -10,8 +10,9 @@ import HomePage from './pages/home/homePage';
 import CategoryPage from './pages/category/categoryPage';
 import StatisticsPage from './pages/statistics/statisticsPage';
 
-function App() {
+function App(): JSX.Element {
   const [mode, setMode] = useState('train');
+
   return (
     <div className="app-container">
       <Router>

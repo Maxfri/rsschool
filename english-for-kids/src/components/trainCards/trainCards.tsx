@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function TrainCards({ card }: any) {
+function TrainCards({ card }: any): JSX.Element {
   const [flip, setFlip] = useState(false);
   const { audioSrc } = card;
   const { id } = card;

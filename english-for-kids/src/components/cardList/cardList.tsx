@@ -6,7 +6,12 @@ import TrainCards from '../trainCards/trainCards';
 import cardsData from '../cards/CardsData';
 import '../cards/cards.css';
 
-function CardList({ match, mode, setMode }: any) {
+interface Props {
+  match: any,
+  mode: string,
+  setMode: React.Dispatch<React.SetStateAction<string>>;
+}
+function CardList({ match, mode, setMode }: Props): JSX.Element {
   const { id } = match.params;
   const cards = cardsData[id];
 

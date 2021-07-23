@@ -1,6 +1,6 @@
 import React from 'react';
 
-function StatisticsBtn() {
+function StatisticsBtn(): JSX.Element {
   return (
     <>
       <button type="button" className="">Reset</button>

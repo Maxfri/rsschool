@@ -1,7 +1,11 @@
 import React from 'react';
 import StatisticsCard from '../statisticsCard/statisticsCard';
 
-function StatisticsCardList({ cards }) {
+interface Props {
+  cards: any;
+}
+
+function StatisticsCardList({ cards }: Props): JSX.Element {
   return (
     <>
       {cards.map((card) => (

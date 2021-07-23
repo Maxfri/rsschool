@@ -4,7 +4,11 @@ import { History } from 'history';
 import IsGame from '../isGame/isGame';
 import './gameBtn.css';
 
-function GameBtn({ cards }) {
+interface Props {
+  cards: any,
+}
+
+function GameBtn({ cards }: Props): JSX.Element {
   const history: History = useHistory();
 
   // const hideElement = (element: HTMLElement) => {
@@ -20,7 +24,7 @@ function GameBtn({ cards }) {
   // };
 
   useEffect(() => {
-    { IsGame({ cards, history }); }
+    IsGame({ cards, history });
   });
 
   return (

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function LocalStorage() {
+function LocalStorage(): JSX.Element {
   return (
     <div />
   );

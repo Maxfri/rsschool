@@ -7,9 +7,16 @@ import SidebarData from './SidebarData';
 import ToggleSwitch from '../toggleSwitch/toggleSwitch';
 import './Navbar.css';
 
-function Navbar({ mode, setMode }: any) {
+interface Props {
+  mode: string;
+  setMode: React.Dispatch<React.SetStateAction<string>>;
+}
+
+function Navbar({ mode, setMode }: Props): JSX.Element {
   const [sidebar, setSidebar] = useState(false);
-  const showSidebar = () => setSidebar(!sidebar);
+
+  const showSidebar = (): void => setSidebar(!sidebar);
+
   return (
     <>
       <IconContext.Provider value={{ color: '#fff' }}>
