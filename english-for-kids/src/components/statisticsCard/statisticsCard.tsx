@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface Props {
-  card: [];
+  card: any;
 }
 
 function StatisticsCard({ card }: Props): JSX.Element {
