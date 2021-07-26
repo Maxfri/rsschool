@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 interface Props {
   card: any,
@@ -6,39 +6,60 @@ interface Props {
   setAudio: any,
   playAudio: any,
   setGameState: any,
-  wrongClick: any,
-  setWrongClick: any,
-  rightClick: any,
-  setRightClick: any
+  countAnswers: any,
+  setCountAnswers: any,
 }
 function GameCards({
-  card, audio, setAudio, playAudio, setGameState, wrongClick,
-  setWrongClick,
-  rightClick,
-  setRightClick
+  card, audio, setAudio, playAudio, setGameState, countAnswers, setCountAnswers,
 }: Props): JSX.Element {
-  const handlerCheckCard = () => {
-    if (audio.length === 0 && wrongClick === 0) {
-      setGameState('win');
-    } else if (audio.length === 0 && wrongClick !== 0) {
+  const [rightCard, setRightCard] = useState('game-card');
+
+  const rightAnswer = () => {
+    setCountAnswers({ right: countAnswers.right + 1, wrong: countAnswers.wrong });
+    const correctAudio: HTMLAudioElement = new Audio('../src/assets/audio/correct.mp3');
+    correctAudio.play();
+    const filteredItems = audio.filter((item) => item !== audio[0]);
+    setAudio(filteredItems);
+    playAudio(filteredItems[0]);
+    if (audio.length === 1) {
+      endGame();
+    }
+  };
+
+  const wrongAnswer = () => {
+    setCountAnswers({ right: countAnswers.right, wrong: countAnswers.wrong + 1 });
+    const errorAudio: HTMLAudioElement = new Audio('../src/assets/audio/error.mp3');
+    errorAudio.play();
+    playAudio(audio[0]);
+  };
+
+  const endGame = () => {
+    if (audio.length === 1 && countAnswers.wrong > 0) {
+      const loseAudio: HTMLAudioElement = new Audio('../src/assets/audio/failure.mp3');
+      loseAudio.play();
       setGameState('lose');
-    }
-    if (audio[0].word === card.word) {
-      setRightClick(rightClick + 1);
-      const filteredItems = audio.filter((item) => item !== audio[0]);
-      setAudio(filteredItems);
-      playAudio(filteredItems[0]);
     } else {
-      setWrongClick(wrongClick + 1);
-      playAudio(audio[0]);
+      const winAudio: HTMLAudioElement = new Audio('../src/assets/audio/success.mp3');
+      winAudio.play();
+      setGameState('win');
     }
+  };
+  const getCheckCard = () => {
+    if (audio[0].word === card.word) {
+      rightAnswer();
+      setRightCard('right-check');
+    } else {
+      wrongAnswer();
+    }
+  };
+  const handlerCheckCard = () => {
+    getCheckCard();
   };
 
   return (
     <article
       key={card.id}
-      className="game-card"
-      // data-word={card.word}
+      className={rightCard}
       onClick={handlerCheckCard}
       onKeyDown={handlerCheckCard}
       role="presentation"

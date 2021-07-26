@@ -24,34 +24,36 @@ function CardList({ match, mode, setMode }: any): JSX.Element {
   const [isGame, setIsGame] = useState(false);
   const [audio, setAudio] = useState([]);
   const [gameState, setGameState] = useState('play');
-  const [rightClick, setRightClick] = useState(0);
-  const [wrongClick, setWrongClick] = useState(0);
+  const [countAnswers, setCountAnswers] = useState({ right: 0, wrong: 0 });
   const { id } = match.params;
   const cards = cardsData[id];
   const playAudio = (music) => setTimeout(() => {
-    music.audio.play();
+    if (music) {
+      music.audio.play();
+    }
   }, 500);
 
   useEffect(() => {
     // IsGame({ cards, history });
+    // const shuffle = (array) => {
+    //   array.sort(() => Math.random() - 0.5);
+    // };
     cards.map((card): void => {
-      setAudio(() => [...audio, {
+      setAudio((audio) => [...audio, {
         audio: new Audio(card.audioSrc),
         word: card.word,
       }]);
     });
-    const shuffle = (array) => {
-      array.sort(() => Math.random() - 0.5);
-    };
-    // shuffle(setAudio);
+    // setAudio(shuffle(audio));
   }, []);
 
   if (mode === 'game') {
     if (gameState === 'win') {
       return (<WinPage />);
     } if (gameState === 'lose') {
-      return (<LosePage />);
+      return (<LosePage countAnswers={countAnswers} />);
     }
+
     return (
       <>
         <div className="game-score rating" />
@@ -64,10 +66,8 @@ function CardList({ match, mode, setMode }: any): JSX.Element {
               setAudio={setAudio}
               playAudio={playAudio}
               setGameState={setGameState}
-              wrongClick={wrongClick}
-              setWrongClick={setWrongClick}
-              rightClick={rightClick}
-              setRightClick={setRightClick}
+              countAnswers={countAnswers}
+              setCountAnswers={setCountAnswers}
             />
           ))}
           <GameBtn
