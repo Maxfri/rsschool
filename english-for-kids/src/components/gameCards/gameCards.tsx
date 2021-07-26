@@ -5,29 +5,34 @@ interface Props {
   audio: any[],
   setAudio: any,
   playAudio: any,
-  setGameState: any
+  setGameState: any,
+  wrongClick: any,
+  setWrongClick: any,
+  rightClick: any,
+  setRightClick: any
 }
 function GameCards({
-  card, audio, setAudio, playAudio, setGameState,
+  card, audio, setAudio, playAudio, setGameState, wrongClick,
+  setWrongClick,
+  rightClick,
+  setRightClick
 }: Props): JSX.Element {
-  useEffect(() => {
-    if (audio.length === 0) {
-      setGameState('win');
-    }
-  });
   const handlerCheckCard = () => {
+    if (audio.length === 0 && wrongClick === 0) {
+      setGameState('win');
+    } else if (audio.length === 0 && wrongClick !== 0) {
+      setGameState('lose');
+    }
     if (audio[0].word === card.word) {
+      setRightClick(rightClick + 1);
       const filteredItems = audio.filter((item) => item !== audio[0]);
       setAudio(filteredItems);
       playAudio(filteredItems[0]);
     } else {
+      setWrongClick(wrongClick + 1);
       playAudio(audio[0]);
     }
   };
-
-  // else {
-  //   setGameState('lose');
-  // }
 
   return (
     <article

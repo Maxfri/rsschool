@@ -11,8 +11,8 @@ import '../cards/cards.css';
 interface Props {
   match: any,
   mode: string,
-  setMode: any,
-  // setMode: React.Dispatch<React.SetStateAction<string>>,
+  // setMode: any,
+  setMode: React.Dispatch<React.SetStateAction<string>>,
 }
 // interface Card {
 //   word: string,
@@ -20,15 +20,18 @@ interface Props {
 //   image: string,
 //   audioSrc: string,
 // }
-function CardList({ match, mode, setMode }: Props): JSX.Element {
+function CardList({ match, mode, setMode }: any): JSX.Element {
   const [isGame, setIsGame] = useState(false);
   const [audio, setAudio] = useState([]);
   const [gameState, setGameState] = useState('play');
+  const [rightClick, setRightClick] = useState(0);
+  const [wrongClick, setWrongClick] = useState(0);
   const { id } = match.params;
   const cards = cardsData[id];
   const playAudio = (music) => setTimeout(() => {
     music.audio.play();
   }, 500);
+
   useEffect(() => {
     // IsGame({ cards, history });
     cards.map((card): void => {
@@ -37,11 +40,11 @@ function CardList({ match, mode, setMode }: Props): JSX.Element {
         word: card.word,
       }]);
     });
+    const shuffle = (array) => {
+      array.sort(() => Math.random() - 0.5);
+    };
+    // shuffle(setAudio);
   }, []);
-
-  const shuffle = (array) => {
-    array.sort(() => Math.random() - 0.5);
-  };
 
   if (mode === 'game') {
     if (gameState === 'win') {
@@ -61,6 +64,10 @@ function CardList({ match, mode, setMode }: Props): JSX.Element {
               setAudio={setAudio}
               playAudio={playAudio}
               setGameState={setGameState}
+              wrongClick={wrongClick}
+              setWrongClick={setWrongClick}
+              rightClick={rightClick}
+              setRightClick={setRightClick}
             />
           ))}
           <GameBtn
