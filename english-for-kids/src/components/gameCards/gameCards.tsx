@@ -8,9 +8,11 @@ interface Props {
   setGameState: any,
   countAnswers: any,
   setCountAnswers: any,
+  stars: any,
+  setStars: any
 }
 function GameCards({
-  card, audio, setAudio, playAudio, setGameState, countAnswers, setCountAnswers,
+  card, audio, setAudio, playAudio, setGameState, countAnswers, setCountAnswers, stars, setStars
 }: Props): JSX.Element {
   const [rightCard, setRightCard] = useState('game-card');
 
@@ -18,6 +20,7 @@ function GameCards({
     setCountAnswers({ right: countAnswers.right + 1, wrong: countAnswers.wrong });
     const correctAudio: HTMLAudioElement = new Audio('../src/assets/audio/correct.mp3');
     correctAudio.play();
+    setStars([...stars, 'right']);
     const filteredItems = audio.filter((item) => item !== audio[0]);
     setAudio(filteredItems);
     playAudio(filteredItems[0]);
@@ -30,6 +33,7 @@ function GameCards({
     setCountAnswers({ right: countAnswers.right, wrong: countAnswers.wrong + 1 });
     const errorAudio: HTMLAudioElement = new Audio('../src/assets/audio/error.mp3');
     errorAudio.play();
+    setStars([...stars, 'wrong']);
     playAudio(audio[0]);
   };
 

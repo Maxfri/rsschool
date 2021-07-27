@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import IsGame from '../isGame/isGame';
 import './gameBtn.css';
 
 interface Props {

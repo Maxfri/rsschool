@@ -6,6 +6,7 @@ import TrainCards from '../trainCards/trainCards';
 import cardsData from '../cards/CardsData';
 import LosePage from '../losePage/losePage';
 import WinPage from '../winPage/winPage';
+import Stars from '../stars/stars';
 import '../cards/cards.css';
 
 interface Props {
@@ -25,6 +26,7 @@ function CardList({ match, mode, setMode }: any): JSX.Element {
   const [audio, setAudio] = useState([]);
   const [gameState, setGameState] = useState('play');
   const [countAnswers, setCountAnswers] = useState({ right: 0, wrong: 0 });
+  const [stars, setStars] = useState([])
   const { id } = match.params;
   const cards = cardsData[id];
   const playAudio = (music) => setTimeout(() => {
@@ -56,7 +58,7 @@ function CardList({ match, mode, setMode }: any): JSX.Element {
 
     return (
       <>
-        <div className="game-score rating" />
+        <Stars stars={stars} />
         <main className="grid card-list">
           {cards.map((card) => (
             <GameCards
@@ -68,6 +70,8 @@ function CardList({ match, mode, setMode }: any): JSX.Element {
               setGameState={setGameState}
               countAnswers={countAnswers}
               setCountAnswers={setCountAnswers}
+              stars={stars}
+              setStars={setStars}
             />
           ))}
           <GameBtn
