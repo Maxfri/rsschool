@@ -4,11 +4,10 @@ import StatisticsBtn from '../statisticsBtn/statisticsBtn';
 
 interface Props {
   categories: any,
-  cards: any,
-  setCards: any
+  cards: any
 }
 
-function StatisticsList({ categories, cards, setCards }: Props): JSX.Element {
+function StatisticsList({ categories, cards }: Props): JSX.Element {
   return (
     <main className="grid-wrapper statistics-category-wrapper">
       {categories.map((category) => (

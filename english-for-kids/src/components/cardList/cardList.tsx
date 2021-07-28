@@ -12,8 +12,7 @@ import '../cards/cards.css';
 interface Props {
   match: any,
   mode: string,
-  // setMode: any,
-  setMode: React.Dispatch<React.SetStateAction<string>>,
+  setMode?: React.Dispatch<React.SetStateAction<string>>,
 }
 // interface Card {
 //   word: string,
@@ -21,12 +20,15 @@ interface Props {
 //   image: string,
 //   audioSrc: string,
 // }
+const shuffle = (array) => array.sort(() => Math.random() - 0.5);
+
 function CardList({ match, mode, setMode }: any): JSX.Element {
+  // console.log(match);
   const [isGame, setIsGame] = useState(false);
   const [audio, setAudio] = useState([]);
   const [gameState, setGameState] = useState('play');
   const [countAnswers, setCountAnswers] = useState({ right: 0, wrong: 0 });
-  const [stars, setStars] = useState([])
+  const [stars, setStars] = useState([]);
   const { id } = match.params;
   const cards = cardsData[id];
   const playAudio = (music) => setTimeout(() => {
@@ -36,17 +38,17 @@ function CardList({ match, mode, setMode }: any): JSX.Element {
   }, 500);
 
   useEffect(() => {
-    // IsGame({ cards, history });
-    // const shuffle = (array) => {
-    //   array.sort(() => Math.random() - 0.5);
-    // };
     cards.map((card): void => {
       setAudio((audio) => [...audio, {
         audio: new Audio(card.audioSrc),
         word: card.word,
       }]);
     });
-    // setAudio(shuffle(audio));
+    // const shuffleAudio = [...audio];
+    // console.log(audio);
+    // shuffle(shuffleAudio);
+    // console.log(shuffleAudio);
+    // setAudio(shuffleAudio);
   }, []);
 
   if (mode === 'game') {

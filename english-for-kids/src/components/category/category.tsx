@@ -1,10 +1,17 @@
 import React from 'react';
+import { History } from 'history';
 import { withRouter } from 'react-router-dom';
 import './category.css';
 
+interface CardsCategory {
+  id: number;
+  title: string;
+  image: string;
+}
+
 interface Props {
-  category: any,
-  history: any
+  category: CardsCategory,
+  history: History
 }
 
 function Category({ category, history }: any): JSX.Element {

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 interface Props {
   card: any,
@@ -12,9 +12,21 @@ interface Props {
   setStars: any
 }
 function GameCards({
-  card, audio, setAudio, playAudio, setGameState, countAnswers, setCountAnswers, stars, setStars
+  card, audio, setAudio, playAudio, setGameState, countAnswers, setCountAnswers, stars, setStars,
 }: Props): JSX.Element {
   const [rightCard, setRightCard] = useState('game-card');
+
+  const endGame = () => {
+    if (audio.length === 1 && countAnswers.wrong > 0) {
+      const loseAudio: HTMLAudioElement = new Audio('../src/assets/audio/failure.mp3');
+      loseAudio.play();
+      setGameState('lose');
+    } else {
+      const winAudio: HTMLAudioElement = new Audio('../src/assets/audio/success.mp3');
+      winAudio.play();
+      setGameState('win');
+    }
+  };
 
   const rightAnswer = () => {
     setCountAnswers({ right: countAnswers.right + 1, wrong: countAnswers.wrong });
@@ -37,17 +49,6 @@ function GameCards({
     playAudio(audio[0]);
   };
 
-  const endGame = () => {
-    if (audio.length === 1 && countAnswers.wrong > 0) {
-      const loseAudio: HTMLAudioElement = new Audio('../src/assets/audio/failure.mp3');
-      loseAudio.play();
-      setGameState('lose');
-    } else {
-      const winAudio: HTMLAudioElement = new Audio('../src/assets/audio/success.mp3');
-      winAudio.play();
-      setGameState('win');
-    }
-  };
   const getCheckCard = () => {
     if (audio[0].word === card.word) {
       rightAnswer();

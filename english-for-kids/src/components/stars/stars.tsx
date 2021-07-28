@@ -1,21 +1,18 @@
 import React from 'react';
 
-function Stars({stars}) {
-  // const starError = document.createElement('div');
-  // starError.classList.add('star-error');
-  // gameScore.appendChild(starError);
-  // const starSucces = document.createElement('div');
-  //     starSucces.classList.add('star-succes');
-  //     gameScore.appendChild(starSucces);
+interface Props {
+  stars: string[]
+}
+function Stars({ stars }: Props): JSX.Element {
   return (
     <div className="game-score rating">
-      {stars.map((star) => {
-      console.log(star);
+      {stars.map((star): JSX.Element => {
         if (star === 'wrong') {
-          return <div className="star-error"></div>
-        } else if (star == 'right') {
-          return <div className="star-succes"></div>
+          return <div className="star-error" />;
+        } if (star === 'right') {
+          return <div className="star-succes" />;
         }
+        return null;
       })}
     </div>
   );

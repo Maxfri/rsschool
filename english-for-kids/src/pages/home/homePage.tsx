@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import cardsData from '../../components/cards/CardsData';
+import cardsCategory from '../../components/cards/cardsCategoryData';
 import CategoryList from '../../components/categoryList/categoryList';
 
 function HomePage(): JSX.Element {
-  const [categories, setCategories] = useState(cardsData[0]);
+  const [categories, setCategories] = useState(cardsCategory);
 
   return (
     <section className="main-section">

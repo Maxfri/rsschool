@@ -3,8 +3,7 @@ import CardList from '../../components/cardList/cardList';
 
 interface Props {
   mode: string,
-  setMode: any,
-  // setMode: React.Dispatch<React.SetStateAction<string>>,
+  setMode: React.Dispatch<React.SetStateAction<string>>,
 }
 
 function CategoryPage({ mode, setMode }: Props): JSX.Element {

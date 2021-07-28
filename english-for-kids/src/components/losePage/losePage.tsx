@@ -2,7 +2,14 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { History } from 'history';
 
-function LosePage({ countAnswers }): JSX.Element {
+interface Answers {
+  wrong: number,
+  right: number
+}
+interface Props {
+  countAnswers: Answers
+}
+function LosePage({ countAnswers }: Props): JSX.Element {
   const history: History = useHistory();
 
   setTimeout(() => {

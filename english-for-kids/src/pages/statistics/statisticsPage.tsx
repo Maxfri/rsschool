@@ -9,7 +9,7 @@ function StatisticsPage():JSX.Element {
   return (
     <section className="main-section">
       <h2>Statistics</h2>
-      <StatisticsList categories={categories} cards={cards} setCards={setCards} />
+      <StatisticsList categories={categories} cards={cards} />
     </section>
   );
 }

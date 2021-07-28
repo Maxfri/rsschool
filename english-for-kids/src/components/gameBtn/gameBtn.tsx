@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './gameBtn.css';
 
 interface Props {
@@ -11,25 +11,11 @@ interface Props {
 }
 
 function GameBtn({
-  cards,
   isGame,
   setIsGame,
   audio,
-  setAudio,
   playAudio,
 }: Props): JSX.Element {
-  // const hideElement = (element: HTMLElement) => {
-  //   element.style.transition = '0.5s';
-  //   element.style.opacity = '0';
-  //   setTimeout(() => { element.style.display = 'none'; }, 500);
-  // };
-
-  // const showElement = (element: HTMLElement) => {
-  //   element.style.display = 'block';
-  //   element.style.transition = '0.5s';
-  //   setTimeout(() => { element.style.opacity = '1'; }, 500);
-  // };
-
   const startGame = () => {
     setIsGame(true);
 

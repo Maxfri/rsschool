@@ -38,6 +38,10 @@ module.exports = {
     'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
     'no-use-before-define': 'off',
     '@typescript-eslint/no-use-before-define': ['error'],
+    "jsx-a11y/anchor-is-valid": [ "error", {
+      "components": [ "Link" ],
+      "specialLink": [ "to" ]
+    }],
     'import/extensions': [
       'error',
       'ignorePackages',

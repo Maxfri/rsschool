@@ -8,8 +8,8 @@ import ToggleSwitch from '../toggleSwitch/toggleSwitch';
 import './Navbar.css';
 
 interface Props {
-  mode: string;
-  setMode: React.Dispatch<React.SetStateAction<string>>;
+  mode: string,
+  setMode: React.Dispatch<React.SetStateAction<string>>,
 }
 
 function Navbar({ mode, setMode }: Props): JSX.Element {
