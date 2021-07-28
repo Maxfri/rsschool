@@ -69,7 +69,11 @@ function GameCards({
       onKeyDown={handlerCheckCard}
       role="presentation"
     >
-      <img className="game-card-img" src={card.image} data-word={card.word} alt="Card" onClick={handlerCheckCard} />
+      <img
+        className="game-card-img"
+        src={card.image}
+        alt="Card"
+      />
     </article>
   );
 }

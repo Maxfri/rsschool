@@ -2,11 +2,9 @@ import React from 'react';
 import './gameBtn.css';
 
 interface Props {
-  cards: any,
   isGame: boolean,
   setIsGame: any,
   audio: any[],
-  setAudio: any,
   playAudio: any
 }
 

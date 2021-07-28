@@ -16,6 +16,10 @@ function ToggleSwitch({ setMode, mode }: Props): JSX.Element {
   };
   return (
     <div className="toggle-switch">
+      <label className="toggle-switch-label" htmlFor="toggleSwitch">
+        <span className="toggle-switch-inner" />
+        <span className="toggle-switch-switch" />
+      </label>
       <input
         type="checkbox"
         className="toggle-switch-checkbox"
@@ -23,10 +27,6 @@ function ToggleSwitch({ setMode, mode }: Props): JSX.Element {
         id="toggleSwitch"
         onClick={handelSwitch}
       />
-      <label className="toggle-switch-label" htmlFor="toggleSwitch">
-        <span className="toggle-switch-inner" />
-        <span className="toggle-switch-switch" />
-      </label>
     </div>
   );
 }

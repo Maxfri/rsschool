@@ -8,10 +8,10 @@ interface CardsCategory {
 }
 interface Props {
   categories: CardsCategory[],
-  setCategories: React.Dispatch<React.SetStateAction<CardsCategory[]>>
+  // setCategories: React.Dispatch<React.SetStateAction<CardsCategory[]>>
 }
 
-function CategoryList({ categories, setCategories }: Props): JSX.Element {
+function CategoryList({ categories }: Props): JSX.Element {
   return (
     <main className="grid-wrapper">
       {categories.map((category): JSX.Element => (

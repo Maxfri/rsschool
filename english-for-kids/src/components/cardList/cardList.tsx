@@ -9,18 +9,18 @@ import WinPage from '../winPage/winPage';
 import Stars from '../stars/stars';
 import '../cards/cards.css';
 
-interface Props {
-  match: any,
-  mode: string,
-  setMode?: React.Dispatch<React.SetStateAction<string>>,
-}
+// interface Props {
+//   match: any,
+//   mode: string,
+//   setMode?: React.Dispatch<React.SetStateAction<string>>,
+// }
 // interface Card {
 //   word: string,
 //   translation: string,
 //   image: string,
 //   audioSrc: string,
 // }
-const shuffle = (array) => array.sort(() => Math.random() - 0.5);
+// const shuffle = (array) => array.sort(() => Math.random() - 0.5);
 
 function CardList({ match, mode, setMode }: any): JSX.Element {
   // console.log(match);
@@ -36,14 +36,15 @@ function CardList({ match, mode, setMode }: any): JSX.Element {
       music.audio.play();
     }
   }, 500);
-
+  // console.log(audio);
   useEffect(() => {
-    cards.map((card): void => {
-      setAudio((audio) => [...audio, {
+    cards.forEach((card): void => {
+      setAudio((arrAudio) => [...arrAudio, {
         audio: new Audio(card.audioSrc),
         word: card.word,
       }]);
     });
+
     // const shuffleAudio = [...audio];
     // console.log(audio);
     // shuffle(shuffleAudio);
@@ -53,9 +54,9 @@ function CardList({ match, mode, setMode }: any): JSX.Element {
 
   if (mode === 'game') {
     if (gameState === 'win') {
-      return (<WinPage />);
+      return (<WinPage setMode={setMode} />);
     } if (gameState === 'lose') {
-      return (<LosePage countAnswers={countAnswers} />);
+      return (<LosePage countAnswers={countAnswers} setMode={setMode} />);
     }
 
     return (
@@ -77,11 +78,9 @@ function CardList({ match, mode, setMode }: any): JSX.Element {
             />
           ))}
           <GameBtn
-            cards={cards}
             isGame={isGame}
             setIsGame={setIsGame}
             audio={audio}
-            setAudio={setAudio}
             playAudio={playAudio}
           />
         </main>
