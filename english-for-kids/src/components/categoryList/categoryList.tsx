@@ -1,14 +1,9 @@
 import React from 'react';
 import Category from '../category/category';
+import { Category as CardsCategory } from '../../interface/interface';
 
-interface CardsCategory {
-  id: number;
-  title: string;
-  image: string;
-}
 interface Props {
   categories: CardsCategory[],
-  // setCategories: React.Dispatch<React.SetStateAction<CardsCategory[]>>
 }
 
 function CategoryList({ categories }: Props): JSX.Element {

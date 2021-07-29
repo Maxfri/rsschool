@@ -75,3 +75,7 @@ span {
 h1 {
   color: #f5f5f5;
 }
+
+.active-item {
+  color: red !important;
+}

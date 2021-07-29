@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import { IconContext } from 'react-icons';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import SidebarData from './SidebarData';
 import ToggleSwitch from '../toggleSwitch/toggleSwitch';
 import './Navbar.css';
@@ -14,7 +14,6 @@ interface Props {
 
 function Navbar({ mode, setMode }: Props): JSX.Element {
   const [sidebar, setSidebar] = useState(false);
-
   const showSidebar = (): void => setSidebar(!sidebar);
 
   return (
@@ -41,10 +40,10 @@ function Navbar({ mode, setMode }: Props): JSX.Element {
             </li>
             {SidebarData.map((item) => (
               <li key={item.title} className={item.className}>
-                <Link to={item.path}>
+                <NavLink exact to={item.path} activeClassName="active-item">
                   {item.icon}
                   <span>{item.title}</span>
-                </Link>
+                </NavLink>
               </li>
             ))}
           </ul>

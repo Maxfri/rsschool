@@ -1,23 +1,7 @@
 import React, { useState } from 'react';
+import { Audio, Card, Answer } from '../../interface/interface';
+import { FIRST_ELEMENT, INCRIMENT } from '../../const/const';
 
-interface Card {
-    word: string;
-    translation: string;
-    image: string;
-    audioSrc: string;
-    clicks: string;
-    rightClick: string;
-    wrongClick: string;
-    percent: string;
-}
-interface Audio {
-  audio: HTMLAudioElement,
-  word: string
-}
-interface Answer {
-  right: number,
-  wrong: number
-}
 interface Props {
   card: Card,
   audio: Audio[],
@@ -33,7 +17,11 @@ interface Props {
 
 const URL_AUDIO_FAIL = '../src/assets/audio/failure.mp3';
 const URL_AUDIO_WIN = '../src/assets/audio/success.mp3';
-const FIRST_ELEMENT = 0;
+const URL_AUDIO_ERROR = '../src/assets/audio/error.mp3';
+const URL_AUDIO_CORRECT = '../src/assets/audio/correct.mp3';
+const RIGHT_STAR = 'right';
+const WRONG_STAR = 'wrong';
+
 function GameCards({
   card,
   audio,
@@ -60,10 +48,10 @@ function GameCards({
   };
 
   const rightAnswer = () => {
-    setCountAnswers({ right: countAnswers.right + 1, wrong: countAnswers.wrong });
-    const correctAudio: HTMLAudioElement = new Audio('../src/assets/audio/correct.mp3');
+    setCountAnswers({ right: countAnswers.right + INCRIMENT, wrong: countAnswers.wrong });
+    const correctAudio: HTMLAudioElement = new Audio(URL_AUDIO_CORRECT);
     correctAudio.play();
-    setStars([...stars, 'right']);
+    setStars([...stars, RIGHT_STAR]);
     const filteredItems = audio.filter((item) => item !== audio[FIRST_ELEMENT]);
     setAudio(filteredItems);
     playAudio(filteredItems[FIRST_ELEMENT]);
@@ -73,10 +61,10 @@ function GameCards({
   };
 
   const wrongAnswer = () => {
-    setCountAnswers({ right: countAnswers.right, wrong: countAnswers.wrong + 1 });
-    const errorAudio: HTMLAudioElement = new Audio('../src/assets/audio/error.mp3');
+    setCountAnswers({ right: countAnswers.right, wrong: countAnswers.wrong + INCRIMENT });
+    const errorAudio: HTMLAudioElement = new Audio(URL_AUDIO_ERROR);
     errorAudio.play();
-    setStars([...stars, 'wrong']);
+    setStars([...stars, WRONG_STAR]);
     playAudio(audio[FIRST_ELEMENT]);
   };
 

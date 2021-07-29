@@ -22,7 +22,7 @@ const SidebarData = [
     className: 'nav-text',
   },
   {
-    title: 'Action (set C)',
+    title: 'Furniture',
     path: '/category/3',
     icon: <FaIcons.FaAdversal />,
     className: 'nav-text',
@@ -40,7 +40,7 @@ const SidebarData = [
     className: 'nav-text',
   },
   {
-    title: 'Animal (set C)',
+    title: 'Profession',
     path: '/category/6',
     icon: <FaIcons.FaAdversal />,
     className: 'nav-text',

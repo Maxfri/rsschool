@@ -1,4 +1,6 @@
 import React from 'react';
+import { Audio } from '../../interface/interface';
+import { FIRST_ELEMENT } from '../../const/const';
 import './gameBtn.css';
 
 interface Props {
@@ -6,10 +8,6 @@ interface Props {
   setStartGame: React.Dispatch<React.SetStateAction<boolean>>,
   audio: Audio[],
   playAudio: Function
-}
-interface Audio {
-  audio: HTMLAudioElement,
-  word: string
 }
 function GameBtn({
   startGame,
@@ -20,11 +18,11 @@ function GameBtn({
   const startNewGame = () => {
     setStartGame(true);
 
-    playAudio(audio[0]);
+    playAudio(audio[FIRST_ELEMENT]);
   };
 
   const repeatWord = () => {
-    playAudio(audio[0]);
+    playAudio(audio[FIRST_ELEMENT]);
   };
 
   if (startGame) {

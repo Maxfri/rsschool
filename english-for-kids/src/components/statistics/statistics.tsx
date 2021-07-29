@@ -1,25 +1,11 @@
 import React from 'react';
 import StatisticsCardList from '../statisticsCardList/statisticsCardList';
+import { Category, Card } from '../../interface/interface';
 import './statistics.css';
 
-interface Cards {
-  word: string,
-  translation: string,
-  image: string,
-  audioSrc: string,
-  clicks: string,
-  rightClick: string,
-  wrongClick: string,
-  percent: string
-}
-interface Category {
-  id: number,
-  title: string,
-  image: string,
-}
 interface Props {
   category: Category,
-  cards: Cards[],
+  cards: Card[],
 }
 
 function Statistics({ category, cards }: Props): JSX.Element {

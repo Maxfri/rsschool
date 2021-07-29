@@ -1,17 +1,8 @@
 import React, { useState } from 'react';
+import { Card } from '../../interface/interface';
 
-interface Cards {
-  word: string,
-  translation: string,
-  image: string,
-  audioSrc: string,
-  clicks: string,
-  rightClick: string,
-  wrongClick: string,
-  percent: string
-}
 interface Props {
-  card: Cards
+  card: Card
 }
 function TrainCards({ card }: Props): JSX.Element {
   const [flip, setFlip] = useState(false);

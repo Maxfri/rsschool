@@ -7,6 +7,8 @@ import cardsData from '../cards/CardsData';
 import LosePage from '../losePage/losePage';
 import WinPage from '../winPage/winPage';
 import Stars from '../stars/stars';
+import { Audio } from '../../interface/interface';
+import { HALF_SECOND } from '../../const/const';
 import '../cards/cards.css';
 
 interface MatchParams {
@@ -15,13 +17,11 @@ interface MatchParams {
 interface Props extends RouteComponentProps<MatchParams> {
   mode: string,
 }
-interface Audio {
-  audio: HTMLAudioElement,
-  word: string
-}
 
-const HALF_SECOND = 500;
-const shuffle = (array) => array.sort(() => Math.random() - 0.5);
+const RANDOM = 0.5;
+const WIN_GAME = 'win';
+const LOSE_GAME = 'lose';
+const shuffle = (array) => array.sort(() => Math.random() - RANDOM);
 
 function CardList({ match, mode }: Props): JSX.Element {
   const [startGame, setStartGame] = useState(false);
@@ -48,10 +48,10 @@ function CardList({ match, mode }: Props): JSX.Element {
   }, []);
 
   if (mode === 'game') {
-    if (gameState === 'win') {
+    if (gameState === WIN_GAME) {
       return (<WinPage />);
     }
-    if (gameState === 'lose') {
+    if (gameState === LOSE_GAME) {
       return (<LosePage countAnswers={countAnswers} />);
     }
 
