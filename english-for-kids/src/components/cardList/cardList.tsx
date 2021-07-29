@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
 import GameBtn from '../gameBtn/gameBtn';
 import GameCards from '../gameCards/gameCards';
 import TrainCards from '../trainCards/trainCards';
@@ -9,54 +9,50 @@ import WinPage from '../winPage/winPage';
 import Stars from '../stars/stars';
 import '../cards/cards.css';
 
-// interface Props {
-//   match: any,
-//   mode: string,
-//   setMode?: React.Dispatch<React.SetStateAction<string>>,
-// }
-// interface Card {
-//   word: string,
-//   translation: string,
-//   image: string,
-//   audioSrc: string,
-// }
-// const shuffle = (array) => array.sort(() => Math.random() - 0.5);
+interface MatchParams {
+  id: string;
+}
+interface Props extends RouteComponentProps<MatchParams> {
+  mode: string,
+}
+interface Audio {
+  audio: HTMLAudioElement,
+  word: string
+}
 
-function CardList({ match, mode, setMode }: any): JSX.Element {
-  // console.log(match);
-  const [isGame, setIsGame] = useState(false);
+const HALF_SECOND = 500;
+const shuffle = (array) => array.sort(() => Math.random() - 0.5);
+
+function CardList({ match, mode }: Props): JSX.Element {
+  const [startGame, setStartGame] = useState(false);
   const [audio, setAudio] = useState([]);
   const [gameState, setGameState] = useState('play');
   const [countAnswers, setCountAnswers] = useState({ right: 0, wrong: 0 });
   const [stars, setStars] = useState([]);
   const { id } = match.params;
-  const cards = cardsData[id];
-  const playAudio = (music) => setTimeout(() => {
+  const cards = cardsData[Number(id) - 1];
+
+  const playAudio = (music: Audio) => setTimeout(() => {
     if (music) {
       music.audio.play();
     }
-  }, 500);
-  // console.log(audio);
+  }, HALF_SECOND);
+
   useEffect(() => {
     cards.forEach((card): void => {
-      setAudio((arrAudio) => [...arrAudio, {
+      setAudio((arrAudio) => shuffle([...arrAudio, {
         audio: new Audio(card.audioSrc),
         word: card.word,
-      }]);
+      }]));
     });
-
-    // const shuffleAudio = [...audio];
-    // console.log(audio);
-    // shuffle(shuffleAudio);
-    // console.log(shuffleAudio);
-    // setAudio(shuffleAudio);
   }, []);
 
   if (mode === 'game') {
     if (gameState === 'win') {
-      return (<WinPage setMode={setMode} />);
-    } if (gameState === 'lose') {
-      return (<LosePage countAnswers={countAnswers} setMode={setMode} />);
+      return (<WinPage />);
+    }
+    if (gameState === 'lose') {
+      return (<LosePage countAnswers={countAnswers} />);
     }
 
     return (
@@ -75,16 +71,16 @@ function CardList({ match, mode, setMode }: any): JSX.Element {
               setCountAnswers={setCountAnswers}
               stars={stars}
               setStars={setStars}
+              startGame={startGame}
             />
           ))}
           <GameBtn
-            isGame={isGame}
-            setIsGame={setIsGame}
+            startGame={startGame}
+            setStartGame={setStartGame}
             audio={audio}
             playAudio={playAudio}
           />
         </main>
-        <div className="game-result" />
       </>
     );
   }

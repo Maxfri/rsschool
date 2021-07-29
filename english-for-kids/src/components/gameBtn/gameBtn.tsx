@@ -2,20 +2,23 @@ import React from 'react';
 import './gameBtn.css';
 
 interface Props {
-  isGame: boolean,
-  setIsGame: any,
-  audio: any[],
-  playAudio: any
+  startGame: boolean,
+  setStartGame: React.Dispatch<React.SetStateAction<boolean>>,
+  audio: Audio[],
+  playAudio: Function
 }
-
+interface Audio {
+  audio: HTMLAudioElement,
+  word: string
+}
 function GameBtn({
-  isGame,
-  setIsGame,
+  startGame,
+  setStartGame,
   audio,
   playAudio,
 }: Props): JSX.Element {
-  const startGame = () => {
-    setIsGame(true);
+  const startNewGame = () => {
+    setStartGame(true);
 
     playAudio(audio[0]);
   };
@@ -24,7 +27,7 @@ function GameBtn({
     playAudio(audio[0]);
   };
 
-  if (isGame) {
+  if (startGame) {
     return (
       <>
         <button type="button" className="repeat-btn" onClick={repeatWord}>Repeat</button>
@@ -33,7 +36,7 @@ function GameBtn({
   }
   return (
     <>
-      <button type="button" className="start-btn" onClick={startGame}>Start game</button>
+      <button type="button" className="start-btn" onClick={startNewGame}>Start game</button>
     </>
   );
 }

@@ -7,12 +7,10 @@ interface Answers {
   right: number
 }
 interface Props {
-  countAnswers: Answers,
-  setMode: React.Dispatch<React.SetStateAction<string>>,
+  countAnswers: Answers
 }
-function LosePage({ countAnswers, setMode }: Props): JSX.Element {
+function LosePage({ countAnswers }: Props): JSX.Element {
   const history: History = useHistory();
-  setMode('train');
   setTimeout(() => {
     history.push('/');
   }, 2500);

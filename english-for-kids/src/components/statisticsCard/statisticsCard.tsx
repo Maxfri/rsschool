@@ -1,7 +1,17 @@
 import React from 'react';
 
+interface Cards {
+  word: string,
+  translation: string,
+  image: string,
+  audioSrc: string,
+  clicks: string,
+  rightClick: string,
+  wrongClick: string,
+  percent: string
+}
 interface Props {
-  card: any;
+  card: Cards
 }
 
 function StatisticsCard({ card }: Props): JSX.Element {
@@ -15,15 +25,19 @@ function StatisticsCard({ card }: Props): JSX.Element {
       </div>
       <div className="statistics-cards-click">
         clicks:
+        {card.clicks}
       </div>
       <div className="statistics-cards-right">
         right-click:
+        {card.rightClick}
       </div>
       <div className="statistics-cards">
         wrong-click:
+        {card.wrongClick}
       </div>
       <div className="statistics-cards">
         percent:
+        {card.percent}
       </div>
     </div>
   );

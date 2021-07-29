@@ -2,12 +2,8 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { History } from 'history';
 
-interface Props {
-  setMode: React.Dispatch<React.SetStateAction<string>>,
-}
-function WinPage({ setMode }: Props): JSX.Element {
+function WinPage(): JSX.Element {
   const history: History = useHistory();
-  setMode('train');
   setTimeout(() => {
     history.push('/');
   }, 2500);

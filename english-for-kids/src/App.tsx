@@ -19,7 +19,7 @@ function App(): JSX.Element {
         <Navbar mode={mode} setMode={setMode} />
         <Switch>
           <Route path="/" exact render={() => <HomePage />} />
-          <Route path="/category/:id" render={() => <CategoryPage mode={mode} setMode={setMode} />} />
+          <Route path="/category/:id" render={() => <CategoryPage mode={mode} />} />
           <Route path="/statistics" render={() => <StatisticsPage />} />
         </Switch>
       </Router>

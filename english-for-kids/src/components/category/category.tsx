@@ -1,23 +1,22 @@
 import React from 'react';
 // import { History } from 'history';
-import { withRouter } from 'react-router-dom';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
 import './category.css';
 
-// interface CardsCategory {
-//   id: number;
-//   title: string;
-//   image: string;
-// }
+interface CardsCategory {
+  id: number,
+  title: string,
+  image: string,
+}
 
-// interface Props {
-//   category: CardsCategory,
-//   history: History
-// }
+interface Props extends RouteComponentProps<string> {
+  category: CardsCategory,
+}
 
-function Category({ category, history }: any): JSX.Element {
+function Category({ category, history }: Props): JSX.Element {
   return (
     <article
-      key={category}
+      key={category.title}
       className="category"
       onClick={() => history.push(`category/${category.id}`)}
       onKeyDown={() => history.push(`category/${category.id}`)}
