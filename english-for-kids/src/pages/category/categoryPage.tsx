@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import CardList from '../../components/cardList/cardList';
-import cardsData from '../../components/cards/CardsData';
 
-function CategoryPage({ mode, setMode }): JSX.Element {
-  // const [cards, setCards] = useState(cardsData);
-  // const [number, setNumber] = useState(props.id);
+interface Props {
+  mode: string,
+}
 
+function CategoryPage({ mode }: Props): JSX.Element {
   return (
     <div>
       <h2>Category</h2>
-      <CardList mode={mode} setMode={setMode} />
+      <CardList mode={mode} />
     </div>
   );
 }

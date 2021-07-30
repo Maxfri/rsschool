@@ -1,7 +1,12 @@
 import React from 'react';
 import './toggleSwitch.css';
 
-function ToggleSwitch({ setMode, mode }): JSX.Element {
+interface Props {
+  mode: string;
+  setMode: React.Dispatch<React.SetStateAction<string>>;
+}
+
+function ToggleSwitch({ setMode, mode }: Props): JSX.Element {
   const handelSwitch = () => {
     if (mode === 'train') {
       setMode('game');

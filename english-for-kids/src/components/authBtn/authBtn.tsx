@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './authBtn.css';
 
-function AuthBtn({ token, setToken }) {
+interface Props {
+  token: undefined,
+  setToken: React.Dispatch<() => undefined>
+}
+function AuthBtn({ token, setToken }: Props) {
   const handleAuthLogOut = () => {
-    setToken('');
+    setToken(undefined);
   };
   return (
     <>

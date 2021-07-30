@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import './login.css';
 
 async function loginUser(credentials) {
@@ -12,8 +11,10 @@ async function loginUser(credentials) {
   })
     .then((data) => data.json());
 }
-
-function Login({ setToken }) {
+interface Props {
+  setToken: React.Dispatch<() => undefined>
+}
+function Login({ setToken }: Props) {
   const [username, setUserName] = useState();
   const [password, setPassword] = useState();
 
@@ -32,11 +33,11 @@ function Login({ setToken }) {
       <form onSubmit={handleSubmit}>
         <label>
           <p>Username</p>
-          <input type="text" onChange={(event): any => setUserName(event.target.value as any)} />
+          <input type="text" onChange={(event) => setUserName(event.target.value as undefined)} />
         </label>
         <label>
           <p>Password</p>
-          <input type="password" onChange={(event): any => setPassword(event.target.value as any)} />
+          <input type="password" onChange={(event) => setPassword(event.target.value as undefined)} />
         </label>
         <div>
           <button type="submit">Submit</button>
@@ -45,9 +46,5 @@ function Login({ setToken }) {
     </div>
   );
 }
-
-Login.propTypes = {
-  setToken: PropTypes.func.isRequired,
-};
 
 export default Login;

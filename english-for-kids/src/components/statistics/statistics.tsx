@@ -1,9 +1,14 @@
 import React from 'react';
 import StatisticsCardList from '../statisticsCardList/statisticsCardList';
+import { Category, Card } from '../../interface/interface';
 import './statistics.css';
 
-function Statistics({ category, cards }) {
-  // console.log(cards);
+interface Props {
+  category: Category,
+  cards: Card[],
+}
+
+function Statistics({ category, cards }: Props): JSX.Element {
   return (
     <div className="statistics-category">
       <div className="statistics-category-name">

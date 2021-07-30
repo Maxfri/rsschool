@@ -11,10 +11,10 @@ import HomePage from './pages/home/homePage';
 import CategoryPage from './pages/category/categoryPage';
 import StatisticsPage from './pages/statistics/statisticsPage';
 import AdminPage from './pages/admin/adminPage';
-import cards from './components/cards/CardsData';
+import cardsCategory from './components/cards/cardsCategoryData';
 
-async function getData() {
-  return fetch('https://english-for-kids-serve.herokuapp.com/data', {
+async function getCategoriesData() {
+  return fetch('https://english-for-kids-serve.herokuapp.com/categories-data', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -26,12 +26,10 @@ async function getData() {
 function App() {
   const [mode, setMode] = useState('train');
   const [token, setToken] = useState();
-  const [categories, setCategories] = useState(cards[0]);
-
+  const [categories, setCategories] = useState(cardsCategory);
   const handleData = async () => {
-    const data = await getData();
-    setCategories(data[0]);
-    console.log(data);
+    const categoriesData = await getCategoriesData();
+    setCategories(categoriesData);
   };
 
   useEffect(() => {
@@ -43,8 +41,8 @@ function App() {
       <Router>
         <Navbar mode={mode} setMode={setMode} token={token} setToken={setToken} />
         <Switch>
-          <Route path="/" exact render={() => <HomePage categories={categories} />} />
-          <Route path="/category/:id" render={() => <CategoryPage mode={mode} setMode={setMode} />} />
+          <Route path="/" exact render={() => <HomePage />} />
+          <Route path="/category/:id" render={() => <CategoryPage mode={mode} />} />
           <Route path="/statistics" render={() => <StatisticsPage />} />
           <Route
             path="/login"

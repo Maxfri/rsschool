@@ -1,14 +1,20 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
+import { Category as CardsCategory } from '../../interface/interface';
 import './category.css';
 
-function Category({ category, history }: any): JSX.Element {
+interface Props extends RouteComponentProps<string> {
+  category: CardsCategory,
+}
+function Category({ category, history }: Props): JSX.Element {
+  const CATEGORY_LINK = `category/${category.id}`;
+
   return (
     <article
-      key={category}
+      key={category.title}
       className="category"
-      onClick={() => history.push(`category/${category.id}`)}
-      onKeyDown={() => history.push(`category/${category.id}`)}
+      onClick={() => history.push(CATEGORY_LINK)}
+      onKeyDown={() => history.push(CATEGORY_LINK)}
       role="presentation"
     >
       <img className="img" src={category.image} alt="Category" />
@@ -17,17 +23,6 @@ function Category({ category, history }: any): JSX.Element {
           {category.title}
         </p>
       </div>
-      {/* <div class="card-body admin-category__body">
-        <button type="button" class="close admin-category__cross" aria-label="Close">
-          <span aria-hidden="true">?</span>
-        </button>
-        <h3>Fruits</h3>
-        <p>WORDS: 8</p>
-        <div class="row admin-category__buttons">
-          <button type="button" class="btn btn-outline-success">Update</button>
-          <button type="button" class="btn btn-outline-success">Words</button>
-        </div>
-      </div> */}
     </article>
   );
 }

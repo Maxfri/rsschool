@@ -1,11 +1,16 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
+import { History } from 'history';
+import { DELAY } from '../../const/const';
 
-function WinPage() {
-  // console.log('winner');
-
+function WinPage(): JSX.Element {
+  const history: History = useHistory();
+  setTimeout(() => {
+    history.push('/');
+  }, DELAY);
   return (
     <div>
-      <img src="../src/assets/img/success.jpg" />
+      <img src="../src/assets/img/success.jpg" alt="You win" />
     </div>
   );
 }

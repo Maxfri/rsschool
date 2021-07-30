@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { Card } from '../../interface/interface';
 
-function TrainCards({ card }: any) {
+interface Props {
+  card: Card
+}
+function TrainCards({ card }: Props): JSX.Element {
   const [flip, setFlip] = useState(false);
   const { audioSrc } = card;
-  const { id } = card;
   const imageSrc: string = card.image;
   const audio = new Audio(audioSrc);
 
@@ -19,7 +22,7 @@ function TrainCards({ card }: any) {
 
   return (
     <article
-      key={id}
+      key={card.word}
       className={`card${flip ? ' flip' : ''}`}
       onMouseLeave={backFlip}
     >

@@ -1,6 +1,11 @@
 import React from 'react';
+import { Card } from '../../interface/interface';
 
-function StatisticsCard({ card }) {
+interface Props {
+  card: Card
+}
+
+function StatisticsCard({ card }: Props): JSX.Element {
   return (
     <div className="statistics-cards">
       <div className="statistics-cards-word">
@@ -11,15 +16,19 @@ function StatisticsCard({ card }) {
       </div>
       <div className="statistics-cards-click">
         clicks:
+        {card.clicks}
       </div>
       <div className="statistics-cards-right">
         right-click:
+        {card.rightClick}
       </div>
       <div className="statistics-cards">
         wrong-click:
+        {card.wrongClick}
       </div>
       <div className="statistics-cards">
         percent:
+        {card.percent}
       </div>
     </div>
   );
